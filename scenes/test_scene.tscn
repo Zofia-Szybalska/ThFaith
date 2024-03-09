@@ -9,7 +9,7 @@ size = Vector2(280, 40)
 [node name="Node2D" type="Node2D"]
 
 [node name="TestPlatform2" type="StaticBody2D" parent="."]
-position = Vector2(850, 499)
+position = Vector2(840, 501)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform2"]
@@ -30,10 +30,8 @@ shape = SubResource("RectangleShape2D_mj5xg")
 scale = Vector2(2.1875, 0.3125)
 texture = ExtResource("1_ph5e4")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(527, 439)
+
 [node name="Player" parent="." instance=ExtResource("2_oifhj")]
 position = Vector2(527, 439)
-JUMP_FORCE = 260
-GRAVITY = 500
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)

@@ -1,0 +1,9 @@
+diff a/scenes/test_scene.tscn b/scenes/test_scene.tscn	(rejected hunks)
+@@ -32,6 +32,7 @@
+ 
+ [node name="Player" parent="." instance=ExtResource("2_oifhj")]
+ position = Vector2(527, 439)
++SPEED = 200
+ JUMP_FORCE = 260
+ GRAVITY = 500
+ 

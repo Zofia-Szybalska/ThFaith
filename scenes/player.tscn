@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg3pue4k6suxh"]
+[gd_scene load_steps=9 format=3 uid="uid://bg3pue4k6suxh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_weano"]
-[ext_resource type="Texture2D" uid="uid://bis0yt2beb3u1" path="res://icon.svg" id="2_0d5lq"]
+[ext_resource type="Texture2D" uid="uid://duden0juxenu0" path="res://assets/sprites/PlayerPlaceHolder.png" id="2_ut5o2"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_lou1g"]
+[ext_resource type="Script" path="res://scripts/Idle.gd" id="4_xunvy"]
+[ext_resource type="Script" path="res://scripts/Run.gd" id="5_ig7k5"]
+[ext_resource type="Script" path="res://scripts/Jump.gd" id="6_vfmla"]
+[ext_resource type="Script" path="res://scripts/Fall.gd" id="7_mwuny"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5kpn"]
-size = Vector2(88, 74)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rphv7"]
+radius = 23.0
+height = 132.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -12,8 +18,29 @@ collision_mask = 5
 script = ExtResource("1_weano")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_g5kpn")
+shape = SubResource("CapsuleShape2D_rphv7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.6875, 0.59375)
-texture = ExtResource("2_0d5lq")
+scale = Vector2(0.331492, 0.286288)
+texture = ExtResource("2_ut5o2")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("3_lou1g")
+initial_state = NodePath("Fall")
+
+[node name="Idle" type="Node2D" parent="StateMachine"]
+script = ExtResource("4_xunvy")
+
+[node name="Run" type="Node2D" parent="StateMachine"]
+script = ExtResource("5_ig7k5")
+
+[node name="Jump" type="Node2D" parent="StateMachine"]
+script = ExtResource("6_vfmla")
+
+[node name="Timer" type="Timer" parent="StateMachine/Jump"]
+wait_time = 0.25
+
+[node name="Fall" type="Node2D" parent="StateMachine"]
+script = ExtResource("7_mwuny")
+
+[connection signal="timeout" from="StateMachine/Jump/Timer" to="StateMachine/Jump" method="_on_timer_timeout"]

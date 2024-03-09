@@ -6,7 +6,7 @@ func enter(_msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if not owner.is_on_floor():
-		state_machine.transition_to("Fall")
+		state_machine.transition_to("Fall", {coyote = true})
 		return
 
 	# We move the run-specific input code to the state.

@@ -4,10 +4,9 @@ func enter(_msg := {}) -> void:
 	owner.velocity = Vector2.ZERO
 	owner.can_double_jump = true
 
-
 func update(_delta: float) -> void:
 	if not owner.is_on_floor():
-		state_machine.transition_to("Fall")
+		state_machine.transition_to("Fall", {coyote = true})
 		return
 
 	if Input.is_action_just_pressed("jump"):

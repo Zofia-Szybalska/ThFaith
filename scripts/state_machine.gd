@@ -1,7 +1,6 @@
 class_name StateMachine
 extends Node2D
 
-# Emitted when transitioning to a new state.
 signal transitioned(state_name)
 
 @export var initial_state := NodePath()
@@ -11,7 +10,6 @@ signal transitioned(state_name)
 
 func _ready() -> void:
 	await owner.ready
-	#yield(owner, "ready")
 	for child in get_children():
 		child.state_machine = self
 	state.enter()
@@ -23,7 +21,6 @@ func _process(delta: float) -> void:
 	state.update(delta)
 
 func _physics_process(delta: float) -> void:
-	print(state)
 	state.physics_update(delta)
 
 func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:

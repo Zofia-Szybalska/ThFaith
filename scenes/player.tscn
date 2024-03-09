@@ -37,10 +37,5 @@ script = ExtResource("5_ig7k5")
 [node name="Jump" type="Node2D" parent="StateMachine"]
 script = ExtResource("6_vfmla")
 
-[node name="Timer" type="Timer" parent="StateMachine/Jump"]
-wait_time = 0.25
-
 [node name="Fall" type="Node2D" parent="StateMachine"]
 script = ExtResource("7_mwuny")
-
-[connection signal="timeout" from="StateMachine/Jump/Timer" to="StateMachine/Jump" method="_on_timer_timeout"]

@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 	state.update(delta)
 
 func _physics_process(delta: float) -> void:
+	print(state)
 	state.physics_update(delta)
 
 func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:

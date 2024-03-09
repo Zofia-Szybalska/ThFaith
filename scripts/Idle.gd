@@ -2,6 +2,7 @@ extends State
 
 func enter(_msg := {}) -> void:
 	owner.velocity = Vector2.ZERO
+	owner.can_double_jump = true
 
 
 func update(_delta: float) -> void:

@@ -8,6 +8,9 @@ func physics_update(delta: float) -> void:
 		else:
 			state_machine.transition_to("Run")
 		return
-	var direction = Input.get_axis("left","right")
-	owner.velocity.x = owner.speed * direction
+	if Input.is_action_just_pressed("jump") and owner.can_double_jump:
+		owner.can_double_jump = false
+		state_machine.transition_to("Jump", {second_jump = true})
+		return
+	owner.velocity.x = owner.speed * owner.direction
 	owner.velocity.y += owner.gravity * delta

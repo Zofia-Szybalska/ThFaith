@@ -8,8 +8,11 @@ extends CharacterBody2D
 
 @onready var fsm := $StateMachine
 
+var can_double_jump: bool = true
+var direction = 1
+
 func _physics_process(_delta):
-	var direction = Input.get_axis("left", "right")
+	direction = Input.get_axis("left", "right")
 	if direction == 1:
 		sprite.flip_h = false
 	elif direction == -1:

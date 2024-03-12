@@ -39,4 +39,3 @@ script = ExtResource("6_vfmla")
 
 [node name="Fall" type="Node2D" parent="StateMachine"]
 script = ExtResource("7_mwuny")
-double_jump_unlocked = true

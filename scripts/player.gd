@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed : int = 200
-@export var jump_force : int = 200
+@export var jump_force : int = 175
 @export var gravity : int = 900
 
 @onready var sprite = $Sprite2D

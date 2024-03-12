@@ -1,10 +1,13 @@
 extends State
 
-@export var jump_duration : float = .25
+@export var jump_duration : float = .4
 var elapsed_jump := 0.0
 
-func enter(_msg := {}) -> void:
+func enter(msg := {}) -> void:
+	jump_duration = .4
 	owner.velocity.y = -owner.jump_force
+	if (msg.has("second_jump")):
+		jump_duration = .25
 	elapsed_jump = 0
 
 func physics_update(delta: float) -> void:

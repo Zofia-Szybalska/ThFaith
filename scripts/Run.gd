@@ -7,12 +7,11 @@ func enter(_msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if not owner.is_on_floor():
-		state_machine.transition_to("Fall", {coyote = true})
+		if owner.is_on_wall():
+			state_machine.transition_to("Wall")
+		else:
+			state_machine.transition_to("Fall", {coyote = true})
 		return
-
-	# We move the run-specific input code to the state.
-	# A good alternative would be to define a `get_input_direction()` function on the `Player.gd`
-	# script to avoid duplicating these lines in every script.
 	owner.velocity.x = owner.speed * owner.direction
 	owner.velocity.y += owner.gravity * delta
 	if Input.is_action_just_pressed("jump"):

@@ -9,7 +9,7 @@ size = Vector2(280, 40)
 [node name="Node2D" type="Node2D"]
 
 [node name="TestPlatform2" type="StaticBody2D" parent="."]
-position = Vector2(840, 501)
+position = Vector2(872, 458)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform2"]
@@ -20,7 +20,7 @@ scale = Vector2(2.1875, 0.3125)
 texture = ExtResource("1_ph5e4")
 
 [node name="TestPlatform" type="StaticBody2D" parent="."]
-position = Vector2(525, 557)
+position = Vector2(535, 566)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform"]
@@ -35,3 +35,26 @@ position = Vector2(527, 439)
 
 [node name="Player" parent="." instance=ExtResource("2_oifhj")]
 position = Vector2(527, 439)
+
+[node name="TestPlatform4" type="StaticBody2D" parent="."]
+position = Vector2(79, 382)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform4"]
+shape = SubResource("RectangleShape2D_mj5xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="TestPlatform4"]
+scale = Vector2(2.1875, 0.3125)
+texture = ExtResource("1_ph5e4")
+
+[node name="TestPlatform3" type="StaticBody2D" parent="."]
+position = Vector2(200, 534)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform3"]
+shape = SubResource("RectangleShape2D_mj5xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="TestPlatform3"]
+scale = Vector2(2.1875, 0.3125)
+texture = ExtResource("1_ph5e4")

@@ -18,6 +18,8 @@ func physics_update(delta: float) -> void:
 	owner.velocity.x = owner.dash_speed * dash_direction
 	elapsed_dash += delta
 	if elapsed_dash >= dash_duration:
+		if owner.is_on_wall():
+			state_machine.transition_to("Wall")
 		if owner.is_on_floor():
 			owner.can_dash = true
 			if is_equal_approx(owner.velocity.x, 0.0):

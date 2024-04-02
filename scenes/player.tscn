@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg3pue4k6suxh"]
+[gd_scene load_steps=10 format=3 uid="uid://bg3pue4k6suxh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_weano"]
 [ext_resource type="Texture2D" uid="uid://duden0juxenu0" path="res://assets/sprites/PlayerPlaceHolder.png" id="2_ut5o2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Run.gd" id="5_ig7k5"]
 [ext_resource type="Script" path="res://scripts/Jump.gd" id="6_vfmla"]
 [ext_resource type="Script" path="res://scripts/Fall.gd" id="7_mwuny"]
+[ext_resource type="Script" path="res://scripts/Dash.gd" id="8_1pbqe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rphv7"]
 radius = 23.0
@@ -16,6 +17,7 @@ height = 132.0
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_weano")
+dash_speed = 700
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rphv7")
@@ -39,3 +41,6 @@ script = ExtResource("6_vfmla")
 
 [node name="Fall" type="Node2D" parent="StateMachine"]
 script = ExtResource("7_mwuny")
+
+[node name="Dash" type="Node2D" parent="StateMachine"]
+script = ExtResource("8_1pbqe")

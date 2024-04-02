@@ -3,12 +3,14 @@ extends CharacterBody2D
 @export var speed : int = 200
 @export var jump_force : int = 175
 @export var gravity : int = 900
+@export var dash_speed : int = 500
 
 @onready var sprite = $Sprite2D
 
 @onready var fsm := $StateMachine
 
 var can_double_jump: bool = true
+var can_dash: bool = true
 var direction = 1
 
 func _physics_process(_delta):

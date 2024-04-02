@@ -27,5 +27,7 @@ func physics_update(delta: float) -> void:
 			owner.can_double_jump = false
 			state_machine.transition_to("Jump", {second_jump = true})
 		return
+	if Input.is_action_just_pressed("dash") and owner.can_dash:
+		state_machine.transition_to("Dash", {air_dash = true})
 	owner.velocity.x = owner.speed * owner.direction
 	owner.velocity.y += owner.gravity * delta

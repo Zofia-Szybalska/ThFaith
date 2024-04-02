@@ -55,6 +55,3 @@ offset_top = -100.0
 offset_right = 40.0
 offset_bottom = -77.0
 text = "State: test"
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(35, 0)

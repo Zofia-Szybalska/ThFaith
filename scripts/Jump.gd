@@ -6,14 +6,18 @@ var direction = 1
 var wall_jump = false
 
 func enter(msg := {}) -> void:
+	if owner.sprite.flip_h == true:
+		direction = -1
+	else:
+		direction = 1
 	owner.velocity.y = -owner.jump_force
 	if (msg.has("second_jump")):
 		jump_duration = .25
 	if (msg.has("wall_jump")):
-		print("wall jump")
 		jump_duration = .3
 		owner.velocity.x += owner.wall_jump_pushback * -direction
 		wall_jump = true
+		print("wall jump ", owner.velocity.x)
 
 func exit(_msg := {}) -> void:
 	jump_duration = .4
@@ -27,12 +31,6 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Dash", {air_dash = true})
 	if owner.is_on_wall_only() and not Input.is_action_pressed("jump") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		state_machine.transition_to("Wall")
-	
-	if owner.sprite.flip_h == true:
-		direction = -1
-	else:
-		direction = 1
-	
 	if wall_jump:
 		owner.velocity.x = lerp(owner.velocity.x, float(owner.speed * direction), 0.25)
 	else:

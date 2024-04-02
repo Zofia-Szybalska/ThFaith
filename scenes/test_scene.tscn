@@ -58,3 +58,15 @@ shape = SubResource("RectangleShape2D_mj5xg")
 [node name="Sprite2D" type="Sprite2D" parent="TestPlatform3"]
 scale = Vector2(2.1875, 0.3125)
 texture = ExtResource("1_ph5e4")
+
+[node name="TestPlatform5" type="StaticBody2D" parent="."]
+position = Vector2(994, 309)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform5"]
+shape = SubResource("RectangleShape2D_mj5xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="TestPlatform5"]
+scale = Vector2(2.1875, 0.3125)
+texture = ExtResource("1_ph5e4")

@@ -24,3 +24,10 @@ func _physics_process(_delta):
 	elif direction == -1:
 		sprite.flip_h = true
 	move_and_slide()
+	if Input.is_action_just_pressed("test_hit"):
+		change_health(-1)
+	if Input.is_action_just_pressed("test_heal"):
+		change_health(1)
+
+func change_health(amount: int):
+	PlayerVariables.health = clamp(PlayerVariables.health + amount, 0, PlayerVariables.max_health)

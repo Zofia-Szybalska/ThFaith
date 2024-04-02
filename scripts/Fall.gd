@@ -24,7 +24,7 @@ func physics_update(delta: float) -> void:
 		else:
 			state_machine.transition_to("Run")
 		return
-	if owner.is_on_wall() and owner.ray_cast_2d.is_colliding():
+	if owner.is_on_wall_only():
 		state_machine.transition_to("Wall")
 	if Input.is_action_just_pressed("jump"):
 		if (coyote and coyote_elapsed < coyote_time) or (wall_coyote and coyote_elapsed < wall_coyote_time):

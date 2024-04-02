@@ -2,16 +2,21 @@ extends State
 
 @export var jump_duration : float = .4
 var elapsed_jump := 0.0
+var direction = 1
+var wall_jump = false
 
 func enter(msg := {}) -> void:
-	jump_duration = .4
 	owner.velocity.y = -owner.jump_force
 	if (msg.has("second_jump")):
 		jump_duration = .25
 	if (msg.has("wall_jump")):
 		print("wall jump")
 		jump_duration = .3
-		##TODO pushback
+		owner.velocity.x += owner.wall_jump_pushback * -direction
+		wall_jump = true
+
+func exit(_msg := {}) -> void:
+	jump_duration = .4
 	elapsed_jump = 0
 
 func physics_update(delta: float) -> void:
@@ -20,9 +25,18 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Fall")
 	if Input.is_action_just_pressed("dash") and owner.can_dash:
 		state_machine.transition_to("Dash", {air_dash = true})
-	if owner.is_on_wall() and owner.ray_cast_2d.is_colliding() and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+	if owner.is_on_wall_only() and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		state_machine.transition_to("Wall")
-	owner.velocity.x = owner.speed * owner.direction
+	
+	if owner.sprite.flip_h == true:
+		direction = -1
+	else:
+		direction = 1
+	
+	if wall_jump:
+		owner.velocity.x = lerp(owner.velocity.x, float(owner.speed * direction), 0.25)
+	else:
+		owner.velocity.x = owner.speed * direction
 	if owner.is_on_floor():
 		if is_equal_approx(owner.velocity.x, 0.0):
 			state_machine.transition_to("Idle")

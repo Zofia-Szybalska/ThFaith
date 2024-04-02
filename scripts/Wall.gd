@@ -7,7 +7,7 @@ func enter(_msg := {}) -> void:
 	sliding = false
 
 func physics_update(delta: float) -> void:
-	if not sliding and owner.ray_cast_2d.is_colliding() and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+	if not sliding and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		sliding = true
 	if Input.is_action_just_pressed("dash") and owner.can_dash:
 		state_machine.transition_to("Dash", {air_dash = true})
@@ -26,4 +26,5 @@ func physics_update(delta: float) -> void:
 		owner.velocity.y += owner.gravity * delta
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Jump", {wall_jump = true})
+		return
 	owner.velocity.x = owner.speed * owner.direction

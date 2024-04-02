@@ -8,7 +8,7 @@ func enter(_msg := {}) -> void:
 
 func update(_delta: float) -> void:
 	if not owner.is_on_floor():
-		if owner.is_on_wall():
+		if owner.is_on_wall_only():
 			state_machine.transition_to("Wall")
 		else:
 			state_machine.transition_to("Fall", {coyote = true})

@@ -11,15 +11,14 @@ func physics_update(delta: float) -> void:
 		sliding = true
 	if Input.is_action_just_pressed("dash") and owner.can_dash:
 		state_machine.transition_to("Dash", {air_dash = true})
-	if not owner.is_on_wall():
-		if owner.is_on_floor():
-			owner.can_dash = true
-			if is_equal_approx(owner.velocity.x, 0.0):
-				state_machine.transition_to("Idle")
-			else:
-				state_machine.transition_to("Run")
+	if owner.is_on_floor():
+		owner.can_dash = true
+		if is_equal_approx(owner.velocity.x, 0.0):
+			state_machine.transition_to("Idle")
 		else:
-			state_machine.transition_to("Fall")
+			state_machine.transition_to("Run")
+	if not owner.is_on_wall():
+		state_machine.transition_to("Fall")
 	if sliding:
 		owner.velocity.y = clamp(owner.velocity.y + owner.gravity * 0.5 * delta, 0, max_gravity)
 	else:

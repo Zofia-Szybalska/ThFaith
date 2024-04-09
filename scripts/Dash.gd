@@ -6,6 +6,7 @@ var dash_direction = 1
 
 func enter(msg := {}) -> void:
 	owner.velocity.y = 0
+	owner.animation_player.play("dash")
 	if (msg.has("air_dash")):
 		owner.can_dash = false
 	elapsed_dash = 0

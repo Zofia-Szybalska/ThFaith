@@ -13,11 +13,11 @@ func enter(msg := {}) -> void:
 	owner.velocity.y = -owner.jump_force
 	if (msg.has("second_jump")):
 		jump_duration = .25
-	if (msg.has("wall_jump")):
+	elif (msg.has("wall_jump")):
 		jump_duration = .3
 		owner.velocity.x += owner.wall_jump_pushback * -direction
 		wall_jump = true
-		print("wall jump ", owner.velocity.x)
+	owner.animation_player.play("jump")
 
 func exit(_msg := {}) -> void:
 	jump_duration = .4

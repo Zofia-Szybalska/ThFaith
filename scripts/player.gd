@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var fsm := $StateMachine
 
 @onready var state_label = $StateLabel
+@onready var animation_player = $AnimationPlayer
 
 var can_double_jump: bool = true
 var can_dash: bool = true

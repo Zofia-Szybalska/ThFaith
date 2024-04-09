@@ -5,6 +5,7 @@ func enter(_msg := {}) -> void:
 	owner.velocity = Vector2.ZERO
 	owner.can_double_jump = true
 	owner.can_dash = true
+	owner.animation_player.play("idle")
 
 func update(_delta: float) -> void:
 	if not owner.is_on_floor():

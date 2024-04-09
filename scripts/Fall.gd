@@ -14,7 +14,7 @@ func enter(msg := {}) -> void:
 		coyote = true
 	if msg.has("wall_coyote"):
 		wall_coyote = true
-	pass
+	owner.animation_player.play("fall")
 
 func physics_update(delta: float) -> void:
 	coyote_elapsed += delta

@@ -174,7 +174,6 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_weano")
 dash_speed = 700
 

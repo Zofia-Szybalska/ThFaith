@@ -33,7 +33,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Wall")
 	if wall_jump:
 		owner.velocity.x = lerp(owner.velocity.x, float(owner.speed * direction), 0.25)
-	else:
+	elif not is_equal_approx(owner.velocity.x, 0.0):
 		owner.velocity.x = owner.speed * direction
 	if owner.is_on_floor():
 		if is_equal_approx(owner.velocity.x, 0.0):

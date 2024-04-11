@@ -24,6 +24,8 @@ func exit(_msg := {}) -> void:
 	elapsed_jump = 0
 
 func physics_update(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		state_machine.transition_to("Attack")
 	elapsed_jump += delta 
 	if Input.is_action_just_released("jump") or elapsed_jump >= jump_duration:
 		state_machine.transition_to("Fall")

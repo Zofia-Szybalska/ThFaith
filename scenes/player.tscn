@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bg3pue4k6suxh"]
+[gd_scene load_steps=30 format=3 uid="uid://bg3pue4k6suxh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_weano"]
 [ext_resource type="Texture2D" uid="uid://duden0juxenu0" path="res://assets/sprites/PlayerPlaceHolder.png" id="2_ut5o2"]
@@ -10,15 +10,21 @@
 [ext_resource type="Script" path="res://scripts/Dash.gd" id="8_1pbqe"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="9_djew2"]
 [ext_resource type="Texture2D" uid="uid://dub0qfrx05ap1" path="res://assets/sprites/PlayerJump1PlaceHolder.png" id="10_26hi4"]
+[ext_resource type="Script" path="res://scripts/Attack.gd" id="10_gj707"]
 [ext_resource type="Texture2D" uid="uid://fwfly3uefh7d" path="res://assets/sprites/PlayerJump2PlaceHolder.png" id="11_ai6ky"]
+[ext_resource type="Script" path="res://scripts/Sword.gd" id="11_oq0nx"]
 [ext_resource type="Texture2D" uid="uid://c4av5wiblunnr" path="res://assets/sprites/PlayerWallSlidePlaceHolder.png" id="12_u5vcu"]
 [ext_resource type="Texture2D" uid="uid://bu230ustx024u" path="res://assets/sprites/PlayerFallPlaceHolder.png" id="13_6fl8c"]
 [ext_resource type="Texture2D" uid="uid://rlejsk8dae2g" path="res://assets/sprites/PlayerWallJumpSlidePlaceHolder.png" id="14_4lk0c"]
 [ext_resource type="Texture2D" uid="uid://bkffjrj5gpvtq" path="res://assets/sprites/PlayerDashPlaceHolder.png" id="15_88fei"]
+[ext_resource type="Texture2D" uid="uid://dlryvoij7gw53" path="res://assets/sprites/PlayerAttackPlaceHolder.png" id="17_hmf8j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rphv7"]
 radius = 23.0
 height = 132.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1i7g"]
+size = Vector2(36, 58)
 
 [sub_resource type="Animation" id="Animation_a3xd7"]
 length = 0.001
@@ -41,6 +47,18 @@ tracks/1/path = NodePath("Sprite2D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sword:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -161,9 +179,50 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_eg8ob"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_hmf8j")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sword:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xoic1"]
 _data = {
 "RESET": SubResource("Animation_a3xd7"),
+"attack": SubResource("Animation_eg8ob"),
 "dash": SubResource("Animation_l0gnl"),
 "fall": SubResource("Animation_ltfna"),
 "idle": SubResource("Animation_8v0p0"),
@@ -184,6 +243,15 @@ shape = SubResource("CapsuleShape2D_rphv7")
 scale = Vector2(0.331492, 0.286288)
 texture = ExtResource("2_ut5o2")
 flip_h = true
+
+[node name="Sword" type="Area2D" parent="."]
+position = Vector2(45, 0)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("11_oq0nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
+shape = SubResource("RectangleShape2D_g1i7g")
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource("3_lou1g")
@@ -207,6 +275,13 @@ script = ExtResource("8_1pbqe")
 [node name="Wall" type="Node2D" parent="StateMachine"]
 script = ExtResource("9_djew2")
 
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("10_gj707")
+
+[node name="AttackTimer" type="Timer" parent="StateMachine/Attack"]
+wait_time = 0.4
+one_shot = true
+
 [node name="StateLabel" type="Label" parent="."]
 offset_left = -39.0
 offset_top = -100.0
@@ -217,3 +292,9 @@ offset_bottom = -77.0
 libraries = {
 "": SubResource("AnimationLibrary_xoic1")
 }
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]
+[connection signal="timeout" from="StateMachine/Attack/AttackTimer" to="StateMachine/Attack" method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Sword" method="_on_animation_player_animation_finished"]

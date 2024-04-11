@@ -17,6 +17,8 @@ func enter(msg := {}) -> void:
 	owner.animation_player.play("fall")
 
 func physics_update(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		state_machine.transition_to("Attack")
 	coyote_elapsed += delta
 	if owner.is_on_floor():
 		if is_equal_approx(owner.velocity.x, 0.0):

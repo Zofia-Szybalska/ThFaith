@@ -7,12 +7,25 @@ extends CharacterBody2D
 @onready var direction_change_timer = $DirectionChangeTimer
 
 @export var speed = 150.0
+@export var max_health = 30.0
+var health = max_health:  set = _set_health
 var player
 var can_change_direction: bool = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var walk_direction = -1
+
+func _set_health(value):
+	health = value
+	if health <= 0:
+		kill()
+
+func kill():
+	queue_free()
+
+func take_demage():
+	health -= 10.0
 
 func _physics_process(_delta):
 	if !ground_detecting_ray_cast.is_colliding() and not state_machine.state.name == "Attack":

@@ -26,8 +26,8 @@ func _physics_process(delta: float) -> void:
 func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	if not has_node(target_state_name):
 		return
+	#print("Przejscie z " + state.name + " do " + target_state_name )
 	state.exit()
 	state = get_node(target_state_name)
-	##owner.state_label.text = "State: " + target_state_name
 	state.enter(msg)
 	emit_signal("transitioned", state.name)

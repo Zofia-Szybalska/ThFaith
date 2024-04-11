@@ -8,6 +8,8 @@ func enter(_msg := {}) -> void:
 	owner.animation_player.play("idle")
 
 func update(_delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		state_machine.transition_to("Attack")
 	if not owner.is_on_floor():
 		if owner.is_on_wall_only():
 			state_machine.transition_to("Wall")

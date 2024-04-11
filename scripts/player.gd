@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 
 @onready var fsm := $StateMachine
-
+@onready var sword = $Sword
 @onready var state_label = $StateLabel
 @onready var animation_player = $AnimationPlayer
 
@@ -22,8 +22,10 @@ func _physics_process(_delta):
 	direction = Input.get_axis("left", "right")
 	if direction == 1:
 		sprite.flip_h = false
+		sword.position = sword.right_pos
 	elif direction == -1:
 		sprite.flip_h = true
+		sword.position = sword.right_pos * -1
 	move_and_slide()
 	if Input.is_action_just_pressed("test_hit"):
 		change_health(-1)

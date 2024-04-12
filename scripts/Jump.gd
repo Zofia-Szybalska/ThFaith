@@ -22,6 +22,7 @@ func enter(msg := {}) -> void:
 func exit(_msg := {}) -> void:
 	jump_duration = .4
 	elapsed_jump = 0
+	wall_jump = false
 
 func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):

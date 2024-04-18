@@ -13,7 +13,6 @@ var on_edge: bool = false
 func enter(_msg := {}) -> void:
 	pass
 
-
 func physics_update(delta: float) -> void:
 	if not owner.is_on_floor():
 		owner.velocity.y += owner.gravity * delta
@@ -45,10 +44,10 @@ func physics_update(delta: float) -> void:
 		elif (distance <= 200 and distance > 150) and not charging:
 			charge()
 		elif distance <= 100 and can_attack and not charging and distance > 80:
-			owner.velocity = Vector2.ZERO
+			owner.velocity.x = Vector2.ZERO.x
 			attack()
 		elif distance <= 100 and not can_attack and not charging and distance > 80:
-			owner.velocity = Vector2.ZERO
+			owner.velocity.x = Vector2.ZERO.x
 		elif distance <= 80:
 			owner.velocity.x = -direction.x * owner.speed * 0.8
 		if on_edge and owner.is_on_floor():
@@ -88,3 +87,6 @@ func _on_charge_timer_timeout():
 
 func _on_attac_buffer_timeout():
 	can_attack = true
+
+func exit(_msg := {}) -> void:
+	set_player_to_null()

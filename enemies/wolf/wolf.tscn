@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwt6vvuf855dq"]
+[gd_scene load_steps=10 format=3 uid="uid://cwt6vvuf855dq"]
 
 [ext_resource type="Script" path="res://enemies/wolf/wolf.gd" id="1_g5ghx"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="1_she2k"]
@@ -11,6 +11,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1j66"]
 size = Vector2(102, 82)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mahho"]
+size = Vector2(92, 74)
+
 [node name="Wolf" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_g5ghx")
@@ -19,8 +22,9 @@ script = ExtResource("1_g5ghx")
 wait_time = 0.1
 one_shot = true
 
-[node name="Damageable" type="Node" parent="."]
+[node name="Damageable" type="Node" parent="." node_paths=PackedStringArray("char_state_machine")]
 script = ExtResource("6_vuy1y")
+char_state_machine = NodePath("../StateMachine")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e1j66")
@@ -29,8 +33,13 @@ shape = SubResource("RectangleShape2D_e1j66")
 script = ExtResource("1_she2k")
 initial_state = NodePath("Walk")
 
-[node name="Hit" type="Node" parent="StateMachine"]
+[node name="Hit" type="Node" parent="StateMachine" node_paths=PackedStringArray("damagable")]
 script = ExtResource("2_11ref")
+damagable = NodePath("../../Damageable")
+
+[node name="Timer" type="Timer" parent="StateMachine/Hit"]
+wait_time = 0.3
+one_shot = true
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("3_kb4hf")
@@ -62,7 +71,17 @@ rotation = 1.5708
 target_position = Vector2(0, 250)
 collision_mask = 2
 
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_mahho")
+
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_direction_change_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Hit/Timer" to="StateMachine/Hit" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/ChargePreparationTimer" to="StateMachine/Attack" method="_on_charge_preparation_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/ChargeTimer" to="StateMachine/Attack" method="_on_charge_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/AttacBuffer" to="StateMachine/Attack" method="_on_attac_buffer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -30,7 +30,7 @@ func take_demage():
 func _physics_process(_delta):
 	if !ground_detecting_ray_cast.is_colliding() and not state_machine.state.name == "Attack":
 		change_direction()
-	if is_on_wall() and is_on_floor():
+	if is_on_wall() and is_on_floor() and not state_machine.state.name == "Attack":
 		change_direction()
 	if walk_direction == 1:
 		sprite_2d.flip_h = true
@@ -48,3 +48,11 @@ func change_direction():
 
 func _on_direction_change_timer_timeout():
 	can_change_direction = true
+
+
+func _on_area_2d_body_entered(_body):
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(_body):
+	pass # Replace with function body.

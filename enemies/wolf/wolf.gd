@@ -8,11 +8,12 @@ extends CharacterBody2D
 
 @export var speed = 150.0
 @export var max_health = 30.0
+
 var health = max_health:  set = _set_health
 var player
 var can_change_direction: bool = true
+var player_in_area
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var walk_direction = -1
 
@@ -28,6 +29,8 @@ func take_demage():
 	health -= 10.0
 
 func _physics_process(_delta):
+	if player_in_area:
+		player_in_area.hit(1, self)
 	if !ground_detecting_ray_cast.is_colliding() and not state_machine.state.name == "Attack":
 		change_direction()
 	if is_on_wall() and is_on_floor() and not state_machine.state.name == "Attack":
@@ -49,12 +52,10 @@ func change_direction():
 func _on_direction_change_timer_timeout():
 	can_change_direction = true
 
-
 func _on_area_2d_body_entered(body):
+	player_in_area = body
 	if body.has_method("hit"):
 		body.hit(1, self)
-		print("Gracz wszedł we wroga")
-
 
 func _on_area_2d_body_exited(_body):
-	pass # Replace with function body.
+	player_in_area = null

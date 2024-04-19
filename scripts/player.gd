@@ -37,6 +37,7 @@ func _physics_process(_delta):
 
 func hit(damage: int, node: Node2D):
 	if can_be_damaged:
+		can_be_damaged = false
 		var knockback_direction = global_position - node.global_position
 		var  knockback_direction_sign = sign(knockback_direction)
 		$StateMachine.transition_to("Hit", {direction_sign = knockback_direction_sign})

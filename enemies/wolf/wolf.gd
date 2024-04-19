@@ -50,8 +50,10 @@ func _on_direction_change_timer_timeout():
 	can_change_direction = true
 
 
-func _on_area_2d_body_entered(_body):
-	pass # Replace with function body.
+func _on_area_2d_body_entered(body):
+	if body.has_method("hit"):
+		body.hit(1, self)
+		print("Gracz wszedł we wroga")
 
 
 func _on_area_2d_body_exited(_body):

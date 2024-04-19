@@ -39,15 +39,14 @@ func physics_update(delta: float) -> void:
 		direction = direction.normalized()
 		if charging and distance <= 100:
 			charging = false
-		if distance > 200 or ((distance <= 150 and distance > 110) and not charging):
+		if distance > 200 or ((distance <= 150 and distance > 100) and not charging):
 			owner.velocity.x = direction.x * owner.speed
 		elif (distance <= 200 and distance > 150) and not charging:
 			charge()
-		elif distance <= 100 and can_attack and not charging and distance > 80:
+		elif distance <= 100 and not charging and distance > 80:
 			owner.velocity.x = Vector2.ZERO.x
-			attack()
-		elif distance <= 100 and not can_attack and not charging and distance > 80:
-			owner.velocity.x = Vector2.ZERO.x
+			if can_attack:
+				attack()
 		elif distance <= 80:
 			owner.velocity.x = -direction.x * owner.speed * 0.8
 		if on_edge and owner.is_on_floor():
@@ -63,7 +62,7 @@ func charge():
 
 func attack():
 	can_attack = false
-	owner.player.change_health(-1)
+	owner.player.hit(1, owner)
 	attac_buffer.start()
 
 func try_attacking():

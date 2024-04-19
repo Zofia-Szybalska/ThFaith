@@ -287,6 +287,7 @@ one_shot = true
 script = ExtResource("12_gged8")
 
 [node name="Timer" type="Timer" parent="StateMachine/Hit"]
+wait_time = 0.5
 one_shot = true
 
 [node name="StateLabel" type="Label" parent="."]

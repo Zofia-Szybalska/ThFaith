@@ -14,7 +14,6 @@ func enter(_msg := {}) -> void:
 
 func on_dameable_hit(_node: Node, damage: int, knockback_direction: Vector2):
 	owner.velocity = knockback_direction * knockback_velocity
-	print("Oberwał za " + str(damage))
 
 func physics_update(_delta: float) -> void:
 	owner.velocity.x = lerp(owner.velocity.x, 0.0, 0.1)

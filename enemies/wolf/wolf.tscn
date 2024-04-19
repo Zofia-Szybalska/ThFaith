@@ -38,7 +38,7 @@ script = ExtResource("2_11ref")
 damagable = NodePath("../../Damageable")
 
 [node name="Timer" type="Timer" parent="StateMachine/Hit"]
-wait_time = 0.3
+wait_time = 0.5
 one_shot = true
 
 [node name="Walk" type="Node" parent="StateMachine"]

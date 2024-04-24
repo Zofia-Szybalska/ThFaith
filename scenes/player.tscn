@@ -235,6 +235,8 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_weano")
+jump_force = 600
+gravity = 750
 dash_speed = 700
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -269,6 +271,7 @@ script = ExtResource("6_vfmla")
 
 [node name="Fall" type="Node2D" parent="StateMachine"]
 script = ExtResource("7_mwuny")
+double_jump_unlocked = true
 
 [node name="Dash" type="Node2D" parent="StateMachine"]
 script = ExtResource("8_1pbqe")

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var player_detecting_ray_cast = $PlayerDetectingRayCast
 @onready var state_machine = $StateMachine
 @onready var direction_change_timer = $DirectionChangeTimer
+@onready var animation_player = $AnimationPlayer
 
 @export var speed = 150.0
 @export var max_health = 30.0
@@ -34,10 +35,11 @@ func _physics_process(_delta):
 		change_direction()
 	if is_on_wall() and is_on_floor() and not state_machine.state.name == "Attack":
 		change_direction()
+		
 	if walk_direction == 1:
-		pass
+		animation_player.play("walk_right")
 	else:
-		pass
+		animation_player.play("walk_left")
 	move_and_slide()
 
 func change_direction():

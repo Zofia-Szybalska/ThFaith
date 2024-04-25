@@ -8,6 +8,10 @@ var charging_anticipation: bool = false
 var charging: bool = false
 var can_attack: bool = true
 var on_edge: bool = false
+@export var charge_distance: int = 500 
+@export var charge_end_distance: int = 300 
+@export var attack_distance: int = 200 
+@export var to_close_distance: int = 100 
 
 
 func enter(_msg := {}) -> void:
@@ -37,17 +41,17 @@ func physics_update(delta: float) -> void:
 		direction = player_position - owner.position
 		var distance = direction.length()
 		direction = direction.normalized()
-		if charging and distance <= 100:
+		if charging and distance <= attack_distance:
 			charging = false
-		if distance > 200 or ((distance <= 150 and distance > 100) and not charging):
+		if distance > charge_distance or ((distance <= charge_end_distance and distance > attack_distance) and not charging):
 			owner.velocity.x = direction.x * owner.speed
-		elif (distance <= 200 and distance > 150) and not charging:
+		elif (distance <= charge_distance and distance > charge_end_distance) and not charging:
 			charge()
-		elif distance <= 100 and not charging and distance > 80:
+		elif distance <= attack_distance and not charging and distance > to_close_distance:
 			owner.velocity.x = Vector2.ZERO.x
 			if can_attack:
 				attack()
-		elif distance <= 80:
+		elif distance <= to_close_distance:
 			owner.velocity.x = -direction.x * owner.speed * 0.8
 		if on_edge and owner.is_on_floor():
 			owner.velocity = Vector2.ZERO

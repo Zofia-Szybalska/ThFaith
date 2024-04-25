@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cwt6vvuf855dq"]
+[gd_scene load_steps=29 format=3 uid="uid://cwt6vvuf855dq"]
 
 [ext_resource type="Script" path="res://enemies/wolf/wolf.gd" id="1_g5ghx"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="1_she2k"]
@@ -28,6 +28,58 @@ size = Vector2(166, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mahho"]
 size = Vector2(152, 116)
+
+[sub_resource type="Animation" id="Animation_xbreu"]
+resource_name = "walk_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Back/Tail:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yij14"]
+resource_name = "walk_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Back/Tail:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.13621]
+}
+
+[sub_resource type="Animation" id="Animation_hj04y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Back/Tail:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmwp7"]
+_data = {
+"RESET": SubResource("Animation_hj04y"),
+"walk_left": SubResource("Animation_xbreu"),
+"walk_right": SubResource("Animation_yij14")
+}
 
 [node name="Wolf" type="CharacterBody2D"]
 collision_layer = 4
@@ -61,6 +113,8 @@ script = ExtResource("3_kb4hf")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("6_rkr3u")
+attack_distance = 175
+to_close_distance = 150
 
 [node name="ChargePreparationTimer" type="Timer" parent="StateMachine/Attack"]
 wait_time = 0.2
@@ -79,7 +133,7 @@ target_position = Vector2(0, 75)
 [node name="PlayerDetectingRayCast" type="RayCast2D" parent="."]
 position = Vector2(0, -18)
 rotation = 1.5708
-target_position = Vector2(0, 250)
+target_position = Vector2(0, 600)
 collision_mask = 2
 
 [node name="Timer" type="Timer" parent="."]
@@ -126,6 +180,7 @@ texture = ExtResource("13_wrchq")
 
 [node name="WolfTail" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
 position = Vector2(-25, -27)
+scale = Vector2(1, 1)
 texture = ExtResource("14_1migu")
 
 [node name="Body" type="Node2D" parent="PartsSKeletonContainer/Parts"]
@@ -254,6 +309,7 @@ remote_path = NodePath("../../../../../Parts/Body/WolfBody2")
 
 [node name="Tail" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back"]
 position = Vector2(26, 1)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 26, 1)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/Tail"]
@@ -307,6 +363,11 @@ rest = Transform2D(1, 0, 0, 1, -14, 20)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackBactTight2/BackBackLeg/BackBackPaw"]
 position = Vector2(-58, -72)
 remote_path = NodePath("../../../../../../../../Parts/BackBackLeg/WolfRbLeg3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qmwp7")
+}
 
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_direction_change_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Hit/Timer" to="StateMachine/Hit" method="_on_timer_timeout"]

@@ -22,5 +22,6 @@ func _on_body_entered(body):
 				child._on_hit(damage, Vector2.ZERO)
 
 
-func _on_animation_player_animation_finished(_anim_name):
-	monitoring = false
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "attack":
+		monitoring = false

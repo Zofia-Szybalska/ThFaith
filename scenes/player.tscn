@@ -180,7 +180,7 @@ position = Vector2(6, -19)
 texture = ExtResource("13_wmssa")
 
 [node name="LeithRarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(9, -18)
+position = Vector2(6, -18)
 texture = ExtResource("14_5ouva")
 
 [node name="Larm" type="Node2D" parent="PartsSKeletonContainer/Parts"]
@@ -302,7 +302,7 @@ position = Vector2(-16, 29)
 rest = Transform2D(1, 0, 0, 1, -16, 29)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder/BackArm/BackHand"]
-position = Vector2(58, -23)
+position = Vector2(55, -23)
 remote_path = NodePath("../../../../../../../Parts/Rarm/LeithRarm3")
 
 [node name="FrontTight" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]

@@ -6,10 +6,7 @@ var direction = 1
 var wall_jump = false
 
 func enter(msg := {}) -> void:
-	if owner.sprite.flip_h == true:
-		direction = -1
-	else:
-		direction = 1
+	direction = owner.direction
 	owner.velocity.y = -owner.jump_force
 	if (msg.has("second_jump")):
 		jump_duration = .25

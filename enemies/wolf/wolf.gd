@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var ground_detecting_ray_cast: RayCast2D = $GroundDetectingRayCast
 @onready var player_detecting_ray_cast = $PlayerDetectingRayCast
-@onready var sprite_2d = $Sprite2D
 @onready var state_machine = $StateMachine
 @onready var direction_change_timer = $DirectionChangeTimer
 
@@ -36,9 +35,9 @@ func _physics_process(_delta):
 	if is_on_wall() and is_on_floor() and not state_machine.state.name == "Attack":
 		change_direction()
 	if walk_direction == 1:
-		sprite_2d.flip_h = true
+		pass
 	else:
-		sprite_2d.flip_h = false
+		pass
 	move_and_slide()
 
 func change_direction():

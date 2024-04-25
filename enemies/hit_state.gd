@@ -12,7 +12,7 @@ func enter(_msg := {}) -> void:
 	damagable.can_be_damaged = false
 	$Timer.start()
 
-func on_dameable_hit(_node: Node, damage: int, knockback_direction: Vector2):
+func on_dameable_hit(_node: Node, _damage: int, knockback_direction: Vector2):
 	owner.velocity = knockback_direction * knockback_velocity
 
 func physics_update(_delta: float) -> void:

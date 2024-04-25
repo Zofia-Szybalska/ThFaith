@@ -7,7 +7,6 @@ extends CharacterBody2D
 @export var wall_jump_pushback : int = 500
 @export var knockack_velocity: int = 300
 
-@onready var sprite = $Sprite2D
 
 @onready var fsm := $StateMachine
 @onready var sword = $Sword
@@ -24,11 +23,11 @@ var direction = 1
 func _physics_process(_delta):
 	direction = Input.get_axis("left", "right")
 	if direction == 1:
-		sprite.flip_h = false
+		#sprite.flip_h = false
 		sword.position = sword.right_pos
 	elif direction == -1:
-		sprite.flip_h = true
-		sword.position = sword.right_pos * -1
+		#sprite.flip_h = true
+		sword.position = sword.left_pos
 	move_and_slide()
 	if Input.is_action_just_pressed("test_hit"):
 		change_health(-1)

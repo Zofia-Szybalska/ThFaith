@@ -2,6 +2,7 @@ extends Area2D
 
 @export var damage: int = 10
 var right_pos: Vector2 = Vector2(45,0)
+var left_pos: Vector2 = Vector2(-110,0)
 
 
 func _ready():
@@ -10,6 +11,7 @@ func _ready():
 func _on_body_entered(body):
 	for child in body.get_children():
 		if child is Damageable:
+			print("Przeciwnik atakowany")
 			var direction_to_damagable = body.global_position - get_parent().global_position
 			var direction_sing = sign(direction_to_damagable.x)
 			if direction_sing > 0:

@@ -10,10 +10,10 @@ func enter(msg := {}) -> void:
 	if (msg.has("air_dash")):
 		owner.can_dash = false
 	elapsed_dash = 0
-	if owner.sprite.flip_h == true:
-		dash_direction = -1
-	else:
+	if owner.direction == 1:
 		dash_direction = 1
+	else:
+		dash_direction = -1
 
 func physics_update(delta: float) -> void:
 	owner.velocity.x = owner.dash_speed * dash_direction

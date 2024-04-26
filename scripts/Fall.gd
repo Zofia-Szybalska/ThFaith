@@ -15,6 +15,8 @@ func enter(msg := {}) -> void:
 	if msg.has("wall_coyote"):
 		wall_coyote = true
 	owner.animation_player.play("fall")
+	if not msg.has("jump_ended"):
+		owner.velocity.y = lerp(owner.velocity.y, 0.0, 0.8)
 
 func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):

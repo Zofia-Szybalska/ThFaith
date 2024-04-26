@@ -25,8 +25,10 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		state_machine.transition_to("Attack")
 	elapsed_jump += delta 
-	if Input.is_action_just_released("jump") or elapsed_jump >= jump_duration:
+	if Input.is_action_just_released("jump"):
 		state_machine.transition_to("Fall")
+	if elapsed_jump >= jump_duration:
+		state_machine.transition_to("Fall", {jump_ended = true})
 	if Input.is_action_just_pressed("dash") and owner.can_dash:
 		state_machine.transition_to("Dash", {air_dash = true})
 	if owner.is_on_wall_only() and not Input.is_action_pressed("jump") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):

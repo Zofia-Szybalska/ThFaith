@@ -8,10 +8,10 @@ var charging_anticipation: bool = false
 var charging: bool = false
 var can_attack: bool = true
 var on_edge: bool = false
-@export var charge_distance: int = 500 
-@export var charge_end_distance: int = 300 
-@export var attack_distance: int = 200 
-@export var to_close_distance: int = 100 
+@export var charge_distance: int = 200 
+@export var charge_end_distance: int = 125
+@export var attack_distance: int = 25
+@export var to_close_distance: int = 20
 
 
 func enter(_msg := {}) -> void:

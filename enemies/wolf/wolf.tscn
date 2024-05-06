@@ -29,6 +29,21 @@ size = Vector2(166, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mahho"]
 size = Vector2(152, 116)
 
+[sub_resource type="Animation" id="Animation_hj04y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Back/Tail:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_xbreu"]
 resource_name = "walk_left"
 tracks/0/type = "value"
@@ -59,21 +74,6 @@ tracks/0/keys = {
 "values": [-1.13621]
 }
 
-[sub_resource type="Animation" id="Animation_hj04y"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Back/Tail:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qmwp7"]
 _data = {
 "RESET": SubResource("Animation_hj04y"),
@@ -82,6 +82,7 @@ _data = {
 }
 
 [node name="Wolf" type="CharacterBody2D"]
+scale = Vector2(0.45, 0.45)
 collision_layer = 4
 script = ExtResource("1_g5ghx")
 
@@ -113,8 +114,10 @@ script = ExtResource("3_kb4hf")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("6_rkr3u")
-attack_distance = 175
-to_close_distance = 150
+charge_distance = 300
+charge_end_distance = 150
+attack_distance = 100
+to_close_distance = 85
 
 [node name="ChargePreparationTimer" type="Timer" parent="StateMachine/Attack"]
 wait_time = 0.2
@@ -180,7 +183,6 @@ texture = ExtResource("13_wrchq")
 
 [node name="WolfTail" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
 position = Vector2(-25, -27)
-scale = Vector2(1, 1)
 texture = ExtResource("14_1migu")
 
 [node name="Body" type="Node2D" parent="PartsSKeletonContainer/Parts"]
@@ -309,7 +311,6 @@ remote_path = NodePath("../../../../../Parts/Body/WolfBody2")
 
 [node name="Tail" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back"]
 position = Vector2(26, 1)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 26, 1)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/Tail"]

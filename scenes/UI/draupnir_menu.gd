@@ -3,7 +3,7 @@ extends Control
 @onready var draupnir_cell_scene: PackedScene = preload("res://scenes/UI/draupnir_cell.tscn")
 @onready var draupnir_info_box = %DraupnirInfoBox
 @onready var equiped_draupnirs = %EquipedDraupnirs
-
+const DOT = preload("res://assets/dot.png")
 var equipped_draupnirs_cost: int = 0
 var window_size
 
@@ -25,7 +25,16 @@ func load_equiped_draupnirs():
 		equipped_draupnirs_cost += draupnir.cost
 		equiped_draupnirs.add_child(create_draupnir_cell(draupnir))
 	if equipped_draupnirs_cost < PlayerVariables.draupnir_max_cost:
-		pass
+		var empty_spaces = PlayerVariables.draupnir_max_cost - equipped_draupnirs_cost
+		while empty_spaces > 0:
+			equiped_draupnirs.add_child(create_space_idicator())
+			empty_spaces -= 1
+
+func create_space_idicator() -> TextureRect:
+	var texture_rect = TextureRect.new()
+	texture_rect.texture = DOT
+	texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	return texture_rect
 
 func load_draupnirs():
 	for draupnir in PlayerVariables.draupnirs:

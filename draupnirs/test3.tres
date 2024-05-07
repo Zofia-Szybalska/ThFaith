@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=3 format=3 uid="uid://hq0673vdh6jj"]
+
+[ext_resource type="Texture2D" uid="uid://bis0yt2beb3u1" path="res://icon.svg" id="1_jsvrx"]
+[ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_uyhlw"]
+
+[resource]
+script = ExtResource("1_uyhlw")
+name = "Test kosztu"
+cost = 2
+description = "Sprawdza, czy koszt działa"
+icon = ExtResource("1_jsvrx")
+locked_icon = ExtResource("1_jsvrx")
+is_unlocked = true

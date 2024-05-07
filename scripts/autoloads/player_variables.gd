@@ -3,7 +3,9 @@ extends Node
 
 @export var health: int = 5 : set = _set_health
 @export var max_health: int = 5
+@export var draupnir_max_cost: int = 5
 @export var draupnirs: Array[DraupnirStats]
+@export var equiped_draupnirs: Array[DraupnirStats]
 @export var draupnirs_folder_path: String = "res://draupnirs"
 signal health_changed
 

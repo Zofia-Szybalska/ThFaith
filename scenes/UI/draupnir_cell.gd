@@ -12,20 +12,20 @@ func _ready():
 	if draupnir_resource:
 		load_draupnir_resource(draupnir_resource)
 
-func load_draupnir_resource(draupnir_resource: DraupnirStats):
-	self.draupnir_resource = draupnir_resource
-	if draupnir_resource.is_unlocked:
-		texture_button.texture_normal = draupnir_resource.icon
+func load_draupnir_resource(draupnir: DraupnirStats):
+	draupnir_resource = draupnir
+	if draupnir.is_unlocked:
+		texture_button.texture_normal = draupnir.icon
 		texture_button.modulate = Color.WHITE
 	else:
-		texture_button.texture_normal = draupnir_resource.locked_icon
-		texture_button.modulate = Color.RED
+		texture_button.texture_normal = draupnir.locked_icon
+		texture_button.modulate = Color(0.431, 0.431, 0.431, 0.937)
 
 func _on_texture_button_pressed():
 	times_clicked += 1
 	if times_clicked == 1:
 		clicked.emit(draupnir_resource)
-	elif times_clicked >= 2:
+	elif times_clicked >= 2 and draupnir_resource.is_unlocked:
 		equiped.emit(draupnir_resource)
 		times_clicked = 1
 

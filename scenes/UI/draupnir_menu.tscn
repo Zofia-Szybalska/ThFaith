@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://weg7jdo4eoyd"]
+[gd_scene load_steps=4 format=3 uid="uid://weg7jdo4eoyd"]
 
 [ext_resource type="Script" path="res://scenes/UI/draupnir_menu.gd" id="1_ftskn"]
 [ext_resource type="Script" path="res://scenes/UI/DraupnirInfoBox.gd" id="2_ssjji"]
+[ext_resource type="Texture2D" uid="uid://bis0yt2beb3u1" path="res://icon.svg" id="3_7sppm"]
 
 [node name="DraupnirMenu" type="Control"]
 layout_mode = 3
@@ -23,28 +24,38 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
+alignment = 1
 
 [node name="EquipedDraupnirs" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="DraupnirsIconsGrid" type="GridContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 15
 columns = 6
 
 [node name="DraupnirInfoBox" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 6
+alignment = 1
 script = ExtResource("2_ssjji")
 
 [node name="Icon" type="TextureRect" parent="PanelContainer/HBoxContainer/DraupnirInfoBox"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+texture = ExtResource("3_7sppm")
 stretch_mode = 3
 
 [node name="Name" type="Label" parent="PanelContainer/HBoxContainer/DraupnirInfoBox"]
@@ -52,7 +63,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 
+[node name="Cost" type="Label" parent="PanelContainer/HBoxContainer/DraupnirInfoBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
 [node name="Description" type="Label" parent="PanelContainer/HBoxContainer/DraupnirInfoBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]

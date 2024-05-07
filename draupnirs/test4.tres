@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=3 format=3 uid="uid://bnvpqoomw08gw"]
+
+[ext_resource type="Texture2D" uid="uid://bis0yt2beb3u1" path="res://icon.svg" id="1_0h2u8"]
+[ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_b1v0d"]
+
+[resource]
+script = ExtResource("1_b1v0d")
+name = "Kolejny test"
+cost = 2
+description = "To tylko kolejny test :("
+icon = ExtResource("1_0h2u8")
+locked_icon = ExtResource("1_0h2u8")
+is_unlocked = true

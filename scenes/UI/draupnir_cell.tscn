@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://t7lbiw1mhq8e"]
+
+[ext_resource type="Script" path="res://scenes/UI/draupnir_cell.gd" id="1_ja6r2"]
+
+[node name="DraupnirCell" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ja6r2")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+
+[connection signal="focus_exited" from="TextureButton" to="." method="_on_texture_button_focus_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

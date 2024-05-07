@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 PlayerVariables="*res://scripts/autoloads/player_variables.gd"
 
+[editor]
+
+export/convert_text_resources_to_binary=false
+
 [filesystem]
 
 import/blender/enabled=false

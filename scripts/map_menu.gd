@@ -7,6 +7,7 @@ extends MarginContainer
 @export var drag_sensitivity: float = 1
 
 var zoom_factor = 1.1
+var panning = false
 
 func _unhandled_input(event):
 	if event is InputEventMouse:
@@ -16,6 +17,19 @@ func _unhandled_input(event):
 				_zoom_at_point(zoom_speed, mouse_position)
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				_zoom_at_point(1 / zoom_speed, mouse_position)
+	if event.is_action_pressed("pan_with_mouse"):
+		panning = true
+	elif event.is_action_released("pan_with_mouse"):
+		panning = false
+	if event is InputEventMouseMotion and panning == true:
+		var new_position = global_position + event.relative * drag_sensitivity / scale
+		global_position = check_position(new_position)
+		#global_position += event.relative * drag_sensitivity / scale
+
+
+func check_position(new_position: Vector2):
+	print(new_position)
+	return new_position
 
 
 func _zoom_at_point(zoom_change, mouse_position):

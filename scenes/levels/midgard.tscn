@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ber3vandx8bfk"]
+[gd_scene load_steps=6 format=3 uid="uid://ber3vandx8bfk"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_5hrni"]
 [ext_resource type="PackedScene" uid="uid://cwt6vvuf855dq" path="res://enemies/wolf/wolf.tscn" id="2_h84jj"]
 [ext_resource type="PackedScene" uid="uid://bg3pue4k6suxh" path="res://scenes/player.tscn" id="3_ofm00"]
-[ext_resource type="PackedScene" uid="uid://bkr6alnif7xut" path="res://scenes/UI/hud.tscn" id="4_soh04"]
+[ext_resource type="PackedScene" uid="uid://b02bw7llsbl8k" path="res://scenes/fast_travel_tree.tscn" id="5_04ngc"]
+[ext_resource type="PackedScene" uid="uid://qhkocy3xgjen" path="res://scenes/UI/ui.tscn" id="5_5rpm2"]
 
 [node name="Midgard" type="Node2D"]
 
@@ -37,8 +38,15 @@ position = Vector2(11959, 1618)
 [node name="Wolf5" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(13282, 1561)
 
-[node name="Player" parent="." instance=ExtResource("3_ofm00")]
+[node name="FastTravelTree" parent="." instance=ExtResource("5_04ngc")]
+position = Vector2(5784, 1009)
+point_name = "Midgard1"
+
+[node name="UI" parent="." instance=ExtResource("5_5rpm2")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("3_ofm00")]
 position = Vector2(461, 1122)
+UI = NodePath("../UI")
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -48,7 +56,3 @@ limit_top = -1280
 limit_right = 29056
 limit_bottom = 1795
 editor_draw_limits = true
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="UI" instance=ExtResource("4_soh04")]

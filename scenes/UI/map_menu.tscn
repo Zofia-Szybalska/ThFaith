@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnhmhyid0160y"]
+[gd_scene load_steps=14 format=3 uid="uid://cnhmhyid0160y"]
 
 [ext_resource type="Texture2D" uid="uid://cnu2dmq1xi4ca" path="res://assets/Map.png" id="1_321ah"]
 [ext_resource type="Script" path="res://scripts/map_menu.gd" id="1_q7l0f"]
+[ext_resource type="Texture2D" uid="uid://cbq62nlgtkwo" path="res://assets/Midgard.png" id="2_dp1vk"]
+[ext_resource type="Texture2D" uid="uid://b7g634dusywqh" path="res://assets/Yggdrasil.png" id="3_gh023"]
+[ext_resource type="Texture2D" uid="uid://ccfpr5e4p4yb8" path="res://assets/dot.png" id="3_omgnc"]
+[ext_resource type="Texture2D" uid="uid://wsit20kbd4lv" path="res://assets/Helheim.png" id="4_xf62x"]
+[ext_resource type="Texture2D" uid="uid://dycad1hujdrws" path="res://assets/Alfheim.png" id="5_yof4k"]
+[ext_resource type="Texture2D" uid="uid://d24wgfldcwbjc" path="res://assets/Vanaheim.png" id="6_pjoye"]
+[ext_resource type="Texture2D" uid="uid://d311glhr34mpo" path="res://assets/Asgard.png" id="7_5stsv"]
+[ext_resource type="Texture2D" uid="uid://beidwyvs1eo20" path="res://assets/Jotunheim.png" id="8_l05fp"]
+[ext_resource type="Texture2D" uid="uid://srtwd4nsia24" path="res://assets/Muspelheim.png" id="9_8rbh6"]
+[ext_resource type="Texture2D" uid="uid://ckwkl5b1ryftk" path="res://assets/Svartalheim.png" id="10_yuo6d"]
+[ext_resource type="Texture2D" uid="uid://crofsbc2ohnso" path="res://assets/Nilfheim.png" id="11_wn1cj"]
 
 [node name="Map" type="MarginContainer"]
 anchors_preset = 15
@@ -28,8 +39,160 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 script = ExtResource("1_q7l0f")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MapMenu"]
+[node name="MidgardMap" type="TextureRect" parent="PanelContainer/MapMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_dp1vk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Midgard1" type="TextureButton" parent="PanelContainer/MapMenu/MidgardMap"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = 51.0
+offset_right = -201.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_omgnc")
+
+[node name="YggdrasilMap" type="TextureRect" parent="PanelContainer/MapMenu"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_gh023")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HelheimMap" type="TextureRect" parent="PanelContainer/MapMenu"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_xf62x")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AlfheimMap" type="TextureRect" parent="PanelContainer/MapMenu"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_yof4k")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VanaheimMap" type="TextureRect" parent="PanelContainer/MapMenu"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_pjoye")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AsgardMap" type="TextureRect" parent="PanelContainer/MapMenu"]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_5stsv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="YotunheimMap" type="TextureRect" parent="PanelContainer/MapMenu"]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_l05fp")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MuspelheimMap" type="TextureRect" parent="PanelContainer/MapMenu"]
+visible = false
+layout_mode = 2
+texture = ExtResource("9_8rbh6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SvartalheimMap" type="TextureRect" parent="PanelContainer/MapMenu"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_yuo6d")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="NilfheimMap" type="TextureRect" parent="PanelContainer/MapMenu"]
+visible = false
+layout_mode = 2
+texture = ExtResource("11_wn1cj")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="WholeMap" type="TextureRect" parent="PanelContainer/MapMenu"]
 layout_mode = 2
 texture = ExtResource("1_321ah")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="Areas" type="Area2D" parent="PanelContainer/MapMenu/WholeMap"]
+monitorable = false
+
+[node name="MidgardArea" type="Area2D" parent="PanelContainer/MapMenu/WholeMap/Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PanelContainer/MapMenu/WholeMap/Areas/MidgardArea"]
+polygon = PackedVector2Array(410, 337, 450, 411, 385, 484, 230, 396, 221, 341, 281, 288, 344, 330)
+
+[node name="YggdrasilArea" type="Area2D" parent="PanelContainer/MapMenu/WholeMap/Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PanelContainer/MapMenu/WholeMap/Areas/YggdrasilArea"]
+polygon = PackedVector2Array(344, 329, 459, 170, 606, 216, 663, 325, 541, 427, 449, 411, 410, 336)
+
+[node name="HelheimArea" type="Area2D" parent="PanelContainer/MapMenu/WholeMap/Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PanelContainer/MapMenu/WholeMap/Areas/HelheimArea"]
+polygon = PackedVector2Array(709, 426, 660, 521, 812, 551, 844, 478)
+
+[node name="AlfheimArea" type="Area2D" parent="PanelContainer/MapMenu/WholeMap/Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PanelContainer/MapMenu/WholeMap/Areas/AlfheimArea"]
+polygon = PackedVector2Array(638, 345, 541, 426, 570, 526, 661, 522, 709, 426)
+
+[node name="VanaheimArea" type="Area2D" parent="PanelContainer/MapMenu/WholeMap/Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PanelContainer/MapMenu/WholeMap/Areas/VanaheimArea"]
+polygon = PackedVector2Array(449, 409, 383, 485, 450, 545, 569, 524, 541, 426)
+
+[node name="AsgardArea" type="Area2D" parent="PanelContainer/MapMenu/WholeMap/Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PanelContainer/MapMenu/WholeMap/Areas/AsgardArea"]
+polygon = PackedVector2Array(638, 345, 710, 426, 845, 478, 867, 433, 782, 227)
+
+[node name="YotunheimArea" type="Area2D" parent="PanelContainer/MapMenu/WholeMap/Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PanelContainer/MapMenu/WholeMap/Areas/YotunheimArea"]
+polygon = PackedVector2Array(630, 65, 618, 106, 635, 153, 589, 182, 661, 325, 811, 208)
+
+[node name="MuspelheimArea" type="Area2D" parent="PanelContainer/MapMenu/WholeMap/Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PanelContainer/MapMenu/WholeMap/Areas/MuspelheimArea"]
+polygon = PackedVector2Array(731, 29, 685, 110, 810, 209, 857, 74)
+
+[node name="SvartalheimArea" type="Area2D" parent="PanelContainer/MapMenu/WholeMap/Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PanelContainer/MapMenu/WholeMap/Areas/SvartalheimArea"]
+polygon = PackedVector2Array(418, 69, 459, 171, 606, 217, 591, 183, 635, 153, 616, 106, 636, 53, 465, 2)
+
+[node name="NilfheimArea" type="Area2D" parent="PanelContainer/MapMenu/WholeMap/Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PanelContainer/MapMenu/WholeMap/Areas/NilfheimArea"]
+polygon = PackedVector2Array(460, 171, 419, 68, 194, 143, 221, 340, 282, 287, 343, 330)
+
+[connection signal="pressed" from="PanelContainer/MapMenu/MidgardMap/Midgard1" to="PanelContainer/MapMenu" method="_on_midgard_1_pressed"]
+[connection signal="resized" from="PanelContainer/MapMenu/WholeMap" to="PanelContainer/MapMenu" method="_on_whole_map_resized"]
+[connection signal="mouse_exited" from="PanelContainer/MapMenu/WholeMap/Areas" to="PanelContainer/MapMenu" method="_on_world_mouse_exited"]
+[connection signal="mouse_entered" from="PanelContainer/MapMenu/WholeMap/Areas/MidgardArea" to="PanelContainer/MapMenu" method="_on_midgard_mouse_entered"]
+[connection signal="mouse_entered" from="PanelContainer/MapMenu/WholeMap/Areas/YggdrasilArea" to="PanelContainer/MapMenu" method="_on_yggdrasil_area_mouse_entered"]
+[connection signal="mouse_entered" from="PanelContainer/MapMenu/WholeMap/Areas/HelheimArea" to="PanelContainer/MapMenu" method="_on_helheim_area_mouse_entered"]
+[connection signal="mouse_entered" from="PanelContainer/MapMenu/WholeMap/Areas/AlfheimArea" to="PanelContainer/MapMenu" method="_on_alfheim_area_mouse_entered"]
+[connection signal="mouse_entered" from="PanelContainer/MapMenu/WholeMap/Areas/VanaheimArea" to="PanelContainer/MapMenu" method="_on_vanaheim_area_mouse_entered"]
+[connection signal="mouse_entered" from="PanelContainer/MapMenu/WholeMap/Areas/AsgardArea" to="PanelContainer/MapMenu" method="_on_asgard_area_mouse_entered"]
+[connection signal="mouse_entered" from="PanelContainer/MapMenu/WholeMap/Areas/YotunheimArea" to="PanelContainer/MapMenu" method="_on_yotunheim_area_mouse_entered"]
+[connection signal="mouse_entered" from="PanelContainer/MapMenu/WholeMap/Areas/MuspelheimArea" to="PanelContainer/MapMenu" method="_on_muspelheim_area_mouse_entered"]
+[connection signal="mouse_entered" from="PanelContainer/MapMenu/WholeMap/Areas/SvartalheimArea" to="PanelContainer/MapMenu" method="_on_svartalheim_area_mouse_entered"]
+[connection signal="mouse_entered" from="PanelContainer/MapMenu/WholeMap/Areas/NilfheimArea" to="PanelContainer/MapMenu" method="_on_nilfheim_area_mouse_entered"]

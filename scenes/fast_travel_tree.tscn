@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b02bw7llsbl8k"]
+
+[ext_resource type="Script" path="res://scripts/fast_travel_tree.gd" id="1_4pl7c"]
+[ext_resource type="Texture2D" uid="uid://blw2fosrnl1y" path="res://assets/FastTravelTree.png" id="2_dmkr8"]
+
+[node name="FastTravelTree" type="Node2D"]
+script = ExtResource("1_4pl7c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_dmkr8")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -42)

@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var dash_speed : int = 500
 @export var wall_jump_pushback : int = 500
 @export var knockack_velocity: int = 300
-
+@export var UI: CanvasLayer
 
 @onready var fsm := $StateMachine
 @onready var sword = $Sword
@@ -18,7 +18,15 @@ var can_dash: bool = true
 var can_be_damaged: bool = true
 var direction = 1
 
+func _unhandled_input(event):
+	if event.is_action_pressed("inventory"):
+		get_viewport().set_input_as_handled()
+		UI.show_inventory()
 
+func _ready():
+	if FastTravelPoints.curr_fast_travel_point:
+		global_position = FastTravelPoints.curr_fast_travel_point.position
+		$Camera2D.offset = Vector2.ZERO
 
 func _physics_process(_delta):
 	direction = Input.get_axis("left", "right")

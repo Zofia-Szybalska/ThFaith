@@ -26,7 +26,7 @@ func _unhandled_input(event):
 func _ready():
 	if FastTravelPoints.curr_fast_travel_point:
 		global_position = FastTravelPoints.curr_fast_travel_point.position
-		$Camera2D.offset = Vector2.ZERO
+		#$Camera2D.offset = Vector2.ZERO
 
 func _physics_process(_delta):
 	direction = Input.get_axis("left", "right")

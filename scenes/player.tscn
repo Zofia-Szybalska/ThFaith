@@ -239,6 +239,7 @@ position = Vector2(10, -18)
 texture = ExtResource("25_d66wp")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="PartsSKeletonContainer"]
+visible = false
 
 [node name="Base" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D"]
 rest = Transform2D(1, 0, 0, 1, 0, 0)

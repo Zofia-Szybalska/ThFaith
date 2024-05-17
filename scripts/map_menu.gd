@@ -46,7 +46,7 @@ func check_position(new_position: Vector2):
 	return new_position
 
 func _ready():
-	print("Rozmiar: " + str(size))
+	pass
 
 func _zoom_at_point(zoom_change, mouse_position):
 	var new_scale = scale * zoom_change
@@ -153,6 +153,8 @@ func _on_muspelheim_area_mouse_entered():
 	print("Muspelheim")
 
 func _on_midgard_1_pressed():
-	get_tree().paused = false
 	var point = FastTravelPoints.get_point("Midgard1")
-	get_tree().change_scene_to_file("res://scenes/levels/"+point.scene_name+".tscn")
+	if point:
+		print("Znaleziono")
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://scenes/levels/"+point.scene_name+".tscn")

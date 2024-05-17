@@ -17,7 +17,7 @@ func _unhandled_input(event):
 		curr_window.hide()
 		curr_window = draupnir_menu
 		curr_window.show()
-	if event.is_action_pressed("inventory") or event.is_action_pressed("ui_cancel") and menues.visibile:
+	if event.is_action_pressed("inventory") or event.is_action_pressed("ui_cancel") and menues.visible:
 		hide_inventory()
 
 func hide_all_menues():

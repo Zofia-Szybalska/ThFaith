@@ -84,6 +84,7 @@ _data = {
 [node name="Wolf" type="CharacterBody2D"]
 scale = Vector2(0.45, 0.45)
 collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_g5ghx")
 
 [node name="DirectionChangeTimer" type="Timer" parent="."]

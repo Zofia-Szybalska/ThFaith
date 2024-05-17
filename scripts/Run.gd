@@ -4,7 +4,7 @@ extends State
 func enter(_msg := {}) -> void:
 	owner.can_double_jump = true
 	owner.can_dash = true
-	owner.animation_player.play("idle")
+	owner.animation_player.play("walk_left")
 
 func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):

@@ -3,15 +3,22 @@ extends Node
 
 @export var health: int = 5 : set = _set_health
 @export var max_health: int = 5
+@export var currency: int = 0 : set = _set_currency
 @export var draupnir_max_cost: int = 5
 @export var draupnirs: Array[DraupnirStats]
 @export var equiped_draupnirs: Array[DraupnirStats]
 @export var draupnirs_folder_path: String = "res://draupnirs"
 signal health_changed
+signal currency_changed
 
 func _set_health(new_value: int) -> void:
 	health = new_value
 	health_changed.emit()
+
+func _set_currency(new_value: int) -> void:
+	var amount_changed = new_value - currency
+	currency = new_value
+	currency_changed.emit(amount_changed)
 
 func _ready():
 	load_draupnirs(draupnirs_folder_path)

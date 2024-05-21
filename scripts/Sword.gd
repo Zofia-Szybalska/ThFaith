@@ -29,7 +29,6 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_area_entered(area):
 	for child in area.get_children():
 		if child is Damageable:
-			print("Ataaak!")
 			var direction_to_damagable = area.global_position - get_parent().global_position
 			var direction_sing = sign(direction_to_damagable.x)
 			if direction_sing > 0:

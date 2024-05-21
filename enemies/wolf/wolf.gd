@@ -8,7 +8,9 @@ extends CharacterBody2D
 
 @export var speed = 150.0
 @export var max_health = 30.0
+@export var currency_dropped: int = 10
 
+var currency_scene: PackedScene = preload("res://scenes/currency.tscn")
 var health = max_health:  set = _set_health
 var player
 var can_change_direction: bool = true
@@ -23,7 +25,14 @@ func _set_health(value):
 		kill()
 
 func kill():
+	drop_currency()
 	queue_free()
+
+func drop_currency():
+	var currency_instanced = currency_scene.instantiate()
+	currency_instanced.amount = currency_dropped
+	get_parent().add_child(currency_instanced)
+	currency_instanced.position = position
 
 func take_demage():
 	health -= 10.0

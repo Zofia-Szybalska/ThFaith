@@ -8,6 +8,7 @@ extends Node
 @export var draupnirs: Array[DraupnirStats]
 @export var equiped_draupnirs: Array[DraupnirStats]
 @export var draupnirs_folder_path: String = "res://draupnirs"
+@export var player: Player = null
 signal health_changed
 signal currency_changed
 
@@ -22,6 +23,14 @@ func _set_currency(new_value: int) -> void:
 
 func _ready():
 	load_draupnirs(draupnirs_folder_path)
+
+func activate_draupnirs():
+	for draupnir in equiped_draupnirs:
+		draupnir.activate()
+
+func deactivate_draupnirs():
+	for draupnir in equiped_draupnirs:
+		draupnir.deactivate()
 
 func load_draupnirs(path):
 	var dir = DirAccess.open(path)

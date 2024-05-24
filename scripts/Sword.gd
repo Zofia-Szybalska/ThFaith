@@ -2,8 +2,19 @@ extends Area2D
 
 @export var damage: int = 10
 var right_pos: Vector2 = Vector2(45,0)
+var base_right_pos: Vector2 = Vector2(45,0)
 var left_pos: Vector2 = Vector2(-110,0)
+var base_size: Vector2 = Vector2(60, 130)
 
+
+
+func change_sword_length(amount: int = 0):
+	$CollisionShape2D.shape.size.x += amount
+	right_pos.x = amount
+
+func reset_sword_length():
+	right_pos = base_right_pos
+	$CollisionShape2D.shape.size = base_size
 
 func _ready():
 	monitoring = false
@@ -20,11 +31,9 @@ func _on_body_entered(body):
 			else:
 				child._on_hit(damage, Vector2.ZERO)
 
-
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "attack":
 		monitoring = false
-
 
 func _on_area_entered(area):
 	for child in area.get_children():

@@ -31,7 +31,7 @@ radius = 36.0
 height = 260.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1i7g"]
-size = Vector2(59, 130)
+size = Vector2(60, 130)
 
 [sub_resource type="Animation" id="Animation_a3xd7"]
 length = 0.001

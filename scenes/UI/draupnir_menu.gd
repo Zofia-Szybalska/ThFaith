@@ -15,7 +15,6 @@ func _ready():
 	#draupnir_info_box.custom_minimum_size.x = (window_size.x - 100)/3
 	#draupnirs_icons_grid.custom_minimum_size.x = 2*((window_size.x - 100)/3)
 	#draupnirs_icons_grid.custom_minimum_size.y = 2*((window_size.y - 100)/3)
-	
 
 func load_equiped_draupnirs():
 	equipped_draupnirs_cost = 0
@@ -51,7 +50,6 @@ func _on_draupnir_equiped(draupnir_resource: DraupnirStats):
 		load_equiped_draupnirs()
 	elif not PlayerVariables.equiped_draupnirs.has(draupnir_resource):
 		print("This Draupnir costs too much!")
-		
 
 func _on_draupnir_cell_clicked(draupnir_resource: DraupnirStats):
 	draupnir_info_box.load_draupnir(draupnir_resource)
@@ -63,6 +61,8 @@ func create_draupnir_cell(draupnir: DraupnirStats):
 	draupnir_cell.equiped.connect(_on_draupnir_equiped)
 	return draupnir_cell
 
+func _on_hidden():
+	PlayerVariables.activate_draupnirs()
 
-func _on_item_rect_changed():
-	pass # Replace with function body.
+func _on_draw():
+	PlayerVariables.deactivate_draupnirs()

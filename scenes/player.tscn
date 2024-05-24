@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bg3pue4k6suxh"]
+[gd_scene load_steps=46 format=3 uid="uid://bg3pue4k6suxh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_weano"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_lou1g"]
@@ -20,11 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://pqjyi5uasn6j" path="res://assets/sprites/player/LeithLleg1.png" id="18_y0d76"]
 [ext_resource type="Texture2D" uid="uid://cftxpux5o4mxs" path="res://assets/sprites/player/LeithLleg2.png" id="19_r8h7i"]
 [ext_resource type="Texture2D" uid="uid://0mipotg2g5yt" path="res://assets/sprites/player/LeithLleg3.png" id="20_7kpfw"]
+[ext_resource type="Texture2D" uid="uid://712ti8dankhj" path="res://assets/sprites/player/LeithBody2.png" id="20_cf140"]
 [ext_resource type="Texture2D" uid="uid://dgwqtyph1hkct" path="res://assets/sprites/player/LeithRleg1.png" id="21_4jkho"]
 [ext_resource type="Texture2D" uid="uid://dd6m13xe8l4w2" path="res://assets/sprites/player/LeithRleg2.png" id="22_hd2fg"]
 [ext_resource type="Texture2D" uid="uid://1tyyo0efnot0" path="res://assets/sprites/player/LeithRleg3.png" id="23_8sy8v"]
 [ext_resource type="Texture2D" uid="uid://dcre08gbdlw8k" path="res://assets/sprites/player/LeithHead.png" id="24_53755"]
 [ext_resource type="Texture2D" uid="uid://dc55xvyctyn6i" path="res://assets/sprites/player/LeithBody.png" id="25_d66wp"]
+[ext_resource type="Texture2D" uid="uid://dnav78tbppamo" path="res://assets/sprites/player/LeithBody1.png" id="26_0uo80"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rphv7"]
 radius = 36.0
@@ -160,13 +162,13 @@ tracks/10/keys = {
 tracks/11/type = "bezier"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Head:rotation")
+tracks/11/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/Head:rotation")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.11981, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.001)
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -183,7 +185,7 @@ tracks/12/keys = {
 tracks/13/type = "bezier"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight/BackLeg/BackFoot/RemoteTransform2D:position:x")
+tracks/13/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg/BackFoot/RemoteTransform2D:position:x")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -194,13 +196,179 @@ tracks/13/keys = {
 tracks/14/type = "bezier"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight/BackLeg/BackFoot/RemoteTransform2D:position:y")
+tracks/14/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg/BackFoot/RemoteTransform2D:position:y")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(-114.92, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base:position:x")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base:position:y")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder/FrontArm:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0312398]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0759723]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder/BackArm:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0149803]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder:rotation")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.192452]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight:rotation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.106727]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight/FrontLeg:rotation")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight:rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.126794]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg:rotation")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0596307]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("PartsSKeletonContainer:scale")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder/FrontArm/FrontHand:rotation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight/FrontLeg/FrontFoot:rotation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_eg8ob"]
@@ -225,94 +393,6 @@ resource_name = "dash"
 [sub_resource type="Animation" id="Animation_ltfna"]
 resource_name = "fall"
 loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("IKTargetArmFront:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(80, -0.25, 0, 0.25, 0, 75.5556, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("IKTargetArmFront:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-86.6667, -0.25, 0, 0.25, 0, -88.8889, -0.25, 0, 0.25, 0, -88.8889, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("IKTargetArmBack:position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-97.7778, -0.25, 0, 0.25, 0, -82.2222, -0.25, 0, 0.25, 0, -88.8889, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("IKTargetArmBack:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-120, -0.25, 0, 0.25, 0, -120, -0.25, 0, 0.25, 0, -120, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("IKTargetLegBack:position:x")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(22.2222, -0.25, 0, 0.25, 0, 26.6667, -0.25, 0, 0.25, 0, 17.7778, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("IKTargetLegBack:position:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(135.556, -0.25, 0, 0.25, 0, 135.556, -0.25, 0, 0.25, 0, 128.889, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("IKTargetLegFront:position:x")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-13.3333, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0, -15.5556, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("IKTargetLegFront:position:y")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(144.444, -0.25, 0, 0.25, 0, 144.444, -0.25, 0, 0.25, 0, 155.556, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
 
 [sub_resource type="Animation" id="Animation_8v0p0"]
 resource_name = "idle"
@@ -430,7 +510,7 @@ tracks/9/keys = {
 tracks/10/type = "bezier"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Head:rotation")
+tracks/10/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/Head:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -442,15 +522,9 @@ tracks/10/keys = {
 [sub_resource type="Animation" id="Animation_g58n6"]
 resource_name = "jump"
 
-[sub_resource type="Animation" id="Animation_ttmj5"]
-resource_name = "wall_jump"
-
-[sub_resource type="Animation" id="Animation_1pn02"]
-resource_name = "wall_slide"
-
 [sub_resource type="Animation" id="Animation_ntu0u"]
 resource_name = "walk_left"
-length = 4.0
+length = 1.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -467,113 +541,330 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight/BackLeg/BackFoot/RemoteTransform2D:position:x")
+tracks/1/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg/BackFoot/RemoteTransform2D:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
+"handle_modes": PackedInt32Array(2),
 "points": PackedFloat32Array(-21.8403, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight/BackLeg/BackFoot/RemoteTransform2D:position:y")
+tracks/2/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg/BackFoot/RemoteTransform2D:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
+"handle_modes": PackedInt32Array(2),
 "points": PackedFloat32Array(-125.663, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("IKTargetLegBack:position:x")
+tracks/3/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base:position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(20, -0.25, 0, 0.25, 0, 6.66667, -0.25, 0, 0.25, 0, -35.5556, -0.25, 0, 0.25, 0, -13.3333, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 13.3333, -0.25, 0, 0.25, 0, 33.3333, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0, -37.7778, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4)
+"handle_modes": PackedInt32Array(2, 0, 2, 2, 2, 2, 2, 2, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666666, 0, 0, -0.0666666, 0, 0, 0, 0, 0, 0, 0.0666667, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.8)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("IKTargetLegBack:position:y")
+tracks/4/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(133.333, -0.25, 0, 0.25, 0, 113.333, -0.25, 0, 0.25, 0, 124.444, -0.25, 0, 0.25, 0, 117.778, -0.25, 0, 0.25, 0, 122.222, -0.25, 0, 0.25, 0, 126.667, -0.25, 0, 0.25, 0, 124.444, -0.25, 0, 0.25, 0, 108.889, -0.25, 0, 0.25, 0, 122.222, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4)
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2, 2, 2, 2, 0),
+"points": PackedFloat32Array(1.98, 0, 0, 0.0666667, 0, -2.01, -0.0666667, 0, 0.0666667, 0, 2.095, -0.0666667, 0, 0.0666667, 0, -0.78, -0.0666667, 0, 0.0666667, 0, 2.2, -0.0666667, 0, 0.0666667, 0, -1.29, -0.0666667, 0, 0.0666667, 0, 0.935, -0.0666667, 0, 0.0666666, 0, -3.32, -0.0666666, 0, 0, 0, 1.98, 0, 0, 0.0666667, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.8)
 }
-tracks/5/type = "bezier"
+tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("IKTargetLegFront:position:x")
+tracks/5/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder/FrontArm:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(-13.3333, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0, 31.1111, -0.25, 0, 0.25, 0, 13.3333, -0.25, 0, 0.25, 0, 11.1111, -0.25, 0, 0.25, 0, 2.22222, -0.25, 0, 0.25, 0, -2.22222, -0.25, 0, 0.25, 0, -22.2222, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4)
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0312398, 0.718614, 0.978726, 0.0312397, 0.0312397, 0.0312397, 0.69895, 0.0312398, 0.0312398, 0.0312398]
 }
-tracks/6/type = "bezier"
+tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("IKTargetLegFront:position:y")
+tracks/6/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(128.889, -0.25, 0, 0.25, 0, 120, -0.25, 0, 0.25, 0, 102.222, -0.25, 0, 0.25, 0, 124.444, -0.25, 0, 0.25, 0, 113.333, -0.25, 0, 0.25, 0, 106.667, -0.25, 0, 0.25, 0, 102.222, -0.25, 0, 0.25, 0, 122.222, -0.25, 0, 0.25, 0, 120, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4)
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0759723, 0.0266876, 0.428969, 0.530731, 0.0436149, 0.491767, 0.63297, 0.588066, 0.105324, 0.0759723]
 }
-tracks/7/type = "bezier"
+tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("IKTargetArmFront:position:x")
+tracks/7/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder/BackArm:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(66.6667, -0.25, 0, 0.25, 0, 22.2222, -0.25, 0, 0.25, 0, -4.44444, -0.25, 0, 0.25, 0, 13.3333, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1, 1.5)
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0149803, 0.0149803, 0.589617, 0.0149802, 0.702064, 0.614611, 0.894753, 0.824322, 0.487252, 0.0149803]
 }
-tracks/8/type = "bezier"
+tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("IKTargetArmFront:position:y")
+tracks/8/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(100, -0.25, 0, 0.25, 0, 22.2222, -0.25, 0, 0.25, 0, 17.7778, -0.25, 0, 0.25, 0, 26.6667, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1, 1.5)
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.192452, -0.606897, -1.48636, -0.703491, -0.636136, -1.0255, -1.59387, -1.14002, -0.3504, -0.192452]
 }
-tracks/9/type = "bezier"
+tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("IKTargetArmBack:position:x")
+tracks/9/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(-62.2222, -0.25, 0, 0.25, 0, -6.66667, -0.25, 0, 0.25, 0, 22.2222, -0.25, 0, 0.25, 0, -4.44444, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1, 1.5)
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.106727, -0.231786, 0.00488329, -0.159347, 0.190045, 0.403638, 0.771072, 0.0282407, -0.258339, -0.293503]
 }
-tracks/10/type = "bezier"
+tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("IKTargetArmBack:position:y")
+tracks/10/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight/FrontLeg:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(104.444, -0.25, 0, 0.25, 0, 84.4445, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0, 35.5556, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1, 1.5)
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.128987, -0.128987, -1.04273, -0.128987, -0.874347, -1.11774, -1.30177, -0.128987, -0.128987, -0.128987]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.126794, 0.657085, 0.673379, 0.585083, 0.541087, 0.192084, -0.0164342, 0.255621, 0.435852, 0.54457]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0596307, -0.745726, 0.0596308, -0.154713, -0.362135, 0.0596308, 0.0596308, -0.716681, 0.0596307, 0.0596308]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("PartsSKeletonContainer:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rh8ly"]
+resource_name = "walk_right"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PartsSKeletonContainer/Parts/Lleg/LeithLleg3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_8sy8v")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg/BackFoot/RemoteTransform2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(-21.8403, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg/BackFoot/RemoteTransform2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(-125.663, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 0, 2, 2, 2, 2, 2, 2, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666667, 0, 0, -0.0666667, 0, 0.0666666, 0, 0, -0.0666666, 0, 0, 0, 0, 0, 0, 0.0666667, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.8)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2, 2, 2, 2, 0),
+"points": PackedFloat32Array(1.98, 0, 0, 0.0666667, 0, -2.01, -0.0666667, 0, 0.0666667, 0, 2.095, -0.0666667, 0, 0.0666667, 0, -0.78, -0.0666667, 0, 0.0666667, 0, 2.2, -0.0666667, 0, 0.0666667, 0, -1.29, -0.0666667, 0, 0.0666667, 0, 0.935, -0.0666667, 0, 0.0666666, 0, -3.32, -0.0666666, 0, 0, 0, 1.98, 0, 0, 0.0666667, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.8)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder/FrontArm:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0312398, 0.718614, 0.978726, 0.0312397, 0.0312397, 0.0312397, 0.69895, 0.0312398, 0.0312398, 0.0312398]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0759723, 0.0266876, 0.428969, 0.530731, 0.0436149, 0.491767, 0.63297, 0.588066, 0.105324, 0.0759723]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder/BackArm:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0149803, 0.0149803, 0.589617, 0.0149802, 0.702064, 0.614611, 0.894753, 0.824322, 0.487252, 0.0149803]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.192452, -0.606897, -1.48636, -0.703491, -0.636136, -1.0255, -1.59387, -1.14002, -0.3504, -0.192452]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.106727, -0.231786, 0.00488329, -0.159347, 0.190045, 0.403638, 0.771072, 0.0282407, -0.258339, -0.293503]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight/FrontLeg:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.128987, -0.128987, -1.04273, -0.128987, -0.874347, -1.11774, -1.30177, -0.128987, -0.128987, -0.128987]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.126794, 0.657085, 0.673379, 0.585083, 0.541087, 0.192084, -0.0164342, 0.255621, 0.435852, 0.54457]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0596307, -0.745726, 0.0596308, -0.154713, -0.362135, 0.0596308, 0.0596308, -0.716681, 0.0596307, 0.0596308]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("PartsSKeletonContainer:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ttmj5"]
+resource_name = "wall_jump"
+
+[sub_resource type="Animation" id="Animation_1pn02"]
+resource_name = "wall_slide"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xoic1"]
 _data = {
@@ -584,45 +875,46 @@ _data = {
 "idle": SubResource("Animation_8v0p0"),
 "jump": SubResource("Animation_g58n6"),
 "walk_left": SubResource("Animation_ntu0u"),
+"walk_right": SubResource("Animation_rh8ly"),
 "wall_jump": SubResource("Animation_ttmj5"),
 "wall_slide": SubResource("Animation_1pn02")
 }
 
-[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_udec0"]
-target_nodepath = NodePath("../../IKTargetArmFront")
-joint_one_bone_idx = 3
-joint_one_bone2d_node = NodePath("Base/Body/FrontShoulder")
-joint_two_bone_idx = 4
-joint_two_bone2d_node = NodePath("Base/Body/FrontShoulder/FrontArm")
-
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_tv43c"]
 target_nodepath = NodePath("../../IKTargetArmBack")
-joint_one_bone_idx = 6
-joint_one_bone2d_node = NodePath("Base/Body/BackShoulder")
-joint_two_bone_idx = 7
-joint_two_bone2d_node = NodePath("Base/Body/BackShoulder/BackArm")
+joint_one_bone_idx = 7
+joint_one_bone2d_node = NodePath("Base/Body/UpperBody/BackShoulder")
+joint_two_bone_idx = 8
+joint_two_bone2d_node = NodePath("Base/Body/UpperBody/BackShoulder/BackArm")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_udec0"]
+target_nodepath = NodePath("../../IKTargetArmFront")
+joint_one_bone_idx = 4
+joint_one_bone2d_node = NodePath("Base/Body/UpperBody/FrontShoulder")
+joint_two_bone_idx = 5
+joint_two_bone2d_node = NodePath("Base/Body/UpperBody/FrontShoulder/FrontArm")
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_imc62"]
 target_nodepath = NodePath("../../IKTargetLegFront")
 flip_bend_direction = true
-joint_one_bone_idx = 9
-joint_one_bone2d_node = NodePath("Base/Body/FrontTight")
-joint_two_bone_idx = 10
-joint_two_bone2d_node = NodePath("Base/Body/FrontTight/FrontLeg")
+joint_one_bone_idx = 11
+joint_one_bone2d_node = NodePath("Base/Body/Hips/FrontTight")
+joint_two_bone_idx = 12
+joint_two_bone2d_node = NodePath("Base/Body/Hips/FrontTight/FrontLeg")
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_nxviu"]
 target_nodepath = NodePath("../../IKTargetLegBack")
 flip_bend_direction = true
-joint_one_bone_idx = 12
-joint_one_bone2d_node = NodePath("Base/Body/BackTight")
-joint_two_bone_idx = 13
-joint_two_bone2d_node = NodePath("Base/Body/BackTight/BackLeg")
+joint_one_bone_idx = 14
+joint_one_bone2d_node = NodePath("Base/Body/Hips/BackTight")
+joint_two_bone_idx = 15
+joint_two_bone2d_node = NodePath("Base/Body/Hips/BackTight/BackLeg")
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_jbm5y"]
 enabled = true
 modification_count = 4
-modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_udec0")
-modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_tv43c")
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_tv43c")
+modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_udec0")
 modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_imc62")
 modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_nxviu")
 
@@ -630,7 +922,7 @@ modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_nxviu")
 scale = Vector2(0.45, 0.45)
 collision_layer = 2
 script = ExtResource("1_weano")
-speed = 700
+speed = 605
 jump_force = 350
 dash_speed = 900
 wall_jump_pushback = 700
@@ -713,234 +1005,276 @@ position = Vector2(15.5556, 164.444)
 position = Vector2(-13.3333, 168.889)
 
 [node name="PartsSKeletonContainer" type="Node2D" parent="."]
-position = Vector2(0, 21)
+position = Vector2(-11.1111, 22.2222)
 
 [node name="Parts" type="Node2D" parent="PartsSKeletonContainer"]
+
+[node name="LeithHead" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
+position = Vector2(8.88888, -20)
+scale = Vector2(0.999864, 0.999864)
+texture = ExtResource("24_53755")
 
 [node name="Rarm" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="LeithRarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(23.4462, -37.3725)
-rotation = -0.703692
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(10.3018, -18.9347)
+rotation = -0.171172
+scale = Vector2(0.999842, 0.999842)
 texture = ExtResource("12_aqtcy")
 
 [node name="LeithRarm2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(22.3375, -41.2244)
-rotation = -0.688712
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(11.2987, -22.8155)
+rotation = -0.156192
+scale = Vector2(0.999756, 0.999756)
 texture = ExtResource("13_wmssa")
 
 [node name="LeithRarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(22.9731, -40.4524)
-rotation = -0.688712
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(14.2399, -16.7563)
+rotation = -0.0590622
+scale = Vector2(0.999617, 0.999617)
 texture = ExtResource("14_5ouva")
-
-[node name="LeithHead" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(6.43798, -18.0367)
-rotation = -0.00538367
-scale = Vector2(0.999935, 0.999935)
-texture = ExtResource("24_53755")
-
-[node name="LeithBody" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
-position = Vector2(10.1316, -18.0001)
-scale = Vector2(0.999997, 0.999997)
-texture = ExtResource("25_d66wp")
 
 [node name="Lleg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 modulate = Color(0, 0, 0, 1)
 
 [node name="LeithLleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
-position = Vector2(27.7018, -66.4991)
-rotation = 0.426224
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(2.32696, -66.8073)
+rotation = 0.0912542
+scale = Vector2(0.999831, 0.999831)
 texture = ExtResource("18_y0d76")
 
 [node name="LeithLleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
-position = Vector2(13.4681, 22.4204)
-rotation = 0.343692
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(23.0447, 22.1232)
+rotation = 0.150885
+scale = Vector2(0.999682, 0.999682)
 texture = ExtResource("19_r8h7i")
 
 [node name="LeithLleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
-position = Vector2(19.7928, -25.1135)
-rotation = 0.0452962
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(-18.0255, -20.667)
+rotation = -0.147511
+scale = Vector2(0.999682, 0.999682)
 texture = ExtResource("20_7kpfw")
+
+[node name="Body" type="Node2D" parent="PartsSKeletonContainer/Parts"]
+position = Vector2(8.88889, -18.7778)
+
+[node name="LeithBody2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
+position = Vector2(2.22221, -1.22218)
+scale = Vector2(0.999988, 0.999988)
+texture = ExtResource("20_cf140")
+
+[node name="LeithBody1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
+position = Vector2(2.22212, -7.84397e-05)
+scale = Vector2(0.999983, 0.999983)
+texture = ExtResource("26_0uo80")
 
 [node name="RLeg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="LeithRleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
-position = Vector2(12.3082, -60.083)
-rotation = 0.0662478
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(8.78968, -61.0621)
+rotation = 0.0151734
+scale = Vector2(0.999836, 0.999836)
 texture = ExtResource("21_4jkho")
 
 [node name="LeithRleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
-position = Vector2(-13.1379, 15.5519)
-rotation = -0.535544
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(5.19009, 17.1308)
+rotation = -0.113814
+scale = Vector2(0.999717, 0.999717)
 texture = ExtResource("22_hd2fg")
 
 [node name="LeithRleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
-position = Vector2(-40.4174, -17.3565)
-rotation = -0.535544
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(-6.22531, -24.0489)
+rotation = -0.113814
+scale = Vector2(0.999714, 0.999714)
 texture = ExtResource("23_8sy8v")
 
 [node name="Larm" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="LeithLarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
-position = Vector2(2.25487, -24.314)
-rotation = 0.372732
-scale = Vector2(0.999981, 0.999981)
+position = Vector2(14.8263, -19.7068)
+rotation = -0.0586002
+scale = Vector2(0.999828, 0.999828)
 texture = ExtResource("15_cp7yb")
 
 [node name="LeithLarm2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
-position = Vector2(4.79822, -29.9438)
-rotation = 0.724828
-scale = Vector2(0.999981, 0.999981)
+position = Vector2(15.6472, -20.2897)
+rotation = -0.0273603
+scale = Vector2(0.999726, 0.999726)
 texture = ExtResource("16_h8cru")
 
 [node name="LeithLarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
-position = Vector2(4.79822, -29.9438)
-rotation = 0.727815
-scale = Vector2(0.999981, 0.999981)
+position = Vector2(15.6487, -20.2887)
+rotation = -0.0243735
+scale = Vector2(0.999678, 0.999678)
 texture = ExtResource("17_og04f")
+
+[node name="LeithBody" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
+visible = false
+position = Vector2(9.99996, -20.0069)
+scale = Vector2(0.999996, 0.999996)
+texture = ExtResource("25_d66wp")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="PartsSKeletonContainer"]
 modification_stack = SubResource("SkeletonModificationStack2D_jbm5y")
 
 [node name="Base" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D"]
-visible = false
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, 0, 0)
 
 [node name="Body" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base"]
 position = Vector2(0, -45)
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, 0, -45)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
-position = Vector2(10, 27)
-remote_path = NodePath("../../../../Parts/LeithBody")
+[node name="UpperBody" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+scale = Vector2(0.999995, 0.999995)
+auto_calculate_length_and_angle = false
+length = 30.0
+bone_angle = -90.0
 
-[node name="Head" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody"]
+position = Vector2(11.1112, 26.2223)
+remote_path = NodePath("../../../../../Parts/Body/LeithBody1")
+
+[node name="Head" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody"]
 position = Vector2(0, -30)
-scale = Vector2(0.999938, 0.999938)
+scale = Vector2(0.999881, 0.999881)
 rest = Transform2D(1, 0, 0, 1, 0, -30)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Head"]
-position = Vector2(6, 57)
-remote_path = NodePath("../../../../../Parts/Rarm/LeithHead")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/Head"]
+position = Vector2(8.89009, 55.0067)
+remote_path = NodePath("../../../../../../Parts/LeithHead")
 
-[node name="FrontShoulder" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+[node name="FrontShoulder" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody"]
 position = Vector2(19, -6)
-rotation = 1.55509
-scale = Vector2(0.999984, 0.999984)
+rotation = 0.0759723
+scale = Vector2(0.999845, 0.999845)
 rest = Transform2D(1, 0, 0, 1, 19, -6)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontShoulder"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder"]
 position = Vector2(-6, 31)
-remote_path = NodePath("../../../../../Parts/Larm/LeithLarm1")
+remote_path = NodePath("../../../../../../Parts/Larm/LeithLarm1")
 
-[node name="FrontArm" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontShoulder"]
+[node name="FrontArm" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder"]
 position = Vector2(12, 26)
+rotation = 0.0312398
+scale = Vector2(0.999899, 0.999899)
 rest = Transform2D(1, 0, 0, 1, 12, 26)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontShoulder/FrontArm"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder/FrontArm"]
 position = Vector2(-17, 5)
-remote_path = NodePath("../../../../../../Parts/Larm/LeithLarm2")
+remote_path = NodePath("../../../../../../../Parts/Larm/LeithLarm2")
 
-[node name="FrontHand" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontShoulder/FrontArm"]
+[node name="FrontHand" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder/FrontArm"]
 position = Vector2(13, 26)
+scale = Vector2(0.999952, 0.999952)
 rest = Transform2D(1, 0, 0, 1, 13, 26)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontShoulder/FrontArm/FrontHand"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/FrontShoulder/FrontArm/FrontHand"]
 position = Vector2(-30, -21)
 rotation = 0.00298685
-remote_path = NodePath("../../../../../../../Parts/Larm/LeithLarm3")
+remote_path = NodePath("../../../../../../../../Parts/Larm/LeithLarm3")
 
-[node name="BackShoulder" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+[node name="BackShoulder" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody"]
 position = Vector2(-17, -7)
+rotation = -0.192452
+scale = Vector2(0.999859, 0.999859)
 rest = Transform2D(1, 0, 0, 1, -17, -7)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder"]
 position = Vector2(21.2737, 37.238)
-remote_path = NodePath("../../../../../Parts/Rarm/LeithRarm1")
+remote_path = NodePath("../../../../../../Parts/Rarm/LeithRarm1")
 
-[node name="BackArm" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder"]
+[node name="BackArm" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder"]
 position = Vector2(-16, 28)
+rotation = 0.0149803
+scale = Vector2(0.999913, 0.999913)
 rest = Transform2D(1, 0, 0, 1, -16, 28)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder/BackArm"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder/BackArm"]
 position = Vector2(39, 5)
-remote_path = NodePath("../../../../../../Parts/Rarm/LeithRarm2")
+remote_path = NodePath("../../../../../../../Parts/Rarm/LeithRarm2")
 
-[node name="BackHand" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder/BackArm"]
+[node name="BackHand" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder/BackArm"]
 position = Vector2(-16, 29)
+rotation = 0.0971299
+scale = Vector2(0.999861, 0.999861)
 rest = Transform2D(1, 0, 0, 1, -16, 29)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder/BackArm/BackHand"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/UpperBody/BackShoulder/BackArm/BackHand"]
 position = Vector2(55, -23)
-remote_path = NodePath("../../../../../../../Parts/Rarm/LeithRarm3")
+remote_path = NodePath("../../../../../../../../Parts/Rarm/LeithRarm3")
 
-[node name="FrontTight" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+[node name="Hips" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips"]
+position = Vector2(11.1112, 25.0001)
+remote_path = NodePath("../../../../../Parts/Body/LeithBody2")
+
+[node name="FrontTight" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips"]
 position = Vector2(-8.88889, 50.6667)
+rotation = 0.106727
+scale = Vector2(0.999848, 0.999848)
 rest = Transform2D(1, 0, 0, 1, -10, 51)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontTight"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight"]
 position = Vector2(16.6667, -67)
-remote_path = NodePath("../../../../../Parts/RLeg/LeithRleg1")
+remote_path = NodePath("../../../../../../Parts/RLeg/LeithRleg1")
 
-[node name="FrontLeg" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontTight"]
+[node name="FrontLeg" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight"]
 position = Vector2(3, 48)
+scale = Vector2(0.999882, 0.999882)
 rest = Transform2D(1, 0, 0, 1, 3, 48)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontTight/FrontLeg"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight/FrontLeg"]
 position = Vector2(15.8889, -35)
-remote_path = NodePath("../../../../../../Parts/RLeg/LeithRleg2")
+remote_path = NodePath("../../../../../../../Parts/RLeg/LeithRleg2")
 
-[node name="FrontFoot" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontTight/FrontLeg"]
+[node name="FrontFoot" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight/FrontLeg"]
 position = Vector2(-3, 45)
+scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(1, 0, 0, 1, -3, 45)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontTight/FrontLeg/FrontFoot"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/FrontTight/FrontLeg/FrontFoot"]
 position = Vector2(12.2222, -122.222)
-remote_path = NodePath("../../../../../../../Parts/RLeg/LeithRleg3")
+remote_path = NodePath("../../../../../../../../Parts/RLeg/LeithRleg3")
 
-[node name="BackTight" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+[node name="BackTight" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips"]
 position = Vector2(14, 53)
+rotation = 0.126794
+scale = Vector2(0.999843, 0.999843)
 rest = Transform2D(1, 0, 0, 1, 14, 53)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight"]
 position = Vector2(-18.4444, -73.4444)
-remote_path = NodePath("../../../../../Parts/Lleg/LeithLleg1")
+remote_path = NodePath("../../../../../../Parts/Lleg/LeithLleg1")
 
-[node name="BackLeg" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight"]
+[node name="BackLeg" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight"]
 position = Vector2(9, 48)
+rotation = 0.0596307
+scale = Vector2(0.999851, 0.999851)
 rest = Transform2D(1, 0, 0, 1, 9, 48)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight/BackLeg"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg"]
 position = Vector2(-0.777777, -34.7778)
-remote_path = NodePath("../../../../../../Parts/Lleg/LeithLleg2")
+remote_path = NodePath("../../../../../../../Parts/Lleg/LeithLleg2")
 
-[node name="BackFoot" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight/BackLeg"]
+[node name="BackFoot" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg"]
 position = Vector2(11, 44)
 rest = Transform2D(1, 0, 0, 1, 11, 44)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight/BackLeg/BackFoot"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Hips/BackTight/BackLeg/BackFoot"]
 position = Vector2(-58.8282, -114.92)
 rotation = -0.298396
-remote_path = NodePath("../../../../../../../Parts/Lleg/LeithLleg3")
+remote_path = NodePath("../../../../../../../../Parts/Lleg/LeithLleg3")
 
 [connection signal="area_entered" from="Sword" to="Sword" method="_on_area_entered"]
 [connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]

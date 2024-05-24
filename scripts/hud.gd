@@ -16,7 +16,6 @@ func update_health():
 	hp_label.text ="%s/%s" % [PlayerVariables.health, PlayerVariables.max_health]
 
 func update_currency(amount_changed: int = 0):
-	print("Amount changed: " + str(amount_changed))
 	currency_label.text = str(PlayerVariables.currency)
 	currency_changed_lable.modulate = Color(1, 1, 1, 1)
 	if not amount_changed == 0:

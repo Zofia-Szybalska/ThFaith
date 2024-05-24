@@ -50,7 +50,7 @@ layout_mode = 2
 size_flags_vertical = 10
 theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 15
-columns = 6
+columns = 5
 
 [node name="DraupnirInfoBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true

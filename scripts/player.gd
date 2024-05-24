@@ -50,14 +50,23 @@ func reset_sword_size():
 
 func hit(damage: int, node: Node2D):
 	if can_be_damaged:
+		var random = RandomNumberGenerator.new()
+		random.randomize()
+		if random.randf_range(0, 1.0) < PlayerVariables.dodge_chance:
+			dodge()
+			return
 		can_be_damaged = false
 		var knockback_direction = global_position - node.global_position
 		var  knockback_direction_sign = sign(knockback_direction)
 		$StateMachine.transition_to("Hit", {direction_sign = knockback_direction_sign})
-		change_health(-damage)
+		change_health(-damage * PlayerVariables.damage_taken_multiplayer)
+
+func dodge():
+	print("Dodged!")
 
 func heal(amount: int):
 	change_health(amount)
 
 func change_health(amount: int):
+	print("Oberwano za: " + str(amount))
 	PlayerVariables.health = clamp(PlayerVariables.health + amount, 0, PlayerVariables.max_health)

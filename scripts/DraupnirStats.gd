@@ -19,7 +19,6 @@ func activate():
 	else:
 		effect_script = DraupnirEffect.new()
 
-
 func deactivate():
 	if effect and not effect_script:
 		effect_script = load(effect).new()
@@ -27,7 +26,6 @@ func deactivate():
 		effect_script.deactivate()
 	else:
 		effect_script = DraupnirEffect.new()
-
 
 func _init(p_name = "Defult", p_cost = 1, p_description = "Defult description", p_icon = Texture2D.new(), p_locked_icon = Texture2D.new(), p_is_unlocked = false, p_effect_path: String = ""):
 	name = p_name

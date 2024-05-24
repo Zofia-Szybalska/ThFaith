@@ -9,12 +9,14 @@ extends CharacterBody2D
 @export var speed = 150.0
 @export var max_health = 30.0
 @export var currency_dropped: int = 10
+@export var base_detection_range: int = 600
 
 var currency_scene: PackedScene = preload("res://scenes/currency.tscn")
 var health = max_health:  set = _set_health
 var player
 var can_change_direction: bool = true
 var player_in_area
+var curr_detection_range: int = base_detection_range
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var walk_direction = -1
@@ -24,6 +26,14 @@ func _set_health(value):
 	if health <= 0:
 		kill()
 
+func change_detection_range(new_detection_range: int):
+	player_detecting_ray_cast.target_position.y = new_detection_range * -walk_direction
+	curr_detection_range = new_detection_range * -walk_direction
+
+func reset_detection_range():
+	player_detecting_ray_cast.target_position.y = base_detection_range * -walk_direction
+	PlayerVariables.enemies_detection_range = base_detection_range
+
 func kill():
 	drop_currency()
 	queue_free()
@@ -31,7 +41,7 @@ func kill():
 func drop_currency():
 	var currency_instanced = currency_scene.instantiate()
 	currency_instanced.amount = currency_dropped
-	get_parent().add_child(currency_instanced)
+	get_parent().call_deferred("add_child", currency_instanced)
 	currency_instanced.position = position
 
 func take_demage():
@@ -56,8 +66,8 @@ func change_direction():
 		direction_change_timer.start()
 		can_change_direction = false
 		walk_direction *= -1
-		ground_detecting_ray_cast.position *= -1
-		player_detecting_ray_cast.target_position *= -1
+		ground_detecting_ray_cast.position *= -walk_direction
+		player_detecting_ray_cast.target_position *= -walk_direction
 
 func _on_direction_change_timer_timeout():
 	can_change_direction = true

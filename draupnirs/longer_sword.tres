@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=3 format=3 uid="uid://byk30ma7gnxwu"]
+
+[ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_6r86h"]
+[ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="1_nai8x"]
+
+[resource]
+script = ExtResource("1_6r86h")
+name = "Long sword"
+cost = 2
+description = "It imbues a sword with magic, that makes it a little longer."
+icon = ExtResource("1_nai8x")
+locked_icon = ExtResource("1_nai8x")
+is_unlocked = true
+effect = "res://draupnir_effects/long_sword.gd"

@@ -9,8 +9,28 @@ extends Node
 @export var equiped_draupnirs: Array[DraupnirStats]
 @export var draupnirs_folder_path: String = "res://draupnirs"
 @export var player: Player = null
+@export var coin_area_radius: int = 15
+@export var enemies_detection_range: int = 600
+@export var damage_multiplayer: int = 1
+@export var damage_taken_multiplayer: int = 1
+@export var dodge_chance: float = 0.0
 signal health_changed
 signal currency_changed
+
+
+func change_enemy_nodes(func_name: String, detection_range = null):
+	if detection_range:
+		get_tree().call_group("Enemies",func_name,detection_range)
+		enemies_detection_range = detection_range
+	else:
+		get_tree().call_group("Enemies",func_name)
+
+func change_coin_nodes(func_name: String, radius = null):
+	if radius:
+		get_tree().call_group("Coins",func_name,radius)
+		coin_area_radius = radius
+	else:
+		get_tree().call_group("Coins",func_name)
 
 func _set_health(new_value: int) -> void:
 	health = new_value

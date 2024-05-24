@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=3 format=3 uid="uid://chxexodgmekh"]
+
+[ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_5qymy"]
+[ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="1_60brk"]
+
+[resource]
+script = ExtResource("1_5qymy")
+name = "Damage"
+cost = 2
+description = "You deal more damage but you also take more."
+icon = ExtResource("1_60brk")
+locked_icon = ExtResource("1_60brk")
+is_unlocked = true
+effect = "res://draupnir_effects/damage.gd"

@@ -25,6 +25,7 @@ func _unhandled_input(event):
 		UI.show_inventory()
 
 func _ready():
+	PlayerVariables.player = self
 	if FastTravelPoints.curr_fast_travel_point:
 		global_position = FastTravelPoints.curr_fast_travel_point.position
 		#$Camera2D.offset = Vector2.ZERO
@@ -40,6 +41,12 @@ func _physics_process(_delta):
 		change_health(-1)
 	if Input.is_action_just_pressed("test_heal"):
 		change_health(1)
+
+func change_sword_size(amount: int = 0):
+	sword.change_sword_length(amount)
+
+func reset_sword_size():
+	sword.reset_sword_length()
 
 func hit(damage: int, node: Node2D):
 	if can_be_damaged:

@@ -40,3 +40,5 @@ layout_mode = 1
 focus_neighbor_left = NodePath("../Map")
 focus_neighbor_right = NodePath("../Map")
 focus_mode = 2
+
+[connection signal="hidden" from="Menues/DraupnirMenu" to="Menues/DraupnirMenu" method="_on_hidden"]

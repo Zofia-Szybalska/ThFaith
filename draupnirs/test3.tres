@@ -11,3 +11,4 @@ description = "Sprawdza, czy koszt działa"
 icon = ExtResource("1_jsvrx")
 locked_icon = ExtResource("1_jsvrx")
 is_unlocked = true
+effect = "res://draupnir_effects/test3.gd"

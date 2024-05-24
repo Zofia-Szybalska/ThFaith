@@ -27,7 +27,10 @@ func hide_all_menues():
 func show_inventory():
 	get_tree().paused = true
 	menues.show()
+	curr_window.show()
 
 func hide_inventory():
 	get_tree().paused = false
 	menues.hide()
+	hide_all_menues()
+	

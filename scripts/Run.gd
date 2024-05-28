@@ -15,7 +15,7 @@ func physics_update(delta: float) -> void:
 		else:
 			state_machine.transition_to("Fall", {coyote = true})
 		return
-	owner.velocity.x = owner.speed * owner.direction
+	owner.velocity.x = PlayerVariables.player_speed * owner.direction
 	owner.velocity.y += owner.gravity * delta
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Jump")

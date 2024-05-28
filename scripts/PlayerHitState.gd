@@ -10,7 +10,7 @@ func enter(msg := {}) -> void:
 
 
 func physics_update(delta: float) -> void:
-	owner.velocity.x = lerp(owner.velocity.x, float(owner.speed * owner.direction), 0.25)
+	owner.velocity.x = lerp(owner.velocity.x, float(PlayerVariables.player_speed * owner.direction), 0.25)
 	owner.velocity.y += owner.gravity * delta
 
 

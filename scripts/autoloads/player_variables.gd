@@ -11,12 +11,17 @@ extends Node
 @export var player: Player = null
 @export var coin_area_radius: int = 15
 @export var enemies_detection_range: int = 600
+@export var player_speed: int = 700
 @export var damage_multiplayer: int = 1
 @export var damage_taken_multiplayer: int = 1
 @export var dodge_chance: float = 0.0
+@export var currency_dropped_multiplayer: float = 1.0
 signal health_changed
 signal currency_changed
 
+
+func update_enemy_nodes():
+	get_tree().call_group("Enemies","update_enemy")
 
 func change_enemy_nodes(func_name: String, detection_range = null):
 	if detection_range:

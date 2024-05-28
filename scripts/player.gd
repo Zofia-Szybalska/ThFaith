@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed : int = 200
+
 @export var jump_force : int = 600
 @export var gravity : int = 900
 @export var dash_speed : int = 500
@@ -68,5 +68,4 @@ func heal(amount: int):
 	change_health(amount)
 
 func change_health(amount: int):
-	print("Oberwano za: " + str(amount))
 	PlayerVariables.health = clamp(PlayerVariables.health + amount, 0, PlayerVariables.max_health)

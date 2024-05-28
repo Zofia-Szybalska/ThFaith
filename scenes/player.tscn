@@ -98,7 +98,6 @@ _data = {
 scale = Vector2(0.45, 0.45)
 collision_layer = 2
 script = ExtResource("1_weano")
-speed = 700
 jump_force = 350
 dash_speed = 900
 wall_jump_pushback = 700

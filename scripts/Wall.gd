@@ -29,4 +29,4 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Jump", {wall_jump = true})
 		return
-	owner.velocity.x = owner.speed * owner.direction
+	owner.velocity.x = PlayerVariables.player_speed * owner.direction

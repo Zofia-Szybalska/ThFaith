@@ -11,7 +11,6 @@ signal on_hit(node: Node, damage_taken: int, knockback_direction: Vector2)
 
 func _on_hit(damage: int, knockback_direction: Vector2):
 	if can_be_damaged:
-		print("Przeciwnik oberwał za: " + str(damage))
 		can_be_damaged = false
 		health -= damage
 		if health <= 0:

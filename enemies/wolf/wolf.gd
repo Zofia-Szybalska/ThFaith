@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 @export var speed = 150.0
 @export var max_health = 30.0
-@export var currency_dropped: int = 10
+@export var base_currency_dropped: int = 10
 @export var base_detection_range: int = 600
 
 var currency_scene: PackedScene = preload("res://scenes/currency.tscn")
@@ -20,6 +20,10 @@ var curr_detection_range: int = base_detection_range
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var walk_direction = -1
+
+
+func update_enemy():
+	pass
 
 func _set_health(value):
 	health = value
@@ -40,7 +44,7 @@ func kill():
 
 func drop_currency():
 	var currency_instanced = currency_scene.instantiate()
-	currency_instanced.amount = currency_dropped
+	currency_instanced.amount = base_currency_dropped * PlayerVariables.currency_dropped_multiplayer
 	get_parent().call_deferred("add_child", currency_instanced)
 	currency_instanced.position = position
 

@@ -34,9 +34,9 @@ func physics_update(delta: float) -> void:
 	if owner.is_on_wall_only() and not Input.is_action_pressed("jump") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		state_machine.transition_to("Wall")
 	if wall_jump:
-		owner.velocity.x = lerp(owner.velocity.x, float(owner.speed * direction), 0.25)
+		owner.velocity.x = lerp(owner.velocity.x, float(PlayerVariables.player_speed * direction), 0.25)
 	elif not is_equal_approx(owner.velocity.x, 0.0):
-		owner.velocity.x = owner.speed * direction
+		owner.velocity.x = PlayerVariables.player_speed * direction
 	if owner.is_on_floor():
 		if is_equal_approx(owner.velocity.x, 0.0):
 			state_machine.transition_to("Idle")

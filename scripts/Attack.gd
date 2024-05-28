@@ -7,7 +7,7 @@ func enter(_msg := {}) -> void:
 	owner.animation_player.play("attack")
 
 func physics_update(delta: float) -> void:
-	owner.velocity.x = owner.speed * owner.direction
+	owner.velocity.x = PlayerVariables.player_speed * owner.direction
 	owner.velocity.y += owner.gravity * delta
 
 func end_attack():

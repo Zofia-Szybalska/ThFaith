@@ -64,7 +64,11 @@ func load_draupnirs(path):
 		var file_name = dir.get_next()
 		while file_name != "":
 			if not dir.current_is_dir():
-				draupnirs.append(load(path + "/" + file_name))
+				var draupnir: DraupnirStats = SafeResourceLoader.load(path + "/" + file_name)
+				if draupnir == null:
+					print("Resource wasn't safe!")
+				else:
+					draupnirs.append(draupnir)
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")

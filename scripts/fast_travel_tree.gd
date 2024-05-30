@@ -15,11 +15,7 @@ func _ready():
 		else:
 			FastTravelPoints.locked_points.append(fast_travel_point)
 
-#TODO giving the player ability to unlock it
-
 func _on_area_2d_body_entered(body):
-	print("coś weszło")
 	if body is Player:
-		print("Gracz")
 		is_unlocked = true
 		FastTravelPoints.unlock_point(fast_travel_point)

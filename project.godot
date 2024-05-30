@@ -24,6 +24,10 @@ FastTravelPoints="*res://scripts/autoloads/fast_travel_points.gd"
 
 export/convert_text_resources_to_binary=false
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/safe_resource_loader/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false

@@ -4,10 +4,8 @@ extends Node
 @export var health: int = 5 : set = _set_health
 @export var max_health: int = 5
 @export var currency: int = 0 : set = _set_currency
+@export var draupnirs: Draupnirs = Draupnirs.new()
 @export var draupnir_max_cost: int = 5
-@export var draupnirs: Array[DraupnirStats]
-@export var equiped_draupnirs: Array[DraupnirStats]
-@export var draupnirs_folder_path: String = "res://draupnirs"
 @export var player: Player = null
 @export var coin_area_radius: int = 15
 @export var enemies_detection_range: int = 600
@@ -47,28 +45,4 @@ func _set_currency(new_value: int) -> void:
 	currency_changed.emit(amount_changed)
 
 func _ready():
-	load_draupnirs(draupnirs_folder_path)
-
-func activate_draupnirs():
-	for draupnir in equiped_draupnirs:
-		draupnir.activate()
-
-func deactivate_draupnirs():
-	for draupnir in equiped_draupnirs:
-		draupnir.deactivate()
-
-func load_draupnirs(path):
-	var dir = DirAccess.open(path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if not dir.current_is_dir():
-				var draupnir: DraupnirStats = SafeResourceLoader.load(path + "/" + file_name)
-				if draupnir == null:
-					print("Resource wasn't safe!")
-				else:
-					draupnirs.append(draupnir)
-			file_name = dir.get_next()
-	else:
-		print("An error occurred when trying to access the path.")
+	draupnirs.load_draupnirs()

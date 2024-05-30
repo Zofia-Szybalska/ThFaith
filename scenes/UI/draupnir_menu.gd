@@ -20,7 +20,7 @@ func load_equiped_draupnirs():
 	equipped_draupnirs_cost = 0
 	for draupnir_cell in equiped_draupnirs.get_children():
 		draupnir_cell.queue_free()
-	for draupnir in PlayerVariables.equiped_draupnirs: 
+	for draupnir in PlayerVariables.draupnirs.equiped_draupnirs: 
 		equipped_draupnirs_cost += draupnir.cost
 		equiped_draupnirs.add_child(create_draupnir_cell(draupnir))
 	if equipped_draupnirs_cost < PlayerVariables.draupnir_max_cost:
@@ -36,19 +36,19 @@ func create_space_idicator() -> TextureRect:
 	return texture_rect
 
 func load_draupnirs():
-	for draupnir in PlayerVariables.draupnirs:
+	for draupnir in PlayerVariables.draupnirs.all_draupnirs:
 		draupnirs_icons_grid.add_child(create_draupnir_cell(draupnir))
 
 func _on_draupnir_equiped(draupnir_resource: DraupnirStats):
-	if PlayerVariables.equiped_draupnirs.has(draupnir_resource):
-		PlayerVariables.equiped_draupnirs.erase(draupnir_resource)
+	if PlayerVariables.draupnirs.equiped_draupnirs.has(draupnir_resource):
+		PlayerVariables.draupnirs.equiped_draupnirs.erase(draupnir_resource)
 		equipped_draupnirs_cost -= draupnir_resource.cost
 		load_equiped_draupnirs()
 		return
-	if (equipped_draupnirs_cost + draupnir_resource.cost <= PlayerVariables.draupnir_max_cost) and not PlayerVariables.equiped_draupnirs.has(draupnir_resource):
-		PlayerVariables.equiped_draupnirs.append(draupnir_resource)
+	if (equipped_draupnirs_cost + draupnir_resource.cost <= PlayerVariables.draupnir_max_cost) and not PlayerVariables.draupnirs.equiped_draupnirs.has(draupnir_resource):
+		PlayerVariables.draupnirs.equiped_draupnirs.append(draupnir_resource)
 		load_equiped_draupnirs()
-	elif not PlayerVariables.equiped_draupnirs.has(draupnir_resource):
+	elif not PlayerVariables.draupnirs.equiped_draupnirs.has(draupnir_resource):
 		print("This Draupnir costs too much!")
 
 func _on_draupnir_cell_clicked(draupnir_resource: DraupnirStats):
@@ -62,7 +62,7 @@ func create_draupnir_cell(draupnir: DraupnirStats):
 	return draupnir_cell
 
 func _on_hidden():
-	PlayerVariables.activate_draupnirs()
+	PlayerVariables.draupnirs.activate_draupnirs()
 
 func _on_draw():
-	PlayerVariables.deactivate_draupnirs()
+	PlayerVariables.draupnirs.deactivate_draupnirs()

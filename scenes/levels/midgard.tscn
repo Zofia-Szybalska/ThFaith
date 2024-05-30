@@ -29,47 +29,26 @@ layer_0/tile_data = PackedInt32Array(2555949, 65536, 1, 2555948, 65536, 1, 24904
 
 [node name="Wolf" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(4303, 926)
-speed = 150.0
-max_health = 30.0
-base_detection_range = 600
 metadata/_edit_group_ = true
 
 [node name="Wolf7" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(25742, 1096)
-speed = 150.0
-max_health = 30.0
-base_detection_range = 600
 
 [node name="Wolf6" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(24707, 1096)
-speed = 150.0
-max_health = 30.0
-base_detection_range = 600
 
 [node name="Wolf2" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(3498, 965)
-speed = 150.0
-max_health = 30.0
-base_detection_range = 600
 metadata/_edit_group_ = true
 
 [node name="Wolf3" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(8304, 1550)
-speed = 150.0
-max_health = 30.0
-base_detection_range = 600
 
 [node name="Wolf4" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(11959, 1618)
-speed = 150.0
-max_health = 30.0
-base_detection_range = 600
 
 [node name="Wolf5" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(13282, 1561)
-speed = 150.0
-max_health = 30.0
-base_detection_range = 600
 
 [node name="FastTravelTree" parent="." instance=ExtResource("5_04ngc")]
 position = Vector2(5784, 1009)

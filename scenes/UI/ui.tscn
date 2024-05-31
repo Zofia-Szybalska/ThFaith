@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://qhkocy3xgjen"]
+[gd_scene load_steps=6 format=3 uid="uid://qhkocy3xgjen"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_w5aib"]
 [ext_resource type="PackedScene" uid="uid://bkr6alnif7xut" path="res://scenes/UI/hud.tscn" id="2_8kq13"]
 [ext_resource type="PackedScene" uid="uid://cnhmhyid0160y" path="res://scenes/UI/map_menu.tscn" id="3_mgppr"]
 [ext_resource type="PackedScene" uid="uid://weg7jdo4eoyd" path="res://scenes/UI/draupnir_menu.tscn" id="4_fexnt"]
+[ext_resource type="PackedScene" uid="uid://bmvolrc3ww20d" path="res://scenes/UI/save_menu.tscn" id="5_1brht"]
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 2
@@ -19,6 +20,7 @@ offset_right = 1132.0
 offset_bottom = 628.0
 grow_horizontal = 1
 grow_vertical = 1
+mouse_filter = 2
 
 [node name="Menues" type="Control" parent="."]
 visible = false
@@ -28,6 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Map" parent="Menues" instance=ExtResource("3_mgppr")]
 visible = false
@@ -40,5 +43,10 @@ layout_mode = 1
 focus_neighbor_left = NodePath("../Map")
 focus_neighbor_right = NodePath("../Map")
 focus_mode = 2
+
+[node name="SaveMenu" parent="Menues" instance=ExtResource("5_1brht")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
 
 [connection signal="hidden" from="Menues/DraupnirMenu" to="Menues/DraupnirMenu" method="_on_hidden"]

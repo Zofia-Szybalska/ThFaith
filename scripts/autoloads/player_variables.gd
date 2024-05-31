@@ -6,7 +6,10 @@ extends Node
 @export var currency: int = 0 : set = _set_currency
 @export var draupnirs: Draupnirs = Draupnirs.new()
 @export var draupnir_max_cost: int = 5
+@export var fast_travel_points: FastTravelPoints = FastTravelPoints.new()
+@export var abilities: Abilities = Abilities.new()
 @export var player: Player = null
+@export var player_spawn_pos: Vector2 = Vector2.ZERO
 @export var coin_area_radius: int = 15
 @export var enemies_detection_range: int = 600
 @export var player_speed: int = 700
@@ -14,6 +17,8 @@ extends Node
 @export var damage_taken_multiplayer: int = 1
 @export var dodge_chance: float = 0.0
 @export var currency_dropped_multiplayer: float = 1.0
+@export var current_scene_path: String = "res://scenes/levels/midgard.tscn"
+@export var last_camp_pos: Vector2 = Vector2.ZERO
 signal health_changed
 signal currency_changed
 
@@ -46,3 +51,4 @@ func _set_currency(new_value: int) -> void:
 
 func _ready():
 	draupnirs.load_draupnirs()
+	fast_travel_points.load_points()

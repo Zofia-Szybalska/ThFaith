@@ -25,10 +25,11 @@ func _unhandled_input(event):
 		UI.show_inventory()
 
 func _ready():
+	if PlayerVariables.player_spawn_pos != Vector2.ZERO:
+		position = PlayerVariables.player_spawn_pos
 	PlayerVariables.player = self
-	if FastTravelPoints.curr_fast_travel_point:
-		global_position = FastTravelPoints.curr_fast_travel_point.position
-		#$Camera2D.offset = Vector2.ZERO
+	if PlayerVariables.fast_travel_points.curr_fast_travel_point:
+		global_position = PlayerVariables.fast_travel_points.curr_fast_travel_point.position
 
 func _physics_process(_delta):
 	direction = Input.get_axis("left", "right")

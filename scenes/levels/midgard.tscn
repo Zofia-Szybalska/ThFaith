@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ber3vandx8bfk"]
+[gd_scene load_steps=14 format=3 uid="uid://ber3vandx8bfk"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_5hrni"]
 [ext_resource type="PackedScene" uid="uid://cwt6vvuf855dq" path="res://enemies/wolf/wolf.tscn" id="2_h84jj"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scripts/SecretArea.gd" id="6_2iis0"]
 [ext_resource type="PackedScene" uid="uid://un2silbvtri8" path="res://tilemaps/midgard_tile_map_secrets.tscn" id="7_0vi8d"]
 [ext_resource type="Script" path="res://scripts/Damageable.gd" id="9_i3a8r"]
+[ext_resource type="PackedScene" uid="uid://d1a6mmn2l1r60" path="res://scenes/camp.tscn" id="9_ljka7"]
+[ext_resource type="Script" path="res://scripts/savel_loader.gd" id="10_j1tlb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyovn"]
 size = Vector2(616, 332)
@@ -57,7 +59,7 @@ point_name = "Midgard1"
 [node name="UI" parent="." instance=ExtResource("5_5rpm2")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("3_ofm00")]
-position = Vector2(461, 1122)
+position = Vector2(19088, 848)
 UI = NodePath("../UI")
 metadata/_edit_group_ = true
 
@@ -125,6 +127,13 @@ script = ExtResource("9_i3a8r")
 
 [node name="Timer" type="Timer" parent="SecretArea3/Brakeable_wall/Damageable"]
 wait_time = 0.5
+
+[node name="Camp" parent="." node_paths=PackedStringArray("saver_loader_node") instance=ExtResource("9_ljka7")]
+position = Vector2(18272, 1088)
+saver_loader_node = NodePath("../SaverLoader")
+
+[node name="SaverLoader" type="Node" parent="."]
+script = ExtResource("10_j1tlb")
 
 [connection signal="body_entered" from="SecretArea" to="SecretArea" method="_on_body_entered"]
 [connection signal="body_exited" from="SecretArea" to="SecretArea" method="_on_body_exited"]

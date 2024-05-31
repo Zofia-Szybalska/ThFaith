@@ -31,7 +31,7 @@ func _unhandled_input(event):
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				_zoom_at_point(1 / zoom_speed, mouse_position)
 
-func _process(delta):
+func _process(_delta):
 	whole_map.position.x = clamp(whole_map.position.x, -whole_map.size.x, 0)
 	whole_map.position.y = clamp(whole_map.position.y, -whole_map.size.y, 0)
 
@@ -54,7 +54,7 @@ func _zoom_at_point(zoom_change, mouse_position):
 	global_position.y = global_position.y - delta_y
 
 func _on_midgard_1_pressed():
-	var point = FastTravelPoints.get_point("Midgard1")
+	var point = PlayerVariables.fast_travel_points.get_point("Midgard1")
 	if point:
 		print("Znaleziono")
 		get_tree().paused = false

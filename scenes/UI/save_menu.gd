@@ -7,6 +7,7 @@ var saves_path = "user://"
 var selected_save: SaveGame
 
 func _ready():
+	anchors_preset = PRESET_FULL_RECT
 	var dir = DirAccess.open(saves_path)
 	if dir:
 		dir.list_dir_begin()
@@ -19,8 +20,6 @@ func _ready():
 				else:
 					var new_save_slot = save_slot.instantiate()
 					new_save_slot.save_data = save
-					print(save.level_path)
-					print(new_save_slot.save_data.level_path)
 					new_save_slot.save_slot_selected.connect(_on_save_slot_pressed)
 					saves_container.add_child(new_save_slot)
 			file_name = dir.get_next()

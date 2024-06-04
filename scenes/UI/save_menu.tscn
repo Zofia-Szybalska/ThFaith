@@ -54,7 +54,7 @@ text = "Load"
 
 [node name="EraseButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
-text = "Erase"
+text = "Reload"
 
 [node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2

@@ -30,6 +30,7 @@ func _unhandled_input(event):
 		hide_inventory()
 
 func hide_all_menues():
+	$Menues.hide()
 	for menu in menues.get_children():
 		menu.hide()
 

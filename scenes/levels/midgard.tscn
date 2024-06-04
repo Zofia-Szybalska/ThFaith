@@ -58,11 +58,13 @@ point_name = "Midgard1"
 
 [node name="UI" parent="." instance=ExtResource("5_5rpm2")]
 
+[node name="Menues" parent="UI" index="1"]
+visible = false
+
 [node name="SaveMenu" parent="UI/Menues" index="2" node_paths=PackedStringArray("saver_loader")]
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_top = 0.0
-offset_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 saver_loader = NodePath("../../../SaverLoader")
@@ -144,6 +146,7 @@ saver_loader_node = NodePath("../SaverLoader")
 [node name="SaverLoader" type="Node" parent="."]
 script = ExtResource("10_j1tlb")
 
+[connection signal="visibility_changed" from="UI/Menues/SaveMenu" to="UI/Menues/SaveMenu" method="_on_visibility_changed"]
 [connection signal="body_entered" from="SecretArea" to="SecretArea" method="_on_body_entered"]
 [connection signal="body_exited" from="SecretArea" to="SecretArea" method="_on_body_exited"]
 [connection signal="body_entered" from="SecretArea2" to="SecretArea2" method="_on_body_entered"]

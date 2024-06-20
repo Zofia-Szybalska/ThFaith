@@ -294,40 +294,35 @@ position = Vector2(15, 16)
 [node name="BackBackLeg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="WolfRbLeg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackBackLeg"]
-position = Vector2(-97.7865, 70.1918)
+position = Vector2(-97.7874, 70.1924)
 rotation = -1.23043
-scale = Vector2(0.999989, 0.999989)
 texture = ExtResource("8_p6ao8")
 
 [node name="WolfRbLeg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackBackLeg"]
-position = Vector2(-24.2084, -71.5303)
-rotation = 0.915519
+position = Vector2(-24.2081, -71.5304)
+rotation = 0.915525
 texture = ExtResource("9_5xgcg")
 
 [node name="WolfRbLeg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackBackLeg"]
-position = Vector2(-97.7865, 70.1918)
+position = Vector2(-97.7874, 70.1924)
 rotation = -1.23043
-scale = Vector2(0.999989, 0.999989)
 texture = ExtResource("10_s0nyx")
 
 [node name="FrontBackLeg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="WolfRfLeg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontBackLeg"]
-position = Vector2(-48.8582, -28.9472)
-rotation = 0.0785653
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(-48.8581, -28.9473)
+rotation = 0.078565
 texture = ExtResource("11_rfpdh")
 
 [node name="WolfRfLeg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontBackLeg"]
 position = Vector2(-40.3976, -26.3071)
 rotation = 0.259941
-scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("12_o5u8t")
 
 [node name="WolfRfLeg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontBackLeg"]
 position = Vector2(-50.6679, -27.195)
-rotation = 0.0785653
-scale = Vector2(0.999997, 0.999997)
+rotation = 0.078565
 texture = ExtResource("13_wrchq")
 
 [node name="WolfTail" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
@@ -348,28 +343,25 @@ texture = ExtResource("17_ii1jo")
 position = Vector2(-1, 1)
 
 [node name="WolfLbLeg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackFrontLeg"]
-position = Vector2(-71.8293, -7.89254)
-rotation = -0.106576
-scale = Vector2(0.99999, 0.99999)
+position = Vector2(-71.8304, -7.89302)
+rotation = -0.106575
 texture = ExtResource("18_6y05e")
 
 [node name="WolfLbLeg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackFrontLeg"]
-position = Vector2(-28.2698, -55.5097)
-rotation = 0.509721
+position = Vector2(-28.2698, -55.5098)
+rotation = 0.509722
 texture = ExtResource("19_rlm1r")
 
 [node name="WolfLbFoot" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackFrontLeg"]
-position = Vector2(-73.2491, -11.7634)
-rotation = -0.106576
-scale = Vector2(0.99999, 0.99999)
+position = Vector2(-73.2502, -11.7639)
+rotation = -0.106575
 texture = ExtResource("20_8xnke")
 
 [node name="FrontFrontLeg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="WolfLfLeg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontFrontLeg"]
-position = Vector2(-49.6795, -35.5614)
+position = Vector2(-49.6792, -35.5631)
 rotation = -0.263735
-scale = Vector2(0.999967, 0.999967)
 texture = ExtResource("21_405jx")
 
 [node name="WolfLfLeg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontFrontLeg"]
@@ -378,9 +370,8 @@ rotation = -0.0694134
 texture = ExtResource("22_kr552")
 
 [node name="WolfLfFoot" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontFrontLeg"]
-position = Vector2(-49.1581, -33.6306)
+position = Vector2(-49.1579, -33.6323)
 rotation = -0.263735
-scale = Vector2(0.999967, 0.999967)
 texture = ExtResource("23_s5fh0")
 
 [node name="WolfLHead" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]

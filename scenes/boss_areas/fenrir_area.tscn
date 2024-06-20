@@ -1,5 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://brlrnjt1xdgr6"]
+[gd_scene load_steps=45 format=3 uid="uid://brlrnjt1xdgr6"]
 
+[ext_resource type="Script" path="res://scenes/boss_areas/fenrir_area.gd" id="1_4fe5q"]
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_x8wr5"]
 [ext_resource type="Script" path="res://scripts/bosses/Fenrir.gd" id="3_30pt5"]
 [ext_resource type="Script" path="res://scripts/Damageable.gd" id="3_32mpn"]
@@ -27,9 +28,13 @@
 [ext_resource type="Script" path="res://enemies/hit_state.gd" id="24_k3wqn"]
 [ext_resource type="Script" path="res://scenes/boss_areas/FenrirBlowAttack.gd" id="25_r4dyl"]
 [ext_resource type="PackedScene" uid="uid://qhkocy3xgjen" path="res://scenes/UI/ui.tscn" id="26_2k644"]
+[ext_resource type="PackedScene" uid="uid://cuouq1fuqkkdp" path="res://scenes/sharp_rocks.tscn" id="28_jtb1h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bso8"]
-radius = 48.9721
+radius = 42.7253
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2k3s"]
+size = Vector2(71.9767, 44.5686)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qaujk"]
 radius = 24.8521
@@ -369,11 +374,20 @@ _data = {
 "RESET": SubResource("Animation_hsr18")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sipuv"]
+size = Vector2(241.125, 141)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmytn"]
+size = Vector2(270, 419.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_350vj"]
+size = Vector2(224, 832)
+
 [node name="FenrirArea" type="Node2D"]
+script = ExtResource("1_4fe5q")
 
 [node name="MidgardTileMap" parent="." instance=ExtResource("1_x8wr5")]
-scale = Vector2(4, 4)
-layer_0/tile_data = PackedInt32Array(196617, 65536, 1, 327679, 65536, 1, 393215, 65536, 1, 458751, 65536, 1, 393216, 65536, 1, 458752, 65536, 1, 458753, 65536, 1, 524289, 65536, 1, 524290, 65536, 1, 524291, 65536, 1, 458756, 65536, 1, 458757, 65536, 1, 458758, 393216, 1, 458759, 131072, 2, 393224, 131072, 2, 327688, 393216, 1, 327689, 65536, 2, 262153, 65536, 1, 262152, 65536, 1, 196616, 65536, 1, 196615, 65536, 1, 262151, 65536, 1, 327687, 65536, 1, 393222, 65536, 1, 393223, 393216, 1, 262150, 65536, 1, 196614, 65536, 1, 196613, 65536, 1, 196612, 65536, 1, 262144, 65536, 1, 262145, 65536, 1, 262146, 65536, 1, 262147, 65536, 1, 262148, 65536, 1, 262149, 65536, 1, 327685, 65536, 1, 327686, 65536, 1, 393221, 65536, 1, 393220, 65536, 1, 393219, 65536, 1, 393218, 65536, 1, 393217, 65536, 1, 327681, 65536, 1, 327680, 65536, 1, 327682, 65536, 1, 327683, 65536, 1, 327684, 65536, 1, 458755, 65536, 1, 458754, 65536, 1, 524287, 65536, 1, 589823, 65536, 1, 524288, 65536, 1, 589824, 65536, 2, 589825, 65536, 2, 589826, 65536, 2, 524292, 65536, 1, 524293, 65536, 1, 524294, 131072, 1, 589830, 131072, 2, 589829, 65536, 2, 589828, 65536, 2, 589827, 65536, 2, 655359, 65536, 2, 262143, 65536, 1, 196608, 65536, 1, 196609, 65536, 1, 196610, 65536, 1, 196611, 65536, 1, 196618, 65536, 1, 196619, 131072, 1, 262155, 131072, 2, 262154, 393216, 1, 327690, 131072, 2, 196607, 65536, 0, 131072, 65536, 0, 131073, 65536, 0, 131074, 65536, 0, 131075, 65536, 0, 131076, 65536, 0, 131077, 65536, 0, 131078, 65536, 0, 131079, 65536, 0, 131080, 65536, 0, 131081, 65536, 0, 131082, 65536, 0, 131083, 131072, 0, 196606, 65536, 0, 196605, 65536, 0, 196604, 393216, 0, 131068, 131072, 0, 131067, 65536, 0, 131066, 0, 0, 196602, 0, 1, 196603, 65536, 1, 262138, 0, 1, 262139, 65536, 1, 262140, 65536, 1, 262141, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, 327677, 65536, 1, 327676, 65536, 1, 327675, 65536, 1, 327674, 0, 1, 393211, 65536, 1, 393212, 65536, 1, 393213, 65536, 1, 393214, 65536, 1, 458750, 65536, 1, 458749, 65536, 1, 458748, 65536, 1, 393210, 0, 1, 458746, 0, 1, 524282, 0, 1, 589818, 0, 1, 589819, 65536, 1, 655355, 65536, 2, 655356, 65536, 2, 655357, 65536, 2, 655358, 65536, 2, 589822, 65536, 1, 524286, 65536, 1, 524285, 65536, 1, 524284, 65536, 1, 458747, 65536, 1, 524283, 65536, 1, 589820, 65536, 1, 589821, 65536, 1, 655354, 0, 2)
+layer_0/tile_data = PackedInt32Array(196617, 17, 0, 327679, 17, 0, 393215, 17, 0, 458751, 17, 0, 393216, 17, 0, 458752, 17, 0, 458753, 17, 0, 524289, 17, 0, 524290, 17, 0, 524291, 17, 0, 458756, 17, 0, 458757, 17, 0, 458758, 17, 0, 458759, 17, 0, 393224, 17, 0, 327688, 17, 0, 327689, 17, 0, 262153, 17, 0, 262152, 17, 0, 196616, 17, 0, 196615, 17, 0, 262151, 17, 0, 327687, 17, 0, 393222, 17, 0, 393223, 17, 0, 262150, 17, 0, 196614, 17, 0, 196613, 17, 0, 196612, 17, 0, 262144, 17, 0, 262145, 17, 0, 262146, 17, 0, 262147, 17, 0, 262148, 17, 0, 262149, 17, 0, 327685, 17, 0, 327686, 17, 0, 393221, 17, 0, 393220, 17, 0, 393219, 17, 0, 393218, 17, 0, 393217, 17, 0, 327681, 17, 0, 327680, 17, 0, 327682, 17, 0, 327683, 17, 0, 327684, 17, 0, 458755, 17, 0, 458754, 17, 0, 524287, 17, 0, 589823, 17, 0, 524288, 17, 0, 589824, 17, 0, 589825, 17, 0, 589826, 17, 0, 524292, 17, 0, 524293, 17, 0, 524294, 17, 0, 589830, 22, 0, 589829, 17, 0, 589828, 17, 0, 589827, 17, 0, 655359, 17, 0, 262143, 17, 0, 196608, 17, 0, 196609, 17, 0, 196610, 17, 0, 196611, 17, 0, 196618, 17, 0, 196619, 17, 0, 262155, 17, 0, 262154, 17, 0, 327690, 17, 0, 196607, 18, 0, 131072, 18, 0, 131073, 18, 0, 131074, 18, 0, 131075, 18, 0, 131076, 18, 0, 131077, 18, 0, 131078, 18, 0, 131079, 18, 0, 131080, 18, 0, 131081, 18, 0, 131082, 18, 0, 131083, 18, 0, 196606, 18, 0, 196605, 18, 0, 196604, 18, 0, 131067, 17, 0, 131066, 17, 0, 196602, 17, 0, 196603, 17, 0, 262138, 17, 0, 262139, 17, 0, 262140, 17, 0, 262141, 17, 0, 262142, 17, 0, 327678, 17, 0, 327677, 17, 0, 327676, 17, 0, 327675, 17, 0, 327674, 17, 0, 393211, 17, 0, 393212, 17, 0, 393213, 17, 0, 393214, 17, 0, 458750, 17, 0, 458749, 17, 0, 458748, 17, 0, 393210, 17, 0, 458746, 17, 0, 524282, 17, 0, 589818, 17, 0, 589819, 17, 0, 655355, 17, 0, 655356, 17, 0, 655357, 17, 0, 655358, 17, 0, 589822, 17, 0, 524286, 17, 0, 524285, 17, 0, 524284, 17, 0, 458747, 17, 0, 524283, 17, 0, 589820, 17, 0, 589821, 17, 0, 655354, 17, 0, 65530, 17, 0, 65531, 17, 0, -6, 17, 0, -5, 17, 0, -65542, 18, 0, -65541, 18, 0, 524295, 22, 0, 589831, 22, 0, 458760, 17, 0, 524296, 22, 0, 589832, 22, 0, 458761, 13, 0, 524297, 22, 0, 589833, 22, 0, 458762, 13, 0, 524298, 22, 0, 589834, 22, 0, 458763, 13, 0, 524299, 22, 0, 589835, 22, 0, 458764, 13, 0, 524300, 22, 0, 589836, 22, 0, 458765, 13, 0, 524301, 22, 0, 589837, 22, 0, 458766, 13, 0, 524302, 22, 0, 589838, 22, 0, 458767, 13, 0, 524303, 22, 0, 589839, 22, 0, 458768, 13, 0, 524304, 22, 0, 589840, 22, 0, 458769, 13, 0, 524305, 22, 0, 589841, 22, 0, 458770, 13, 0, 524306, 22, 0, 589842, 22, 0, 458771, 13, 0, 524307, 22, 0, 589843, 22, 0, 458772, 13, 0, 524308, 22, 0, 589844, 22, 0, 458773, 13, 0, 524309, 22, 0, 589845, 22, 0, 458774, 13, 0, 524310, 22, 0, 589846, 22, 0, 458775, 13, 0, 524311, 22, 0, 589847, 22, 0, 458776, 13, 0, 524312, 22, 0, 589848, 22, 0, 458777, 13, 0, 524313, 22, 0, 589849, 22, 0, 458778, 12, 65536, 524314, 23, 65536, 589850, 22, 0, -65545, 18, 0, -65544, 18, 0, -65543, 18, 0, -262159, 18, 0, -262158, 18, 0, -262157, 18, 0, -262156, 18, 0, -262155, 18, 0, -262154, 18, 0, -196623, 17, 0, -131087, 17, 0, -65551, 17, 0, -15, 17, 0, 65521, 17, 0, 131057, 17, 0, 196593, 17, 0, -196622, 17, 0, -131086, 17, 0, -65550, 17, 0, -14, 17, 0, 65522, 17, 0, 131058, 17, 0, 196594, 17, 0, -196621, 17, 0, -131085, 17, 0, -65549, 17, 0, -13, 17, 0, 65523, 17, 0, 131059, 17, 0, 196595, 17, 0, -196620, 17, 0, -131084, 17, 0, -65548, 17, 0, -12, 17, 0, 65524, 17, 0, 131060, 17, 0, 196596, 17, 0, -196619, 17, 0, -131083, 17, 0, -65547, 17, 0, -11, 17, 0, 65525, 17, 0, 131061, 17, 0, 196597, 17, 0, 262129, 17, 0, 262130, 17, 0, 262131, 17, 0, 262132, 17, 0, 262133, 17, 0, -196618, 17, 0, -131082, 17, 0, -65546, 17, 0, -10, 17, 0, 65526, 17, 0, 131062, 17, 0, 196598, 17, 0, 262134, 17, 0, 327665, 17, 0, 393201, 17, 0, 458737, 17, 0, 524273, 17, 0, 327666, 17, 0, 393202, 17, 0, 458738, 17, 0, 524274, 17, 0, 327667, 17, 0, 393203, 17, 0, 458739, 17, 0, 524275, 17, 0, 327668, 17, 0, 393204, 17, 0, 458740, 17, 0, 524276, 17, 0, 327669, 17, 0, 393205, 17, 0, 458741, 17, 0, 524277, 17, 0, 327670, 17, 0, 393206, 17, 0, 458742, 17, 0, 524278, 17, 0, -9, 17, 0, 65527, 17, 0, 131063, 17, 0, 196599, 17, 0, 262135, 17, 0, 327671, 17, 0, 393207, 17, 0, 458743, 17, 0, 524279, 17, 0, -8, 17, 0, 65528, 17, 0, 131064, 17, 0, 196600, 17, 0, 262136, 17, 0, 327672, 17, 0, 393208, 17, 0, 458744, 17, 0, 524280, 17, 0, -7, 17, 0, 65529, 17, 0, 131065, 17, 0, 196601, 17, 0, 262137, 17, 0, 327673, 17, 0, 393209, 17, 0, 458745, 17, 0, 524281, 17, 0, 589810, 17, 0, 655346, 17, 0, 589811, 17, 0, 655347, 17, 0, 589812, 17, 0, 655348, 17, 0, 589813, 17, 0, 655349, 17, 0, 589814, 17, 0, 655350, 17, 0, 589815, 17, 0, 655351, 17, 0, 589816, 17, 0, 655352, 17, 0, 589809, 17, 0, 589817, 17, 0, 655353, 17, 0, 655345, 17, 0)
 
 [node name="Fenrir" type="Area2D" parent="."]
 position = Vector2(1000, 166)
@@ -383,8 +397,12 @@ collision_mask = 2
 script = ExtResource("3_30pt5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fenrir"]
-position = Vector2(-13.2108, -28.5596)
+position = Vector2(-19.4448, -44.8312)
 shape = SubResource("CircleShape2D_1bso8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fenrir"]
+position = Vector2(-62.6556, -79.3998)
+shape = SubResource("RectangleShape2D_m2k3s")
 
 [node name="HeadCollisionShape2D2" type="CollisionShape2D" parent="Fenrir"]
 position = Vector2(-90.7426, -38.6196)
@@ -556,17 +574,57 @@ libraries = {
 "": SubResource("AnimationLibrary_r1gw6")
 }
 
+[node name="UI" parent="." instance=ExtResource("26_2k644")]
+
+[node name="Enviroment" type="Node2D" parent="."]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Enviroment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/StaticBody2D2"]
+position = Vector2(882.438, 210)
+shape = SubResource("RectangleShape2D_sipuv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/StaticBody2D"]
+position = Vector2(933, -53.25)
+shape = SubResource("RectangleShape2D_tmytn")
+
+[node name="SharpRocks" type="Node2D" parent="Enviroment"]
+
+[node name="SharpRocks" parent="Enviroment/SharpRocks" instance=ExtResource("28_jtb1h")]
+position = Vector2(-224, 96)
+rotation = 1.5708
+
+[node name="SharpRocks2" parent="Enviroment/SharpRocks" instance=ExtResource("28_jtb1h")]
+position = Vector2(-224, 32)
+rotation = 1.5708
+
+[node name="SharpRocks3" parent="Enviroment/SharpRocks" instance=ExtResource("28_jtb1h")]
+position = Vector2(-224, -32)
+rotation = 1.5708
+
+[node name="SharpRocks4" parent="Enviroment/SharpRocks" instance=ExtResource("28_jtb1h")]
+position = Vector2(-224, -96)
+rotation = 1.5708
+
+[node name="BattleTriggerArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleTriggerArea"]
+shape = SubResource("RectangleShape2D_350vj")
+
 [node name="Player" parent="." instance=ExtResource("3_fwde8")]
+position = Vector2(-720, -400)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = -685
+limit_left = -960
 limit_top = -810
 limit_right = 1051
 limit_bottom = 320
 editor_draw_limits = true
 
-[node name="UI" parent="." instance=ExtResource("26_2k644")]
-
+[connection signal="body_entered" from="Fenrir" to="Fenrir" method="_on_body_entered"]
 [connection signal="timeout" from="Fenrir/Damageable/Timer" to="Fenrir/Damageable" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Fenrir/StateMachine/PawAttack/Area2D" to="Fenrir/StateMachine/PawAttack" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Fenrir/StateMachine/JawAttack/Area2D" to="Fenrir/StateMachine/JawAttack" method="_on_area_2d_body_entered"]
@@ -576,3 +634,4 @@ editor_draw_limits = true
 [connection signal="animation_finished" from="Fenrir/AnimationPlayer" to="Fenrir/StateMachine/PawAttack" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Fenrir/AnimationPlayer" to="Fenrir/StateMachine/JawAttack" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Fenrir/AnimationPlayer" to="Fenrir/StateMachine/BlowAttack" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="BattleTriggerArea" to="." method="_on_battle_trigger_area_body_entered"]

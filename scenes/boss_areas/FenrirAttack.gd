@@ -2,14 +2,13 @@ extends State
 
 @onready var animation_player = $"../../AnimationPlayer"
 @onready var timer = $Timer
+var battle_started = false
 
-
-func _ready():
-	timer.start()
 
 func enter(_msg := {}) -> void:
 	animation_player.play("RESET")
-	timer.start()
+	if battle_started:
+		timer.start()
 
 func draw_attack():
 	var random = RandomNumberGenerator.new()

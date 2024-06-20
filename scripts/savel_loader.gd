@@ -24,3 +24,4 @@ func load_game(saved_game: SaveGame):
 	PlayerVariables.current_scene_path = saved_game.level_path
 	get_tree().paused = false
 	var error = get_tree().change_scene_to_file(saved_game.level_path)
+	print(error)

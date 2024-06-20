@@ -1,0 +1,578 @@
+[gd_scene load_steps=39 format=3 uid="uid://brlrnjt1xdgr6"]
+
+[ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_x8wr5"]
+[ext_resource type="Script" path="res://scripts/bosses/Fenrir.gd" id="3_30pt5"]
+[ext_resource type="Script" path="res://scripts/Damageable.gd" id="3_32mpn"]
+[ext_resource type="PackedScene" uid="uid://bg3pue4k6suxh" path="res://scenes/player.tscn" id="3_fwde8"]
+[ext_resource type="Texture2D" uid="uid://d35s5ohy06yqu" path="res://assets/sprites/wolf/WolfRBLeg2.png" id="4_54gj6"]
+[ext_resource type="Texture2D" uid="uid://jotp5pp5uimj" path="res://assets/sprites/wolf/WolfTail.png" id="4_rdwq8"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="5_b7i2v"]
+[ext_resource type="Texture2D" uid="uid://dn8enoyjk3j6a" path="res://assets/sprites/wolf/WolfRBLeg1.png" id="5_v2gp6"]
+[ext_resource type="Texture2D" uid="uid://bgrhnurc4wfow" path="res://assets/sprites/wolf/WolfRBLeg3.png" id="6_dr3kb"]
+[ext_resource type="Texture2D" uid="uid://dxbodh3bujlii" path="res://assets/sprites/wolf/WolfRFLeg1.png" id="7_1ng1o"]
+[ext_resource type="Texture2D" uid="uid://cuxdpx0qfjqss" path="res://assets/sprites/wolf/WolfBody1.png" id="7_ueegq"]
+[ext_resource type="Texture2D" uid="uid://cwdunbcegf1wr" path="res://assets/sprites/wolf/WolfBody2.png" id="8_2jlo6"]
+[ext_resource type="Texture2D" uid="uid://b4wyusva3kied" path="res://assets/sprites/wolf/WolfRFLeg2.png" id="8_ugfhv"]
+[ext_resource type="Texture2D" uid="uid://cbif67435qhi8" path="res://assets/sprites/wolf/WolfRFLeg3.png" id="9_re7l3"]
+[ext_resource type="Texture2D" uid="uid://cre31gwy8ftsr" path="res://assets/sprites/wolf/WolfLBLeg2.png" id="9_sdaw6"]
+[ext_resource type="Texture2D" uid="uid://dpdmq68x560av" path="res://assets/sprites/wolf/WolfLBLeg1.png" id="10_mb3yd"]
+[ext_resource type="Texture2D" uid="uid://q1x6ao85j5cr" path="res://assets/sprites/wolf/WolfLBLeg3.png" id="11_ou57q"]
+[ext_resource type="Texture2D" uid="uid://bk7qiqqx13ptl" path="res://assets/sprites/wolf/WolfLFLeg1.png" id="12_761uh"]
+[ext_resource type="Texture2D" uid="uid://ccemb8qiwpvxt" path="res://assets/sprites/wolf/WolfLFLeg2.png" id="13_8utbe"]
+[ext_resource type="Texture2D" uid="uid://d4jdxbbkvaeel" path="res://assets/sprites/wolf/WolfLFLeg3.png" id="14_wm72y"]
+[ext_resource type="Script" path="res://scenes/boss_areas/FenrirAttack.gd" id="17_qf4uc"]
+[ext_resource type="Texture2D" uid="uid://iv7v3fg1v1hg" path="res://assets/sprites/wolf/WolfLHead.png" id="20_2xs8n"]
+[ext_resource type="Script" path="res://scenes/boss_areas/FenrirJawAttack.gd" id="22_6wk8i"]
+[ext_resource type="Script" path="res://scenes/boss_areas/FenrirPawAttack.gd" id="22_ow8j5"]
+[ext_resource type="Script" path="res://enemies/hit_state.gd" id="24_k3wqn"]
+[ext_resource type="Script" path="res://scenes/boss_areas/FenrirBlowAttack.gd" id="25_r4dyl"]
+[ext_resource type="PackedScene" uid="uid://qhkocy3xgjen" path="res://scenes/UI/ui.tscn" id="26_2k644"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bso8"]
+radius = 48.9721
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qaujk"]
+radius = 24.8521
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hghl0"]
+size = Vector2(56.9842, 15.4013)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wn18"]
+size = Vector2(242, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0crdb"]
+size = Vector2(152, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ol2qp"]
+size = Vector2(546, 118.5)
+
+[sub_resource type="Animation" id="Animation_me4e2"]
+resource_name = "BlowAttack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Parts/WolfLHead:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-130.508, -29.8534), Vector2(-129.121, -31.5322), Vector2(-129.121, -31.5322), Vector2(-130.508, -29.8534)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Parts/WolfLHead:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.270836, -0.270836, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/BlowAttack/Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeadCollisionShape2D3:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeadCollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4m6eq"]
+resource_name = "JawAttack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Parts/WolfLHead:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-130.508, -29.8534), Vector2(-131.384, -28.8315), Vector2(-130.143, -36.7876), Vector2(-130.143, -36.7876), Vector2(-130.508, -29.8534)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Parts/WolfLHead:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.214156, -0.749577, -0.749577, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Parts/LeftFrontLeg/WolfRfLeg3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.437953, 0.437948)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/JawAttack/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeadCollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_sfuf4"]
+resource_name = "PawAttack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Parts/LeftFrontLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1, 1.4, 2, 2.0001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.93222, 1.93222, 1.5066, 1.5066, 0.0, 1.93222]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Parts/LeftFrontLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-132.406, -25.8389), Vector2(-141.822, -27.5177), Vector2(-141.822, -27.5177), Vector2(-141.019, -26.9337), Vector2(-141.019, -26.9337), Vector2(-132.406, -25.839)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/PawAttack/Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PawCollisionShape2D3:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_hsr18"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Parts/WolfLHead:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-130.508, -29.8534)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Parts/WolfLHead:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Parts/LeftFrontLeg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Parts/LeftFrontLeg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-132.114, -25.8389)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Parts/LeftFrontLeg/WolfRfLeg3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.729909, 0.656921)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StateMachine/PawAttack/Area2D/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StateMachine/JawAttack/Area2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StateMachine/BlowAttack/Area2D/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HeadCollisionShape2D2:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PawCollisionShape2D3:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HeadCollisionShape2D3:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1gw6"]
+_data = {
+"BlowAttack": SubResource("Animation_me4e2"),
+"JawAttack": SubResource("Animation_4m6eq"),
+"PawAttack": SubResource("Animation_sfuf4"),
+"RESET": SubResource("Animation_hsr18")
+}
+
+[node name="FenrirArea" type="Node2D"]
+
+[node name="MidgardTileMap" parent="." instance=ExtResource("1_x8wr5")]
+scale = Vector2(4, 4)
+layer_0/tile_data = PackedInt32Array(196617, 65536, 1, 327679, 65536, 1, 393215, 65536, 1, 458751, 65536, 1, 393216, 65536, 1, 458752, 65536, 1, 458753, 65536, 1, 524289, 65536, 1, 524290, 65536, 1, 524291, 65536, 1, 458756, 65536, 1, 458757, 65536, 1, 458758, 393216, 1, 458759, 131072, 2, 393224, 131072, 2, 327688, 393216, 1, 327689, 65536, 2, 262153, 65536, 1, 262152, 65536, 1, 196616, 65536, 1, 196615, 65536, 1, 262151, 65536, 1, 327687, 65536, 1, 393222, 65536, 1, 393223, 393216, 1, 262150, 65536, 1, 196614, 65536, 1, 196613, 65536, 1, 196612, 65536, 1, 262144, 65536, 1, 262145, 65536, 1, 262146, 65536, 1, 262147, 65536, 1, 262148, 65536, 1, 262149, 65536, 1, 327685, 65536, 1, 327686, 65536, 1, 393221, 65536, 1, 393220, 65536, 1, 393219, 65536, 1, 393218, 65536, 1, 393217, 65536, 1, 327681, 65536, 1, 327680, 65536, 1, 327682, 65536, 1, 327683, 65536, 1, 327684, 65536, 1, 458755, 65536, 1, 458754, 65536, 1, 524287, 65536, 1, 589823, 65536, 1, 524288, 65536, 1, 589824, 65536, 2, 589825, 65536, 2, 589826, 65536, 2, 524292, 65536, 1, 524293, 65536, 1, 524294, 131072, 1, 589830, 131072, 2, 589829, 65536, 2, 589828, 65536, 2, 589827, 65536, 2, 655359, 65536, 2, 262143, 65536, 1, 196608, 65536, 1, 196609, 65536, 1, 196610, 65536, 1, 196611, 65536, 1, 196618, 65536, 1, 196619, 131072, 1, 262155, 131072, 2, 262154, 393216, 1, 327690, 131072, 2, 196607, 65536, 0, 131072, 65536, 0, 131073, 65536, 0, 131074, 65536, 0, 131075, 65536, 0, 131076, 65536, 0, 131077, 65536, 0, 131078, 65536, 0, 131079, 65536, 0, 131080, 65536, 0, 131081, 65536, 0, 131082, 65536, 0, 131083, 131072, 0, 196606, 65536, 0, 196605, 65536, 0, 196604, 393216, 0, 131068, 131072, 0, 131067, 65536, 0, 131066, 0, 0, 196602, 0, 1, 196603, 65536, 1, 262138, 0, 1, 262139, 65536, 1, 262140, 65536, 1, 262141, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, 327677, 65536, 1, 327676, 65536, 1, 327675, 65536, 1, 327674, 0, 1, 393211, 65536, 1, 393212, 65536, 1, 393213, 65536, 1, 393214, 65536, 1, 458750, 65536, 1, 458749, 65536, 1, 458748, 65536, 1, 393210, 0, 1, 458746, 0, 1, 524282, 0, 1, 589818, 0, 1, 589819, 65536, 1, 655355, 65536, 2, 655356, 65536, 2, 655357, 65536, 2, 655358, 65536, 2, 589822, 65536, 1, 524286, 65536, 1, 524285, 65536, 1, 524284, 65536, 1, 458747, 65536, 1, 524283, 65536, 1, 589820, 65536, 1, 589821, 65536, 1, 655354, 0, 2)
+
+[node name="Fenrir" type="Area2D" parent="."]
+position = Vector2(1000, 166)
+scale = Vector2(3.70278, 3.70278)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_30pt5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fenrir"]
+position = Vector2(-13.2108, -28.5596)
+shape = SubResource("CircleShape2D_1bso8")
+
+[node name="HeadCollisionShape2D2" type="CollisionShape2D" parent="Fenrir"]
+position = Vector2(-90.7426, -38.6196)
+shape = SubResource("CircleShape2D_qaujk")
+disabled = true
+
+[node name="HeadCollisionShape2D3" type="CollisionShape2D" parent="Fenrir"]
+position = Vector2(-82.9107, -58.0645)
+shape = SubResource("CircleShape2D_qaujk")
+disabled = true
+
+[node name="PawCollisionShape2D3" type="CollisionShape2D" parent="Fenrir"]
+position = Vector2(-89.6624, -17.8244)
+shape = SubResource("RectangleShape2D_hghl0")
+disabled = true
+
+[node name="Damageable" type="Node" parent="Fenrir" node_paths=PackedStringArray("char_state_machine")]
+script = ExtResource("3_32mpn")
+health = 200
+char_state_machine = NodePath("../StateMachine")
+knockback = 50
+
+[node name="Timer" type="Timer" parent="Fenrir/Damageable"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Parts" type="Node2D" parent="Fenrir"]
+position = Vector2(480.45, 91.2828)
+scale = Vector2(3.7, 3.7)
+
+[node name="WolfTail" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-128.683, -29.0505)
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("4_rdwq8")
+
+[node name="LeftFrontLeg" type="Node2D" parent="Fenrir/Parts"]
+position = Vector2(-132.114, -25.8389)
+
+[node name="WolfRfLeg1" type="Sprite2D" parent="Fenrir/Parts/LeftFrontLeg"]
+rotation = 0.0727189
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("7_1ng1o")
+
+[node name="WolfRfLeg2" type="Sprite2D" parent="Fenrir/Parts/LeftFrontLeg"]
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("8_ugfhv")
+
+[node name="WolfRfLeg3" type="Sprite2D" parent="Fenrir/Parts/LeftFrontLeg"]
+position = Vector2(-0.729909, 0.656921)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("9_re7l3")
+
+[node name="WolfRbLeg2" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-132.581, -25.8589)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("4_54gj6")
+
+[node name="WolfRbLeg1" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-132.581, -26.3991)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("5_v2gp6")
+
+[node name="WolfRbLeg3" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-132.311, -25.3188)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("6_dr3kb")
+
+[node name="WolfBody1" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-130.421, -29.0998)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("7_ueegq")
+
+[node name="WolfBody2" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-130.151, -29.0998)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("8_2jlo6")
+
+[node name="WolfLbLeg2" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-130.421, -26.129)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("9_sdaw6")
+
+[node name="WolfLbLeg1" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-130.691, -26.6692)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("10_mb3yd")
+
+[node name="WolfLbLeg3" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-130.421, -26.6692)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("11_ou57q")
+
+[node name="WolfLfLeg1" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-133.392, -28.0195)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("12_761uh")
+
+[node name="WolfLfLeg2" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-133.122, -28.0195)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("13_8utbe")
+
+[node name="WolfLfLeg3" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-133.122, -26.6692)
+scale = Vector2(0.270067, 0.270067)
+texture = ExtResource("14_wm72y")
+
+[node name="WolfLHead" type="Sprite2D" parent="Fenrir/Parts"]
+position = Vector2(-130.508, -29.8534)
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("20_2xs8n")
+
+[node name="StateMachine" type="Node2D" parent="Fenrir"]
+script = ExtResource("5_b7i2v")
+initial_state = NodePath("Attack")
+
+[node name="PawAttack" type="Node" parent="Fenrir/StateMachine"]
+script = ExtResource("22_ow8j5")
+
+[node name="Area2D" type="Area2D" parent="Fenrir/StateMachine/PawAttack"]
+position = Vector2(584, 112)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fenrir/StateMachine/PawAttack/Area2D"]
+position = Vector2(64, -15)
+shape = SubResource("RectangleShape2D_5wn18")
+disabled = true
+
+[node name="JawAttack" type="Node" parent="Fenrir/StateMachine"]
+script = ExtResource("22_6wk8i")
+
+[node name="Area2D" type="Area2D" parent="Fenrir/StateMachine/JawAttack"]
+position = Vector2(616, 70)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fenrir/StateMachine/JawAttack/Area2D"]
+position = Vector2(12, 14)
+shape = SubResource("RectangleShape2D_0crdb")
+disabled = true
+
+[node name="Attack" type="Node" parent="Fenrir/StateMachine"]
+script = ExtResource("17_qf4uc")
+
+[node name="Timer" type="Timer" parent="Fenrir/StateMachine/Attack"]
+one_shot = true
+
+[node name="HitState" type="Node" parent="Fenrir/StateMachine" node_paths=PackedStringArray("damagable")]
+script = ExtResource("24_k3wqn")
+damagable = NodePath("../../Damageable")
+knockback_velocity = 0
+
+[node name="BlowAttack" type="Node" parent="Fenrir/StateMachine"]
+script = ExtResource("25_r4dyl")
+
+[node name="Area2D" type="Area2D" parent="Fenrir/StateMachine/BlowAttack"]
+position = Vector2(570, 86)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fenrir/StateMachine/BlowAttack/Area2D"]
+position = Vector2(-200, -16)
+shape = SubResource("RectangleShape2D_ol2qp")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fenrir"]
+libraries = {
+"": SubResource("AnimationLibrary_r1gw6")
+}
+
+[node name="Player" parent="." instance=ExtResource("3_fwde8")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -685
+limit_top = -810
+limit_right = 1051
+limit_bottom = 320
+editor_draw_limits = true
+
+[node name="UI" parent="." instance=ExtResource("26_2k644")]
+
+[connection signal="timeout" from="Fenrir/Damageable/Timer" to="Fenrir/Damageable" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Fenrir/StateMachine/PawAttack/Area2D" to="Fenrir/StateMachine/PawAttack" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Fenrir/StateMachine/JawAttack/Area2D" to="Fenrir/StateMachine/JawAttack" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Fenrir/StateMachine/Attack/Timer" to="Fenrir/StateMachine/Attack" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Fenrir/StateMachine/BlowAttack/Area2D" to="Fenrir/StateMachine/BlowAttack" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Fenrir/StateMachine/BlowAttack/Area2D" to="Fenrir/StateMachine/BlowAttack" method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="Fenrir/AnimationPlayer" to="Fenrir/StateMachine/PawAttack" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Fenrir/AnimationPlayer" to="Fenrir/StateMachine/JawAttack" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Fenrir/AnimationPlayer" to="Fenrir/StateMachine/BlowAttack" method="_on_animation_player_animation_finished"]

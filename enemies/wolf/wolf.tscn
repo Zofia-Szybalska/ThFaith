@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://enemies/wolf/wolf.gd" id="1_g5ghx"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="1_she2k"]
-[ext_resource type="Script" path="res://enemies/hit_state.gd" id="2_11ref"]
 [ext_resource type="Script" path="res://enemies/wolf/Walk.gd" id="3_kb4hf"]
+[ext_resource type="Script" path="res://enemies/wolf/WolfHitState.gd" id="4_4fp54"]
 [ext_resource type="Script" path="res://enemies/wolf/Attack.gd" id="6_rkr3u"]
 [ext_resource type="Script" path="res://scripts/Damageable.gd" id="6_vuy1y"]
 [ext_resource type="Texture2D" uid="uid://d35s5ohy06yqu" path="res://assets/sprites/wolf/WolfRBLeg2.png" id="8_p6ao8"]
@@ -96,7 +96,7 @@ script = ExtResource("6_vuy1y")
 char_state_machine = NodePath("../StateMachine")
 
 [node name="Timer" type="Timer" parent="Damageable"]
-wait_time = 0.2
+wait_time = 0.5
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -107,12 +107,8 @@ script = ExtResource("1_she2k")
 initial_state = NodePath("Walk")
 
 [node name="Hit" type="Node" parent="StateMachine" node_paths=PackedStringArray("damagable")]
-script = ExtResource("2_11ref")
+script = ExtResource("4_4fp54")
 damagable = NodePath("../../Damageable")
-
-[node name="Timer" type="Timer" parent="StateMachine/Hit"]
-wait_time = 0.5
-one_shot = true
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("3_kb4hf")
@@ -376,7 +372,7 @@ libraries = {
 }
 
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_direction_change_timer_timeout"]
-[connection signal="timeout" from="StateMachine/Hit/Timer" to="StateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="timeout" from="Damageable/Timer" to="StateMachine/Hit" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/ChargePreparationTimer" to="StateMachine/Attack" method="_on_charge_preparation_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/ChargeTimer" to="StateMachine/Attack" method="_on_charge_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/AttacBuffer" to="StateMachine/Attack" method="_on_attac_buffer_timeout"]

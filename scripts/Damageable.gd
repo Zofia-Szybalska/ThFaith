@@ -12,6 +12,7 @@ signal on_hit(node: Node, damage_taken: int, knockback_direction: Vector2)
 func _on_hit(damage: int, knockback_direction: Vector2):
 	if can_be_damaged:
 		can_be_damaged = false
+		get_parent().modulate = Color.RED
 		health -= damage
 		if health <= 0:
 			if get_parent().has_method("kill"):
@@ -24,5 +25,10 @@ func _on_hit(damage: int, knockback_direction: Vector2):
 		if timer:
 			timer.start()
 
+func start_timer():
+	if timer:
+		timer.start()
+
 func _on_timer_timeout():
 	can_be_damaged = true
+	get_parent().modulate = Color.WHITE

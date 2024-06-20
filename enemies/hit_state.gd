@@ -10,23 +10,14 @@ func _ready():
 
 func enter(_msg := {}) -> void:
 	damagable.can_be_damaged = false
-	$Timer.start()
+	damagable.start_timer()
 
 func on_dameable_hit(_node: Node, _damage: int, knockback_direction: Vector2):
-	owner.velocity = knockback_direction * knockback_velocity
+	if knockback_velocity > 0:
+		owner.velocity = knockback_direction * knockback_velocity
 
 func physics_update(_delta: float) -> void:
 	owner.velocity.x = lerp(owner.velocity.x, 0.0, 0.1)
-
-func _on_timer_timeout():
-	damagable.can_be_damaged = true
-	if owner.player_detecting_ray_cast.is_colliding():
-		owner.player = owner.player_detecting_ray_cast.get_collider()
-		state_machine.transition_to("Attack")
-		owner.velocity.x = 0
-		return
-	else:
-		state_machine.transition_to("Walk")
 
 func exit(_msg := {}) -> void:
 	damagable.can_be_damaged = true

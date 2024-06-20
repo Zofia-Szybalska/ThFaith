@@ -4,7 +4,10 @@ extends State
 func enter(_msg := {}) -> void:
 	owner.can_double_jump = true
 	owner.can_dash = true
-	owner.animation_player.play("walk_left")
+	if owner.direction == 1:
+		owner.animation_player.play("walk_right")
+	else:
+		owner.animation_player.play("walk_left")
 
 func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
@@ -17,6 +20,10 @@ func physics_update(delta: float) -> void:
 		return
 	owner.velocity.x = PlayerVariables.player_speed * owner.direction
 	owner.velocity.y += owner.gravity * delta
+	if owner.direction == 1:
+		owner.animation_player.play("walk_right")
+	else:
+		owner.animation_player.play("walk_left")
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Jump")
 	if Input.is_action_just_pressed("dash"):

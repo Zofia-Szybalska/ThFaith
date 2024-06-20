@@ -6,14 +6,14 @@ var dash_direction = 1
 
 func enter(msg := {}) -> void:
 	owner.velocity.y = 0
-	if owner.direction == 1:
+	if owner.sword_direction == 1:
 		owner.animation_player.play("dash_right")
 	else:
 		owner.animation_player.play("dash_left")
 	if (msg.has("air_dash")):
 		owner.can_dash = false
 	elapsed_dash = 0
-	if owner.direction == 1:
+	if owner.sword_direction == 1:
 		dash_direction = 1
 	else:
 		dash_direction = -1

@@ -1077,7 +1077,7 @@ remote_path = NodePath("../../../../../../Parts/WolfTail")
 [node name="FrontBactTight" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back"]
 position = Vector2(-2.33333, 21.4444)
 rotation = -0.0116451
-scale = Vector2(0.999776, 0.999776)
+scale = Vector2(0.999775, 0.999775)
 rest = Transform2D(1, 0, 0, 1, 9, 30)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/FrontBactTight"]

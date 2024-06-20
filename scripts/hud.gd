@@ -1,8 +1,8 @@
 extends Control
 
-@onready var hp_label = $VBoxContainer/Health/HPLabel
-@onready var currency_label = $VBoxContainer/Currency/CurrencyLabel
-@onready var currency_changed_lable = $VBoxContainer/Currency/CurrencyChangedLable
+@onready var hp_label = %HPLabel
+@onready var currency_label = %CurrencyLabel
+@onready var currency_changed_lable = %CurrencyChangedLable
 
 @export var time_showing_new_items: float = 5.0
 

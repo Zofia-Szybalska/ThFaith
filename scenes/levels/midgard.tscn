@@ -6,22 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://b02bw7llsbl8k" path="res://scenes/fast_travel_tree.tscn" id="5_04ngc"]
 [ext_resource type="PackedScene" uid="uid://qhkocy3xgjen" path="res://scenes/UI/ui.tscn" id="5_5rpm2"]
 [ext_resource type="Script" path="res://scripts/SecretArea.gd" id="6_2iis0"]
+[ext_resource type="PackedScene" uid="uid://5dld2f0i73w5" path="res://scenes/levels/secret_area.tscn" id="6_rra6i"]
 [ext_resource type="PackedScene" uid="uid://un2silbvtri8" path="res://tilemaps/midgard_tile_map_secrets.tscn" id="7_0vi8d"]
-[ext_resource type="Script" path="res://scripts/Damageable.gd" id="9_i3a8r"]
 [ext_resource type="PackedScene" uid="uid://d1a6mmn2l1r60" path="res://scenes/camp.tscn" id="9_ljka7"]
+[ext_resource type="PackedScene" uid="uid://dwcid3y7ok06w" path="res://scenes/levels/brakeable_wall.tscn" id="9_mk4fs"]
 [ext_resource type="Script" path="res://scripts/savel_loader.gd" id="10_j1tlb"]
 [ext_resource type="PackedScene" uid="uid://bdk5jryewdd5j" path="res://scenes/level_exit.tscn" id="11_yjfkk"]
 [ext_resource type="PackedScene" uid="uid://day77oedtlbsb" path="res://scenes/levels/midgard_2.tscn" id="12_kk523"]
 [ext_resource type="PackedScene" uid="uid://cuouq1fuqkkdp" path="res://scenes/sharp_rocks.tscn" id="13_cjio6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyovn"]
-size = Vector2(616, 332)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtn7x"]
 size = Vector2(1056, 1168)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w17cf"]
-size = Vector2(64, 256)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyovn"]
+size = Vector2(616, 332)
 
 [node name="Midgard" type="Node2D"]
 
@@ -84,17 +82,7 @@ limit_right = 29056
 limit_bottom = 1795
 editor_draw_limits = true
 
-[node name="SecretArea" type="Area2D" parent="."]
-position = Vector2(7040, 1536)
-collision_mask = 2
-script = ExtResource("6_2iis0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretArea"]
-position = Vector2(-8, -42)
-shape = SubResource("RectangleShape2D_jyovn")
-
-[node name="MidgardTileMap" parent="SecretArea" instance=ExtResource("7_0vi8d")]
-layer_0/tile_data = PackedInt32Array(-196604, 9, 65536, -131068, 9, 65536, -65532, 9, 65536, 4, 9, 65536, 65540, 9, 65536, -131077, 6, 0, -131076, 6, 0, -131075, 6, 0, -131074, 6, 0, -131073, 6, 0, -196608, 6, 0, -196607, 6, 0, -196606, 6, 0, -196605, 6, 0, -131069, 6, 0, -65533, 6, 0, 3, 6, 0, 65539, 6, 0, 131075, 6, 0, 131074, 6, 0, 131073, 6, 0, 131072, 6, 0, 196607, 6, 0, 196606, 6, 0, 196605, 6, 0, 196604, 6, 0, 196603, 6, 0, 131067, 6, 0, 65531, 6, 0, -5, 6, 0, -65541, 6, 0, -65540, 6, 0, -65539, 6, 0, -65538, 6, 0, -65537, 6, 0, -131072, 6, 0, -131071, 6, 0, -131070, 6, 0, -65534, 6, 0, 2, 6, 0, 65538, 6, 0, 65537, 6, 0, 65536, 6, 0, 131071, 6, 0, 131070, 6, 0, 131069, 6, 0, 65533, 6, 0, 65532, 6, 0, -4, 6, 0, -3, 6, 0, -2, 6, 0, -1, 6, 0, -65536, 6, 0, -65535, 6, 0, 1, 6, 0, 0, 6, 0, 65535, 6, 0, 65534, 6, 0, 131068, 6, 0, 131076, 8, 65536)
+[node name="SecretArea" parent="." instance=ExtResource("6_rra6i")]
 
 [node name="SecretArea2" type="Area2D" parent="."]
 position = Vector2(11968, 320)
@@ -120,21 +108,10 @@ shape = SubResource("RectangleShape2D_jyovn")
 [node name="MidgardTileMap" parent="SecretArea3" instance=ExtResource("7_0vi8d")]
 layer_0/tile_data = PackedInt32Array(-131076, 8, 131072, -65540, 9, 0, -4, 9, 0, 65532, 9, 0, 131068, 9, 0, 131069, 6, 0, 196605, 6, 0, 196606, 6, 0, 196607, 6, 0, 131072, 6, 0, 131073, 6, 0, 65537, 6, 0, 131074, 6, 0, 131075, 6, 0, 65539, 6, 0, 65540, 6, 0, 4, 6, 0, 131076, 6, 0, -65532, 6, 0, -131068, 6, 0, -196604, 6, 0, -196605, 6, 0, -196606, 6, 0, -196607, 6, 0, -196608, 6, 0, -131073, 6, 0, -131074, 6, 0, -131075, 6, 0, -65539, 6, 0, 196604, 8, 0, 131070, 6, 0, 65533, 6, 0, -3, 6, 0, -65538, 6, 0, -65537, 6, 0, -131072, 6, 0, -131071, 6, 0, -131070, 6, 0, -131069, 6, 0, -65533, 6, 0, 3, 6, 0, 65538, 6, 0, 65536, 6, 0, 131071, 6, 0, 65535, 6, 0, 65534, 6, 0, -2, 6, 0, -1, 6, 0, -65535, 6, 0, -65534, 6, 0, 2, 6, 0, 1, 6, 0, 0, 6, 0, -65536, 6, 0)
 
-[node name="Brakeable_wall" type="Area2D" parent="SecretArea3"]
-collision_layer = 4
+[node name="Brakeable_wall" parent="SecretArea3" instance=ExtResource("9_mk4fs")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretArea3/Brakeable_wall"]
-position = Vector2(-304, 16)
-shape = SubResource("RectangleShape2D_w17cf")
-
-[node name="MidgardTileMap" parent="SecretArea3/Brakeable_wall" instance=ExtResource("1_5hrni")]
-layer_0/tile_data = PackedInt32Array(-65541, 24, 0, -5, 24, 0, 65531, 24, 0, 131067, 24, 0, 196603, 23, 0, -131077, 24, 0, -131076, 22, 0, -65540, 22, 0, -4, 22, 0, 65532, 22, 0, 131068, 22, 0, 196604, 22, 0)
-
-[node name="Damageable" type="Node" parent="SecretArea3/Brakeable_wall"]
-script = ExtResource("9_i3a8r")
-
-[node name="Timer" type="Timer" parent="SecretArea3/Brakeable_wall/Damageable"]
-wait_time = 0.5
+[node name="MidgardTileMap" parent="SecretArea3/Brakeable_wall" index="1"]
+layer_0/tile_data = PackedInt32Array(-131076, 22, 0, -65540, 22, 0, -4, 22, 0, 65532, 22, 0, 131068, 22, 0, 196604, 22, 0, 196603, 23, 0, -65541, 24, 0, -5, 24, 0, 65531, 24, 0, 131067, 24, 0, -131077, 24, 0)
 
 [node name="Camp" parent="." node_paths=PackedStringArray("saver_loader_node") instance=ExtResource("9_ljka7")]
 position = Vector2(18272, 1088)
@@ -189,13 +166,10 @@ position = Vector2(4896, 1760)
 position = Vector2(4832, 1760)
 
 [connection signal="visibility_changed" from="UI/Menues/SaveMenu" to="UI/Menues/SaveMenu" method="_on_visibility_changed"]
-[connection signal="body_entered" from="SecretArea" to="SecretArea" method="_on_body_entered"]
-[connection signal="body_exited" from="SecretArea" to="SecretArea" method="_on_body_exited"]
 [connection signal="body_entered" from="SecretArea2" to="SecretArea2" method="_on_body_entered"]
 [connection signal="body_exited" from="SecretArea2" to="SecretArea2" method="_on_body_exited"]
 [connection signal="body_entered" from="SecretArea3" to="SecretArea3" method="_on_body_entered"]
 [connection signal="body_exited" from="SecretArea3" to="SecretArea3" method="_on_body_exited"]
-[connection signal="area_entered" from="SecretArea3/Brakeable_wall" to="SecretArea3/Brakeable_wall" method="_on_area_entered"]
-[connection signal="timeout" from="SecretArea3/Brakeable_wall/Damageable/Timer" to="SecretArea3/Brakeable_wall/Damageable" method="_on_timer_timeout"]
 
 [editable path="UI"]
+[editable path="SecretArea3/Brakeable_wall"]

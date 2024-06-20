@@ -10,8 +10,11 @@ extends CanvasLayer
 @onready var prev_window = save_menu
 
 var is_menu_shown = false
+var has_demo_ended = false
 
 func _unhandled_input(event):
+	if has_demo_ended:
+		return
 	if event.is_action_pressed("left"):
 		curr_window.hide()
 		var temp_window = curr_window

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://brlrnjt1xdgr6"]
+[gd_scene load_steps=47 format=3 uid="uid://brlrnjt1xdgr6"]
 
 [ext_resource type="Script" path="res://scenes/boss_areas/fenrir_area.gd" id="1_4fe5q"]
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_x8wr5"]
@@ -29,6 +29,8 @@
 [ext_resource type="Script" path="res://scenes/boss_areas/FenrirBlowAttack.gd" id="25_r4dyl"]
 [ext_resource type="PackedScene" uid="uid://qhkocy3xgjen" path="res://scenes/UI/ui.tscn" id="26_2k644"]
 [ext_resource type="PackedScene" uid="uid://cuouq1fuqkkdp" path="res://scenes/sharp_rocks.tscn" id="28_jtb1h"]
+[ext_resource type="PackedScene" uid="uid://dvvwfyo3tthax" path="res://scenes/UI/demo_end.tscn" id="30_6qhde"]
+[ext_resource type="Script" path="res://scripts/savel_loader.gd" id="31_lqe1s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bso8"]
 radius = 42.7253
@@ -421,7 +423,7 @@ disabled = true
 
 [node name="Damageable" type="Node" parent="Fenrir" node_paths=PackedStringArray("char_state_machine")]
 script = ExtResource("3_32mpn")
-health = 200
+health = 100
 char_state_machine = NodePath("../StateMachine")
 knockback = 50
 
@@ -576,6 +578,12 @@ libraries = {
 
 [node name="UI" parent="." instance=ExtResource("26_2k644")]
 
+[node name="SaveMenu" parent="UI/Menues" index="2" node_paths=PackedStringArray("saver_loader")]
+saver_loader = NodePath("../../../SaverLoader")
+
+[node name="DemoEnd" parent="UI" instance=ExtResource("30_6qhde")]
+visible = false
+
 [node name="Enviroment" type="Node2D" parent="."]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Enviroment"]
@@ -625,6 +633,9 @@ limit_right = 1051
 limit_bottom = 320
 editor_draw_limits = true
 
+[node name="SaverLoader" type="Node" parent="."]
+script = ExtResource("31_lqe1s")
+
 [connection signal="body_entered" from="Fenrir" to="Fenrir" method="_on_body_entered"]
 [connection signal="timeout" from="Fenrir/Damageable/Timer" to="Fenrir/Damageable" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Fenrir/StateMachine/PawAttack/Area2D" to="Fenrir/StateMachine/PawAttack" method="_on_area_2d_body_entered"]
@@ -636,3 +647,5 @@ editor_draw_limits = true
 [connection signal="animation_finished" from="Fenrir/AnimationPlayer" to="Fenrir/StateMachine/JawAttack" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Fenrir/AnimationPlayer" to="Fenrir/StateMachine/BlowAttack" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="BattleTriggerArea" to="." method="_on_battle_trigger_area_body_entered"]
+
+[editable path="UI"]

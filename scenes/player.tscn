@@ -1663,103 +1663,99 @@ position = Vector2(-11.1111, 22.2222)
 [node name="Parts" type="Node2D" parent="PartsSKeletonContainer"]
 
 [node name="LeithHead" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
-position = Vector2(10.511, -23.6179)
-rotation = -0.0481646
 scale = Vector2(0.999815, 0.999815)
 texture = ExtResource("24_53755")
 
 [node name="Rarm" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="LeithRarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(3.70044, -18.1497)
-rotation = -0.0119993
 scale = Vector2(0.999821, 0.999821)
 texture = ExtResource("12_aqtcy")
 
 [node name="LeithRarm2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(5.29797, -21.8236)
-rotation = 0.00298082
-scale = Vector2(0.999686, 0.999686)
+position = Vector2(11.9109, -24.7148)
+rotation = -0.177472
+scale = Vector2(0.999689, 0.999689)
 texture = ExtResource("13_wmssa")
 
 [node name="LeithRarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(7.24146, -15.3752)
-rotation = 0.100111
-scale = Vector2(0.999547, 0.999547)
+position = Vector2(14.9802, -18.7199)
+rotation = -0.0803418
+scale = Vector2(0.99955, 0.99955)
 texture = ExtResource("14_5ouva")
 
 [node name="Lleg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 modulate = Color(0, 0, 0, 1)
 
 [node name="LeithLleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
-position = Vector2(18.2734, -70.6514)
-rotation = 0.315953
-scale = Vector2(0.999834, 0.999834)
+position = Vector2(4.99238, -68.465)
+rotation = 0.126794
+scale = Vector2(0.999833, 0.999833)
 texture = ExtResource("18_y0d76")
 
 [node name="LeithLleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
-position = Vector2(7.54106, 18.5254)
-rotation = 0.0486834
-scale = Vector2(0.999679, 0.999679)
+position = Vector2(22.5371, 21.146)
+rotation = 0.186425
+scale = Vector2(0.999677, 0.999677)
 texture = ExtResource("19_r8h7i")
 
 [node name="LeithLleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
-position = Vector2(-37.6803, -19.8514)
-rotation = -0.249713
-scale = Vector2(0.999679, 0.999679)
+position = Vector2(-16.9865, -23.0764)
+rotation = -0.111971
+scale = Vector2(0.999677, 0.999677)
 texture = ExtResource("20_7kpfw")
 
 [node name="Body" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 position = Vector2(8.88889, -18.7778)
 
 [node name="LeithBody2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
-position = Vector2(1.20723, -4.34563)
+position = Vector2(2.22218, -2.51213)
 scale = Vector2(0.999988, 0.999988)
 texture = ExtResource("20_cf140")
 
 [node name="LeithBody1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
-position = Vector2(1.20717, -3.12358)
+position = Vector2(2.22212, -1.29008)
 scale = Vector2(0.999983, 0.999983)
 texture = ExtResource("26_0uo80")
 
 [node name="RLeg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="LeithRleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
-position = Vector2(33.5244, -51.1137)
-rotation = 0.436621
-scale = Vector2(0.999817, 0.999817)
+position = Vector2(14.8158, -60.455)
+rotation = 0.106727
+scale = Vector2(0.999815, 0.999815)
 texture = ExtResource("21_4jkho")
 
 [node name="LeithRleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
-position = Vector2(-16.2916, 10.5401)
-rotation = -0.130689
-scale = Vector2(0.999674, 0.999674)
+position = Vector2(8.50183, 19.3165)
+rotation = 0.106727
+scale = Vector2(0.999673, 0.999673)
 texture = ExtResource("22_hd2fg")
 
 [node name="LeithRleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
-position = Vector2(-28.3997, -30.4394)
-rotation = -0.130689
-scale = Vector2(0.999671, 0.999671)
+position = Vector2(6.37137, -23.3612)
+rotation = 0.106727
+scale = Vector2(0.99967, 0.99967)
 texture = ExtResource("23_8sy8v")
 
 [node name="Larm" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="LeithLarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
-position = Vector2(8.38036, -24.05)
-rotation = 0.117945
+position = Vector2(10.6656, -21.84)
+rotation = 0.0759723
 scale = Vector2(0.999817, 0.999817)
 texture = ExtResource("15_cp7yb")
 
 [node name="LeithLarm2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
-position = Vector2(9.29152, -24.4797)
-rotation = 0.149184
-scale = Vector2(0.999682, 0.999682)
+position = Vector2(11.5579, -22.3076)
+rotation = 0.107212
+scale = Vector2(0.999684, 0.999684)
 texture = ExtResource("16_h8cru")
 
 [node name="LeithLarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
-position = Vector2(9.29279, -24.4785)
-rotation = 0.152171
-scale = Vector2(0.999635, 0.999635)
+position = Vector2(11.5593, -22.3064)
+rotation = 0.110199
+scale = Vector2(0.999636, 0.999636)
 texture = ExtResource("17_og04f")
 
 [node name="LeithBody" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]

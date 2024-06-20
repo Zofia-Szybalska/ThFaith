@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ber3vandx8bfk"]
+[gd_scene load_steps=16 format=3 uid="uid://ber3vandx8bfk"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_5hrni"]
 [ext_resource type="PackedScene" uid="uid://cwt6vvuf855dq" path="res://enemies/wolf/wolf.tscn" id="2_h84jj"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://scripts/Damageable.gd" id="9_i3a8r"]
 [ext_resource type="PackedScene" uid="uid://d1a6mmn2l1r60" path="res://scenes/camp.tscn" id="9_ljka7"]
 [ext_resource type="Script" path="res://scripts/savel_loader.gd" id="10_j1tlb"]
+[ext_resource type="PackedScene" uid="uid://bdk5jryewdd5j" path="res://scenes/level_exit.tscn" id="11_yjfkk"]
+[ext_resource type="PackedScene" uid="uid://brlrnjt1xdgr6" path="res://scenes/boss_areas/fenrir_area.tscn" id="12_itq3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyovn"]
 size = Vector2(616, 332)
@@ -144,6 +146,10 @@ saver_loader_node = NodePath("../SaverLoader")
 
 [node name="SaverLoader" type="Node" parent="."]
 script = ExtResource("10_j1tlb")
+
+[node name="LevelExit" parent="." instance=ExtResource("11_yjfkk")]
+position = Vector2(28112, 992)
+next_scene = ExtResource("12_itq3b")
 
 [connection signal="visibility_changed" from="UI/Menues/SaveMenu" to="UI/Menues/SaveMenu" method="_on_visibility_changed"]
 [connection signal="body_entered" from="SecretArea" to="SecretArea" method="_on_body_entered"]

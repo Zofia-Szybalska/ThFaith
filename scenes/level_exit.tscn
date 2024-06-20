@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdk5jryewdd5j"]
+
+[ext_resource type="Script" path="res://scripts/LevelExit.gd" id="1_nvk0s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trf83"]
+size = Vector2(64, 128)
+
+[node name="LevelExit" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_nvk0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_trf83")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

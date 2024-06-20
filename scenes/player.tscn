@@ -2357,19 +2357,19 @@ show_behind_parent = true
 
 [node name="LeithRleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
 position = Vector2(6.83956, -59.9812)
-rotation = 0.0929209
+rotation = 0.0929208
 scale = Vector2(0.999822, 0.999822)
 texture = ExtResource("21_4jkho")
 
 [node name="LeithRleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
 position = Vector2(3.13688, 19.6826)
-rotation = 0.0929209
+rotation = 0.0929208
 scale = Vector2(0.999653, 0.999653)
 texture = ExtResource("22_hd2fg")
 
 [node name="LeithRleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
-position = Vector2(0.41748, -22.9607)
-rotation = 0.0929209
+position = Vector2(0.417478, -22.9607)
+rotation = 0.0929208
 scale = Vector2(0.99965, 0.99965)
 texture = ExtResource("23_8sy8v")
 

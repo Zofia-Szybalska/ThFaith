@@ -1579,10 +1579,7 @@ modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_nxviu")
 scale = Vector2(0.45, 0.45)
 collision_layer = 2
 script = ExtResource("1_weano")
-<<<<<<< HEAD
-=======
-speed = 605
->>>>>>> wolfAnim
+
 jump_force = 350
 dash_speed = 900
 wall_jump_pushback = 700
@@ -1777,10 +1774,6 @@ texture = ExtResource("25_d66wp")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="PartsSKeletonContainer"]
 visible = false
-<<<<<<< HEAD
-=======
-modification_stack = SubResource("SkeletonModificationStack2D_jbm5y")
->>>>>>> wolfAnim
 
 [node name="Base" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D"]
 position = Vector2(0, -1.29)

@@ -4,9 +4,16 @@ extends State
 
 func enter(_msg := {}) -> void:
 	attack_timer.start()
-	owner.animation_player.play("attack")
+	if owner.sword_direction == 1:
+		owner.animation_player.play("attack_right")
+	elif owner.sword_direction == -1:
+		owner.animation_player.play("attack_left")
 
 func physics_update(delta: float) -> void:
+	if owner.direction == 1:
+		owner.animation_player.play("attack_right")
+	else:
+		owner.animation_player.play("attack_left")
 	owner.velocity.x = PlayerVariables.player_speed * owner.direction
 	owner.velocity.y += owner.gravity * delta
 

@@ -17,7 +17,8 @@ class_name Player
 var can_double_jump: bool = true
 var can_dash: bool = true
 var can_be_damaged: bool = true
-var direction = 1
+var direction = -1
+var sword_direction = -1
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory"):
@@ -35,8 +36,10 @@ func _physics_process(_delta):
 	direction = Input.get_axis("left", "right")
 	if direction == 1:
 		sword.position = sword.right_pos
+		sword_direction = 1
 	elif direction == -1:
 		sword.position = sword.left_pos
+		sword_direction = -1
 	move_and_slide()
 	if Input.is_action_just_pressed("test_hit"):
 		change_health(-1)

@@ -62,6 +62,7 @@ joint_two_bone_idx = 13
 joint_two_bone2d_node = NodePath("Base/Body/Back/FrontBactTight/FrontBackLeg")
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_vmo7g"]
+enabled = true
 modification_count = 4
 modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_saf4k")
 modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_eh2ct")
@@ -893,8 +894,8 @@ texture = ExtResource("10_s0nyx")
 [node name="FrontBackLeg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="WolfRfLeg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontBackLeg"]
-position = Vector2(-50.8162, -27.9062)
-rotation = 0.14669
+position = Vector2(-50.6773, -27.8652)
+rotation = 0.150027
 scale = Vector2(0.999669, 0.999669)
 texture = ExtResource("11_rfpdh")
 
@@ -905,8 +906,8 @@ scale = Vector2(0.999838, 0.999838)
 texture = ExtResource("12_o5u8t")
 
 [node name="WolfRfLeg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontBackLeg"]
-position = Vector2(-109.793, -18.5008)
-rotation = -0.694135
+position = Vector2(-128.837, 0.12495)
+rotation = -1.06315
 scale = Vector2(0.999656, 0.999656)
 texture = ExtResource("13_wrchq")
 
@@ -949,20 +950,20 @@ texture = ExtResource("20_8xnke")
 [node name="FrontFrontLeg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="WolfLfLeg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontFrontLeg"]
-position = Vector2(-32.9805, -28.6656)
-rotation = 0.149916
+position = Vector2(-33.0185, -34.7219)
+rotation = -0.123644
 scale = Vector2(0.999672, 0.999672)
 texture = ExtResource("21_405jx")
 
 [node name="WolfLfLeg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontFrontLeg"]
-position = Vector2(-37.5035, -26.8904)
-rotation = 0.149916
+position = Vector2(-36.8937, -31.7908)
+rotation = -0.123644
 scale = Vector2(0.999837, 0.999837)
 texture = ExtResource("22_kr552")
 
 [node name="WolfLfFoot" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontFrontLeg"]
-position = Vector2(-33.2791, -26.6887)
-rotation = 0.149916
+position = Vector2(-32.7719, -32.7378)
+rotation = -0.123644
 scale = Vector2(0.999672, 0.999672)
 texture = ExtResource("23_s5fh0")
 
@@ -1031,7 +1032,7 @@ remote_path = NodePath("../../../../../../../../Parts/FrontBackLeg/WolfRfLeg3")
 [node name="FrontFrontShoulder" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front"]
 position = Vector2(8, 21.4444)
 rotation = -0.123644
-scale = Vector2(0.999837, 0.999837)
+scale = Vector2(0.999838, 0.999838)
 rest = Transform2D(1, 0, 0, 1, 5, 21)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontFrontShoulder"]
@@ -1076,7 +1077,7 @@ remote_path = NodePath("../../../../../../Parts/WolfTail")
 [node name="FrontBactTight" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back"]
 position = Vector2(-2.33333, 21.4444)
 rotation = -0.0116451
-scale = Vector2(0.999777, 0.999777)
+scale = Vector2(0.999776, 0.999776)
 rest = Transform2D(1, 0, 0, 1, 9, 30)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/FrontBactTight"]

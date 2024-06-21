@@ -2219,6 +2219,7 @@ scale = Vector2(0.45, 0.45)
 collision_layer = 2
 script = ExtResource("1_weano")
 jump_force = 350
+gravity = 700
 dash_speed = 900
 wall_jump_pushback = 700
 knockack_velocity = 500
@@ -2403,7 +2404,7 @@ texture = ExtResource("20_7kpfw")
 [node name="Larm" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="LeithLarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
-position = Vector2(3.22275, -21.3123)
+position = Vector2(3.22274, -21.3123)
 rotation = 0.0621663
 scale = Vector2(0.999808, 0.999808)
 texture = ExtResource("15_cp7yb")

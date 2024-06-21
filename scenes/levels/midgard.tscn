@@ -1,18 +1,22 @@
-[gd_scene load_steps=19 format=3 uid="uid://ber3vandx8bfk"]
+[gd_scene load_steps=23 format=3 uid="uid://ber3vandx8bfk"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_5hrni"]
 [ext_resource type="PackedScene" uid="uid://cwt6vvuf855dq" path="res://enemies/wolf/wolf.tscn" id="2_h84jj"]
 [ext_resource type="PackedScene" uid="uid://bg3pue4k6suxh" path="res://scenes/player.tscn" id="3_ofm00"]
+[ext_resource type="Resource" uid="uid://calkiww88kiih" path="res://draupnirs/flash.tres" id="4_2qw5q"]
 [ext_resource type="PackedScene" uid="uid://b02bw7llsbl8k" path="res://scenes/fast_travel_tree.tscn" id="5_04ngc"]
 [ext_resource type="PackedScene" uid="uid://qhkocy3xgjen" path="res://scenes/UI/ui.tscn" id="5_5rpm2"]
+[ext_resource type="Resource" uid="uid://byk30ma7gnxwu" path="res://draupnirs/longer_sword.tres" id="5_vfq2i"]
 [ext_resource type="Script" path="res://scripts/SecretArea.gd" id="6_2iis0"]
+[ext_resource type="Resource" uid="uid://brqy553vvrsu8" path="res://draupnirs/wealth.tres" id="6_rj1gd"]
 [ext_resource type="PackedScene" uid="uid://5dld2f0i73w5" path="res://scenes/levels/secret_area.tscn" id="6_rra6i"]
 [ext_resource type="PackedScene" uid="uid://un2silbvtri8" path="res://tilemaps/midgard_tile_map_secrets.tscn" id="7_0vi8d"]
+[ext_resource type="PackedScene" uid="uid://rg2h014dccno" path="res://scenes/currency.tscn" id="7_4u72q"]
 [ext_resource type="PackedScene" uid="uid://d1a6mmn2l1r60" path="res://scenes/camp.tscn" id="9_ljka7"]
 [ext_resource type="PackedScene" uid="uid://dwcid3y7ok06w" path="res://scenes/levels/brakeable_wall.tscn" id="9_mk4fs"]
 [ext_resource type="Script" path="res://scripts/savel_loader.gd" id="10_j1tlb"]
 [ext_resource type="PackedScene" uid="uid://bdk5jryewdd5j" path="res://scenes/level_exit.tscn" id="11_yjfkk"]
-[ext_resource type="PackedScene" uid="uid://day77oedtlbsb" path="res://scenes/levels/midgard_2.tscn" id="12_kk523"]
+[ext_resource type="PackedScene" uid="uid://d2wkvsoj0b0wr" path="res://scenes/levels/parallax_background.tscn" id="12_kjhjd"]
 [ext_resource type="PackedScene" uid="uid://cuouq1fuqkkdp" path="res://scenes/sharp_rocks.tscn" id="13_cjio6"]
 [ext_resource type="PackedScene" uid="uid://bs5yil5tkpig2" path="res://scenes/pickable_draupnir.tscn" id="15_8yo5b"]
 [ext_resource type="Resource" uid="uid://c3pw60joprfhx" path="res://draupnirs/sneak.tres" id="16_vq5af"]
@@ -32,8 +36,24 @@ layer_0/tile_data = PackedInt32Array(2555949, 22, 0, 2555948, 22, 0, 2490412, 22
 [node name="Pickable" type="Node2D" parent="."]
 
 [node name="PickableDraupnir" parent="Pickable" instance=ExtResource("15_8yo5b")]
-position = Vector2(18656, 1088)
+position = Vector2(6880, 1648)
 draupnir_resource = ExtResource("16_vq5af")
+
+[node name="PickableDraupnir2" parent="Pickable" instance=ExtResource("15_8yo5b")]
+position = Vector2(9264, 1440)
+draupnir_resource = ExtResource("4_2qw5q")
+
+[node name="PickableDraupnir3" parent="Pickable" instance=ExtResource("15_8yo5b")]
+position = Vector2(21792, 864)
+draupnir_resource = ExtResource("5_vfq2i")
+
+[node name="PickableDraupnir4" parent="Pickable" instance=ExtResource("15_8yo5b")]
+position = Vector2(24592, -480)
+draupnir_resource = ExtResource("6_rj1gd")
+
+[node name="Currency" parent="Pickable" instance=ExtResource("7_4u72q")]
+position = Vector2(7296, 288)
+amount = 20
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -78,7 +98,7 @@ grow_vertical = 1
 saver_loader = NodePath("../../../SaverLoader")
 
 [node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("3_ofm00")]
-position = Vector2(19088, 848)
+position = Vector2(688.001, 1088)
 UI = NodePath("../UI")
 metadata/_edit_group_ = true
 
@@ -89,6 +109,8 @@ limit_top = -1280
 limit_right = 29056
 limit_bottom = 1795
 editor_draw_limits = true
+
+[node name="ParallaxBackground" parent="Player/Camera2D" instance=ExtResource("12_kjhjd")]
 
 [node name="SecretArea" parent="." instance=ExtResource("6_rra6i")]
 
@@ -130,7 +152,7 @@ script = ExtResource("10_j1tlb")
 
 [node name="LevelExit" parent="." instance=ExtResource("11_yjfkk")]
 position = Vector2(28448, 64)
-next_scene = ExtResource("12_kk523")
+next_scene = "res://scenes/levels/midgard_2.tscn"
 
 [node name="Hazards" type="Node2D" parent="."]
 
@@ -172,6 +194,9 @@ position = Vector2(4896, 1760)
 
 [node name="SharpRocks13" parent="Hazards" instance=ExtResource("13_cjio6")]
 position = Vector2(4832, 1760)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(28272, 160)
 
 [connection signal="visibility_changed" from="UI/Menues/SaveMenu" to="UI/Menues/SaveMenu" method="_on_visibility_changed"]
 [connection signal="body_entered" from="SecretArea2" to="SecretArea2" method="_on_body_entered"]

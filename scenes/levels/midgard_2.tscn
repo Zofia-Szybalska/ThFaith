@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://cuouq1fuqkkdp" path="res://scenes/sharp_rocks.tscn" id="2_u62ne"]
 [ext_resource type="PackedScene" uid="uid://cwt6vvuf855dq" path="res://enemies/wolf/wolf.tscn" id="3_10ae2"]
 [ext_resource type="PackedScene" uid="uid://bg3pue4k6suxh" path="res://scenes/player.tscn" id="4_c4txa"]
+[ext_resource type="Resource" uid="uid://cgrj8lvn1pr48" path="res://draupnirs/dodge.tres" id="4_w2tik"]
 [ext_resource type="PackedScene" uid="uid://qhkocy3xgjen" path="res://scenes/UI/ui.tscn" id="5_f47cc"]
+[ext_resource type="Resource" uid="uid://chxexodgmekh" path="res://draupnirs/more_damage.tres" id="5_kt3lp"]
 [ext_resource type="PackedScene" uid="uid://bdk5jryewdd5j" path="res://scenes/level_exit.tscn" id="6_nlj55"]
-[ext_resource type="PackedScene" uid="uid://ber3vandx8bfk" path="res://scenes/levels/midgard.tscn" id="7_fexh1"]
-[ext_resource type="PackedScene" uid="uid://brlrnjt1xdgr6" path="res://scenes/boss_areas/fenrir_area.tscn" id="8_cd58n"]
 [ext_resource type="PackedScene" uid="uid://ciqylm2td1ahs" path="res://scenes/secret_area.tscn" id="9_7c65l"]
+[ext_resource type="PackedScene" uid="uid://d2wkvsoj0b0wr" path="res://scenes/levels/parallax_background.tscn" id="9_k6ec7"]
 [ext_resource type="PackedScene" uid="uid://dwcid3y7ok06w" path="res://scenes/levels/brakeable_wall.tscn" id="10_nnjt2"]
 [ext_resource type="PackedScene" uid="uid://bs5yil5tkpig2" path="res://scenes/pickable_draupnir.tscn" id="11_nk0pd"]
-[ext_resource type="Resource" uid="uid://byk30ma7gnxwu" path="res://draupnirs/longer_sword.tres" id="12_4rttq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60ivq"]
 size = Vector2(1992.5, 746)
@@ -60,6 +60,14 @@ position = Vector2(160, 11)
 [node name="SharpRocks6" parent="MidgardTileMap" instance=ExtResource("2_u62ne")]
 position = Vector2(224, 11)
 
+[node name="PickableDraupnir" parent="." instance=ExtResource("11_nk0pd")]
+position = Vector2(2528, 304)
+draupnir_resource = ExtResource("4_w2tik")
+
+[node name="PickableDraupnir2" parent="." instance=ExtResource("11_nk0pd")]
+position = Vector2(4048, 176)
+draupnir_resource = ExtResource("5_kt3lp")
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Wolf" parent="Enemies" instance=ExtResource("3_10ae2")]
@@ -77,8 +85,9 @@ position = Vector2(4340, 161)
 [node name="Wolf5" parent="Enemies" instance=ExtResource("3_10ae2")]
 position = Vector2(5123, 166)
 
-[node name="Player" parent="." instance=ExtResource("4_c4txa")]
+[node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("4_c4txa")]
 position = Vector2(-955, -61)
+UI = NodePath("UI")
 
 [node name="UI" parent="Player" instance=ExtResource("5_f47cc")]
 
@@ -88,13 +97,17 @@ limit_right = 8128
 limit_bottom = 448
 editor_draw_limits = true
 
+[node name="ParallaxBackground" parent="Player/Camera2D" instance=ExtResource("9_k6ec7")]
+scroll_offset = Vector2(0, -480.53)
+
 [node name="LevelExit" parent="." instance=ExtResource("6_nlj55")]
 position = Vector2(-1600, -192)
-next_scene = ExtResource("7_fexh1")
+next_scene = "res://scenes/levels/midgard.tscn"
+player_pos = Vector2(28272, 160)
 
 [node name="LevelExit2" parent="." instance=ExtResource("6_nlj55")]
 position = Vector2(7944.89, 16.2357)
-next_scene = ExtResource("8_cd58n")
+next_scene = "res://scenes/boss_areas/fenrir_area.tscn"
 
 [node name="SecretArea" parent="." instance=ExtResource("9_7c65l")]
 position = Vector2(4736, 0)
@@ -149,10 +162,6 @@ position = Vector2(8128, -736)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(-4931, -1285)
 shape = SubResource("RectangleShape2D_eyb1x")
-
-[node name="PickableDraupnir" parent="." instance=ExtResource("11_nk0pd")]
-position = Vector2(-816, -32)
-draupnir_resource = ExtResource("12_4rttq")
 
 [editable path="SecretArea"]
 [editable path="SecretArea/Brakeable_wall"]

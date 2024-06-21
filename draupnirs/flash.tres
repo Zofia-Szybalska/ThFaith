@@ -10,5 +10,5 @@ cost = 1
 description = "Run faster"
 icon = ExtResource("1_p7gps")
 locked_icon = ExtResource("1_p7gps")
-is_unlocked = true
+is_unlocked = false
 effect = "res://draupnir_effects/flash.gd"

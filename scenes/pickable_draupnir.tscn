@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs5yil5tkpig2"]
+
+[ext_resource type="Script" path="res://scripts/pickable_draupnir.gd" id="1_bmtyr"]
+[ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="2_5rnhd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqxd"]
+size = Vector2(96, 64)
+
+[node name="PickableDraupnir" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_bmtyr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_vgqxd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_5rnhd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -36,6 +36,8 @@ func create_space_idicator() -> TextureRect:
 	return texture_rect
 
 func load_draupnirs():
+	for draupnir_cell in draupnirs_icons_grid.get_children():
+		draupnir_cell.queue_free()
 	for draupnir in PlayerVariables.draupnirs.all_draupnirs:
 		draupnirs_icons_grid.add_child(create_draupnir_cell(draupnir))
 

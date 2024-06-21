@@ -40,6 +40,7 @@ func hide_all_menues():
 func show_inventory():
 	get_tree().paused = true
 	menues.show()
+	draupnir_menu.load_draupnirs()
 	curr_window.show()
 
 func hide_inventory():

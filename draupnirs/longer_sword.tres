@@ -10,5 +10,5 @@ cost = 2
 description = "It imbues a sword with magic, that makes it a little longer."
 icon = ExtResource("1_nai8x")
 locked_icon = ExtResource("1_nai8x")
-is_unlocked = true
+is_unlocked = false
 effect = "res://draupnir_effects/long_sword.gd"

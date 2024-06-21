@@ -5,12 +5,12 @@ class_name Draupnirs
 @export var equiped_draupnirs: Array[DraupnirStats] = []
 @export var draupnirs_folder_path: String = "res://draupnirs"
 
-func unlock_draupnri(draupnir_name: String):
+func unlock_draupnir(draupnir_name: String):
 	for draupnir in all_draupnirs:
 		if draupnir.name == draupnir_name:
 			draupnir.is_unlocked = true
 
-func lock_draupnri(draupnir_name: String):
+func lock_draupnir(draupnir_name: String):
 	for draupnir in all_draupnirs:
 		if draupnir.name == draupnir_name:
 			draupnir.is_unlocked = false

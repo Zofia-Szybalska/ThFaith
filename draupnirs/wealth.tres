@@ -10,5 +10,5 @@ cost = 1
 description = "You gain more coins"
 icon = ExtResource("1_h6121")
 locked_icon = ExtResource("1_h6121")
-is_unlocked = true
+is_unlocked = false
 effect = "res://draupnir_effects/wealth.gd"

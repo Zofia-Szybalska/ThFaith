@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://brlrnjt1xdgr6"]
+[gd_scene load_steps=49 format=3 uid="uid://brlrnjt1xdgr6"]
 
 [ext_resource type="Script" path="res://scenes/boss_areas/fenrir_area.gd" id="1_4fe5q"]
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_x8wr5"]
@@ -385,6 +385,12 @@ size = Vector2(270, 419.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_350vj"]
 size = Vector2(224, 832)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxjps"]
+size = Vector2(26, 522)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uskwo"]
+size = Vector2(2045, 59)
+
 [node name="FenrirArea" type="Node2D"]
 script = ExtResource("1_4fe5q")
 
@@ -635,6 +641,25 @@ editor_draw_limits = true
 
 [node name="SaverLoader" type="Node" parent="."]
 script = ExtResource("31_lqe1s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-976, -544)
+shape = SubResource("RectangleShape2D_hxjps")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D"]
+position = Vector2(2048, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D"]
+position = Vector2(-976, -544)
+shape = SubResource("RectangleShape2D_hxjps")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(32, -832)
+shape = SubResource("RectangleShape2D_uskwo")
 
 [connection signal="body_entered" from="Fenrir" to="Fenrir" method="_on_body_entered"]
 [connection signal="timeout" from="Fenrir/Damageable/Timer" to="Fenrir/Damageable" method="_on_timer_timeout"]

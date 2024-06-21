@@ -13,13 +13,14 @@ func _ready():
 		load_draupnir_resource(draupnir_resource)
 
 func load_draupnir_resource(draupnir: DraupnirStats):
-	draupnir_resource = draupnir
-	if draupnir.is_unlocked:
-		texture_button.texture_normal = draupnir.icon
-		texture_button.modulate = Color.WHITE
-	else:
-		texture_button.texture_normal = draupnir.locked_icon
-		texture_button.modulate = Color(0.431, 0.431, 0.431, 0.937)
+		draupnir_resource = draupnir
+		if draupnir.is_unlocked:
+			print("Grafika update")
+			texture_button.texture_normal = draupnir.icon
+			texture_button.modulate = Color.WHITE
+		else:
+			texture_button.texture_normal = draupnir.locked_icon
+			texture_button.modulate = Color(0.431, 0.431, 0.431, 0.937)
 
 func _on_texture_button_pressed():
 	times_clicked += 1

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=3 format=3 uid="uid://cgrj8lvn1pr48"]
+
+[ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="1_8r8n7"]
+[ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_uvcuk"]
+
+[resource]
+script = ExtResource("1_uvcuk")
+name = "Dodge"
+cost = 1
+description = "Gives you a chance to doge attacks"
+icon = ExtResource("1_8r8n7")
+locked_icon = ExtResource("1_8r8n7")
+is_unlocked = false
+effect = "res://draupnir_effects/dodge.gd"

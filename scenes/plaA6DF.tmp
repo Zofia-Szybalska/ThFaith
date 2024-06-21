@@ -1,0 +1,337 @@
+[gd_scene load_steps=37 format=3 uid="uid://bg3pue4k6suxh"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_weano"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_lou1g"]
+[ext_resource type="Script" path="res://scripts/Idle.gd" id="4_xunvy"]
+[ext_resource type="Script" path="res://scripts/Run.gd" id="5_ig7k5"]
+[ext_resource type="Script" path="res://scripts/Jump.gd" id="6_vfmla"]
+[ext_resource type="Script" path="res://scripts/Fall.gd" id="7_mwuny"]
+[ext_resource type="Script" path="res://scripts/Dash.gd" id="8_1pbqe"]
+[ext_resource type="Script" path="res://scripts/Wall.gd" id="9_djew2"]
+[ext_resource type="Script" path="res://scripts/Attack.gd" id="10_gj707"]
+[ext_resource type="Script" path="res://scripts/Sword.gd" id="11_oq0nx"]
+[ext_resource type="Texture2D" uid="uid://dysbs8uq4p58a" path="res://assets/sprites/player/LeithRarm1.png" id="12_aqtcy"]
+[ext_resource type="Script" path="res://scripts/PlayerHitState.gd" id="12_gged8"]
+[ext_resource type="Texture2D" uid="uid://p8rjvehhgufa" path="res://assets/sprites/player/LeithRarm2.png" id="13_wmssa"]
+[ext_resource type="Texture2D" uid="uid://bcyrmx5jseie4" path="res://assets/sprites/player/LeithRarm3.png" id="14_5ouva"]
+[ext_resource type="Texture2D" uid="uid://dc7ccjwlc4hnk" path="res://assets/sprites/player/LeithLarm1.png" id="15_cp7yb"]
+[ext_resource type="Texture2D" uid="uid://cawrrc0blelot" path="res://assets/sprites/player/LeithLarm2.png" id="16_h8cru"]
+[ext_resource type="Texture2D" uid="uid://cg5hxivahf4q6" path="res://assets/sprites/player/LeithLarm3.png" id="17_og04f"]
+[ext_resource type="Texture2D" uid="uid://pqjyi5uasn6j" path="res://assets/sprites/player/LeithLleg1.png" id="18_y0d76"]
+[ext_resource type="Texture2D" uid="uid://cftxpux5o4mxs" path="res://assets/sprites/player/LeithLleg2.png" id="19_r8h7i"]
+[ext_resource type="Texture2D" uid="uid://0mipotg2g5yt" path="res://assets/sprites/player/LeithLleg3.png" id="20_7kpfw"]
+[ext_resource type="Texture2D" uid="uid://dgwqtyph1hkct" path="res://assets/sprites/player/LeithRleg1.png" id="21_4jkho"]
+[ext_resource type="Texture2D" uid="uid://dd6m13xe8l4w2" path="res://assets/sprites/player/LeithRleg2.png" id="22_hd2fg"]
+[ext_resource type="Texture2D" uid="uid://1tyyo0efnot0" path="res://assets/sprites/player/LeithRleg3.png" id="23_8sy8v"]
+[ext_resource type="Texture2D" uid="uid://dcre08gbdlw8k" path="res://assets/sprites/player/LeithHead.png" id="24_53755"]
+[ext_resource type="Texture2D" uid="uid://dc55xvyctyn6i" path="res://assets/sprites/player/LeithBody.png" id="25_d66wp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rphv7"]
+radius = 36.0
+height = 260.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1i7g"]
+size = Vector2(59, 130)
+
+[sub_resource type="Animation" id="Animation_a3xd7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_eg8ob"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_l0gnl"]
+resource_name = "dash"
+
+[sub_resource type="Animation" id="Animation_ltfna"]
+resource_name = "fall"
+
+[sub_resource type="Animation" id="Animation_8v0p0"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_g58n6"]
+resource_name = "jump"
+
+[sub_resource type="Animation" id="Animation_ttmj5"]
+resource_name = "wall_jump"
+
+[sub_resource type="Animation" id="Animation_1pn02"]
+resource_name = "wall_slide"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xoic1"]
+_data = {
+"RESET": SubResource("Animation_a3xd7"),
+"attack": SubResource("Animation_eg8ob"),
+"dash": SubResource("Animation_l0gnl"),
+"fall": SubResource("Animation_ltfna"),
+"idle": SubResource("Animation_8v0p0"),
+"jump": SubResource("Animation_g58n6"),
+"wall_jump": SubResource("Animation_ttmj5"),
+"wall_slide": SubResource("Animation_1pn02")
+}
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_weano")
+speed = 350
+jump_force = 550
+dash_speed = 900
+wall_jump_pushback = 700
+knockack_velocity = 500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rphv7")
+
+[node name="Sword" type="Area2D" parent="."]
+position = Vector2(-110, 0)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("11_oq0nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
+position = Vector2(31.5, 0)
+shape = SubResource("RectangleShape2D_g1i7g")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("3_lou1g")
+initial_state = NodePath("Fall")
+
+[node name="Idle" type="Node2D" parent="StateMachine"]
+script = ExtResource("4_xunvy")
+
+[node name="Run" type="Node2D" parent="StateMachine"]
+script = ExtResource("5_ig7k5")
+
+[node name="Jump" type="Node2D" parent="StateMachine"]
+script = ExtResource("6_vfmla")
+
+[node name="Fall" type="Node2D" parent="StateMachine"]
+script = ExtResource("7_mwuny")
+double_jump_unlocked = true
+
+[node name="Dash" type="Node2D" parent="StateMachine"]
+script = ExtResource("8_1pbqe")
+
+[node name="Wall" type="Node2D" parent="StateMachine"]
+script = ExtResource("9_djew2")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("10_gj707")
+
+[node name="AttackTimer" type="Timer" parent="StateMachine/Attack"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Hit" type="Node" parent="StateMachine"]
+script = ExtResource("12_gged8")
+
+[node name="Timer" type="Timer" parent="StateMachine/Hit"]
+wait_time = 0.5
+one_shot = true
+
+[node name="StateLabel" type="Label" parent="."]
+offset_left = -39.0
+offset_top = -100.0
+offset_right = 40.0
+offset_bottom = -77.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xoic1")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="PartsSKeletonContainer" type="Node2D" parent="."]
+position = Vector2(0, 21)
+
+[node name="Parts" type="Node2D" parent="PartsSKeletonContainer"]
+
+[node name="Rarm" type="Node2D" parent="PartsSKeletonContainer/Parts"]
+
+[node name="LeithRarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
+position = Vector2(6, -18)
+texture = ExtResource("12_aqtcy")
+
+[node name="LeithRarm2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
+position = Vector2(6, -19)
+texture = ExtResource("13_wmssa")
+
+[node name="LeithRarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
+position = Vector2(6, -18)
+texture = ExtResource("14_5ouva")
+
+[node name="Larm" type="Node2D" parent="PartsSKeletonContainer/Parts"]
+
+[node name="LeithLarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
+position = Vector2(13, -20)
+texture = ExtResource("15_cp7yb")
+
+[node name="LeithLarm2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
+position = Vector2(14, -20)
+texture = ExtResource("16_h8cru")
+
+[node name="LeithLarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
+position = Vector2(14, -20)
+rotation = 0.00298685
+texture = ExtResource("17_og04f")
+
+[node name="Lleg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
+
+[node name="LeithLleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
+position = Vector2(-4, -63)
+texture = ExtResource("18_y0d76")
+
+[node name="LeithLleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
+position = Vector2(21, 22)
+texture = ExtResource("19_r8h7i")
+
+[node name="LeithLleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
+position = Vector2(6, -28)
+texture = ExtResource("20_7kpfw")
+
+[node name="RLeg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
+
+[node name="LeithRleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
+position = Vector2(7, -73)
+texture = ExtResource("21_4jkho")
+
+[node name="LeithRleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
+position = Vector2(10, 13)
+texture = ExtResource("22_hd2fg")
+
+[node name="LeithRleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
+position = Vector2(3, -24)
+texture = ExtResource("23_8sy8v")
+
+[node name="LeithHead" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
+position = Vector2(6, -18)
+texture = ExtResource("24_53755")
+
+[node name="LeithBody" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
+position = Vector2(10, -18)
+texture = ExtResource("25_d66wp")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="PartsSKeletonContainer"]
+
+[node name="Base" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="Body" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base"]
+position = Vector2(0, -45)
+rest = Transform2D(1, 0, 0, 1, 0, -45)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(10, 27)
+remote_path = NodePath("../../../../Parts/LeithBody")
+
+[node name="Head" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(0, -30)
+rest = Transform2D(1, 0, 0, 1, 0, -30)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Head"]
+position = Vector2(6, 57)
+remote_path = NodePath("../../../../../Parts/LeithHead")
+
+[node name="FrontShoulder" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(19, -6)
+rest = Transform2D(1, 0, 0, 1, 19, -6)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontShoulder"]
+position = Vector2(-6, 31)
+remote_path = NodePath("../../../../../Parts/Larm/LeithLarm1")
+
+[node name="FrontArm" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontShoulder"]
+position = Vector2(12, 26)
+rest = Transform2D(1, 0, 0, 1, 12, 26)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontShoulder/FrontArm"]
+position = Vector2(-17, 5)
+remote_path = NodePath("../../../../../../Parts/Larm/LeithLarm2")
+
+[node name="FrontHand" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontShoulder/FrontArm"]
+position = Vector2(13, 26)
+rest = Transform2D(1, 0, 0, 1, 13, 26)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontShoulder/FrontArm/FrontHand"]
+position = Vector2(-30, -21)
+rotation = 0.00298685
+remote_path = NodePath("../../../../../../../Parts/Larm/LeithLarm3")
+
+[node name="BackShoulder" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(-17, -7)
+rest = Transform2D(1, 0, 0, 1, -17, -7)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder"]
+position = Vector2(6, -18)
+remote_path = NodePath("../../../../../Parts/Rarm/LeithRarm1")
+use_global_coordinates = false
+
+[node name="BackArm" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder"]
+position = Vector2(-16, 28)
+rest = Transform2D(1, 0, 0, 1, -16, 28)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder/BackArm"]
+position = Vector2(39, 5)
+remote_path = NodePath("../../../../../../Parts/Rarm/LeithRarm2")
+
+[node name="BackHand" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder/BackArm"]
+position = Vector2(-16, 29)
+rest = Transform2D(1, 0, 0, 1, -16, 29)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackShoulder/BackArm/BackHand"]
+position = Vector2(55, -23)
+remote_path = NodePath("../../../../../../../Parts/Rarm/LeithRarm3")
+
+[node name="FrontTight" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(-10, 51)
+rest = Transform2D(1, 0, 0, 1, -10, 51)
+
+[node name="FrontLeg" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontTight"]
+position = Vector2(3, 48)
+rest = Transform2D(1, 0, 0, 1, 3, 48)
+
+[node name="FrontFoot" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/FrontTight/FrontLeg"]
+position = Vector2(-3, 45)
+rest = Transform2D(1, 0, 0, 1, -3, 45)
+
+[node name="BackTight" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(14, 53)
+rest = Transform2D(1, 0, 0, 1, 14, 53)
+
+[node name="BackLeg" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight"]
+position = Vector2(9, 48)
+rest = Transform2D(1, 0, 0, 1, 9, 48)
+
+[node name="BackFoot" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/BackTight/BackLeg"]
+position = Vector2(11, 44)
+rest = Transform2D(1, 0, 0, 1, 11, 44)
+
+[connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]
+[connection signal="timeout" from="StateMachine/Attack/AttackTimer" to="StateMachine/Attack" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Hit/Timer" to="StateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Sword" method="_on_animation_player_animation_finished"]

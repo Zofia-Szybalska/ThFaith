@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://3nqen0k6xsd6"]
+
+[ext_resource type="Texture2D" uid="uid://bis0yt2beb3u1" path="res://icon.svg" id="1_ph5e4"]
+[ext_resource type="PackedScene" uid="uid://cnhmhyid0160y" path="res://scenes/UI/map_menu.tscn" id="2_6dnj1"]
+[ext_resource type="PackedScene" uid="uid://bg3pue4k6suxh" path="res://scenes/player.tscn" id="2_oifhj"]
+[ext_resource type="PackedScene" uid="uid://bkr6alnif7xut" path="res://scenes/UI/hud.tscn" id="3_mnoy8"]
+[ext_resource type="PackedScene" uid="uid://cwt6vvuf855dq" path="res://enemies/wolf/wolf.tscn" id="4_vvym7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj5xg"]
+size = Vector2(280, 40)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("3_mnoy8")]
+
+[node name="MarginContainer" parent="UI" instance=ExtResource("2_6dnj1")]
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="TestPlatform2" type="StaticBody2D" parent="Terrain"]
+position = Vector2(872, 458)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestPlatform2"]
+shape = SubResource("RectangleShape2D_mj5xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/TestPlatform2"]
+scale = Vector2(2.1875, 0.3125)
+texture = ExtResource("1_ph5e4")
+
+[node name="TestPlatform" type="StaticBody2D" parent="Terrain"]
+position = Vector2(591, 565)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestPlatform"]
+shape = SubResource("RectangleShape2D_mj5xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/TestPlatform"]
+scale = Vector2(2.1875, 0.3125)
+texture = ExtResource("1_ph5e4")
+
+[node name="TestPlatform4" type="StaticBody2D" parent="Terrain"]
+position = Vector2(79, 382)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestPlatform4"]
+shape = SubResource("RectangleShape2D_mj5xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/TestPlatform4"]
+scale = Vector2(2.1875, 0.3125)
+texture = ExtResource("1_ph5e4")
+
+[node name="TestPlatform3" type="StaticBody2D" parent="Terrain"]
+position = Vector2(200, 534)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestPlatform3"]
+shape = SubResource("RectangleShape2D_mj5xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/TestPlatform3"]
+scale = Vector2(2.1875, 0.3125)
+texture = ExtResource("1_ph5e4")
+
+[node name="TestPlatform5" type="StaticBody2D" parent="Terrain"]
+position = Vector2(994, 309)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestPlatform5"]
+shape = SubResource("RectangleShape2D_mj5xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/TestPlatform5"]
+scale = Vector2(2.1875, 0.3125)
+texture = ExtResource("1_ph5e4")
+
+[node name="Wolf" parent="." instance=ExtResource("4_vvym7")]
+position = Vector2(531, 500)
+
+[node name="Wolf2" parent="." instance=ExtResource("4_vvym7")]
+position = Vector2(841, 393)
+
+[node name="Player" parent="." instance=ExtResource("2_oifhj")]
+position = Vector2(228, 418)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(2.22222, 2.22222)

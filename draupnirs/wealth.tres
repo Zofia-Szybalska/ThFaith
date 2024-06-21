@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=3 format=3 uid="uid://brqy553vvrsu8"]
+
+[ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_c4hu6"]
+[ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="1_h6121"]
+
+[resource]
+script = ExtResource("1_c4hu6")
+name = "Wealth"
+cost = 1
+description = "You gain more coins"
+icon = ExtResource("1_h6121")
+locked_icon = ExtResource("1_h6121")
+is_unlocked = false
+effect = "res://draupnir_effects/wealth.gd"

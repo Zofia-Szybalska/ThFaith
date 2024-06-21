@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FastTravelPoint" load_steps=2 format=3 uid="uid://dvj45nhrmsfr6"]
+
+[ext_resource type="Script" path="res://scripts/fast_travel_point.gd" id="1_aruwq"]
+
+[resource]
+script = ExtResource("1_aruwq")
+point_name = "Testo"
+position = Vector2(5781, 976)
+scene_name = ""

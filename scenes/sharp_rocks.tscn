@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuouq1fuqkkdp"]
+
+[ext_resource type="Script" path="res://scripts/sharp_rocks.gd" id="1_73ark"]
+[ext_resource type="Texture2D" uid="uid://h33oqssx5ej6" path="res://assets/tilemaps/SharpRocks.png" id="1_xklq8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ra4h4"]
+size = Vector2(64, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hngf"]
+size = Vector2(64, 43)
+
+[node name="SharpRocks" type="Area2D"]
+collision_mask = 6
+script = ExtResource("1_73ark")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_ra4h4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xklq8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_8hngf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

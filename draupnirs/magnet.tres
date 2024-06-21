@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=3 format=3 uid="uid://cnq0qira22vs5"]
+
+[ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_4g1rl"]
+[ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="1_pewhh"]
+
+[resource]
+script = ExtResource("1_4g1rl")
+name = "Magnet"
+cost = 1
+description = "You become a magnet, and all coins like you!"
+icon = ExtResource("1_pewhh")
+locked_icon = ExtResource("1_pewhh")
+is_unlocked = true
+effect = "res://draupnir_effects/magnet.gd"

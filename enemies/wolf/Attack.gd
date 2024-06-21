@@ -11,18 +11,23 @@ var on_edge: bool = false
 @export var charge_distance: int = 200 
 @export var charge_end_distance: int = 125
 @export var attack_distance: int = 25
-@export var to_close_distance: int = 20
+@export var to_close_distance: int = 5
+@onready var animation_player = $"../../AnimationPlayer"
 
 
 func enter(_msg := {}) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
+	if can_attack:
+		if direction and direction.x > 0:
+			animation_player.play("walk_right")
+		else: 
+			animation_player.play("walk_left")
 	if not owner.is_on_floor():
 		owner.velocity.y += owner.gravity * delta
-	if not owner.is_on_floor() and not owner.player_detecting_ray_cast.is_colliding():
+	if not owner.player_detecting_ray_cast.is_colliding():
 		set_player_to_null()
-		owner.velocity.y += owner.gravity * delta
 	if !owner.ground_detecting_ray_cast.is_colliding():
 		on_edge = true
 	else:
@@ -36,6 +41,7 @@ func physics_update(delta: float) -> void:
 	if charging:
 		owner.velocity.x = direction.x * owner.speed
 		owner.move_and_slide()
+	
 	if owner.player != null:
 		var player_position = owner.player.position
 		direction = player_position - owner.position
@@ -60,11 +66,19 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Walk")
 
 func charge():
+	if direction.x > 0:
+		animation_player.play("walk_right")
+	else: 
+		animation_player.play("walk_left")
 	charging_anticipation = true
 	owner.velocity.x = -direction.x * owner.speed * 0.2
 	charge_preparation_timer.start()
 
 func attack():
+	if direction.x > 0:
+		animation_player.play("attack_right")
+	else:
+		animation_player.play("attack_left")
 	can_attack = false
 	owner.player.hit(1, owner)
 	attac_buffer.start()

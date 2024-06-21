@@ -58,11 +58,6 @@ func _physics_process(_delta):
 		change_direction()
 	if is_on_wall() and is_on_floor() and not state_machine.state.name == "Attack":
 		change_direction()
-		
-	if walk_direction == 1:
-		animation_player.play("walk_right")
-	else:
-		animation_player.play("walk_left")
 	move_and_slide()
 
 func change_direction():
@@ -70,8 +65,8 @@ func change_direction():
 		direction_change_timer.start()
 		can_change_direction = false
 		walk_direction *= -1
-		ground_detecting_ray_cast.position *= -walk_direction
-		player_detecting_ray_cast.target_position *= -walk_direction
+		ground_detecting_ray_cast.position *= -1
+		player_detecting_ray_cast.target_position *= -1
 
 func _on_direction_change_timer_timeout():
 	can_change_direction = true

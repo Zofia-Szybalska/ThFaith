@@ -117,9 +117,6 @@ point_name = "Midgard1"
 
 [node name="UI" parent="." instance=ExtResource("5_5rpm2")]
 
-[node name="Menues" parent="UI" index="1"]
-visible = false
-
 [node name="SaveMenu" parent="UI/Menues" index="2" node_paths=PackedStringArray("saver_loader")]
 anchors_preset = 0
 anchor_right = 0.0

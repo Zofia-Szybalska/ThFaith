@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://day77oedtlbsb"]
+[gd_scene load_steps=19 format=3 uid="uid://day77oedtlbsb"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_4apca"]
 [ext_resource type="PackedScene" uid="uid://cuouq1fuqkkdp" path="res://scenes/sharp_rocks.tscn" id="2_u62ne"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://d2wkvsoj0b0wr" path="res://scenes/levels/parallax_background.tscn" id="9_k6ec7"]
 [ext_resource type="PackedScene" uid="uid://dwcid3y7ok06w" path="res://scenes/levels/brakeable_wall.tscn" id="10_nnjt2"]
 [ext_resource type="PackedScene" uid="uid://bs5yil5tkpig2" path="res://scenes/pickable_draupnir.tscn" id="11_nk0pd"]
+[ext_resource type="PackedScene" uid="uid://d1a6mmn2l1r60" path="res://scenes/camp.tscn" id="13_0eauh"]
+[ext_resource type="Script" path="res://scripts/savel_loader.gd" id="14_85c5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60ivq"]
 size = Vector2(1992.5, 746)
@@ -162,6 +164,14 @@ position = Vector2(8128, -736)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(-4931, -1285)
 shape = SubResource("RectangleShape2D_eyb1x")
+
+[node name="Camp" parent="." node_paths=PackedStringArray("saver_loader_node") instance=ExtResource("13_0eauh")]
+visible = false
+position = Vector2(6992, 192)
+saver_loader_node = NodePath("../SaverLoader")
+
+[node name="SaverLoader" type="Node" parent="."]
+script = ExtResource("14_85c5c")
 
 [editable path="SecretArea"]
 [editable path="SecretArea/Brakeable_wall"]

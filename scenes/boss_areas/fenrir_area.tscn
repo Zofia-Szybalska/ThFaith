@@ -584,6 +584,9 @@ libraries = {
 
 [node name="UI" parent="." instance=ExtResource("26_2k644")]
 
+[node name="Menues" parent="UI" index="1"]
+process_mode = 2
+
 [node name="SaveMenu" parent="UI/Menues" index="2" node_paths=PackedStringArray("saver_loader")]
 saver_loader = NodePath("../../../SaverLoader")
 
@@ -629,8 +632,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleTriggerArea"]
 shape = SubResource("RectangleShape2D_350vj")
 
-[node name="Player" parent="." instance=ExtResource("3_fwde8")]
+[node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("3_fwde8")]
 position = Vector2(-720, -400)
+UI = NodePath("../UI")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = -960

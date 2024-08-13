@@ -6,6 +6,7 @@ extends Control
 @onready var dead_screen = $DeadScreen
 
 @export var time_showing_new_items: float = 5.0
+var dead = false
 
 func _ready():
 	PlayerVariables.health_changed.connect(update_health)
@@ -17,6 +18,7 @@ func update_health():
 	hp_label.text ="%s/%s" % [PlayerVariables.health, PlayerVariables.max_health]
 	if PlayerVariables.health == 0:
 		get_tree().paused = true
+		dead = true
 		dead_screen.show()
 
 func update_currency(amount_changed: int = 0):
@@ -30,9 +32,9 @@ func update_currency(amount_changed: int = 0):
 		var tween = get_tree().create_tween()
 		tween.tween_property(currency_changed_lable, "modulate", Color(1, 1, 1, 0), time_showing_new_items)
 
-
 func _on_button_pressed():
 	dead_screen.hide()
 	PlayerVariables.health = PlayerVariables.max_health
 	get_tree().paused = false
+	dead = false
 	get_tree().change_scene_to_file("res://scenes/levels/midgard.tscn")

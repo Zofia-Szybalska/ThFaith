@@ -13,7 +13,7 @@ var is_menu_shown = false
 var has_demo_ended = false
 
 func _unhandled_input(event):
-	if has_demo_ended:
+	if has_demo_ended or hud.dead:
 		return
 	if event.is_action_pressed("left"):
 		curr_window.hide()

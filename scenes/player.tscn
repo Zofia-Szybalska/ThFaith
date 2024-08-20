@@ -687,21 +687,6 @@ tracks/13/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_1pn02"]
-resource_name = "wall_slide"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PartsSKeletonContainer/Parts/Rarm/LeithRarm3/Maczetka:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_dnn6l"]
 resource_name = "walk_right"
 length = 0.8
@@ -875,6 +860,21 @@ tracks/13/keys = {
 "values": [Vector2(-1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_1pn02"]
+resource_name = "wall_slide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PartsSKeletonContainer/Parts/Rarm/LeithRarm3/Maczetka:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xoic1"]
 _data = {
 "RESET": SubResource("Animation_a3xd7"),
@@ -973,8 +973,8 @@ position = Vector2(-11.1111, 22.2222)
 [node name="Parts" type="Node2D" parent="PartsSKeletonContainer"]
 
 [node name="LeithHead" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
-position = Vector2(-4.44446, -63.5687)
-rotation = -0.0421745
+position = Vector2(-4.44446, -73.3333)
+rotation = -0.046478
 scale = Vector2(1, 1)
 texture = ExtResource("24_53755")
 offset = Vector2(5.01612, 52.794)
@@ -982,22 +982,20 @@ offset = Vector2(5.01612, 52.794)
 [node name="Rarm" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="LeithRarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(-17.7778, -45.7909)
-rotation = 0.0200072
-scale = Vector2(1, 1)
+position = Vector2(-17.7778, -55.5555)
+rotation = -0.575028
 texture = ExtResource("12_aqtcy")
 offset = Vector2(16.9813, 40.6788)
 
 [node name="LeithRarm2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(-36.4866, -13.5785)
-rotation = 0.873188
-scale = Vector2(1, 1)
+position = Vector2(-15.2148, -18.3925)
+rotation = -0.532502
 texture = ExtResource("13_wmssa")
 offset = Vector2(32.8834, 9.54332)
 
 [node name="LeithRarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
-position = Vector2(-65.4885, -6.66665)
-rotation = 0.251366
+position = Vector2(-13.1635, 11.3511)
+rotation = -0.900772
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("14_5ouva")
 offset = Vector2(49.1617, -24.1168)
@@ -1013,38 +1011,34 @@ texture = ExtResource("18_jllbo")
 position = Vector2(8.88889, -18.7778)
 
 [node name="LeithBody2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
-position = Vector2(-17.7778, 17.4314)
+position = Vector2(-17.7778, 7.6667)
 texture = ExtResource("20_cf140")
 offset = Vector2(11.9606, -9.69003)
 
 [node name="LeithBody1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
-position = Vector2(-17.7778, 17.4314)
+position = Vector2(-17.7778, 7.6667)
 texture = ExtResource("26_0uo80")
 offset = Vector2(12.6945, -7.90163)
 
 [node name="RLeg" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 position = Vector2(2.22221, 8.88891)
 rotation = -0.0949073
-scale = Vector2(1, 1)
 
 [node name="LeithRleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
-position = Vector2(-15.4622, 21.7305)
-rotation = -0.541869
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(-14.5369, 12.0098)
+rotation = 0.444053
 texture = ExtResource("21_4jkho")
 offset = Vector2(14.242, -74.0978)
 
 [node name="LeithRleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
-position = Vector2(6.96802, 57.502)
-rotation = -0.699017
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(-31.9788, 50.4609)
+rotation = -1.2215
 texture = ExtResource("22_hd2fg")
 offset = Vector2(15.6442, -30.6355)
 
 [node name="LeithRleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
-position = Vector2(37.8656, 106.777)
-rotation = -0.608492
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(19.3866, 77.7429)
+rotation = -0.31002
 texture = ExtResource("23_8sy8v")
 offset = Vector2(19.0565, -125.65)
 
@@ -1054,48 +1048,48 @@ rotation = 0.0277828
 scale = Vector2(0.984127, 0.15)
 
 [node name="LeithLleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
-position = Vector2(2.15646, -24.1936)
-rotation = 1.45383
-scale = Vector2(5.31611, 4.1492)
-skew = -1.25864
+position = Vector2(1.88084, -89.2666)
+rotation = 1.36676
+scale = Vector2(4.03764, 5.40133)
+skew = -1.25495
 texture = ExtResource("18_y0d76")
 offset = Vector2(-17.3743, -74.4825)
 
 [node name="LeithLleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
-position = Vector2(-27.7047, 177.919)
-rotation = 1.35571
-scale = Vector2(3.90449, 5.49835)
-skew = -1.24977
+position = Vector2(-18.3364, 159.003)
+rotation = 0.86521
+scale = Vector2(1.54245, 6.56489)
+skew = -0.837946
 texture = ExtResource("19_r8h7i")
 offset = Vector2(3.02198, -29.3065)
 
 [node name="LeithLleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
-position = Vector2(-48.3044, 547.065)
-rotation = 1.35739
-scale = Vector2(3.92434, 5.4842)
-skew = -1.25059
+position = Vector2(-13.4794, 550.819)
+rotation = -0.337624
+scale = Vector2(1.07539, 6.65736)
+skew = 0.329469
 texture = ExtResource("23_8sy8v")
 offset = Vector2(15.2841, -123.718)
 
 [node name="Larm" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="LeithLarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
-position = Vector2(8.88888, -48.0131)
-rotation = -0.363636
+position = Vector2(8.8889, -57.7778)
+rotation = 0.145096
 texture = ExtResource("15_cp7yb")
 offset = Vector2(-3.19072, 36.4563)
 
 [node name="LeithLarm2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
-position = Vector2(35.2075, -22.3146)
-rotation = 0.365764
+position = Vector2(19.3576, -22.5146)
+rotation = 0.662736
 scale = Vector2(1, 1)
 texture = ExtResource("16_h8cru")
 offset = Vector2(-18.3072, 5.63814)
 
 [node name="LeithLarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
-position = Vector2(37.812, 14.3774)
-rotation = 0.316312
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(11.1111, 13.3334)
+rotation = 0.518627
+scale = Vector2(1, 1)
 texture = ExtResource("17_og04f")
 offset = Vector2(-34.4927, -30.9723)
 
@@ -1120,7 +1114,7 @@ remote_path = NodePath("../../../Parts/Body/LeithBody2")
 
 [node name="LegL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip"]
 position = Vector2(17.7778, 31.1111)
-rotation = 0.941809
+rotation = 0.662666
 scale = Vector2(1, 1)
 rest = Transform2D(0.989622, 0.143699, -0.143699, 0.989622, 17.7778, 31.1111)
 
@@ -1129,7 +1123,7 @@ remote_path = NodePath("../../../../Parts/Lleg/LeithLleg1")
 
 [node name="ShinL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/LegL"]
 position = Vector2(6.06727, 41.784)
-rotation = -0.304866
+rotation = -0.457835
 scale = Vector2(1, 1)
 rest = Transform2D(0.993509, 0.113753, -0.113753, 0.993509, 6.06727, 41.784)
 
@@ -1138,7 +1132,7 @@ remote_path = NodePath("../../../../../Parts/Lleg/LeithLleg2")
 
 [node name="FootL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/LegL/ShinL"]
 position = Vector2(15.0564, 57.0118)
-rotation = 0.00380927
+rotation = -0.230506
 scale = Vector2(1, 1)
 rest = Transform2D(0.895879, -0.444299, 0.444299, 0.895879, 15.0564, 57.0118)
 auto_calculate_length_and_angle = false
@@ -1150,7 +1144,7 @@ remote_path = NodePath("../../../../../../Parts/Lleg/LeithLleg3")
 
 [node name="LegR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip"]
 position = Vector2(-2.22222, 33.3333)
-rotation = -0.636776
+rotation = 0.349145
 scale = Vector2(1, 1)
 rest = Transform2D(0.981804, 0.189898, -0.189898, 0.981804, -2.22222, 33.3333)
 
@@ -1159,8 +1153,7 @@ remote_path = NodePath("../../../../Parts/RLeg/LeithRleg1")
 
 [node name="ShinR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/LegR"]
 position = Vector2(0.768289, 42.2152)
-rotation = -0.157147
-scale = Vector2(1, 1)
+rotation = -1.66555
 rest = Transform2D(0.987678, -0.156501, 0.156501, 0.987678, 0.768289, 42.2152)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/LegR/ShinR"]
@@ -1168,7 +1161,7 @@ remote_path = NodePath("../../../../../Parts/RLeg/LeithRleg2")
 
 [node name="FootR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/LegR/ShinR"]
 position = Vector2(-8.0555, 57.6006)
-rotation = 0.0905249
+rotation = 0.911482
 scale = Vector2(1, 1)
 rest = Transform2D(0.995439, -0.0953964, 0.0953964, 0.995439, -8.0555, 57.6006)
 auto_calculate_length_and_angle = false
@@ -1180,8 +1173,7 @@ remote_path = NodePath("../../../../../../Parts/RLeg/LeithRleg3")
 
 [node name="ArmL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip"]
 position = Vector2(17.7778, -46.6667)
-rotation = -0.363636
-scale = Vector2(1, 1)
+rotation = 0.145096
 rest = Transform2D(1, 0, 0, 1, 17.7778, -46.6667)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/ArmL"]
@@ -1189,7 +1181,7 @@ remote_path = NodePath("../../../../Parts/Larm/LeithLarm1")
 
 [node name="ForArmL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/ArmL"]
 position = Vector2(15.4573, 33.379)
-rotation = 0.7294
+rotation = 0.51764
 scale = Vector2(1, 1)
 rest = Transform2D(0.998987, 0.0449976, -0.0449976, 0.998987, 15.4573, 33.379)
 
@@ -1198,7 +1190,7 @@ remote_path = NodePath("../../../../../Parts/Larm/LeithLarm2")
 
 [node name="HandL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/ArmL/ForArmL"]
 position = Vector2(15.5556, 33.3333)
-rotation = -0.0494523
+rotation = -0.144109
 scale = Vector2(1, 1)
 rest = Transform2D(0.990341, 0.138656, -0.138656, 0.990341, 15.5556, 33.3333)
 auto_calculate_length_and_angle = false
@@ -1210,8 +1202,7 @@ remote_path = NodePath("../../../../../../Parts/Larm/LeithLarm3")
 
 [node name="ArmR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip"]
 position = Vector2(-8.88889, -44.4444)
-rotation = 0.0200072
-scale = Vector2(1, 1)
+rotation = -0.575028
 rest = Transform2D(1, 0, 0, 1, -8.88889, -44.4444)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/ArmR"]
@@ -1219,8 +1210,7 @@ remote_path = NodePath("../../../../Parts/Rarm/LeithRarm1")
 
 [node name="ForarmR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/ArmR"]
 position = Vector2(-18.0606, 32.5802)
-rotation = 0.853181
-scale = Vector2(1, 1)
+rotation = 0.0425253
 rest = Transform2D(1, 0, 0, 1, -18.0606, 32.5802)
 metadata/_edit_group_ = true
 
@@ -1229,7 +1219,7 @@ remote_path = NodePath("../../../../../Parts/Rarm/LeithRarm2")
 
 [node name="HandR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/ArmR/ForarmR"]
 position = Vector2(-13.3333, 26.6667)
-rotation = -0.621823
+rotation = -0.368269
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.993811, -0.111082, 0.111082, 0.993811, -13.3333, 26.6667)
 auto_calculate_length_and_angle = false
@@ -1241,7 +1231,7 @@ remote_path = NodePath("../../../../../../Parts/Rarm/LeithRarm3")
 
 [node name="Head" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip"]
 position = Vector2(4.44444, -62.2222)
-rotation = -0.0421745
+rotation = -0.046478
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 4.44444, -62.2222)
 auto_calculate_length_and_angle = false

@@ -7,7 +7,7 @@ func _on_body_entered(body):
 		player = body
 		body.hit(1, self)
 
-func _process(delta):
+func _process(_delta):
 	if player:
 		player.hit(1, self)
 

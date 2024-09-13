@@ -8,7 +8,7 @@ func enter(_msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
-		state_machine.transition_to("Attack")
+		state_machine.transition_to("Attack", {falling = true})
 	if not sliding and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		sliding = true
 		#owner.animation_player.play("wall_slide")

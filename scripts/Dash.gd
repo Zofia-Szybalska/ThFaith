@@ -5,11 +5,8 @@ var elapsed_dash := 0.0
 var dash_direction = 1
 
 func enter(msg := {}) -> void:
+	owner.is_dashing = true
 	owner.velocity.y = 0
-	#if owner.sword_direction == 1:
-		#owner.animation_player.play("dash_right")
-	#else:
-		#owner.animation_player.play("dash_left")
 	if (msg.has("air_dash")):
 		owner.can_dash = false
 	elapsed_dash = 0
@@ -17,6 +14,9 @@ func enter(msg := {}) -> void:
 		dash_direction = 1
 	else:
 		dash_direction = -1
+
+func exit(_msg := {}) -> void:
+	owner.is_dashing = false
 
 func physics_update(delta: float) -> void:
 	owner.velocity.x = owner.dash_speed * dash_direction

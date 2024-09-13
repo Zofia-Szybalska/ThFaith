@@ -20,26 +20,44 @@ var can_dash: bool = true
 var can_be_damaged: bool = true
 var direction = -1
 var sword_direction = -1
-var is_idle = true
+var is_idle = false
 var is_running = false
 var is_attacking = false
+var is_jumping = false
+var is_dashing = false
+var is_falling = false
 
 func update_animation_parameters():
 	animation_tree["parameters/conditions/is_idle"] = is_idle
+	animation_tree["parameters/conditions/is_jumping"] = is_jumping
+	animation_tree["parameters/conditions/is_dashing"] = is_dashing
+	animation_tree["parameters/conditions/is_falling"] = is_falling
 	animation_tree["parameters/conditions/is_running"] = is_running
 	
 	if is_attacking:
 		animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 1
 		animation_tree["parameters/Run/Blend run attack/blend_amount"] = 1
+		animation_tree["parameters/Dash/Blend dash attack/blend_amount"] = 1
+		animation_tree["parameters/Fall/Blend2/blend_amount"] = 1
+		animation_tree["parameters/Jump/Blend jump attack/blend_amount"] = 1
 	else:
 		animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 0
 		animation_tree["parameters/Run/Blend run attack/blend_amount"] = 0
+		animation_tree["parameters/Dash/Blend dash attack/blend_amount"] = 0
+		animation_tree["parameters/Fall/Blend2/blend_amount"] = 0
+		animation_tree["parameters/Jump/Blend jump attack/blend_amount"] = 0
 	
 	if not direction == 0:
 		animation_tree["parameters/Idle/Blend attack/blend_position"] = direction
 		animation_tree["parameters/Idle/Blend idle/blend_position"] = direction
 		animation_tree["parameters/Run/Blend attack/blend_position"] = direction
 		animation_tree["parameters/Run/Blend run/blend_position"] = direction
+		animation_tree["parameters/Dash/blend attack/blend_position"] = direction
+		animation_tree["parameters/Dash/blend dash/blend_position"] = direction
+		animation_tree["parameters/Fall/blend attack/blend_position"] = direction
+		animation_tree["parameters/Fall/blend fall/blend_position"] = direction
+		animation_tree["parameters/Jump/blend attack/blend_position"] = direction
+		animation_tree["parameters/Jump/blend jump/blend_position"] = direction
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory"):

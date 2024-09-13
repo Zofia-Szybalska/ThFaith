@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var state_machine = $StateMachine
 @onready var direction_change_timer = $DirectionChangeTimer
 @onready var animation_player = $AnimationPlayer
+@onready var animation_tree = $AnimationTree
 
 @export var speed = 150.0
 @export var max_health = 30.0
@@ -20,7 +21,14 @@ var curr_detection_range: int = base_detection_range
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var walk_direction = -1
+var is_walking = true
+var is_attacking = false
 
+func update_animation_parameters():
+	animation_tree["parameters/conditions/is_attacking"] = is_attacking
+	animation_tree["parameters/conditions/is_walking"] = is_walking
+	animation_tree["parameters/Attack/blend_position"] = walk_direction
+	animation_tree["parameters/Walk/blend_position"] = walk_direction
 
 func update_enemy():
 	pass
@@ -52,6 +60,7 @@ func take_demage():
 	health -= 10.0
 
 func _physics_process(_delta):
+	update_animation_parameters()
 	if player_in_area:
 		player_in_area.hit(1, self)
 	if !ground_detecting_ray_cast.is_colliding() and not state_machine.state.name == "Attack":

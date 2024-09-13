@@ -11,7 +11,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Attack")
 	if not sliding and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		sliding = true
-		owner.animation_player.play("wall_slide")
+		#owner.animation_player.play("wall_slide")
 	if Input.is_action_just_pressed("dash") and owner.can_dash:
 		state_machine.transition_to("Dash", {air_dash = true})
 	if owner.is_on_floor():

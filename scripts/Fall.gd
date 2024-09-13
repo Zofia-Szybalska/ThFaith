@@ -14,10 +14,10 @@ func enter(msg := {}) -> void:
 		coyote = true
 	if msg.has("wall_coyote"):
 		wall_coyote = true
-	if owner.direction == 1:
-		owner.animation_player.play("fall_right")
-	else:
-		owner.animation_player.play("fall_left")
+	#if owner.direction == 1:
+		#owner.animation_player.play("fall_right")
+	#else:
+		#owner.animation_player.play("fall_left")
 	if not msg.has("jump_ended"):
 		owner.velocity.y = lerp(owner.velocity.y, 0.0, 0.8)
 
@@ -40,10 +40,10 @@ func physics_update(delta: float) -> void:
 			owner.can_double_jump = false
 			state_machine.transition_to("Jump", {second_jump = true})
 		return
-	if owner.direction == 1:
-		owner.animation_player.play("fall_right")
-	else:
-		owner.animation_player.play("fall_left")
+	#if owner.direction == 1:
+		#owner.animation_player.play("fall_right")
+	#else:
+		#owner.animation_player.play("fall_left")
 	if Input.is_action_just_pressed("dash") and owner.can_dash:
 		state_machine.transition_to("Dash", {air_dash = true})
 	owner.velocity.x = PlayerVariables.player_speed * owner.direction

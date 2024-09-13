@@ -21,9 +21,8 @@ func enter(_msg := {}) -> void:
 func physics_update(delta: float) -> void:
 	if can_attack:
 		if direction and direction.x > 0:
-			animation_player.play("walk_right")
-		else: 
-			animation_player.play("walk_left")
+			owner.is_attacking = false
+			owner.is_walking = true
 	if not owner.is_on_floor():
 		owner.velocity.y += owner.gravity * delta
 	if not owner.player_detecting_ray_cast.is_colliding():
@@ -66,19 +65,15 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Walk")
 
 func charge():
-	if direction.x > 0:
-		animation_player.play("walk_right")
-	else: 
-		animation_player.play("walk_left")
+	owner.is_attacking = false
+	owner.is_walking = true
 	charging_anticipation = true
 	owner.velocity.x = -direction.x * owner.speed * 0.2
 	charge_preparation_timer.start()
 
 func attack():
-	if direction.x > 0:
-		animation_player.play("attack_right")
-	else:
-		animation_player.play("attack_left")
+	owner.is_attacking = true
+	owner.is_walking = false
 	can_attack = false
 	owner.player.hit(1, owner)
 	attac_buffer.start()
@@ -103,7 +98,11 @@ func _on_charge_timer_timeout():
 	try_attacking()
 
 func _on_attac_buffer_timeout():
+	owner.is_attacking = false
+	owner.is_walking = true
 	can_attack = true
 
 func exit(_msg := {}) -> void:
 	set_player_to_null()
+	owner.is_walking = true
+	owner.is_attacking = false

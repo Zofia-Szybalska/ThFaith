@@ -5,12 +5,16 @@ func enter(_msg := {}) -> void:
 	owner.velocity = Vector2.ZERO
 	owner.can_double_jump = true
 	owner.can_dash = true
+	owner.is_idle = true
 	if owner.sword_direction == 1:
 		owner.animation_player.play("idle_right")
 	elif owner.sword_direction == -1:
 		owner.animation_player.play("idle_left")
 	else:
 		owner.animation_player.play("idle_right")
+
+func exit(_msg := {}) -> void:
+	owner.is_idle = false
 
 func update(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):

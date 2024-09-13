@@ -13,12 +13,33 @@ class_name Player
 @onready var sword = $Sword
 @onready var state_label = $StateLabel
 @onready var animation_player = $AnimationPlayer
+@onready var animation_tree = $AnimationTree
 
 var can_double_jump: bool = true
 var can_dash: bool = true
 var can_be_damaged: bool = true
 var direction = -1
 var sword_direction = -1
+var is_idle = true
+var is_running = false
+var is_attacking = false
+
+func update_animation_parameters():
+	animation_tree["parameters/conditions/is_idle"] = is_idle
+	animation_tree["parameters/conditions/is_running"] = is_running
+	
+	if is_attacking:
+		animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 1
+		animation_tree["parameters/Run/Blend run attack/blend_amount"] = 1
+	else:
+		animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 0
+		animation_tree["parameters/Run/Blend run attack/blend_amount"] = 0
+	
+	if not direction == 0:
+		animation_tree["parameters/Idle/Blend attack/blend_position"] = direction
+		animation_tree["parameters/Idle/Blend idle/blend_position"] = direction
+		animation_tree["parameters/Run/Blend attack/blend_position"] = direction
+		animation_tree["parameters/Run/Blend run/blend_position"] = direction
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory"):
@@ -31,6 +52,9 @@ func _ready():
 	PlayerVariables.player = self
 	if PlayerVariables.fast_travel_points.curr_fast_travel_point:
 		global_position = PlayerVariables.fast_travel_points.curr_fast_travel_point.position
+
+func _process(_delta):
+	update_animation_parameters()
 
 func _physics_process(_delta):
 	direction = Input.get_axis("left", "right")

@@ -14,10 +14,10 @@ func enter(msg := {}) -> void:
 		jump_duration = .3
 		owner.velocity.x += owner.wall_jump_pushback * -direction
 		wall_jump = true
-	if owner.direction == 1:
-		owner.animation_player.play("jump_right")
-	else:
-		owner.animation_player.play("jump_left")
+	#if owner.direction == 1:
+		#owner.animation_player.play("jump_right")
+	#else:
+		#owner.animation_player.play("jump_left")
 
 func exit(_msg := {}) -> void:
 	jump_duration = .4
@@ -40,10 +40,10 @@ func physics_update(delta: float) -> void:
 		owner.velocity.x = lerp(owner.velocity.x, float(PlayerVariables.player_speed * direction), 0.25)
 	elif not is_equal_approx(owner.velocity.x, 0.0):
 		owner.velocity.x = PlayerVariables.player_speed * direction
-	if owner.direction == 1:
-		owner.animation_player.play("jump_right")
-	else:
-		owner.animation_player.play("jump_left")
+	#if owner.direction == 1:
+		#owner.animation_player.play("jump_right")
+	#else:
+		#owner.animation_player.play("jump_left")
 	if owner.is_on_floor():
 		if is_equal_approx(owner.velocity.x, 0.0):
 			state_machine.transition_to("Idle")

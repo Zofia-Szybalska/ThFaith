@@ -40,12 +40,16 @@ func update_animation_parameters():
 		animation_tree["parameters/Dash/Blend dash attack/blend_amount"] = 1
 		animation_tree["parameters/Fall/Blend2/blend_amount"] = 1
 		animation_tree["parameters/Jump/Blend jump attack/blend_amount"] = 1
+		animation_tree["parameters/Idle/BlendSpace1D/blend_position"] = 1
+		animation_tree["parameters/Idle/Add2/add_amount"] = 1
 	else:
 		animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 0
 		animation_tree["parameters/Run/Blend run attack/blend_amount"] = 0
 		animation_tree["parameters/Dash/Blend dash attack/blend_amount"] = 0
 		animation_tree["parameters/Fall/Blend2/blend_amount"] = 0
 		animation_tree["parameters/Jump/Blend jump attack/blend_amount"] = 0
+		animation_tree["parameters/Idle/BlendSpace1D/blend_position"] = 0
+		animation_tree["parameters/Idle/Add2/add_amount"] = 0
 	
 	if not direction == 0:
 		animation_tree["parameters/Idle/Blend attack/blend_position"] = direction

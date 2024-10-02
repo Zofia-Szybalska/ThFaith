@@ -129,7 +129,7 @@ grow_vertical = 1
 saver_loader = NodePath("../../../SaverLoader")
 
 [node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("3_ofm00")]
-position = Vector2(688.001, 1088)
+position = Vector2(288, 1264)
 UI = NodePath("../UI")
 metadata/_edit_group_ = true
 

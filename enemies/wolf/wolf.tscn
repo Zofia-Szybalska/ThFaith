@@ -2171,28 +2171,24 @@ position = Vector2(15, 16)
 [node name="WolfRbLeg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegL"]
 position = Vector2(32.1253, 11.5465)
 rotation = 0.009617
-scale = Vector2(1, 1)
 texture = ExtResource("8_p6ao8")
 offset = Vector2(-67.2109, -48.2803)
 
 [node name="WolfRbLeg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegL"]
 position = Vector2(23.0018, 35.9042)
 rotation = -0.453856
-scale = Vector2(1, 1)
 texture = ExtResource("10_s0nyx")
 offset = Vector2(-57.9508, -72.5395)
 
 [node name="WolfRbLeg1_2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegL"]
 position = Vector2(21.5598, -49.3876)
 rotation = 0.636545
-scale = Vector2(1, 1)
 texture = ExtResource("9_qidpa")
 offset = Vector2(-54.197, 14.8643)
 
 [node name="WolfRbLeg1_1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegL"]
 position = Vector2(8.35044, -31.5176)
 rotation = -0.182689
-scale = Vector2(1, 1)
 texture = ExtResource("10_bb3wf")
 offset = Vector2(-51.1213, -6.67636)
 
@@ -2260,7 +2256,6 @@ offset = Vector2(-94.1978, -48.9344)
 [node name="WolfLbLeg1_1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegR"]
 position = Vector2(25.1472, -38.2494)
 rotation = 0.366557
-scale = Vector2(1, 1)
 texture = ExtResource("17_2fhyn")
 offset = Vector2(-66.7415, 5.19709)
 
@@ -2354,7 +2349,6 @@ remote_path = NodePath("../../../../../../Parts/WolfLHead")
 [node name="FrontLegR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front"]
 position = Vector2(6.88889, 8.1111)
 rotation = 0.0846227
-scale = Vector2(1, 1)
 rest = Transform2D(0.999996, -0.00291526, 0.00291526, 0.999996, 6.88889, 8.1111)
 editor_settings/show_bone_gizmo = false
 
@@ -2374,7 +2368,6 @@ remote_path = NodePath("../../../../../../../Parts/FrontLegR/WolfLfLeg2_1")
 [node name="FrontHeelR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontLegR/FrontKneeR"]
 position = Vector2(0, 37.7778)
 rotation = -0.380506
-scale = Vector2(1, 1)
 rest = Transform2D(0.928477, -0.371391, 0.371391, 0.928477, 0, 37.7778)
 editor_settings/show_bone_gizmo = false
 
@@ -2384,7 +2377,6 @@ remote_path = NodePath("../../../../../../../../Parts/FrontLegR/WolfLfLeg2_2")
 [node name="FrontLegR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontLegR/FrontKneeR/FrontHeelR"]
 position = Vector2(-4.44444, 11.1111)
 rotation = 0.160955
-scale = Vector2(1, 1)
 rest = Transform2D(0.902073, 0.431583, -0.431583, 0.902073, -4.44444, 11.1111)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -2399,7 +2391,6 @@ remote_path = NodePath("../../../../../../../../../Parts/FrontLegR/WolfLfFoot")
 visible = false
 position = Vector2(18, 5.88889)
 rotation = 1.55669
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 18, 8.11111)
 editor_settings/show_bone_gizmo = false
 
@@ -2419,7 +2410,6 @@ remote_path = NodePath("../../../../../../../Parts/FrontLegL/WolfLfLeg2_1")
 [node name="FrotHeelL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontLegL/FrontShoulderL"]
 position = Vector2(-2.15779, 36.6827)
 rotation = -0.404893
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -2.22222, 37.7778)
 editor_settings/show_bone_gizmo = false
 
@@ -2429,7 +2419,6 @@ remote_path = NodePath("../../../../../../../../Parts/FrontLegL/WolfLfLeg2_2")
 [node name="FrontFootL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontLegL/FrontShoulderL/FrotHeelL"]
 position = Vector2(-6.66667, 13.3333)
 rotation = 3.09411
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -6.66667, 13.3333)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -2465,7 +2454,6 @@ remote_path = NodePath("../../../../../../Parts/WolfTail")
 [node name="BackLegR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back"]
 position = Vector2(12.1111, 8.11111)
 rotation = 0.365184
-scale = Vector2(1, 1)
 rest = Transform2D(0.941808, 0.33615, -0.33615, 0.941808, 12.1111, 8.11111)
 editor_settings/show_bone_gizmo = false
 
@@ -2496,7 +2484,6 @@ remote_path = NodePath("../../../../../../../../Parts/BackLegR/WolfLbLeg2")
 [node name="BackFootR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackLegR/BackTightR/BackKneeR"]
 position = Vector2(2.22222, 31.1111)
 rotation = 0.16478
-scale = Vector2(1, 1)
 rest = Transform2D(0.997253, -0.0740743, 0.0740743, 0.997253, 2.22222, 31.1111)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -2509,7 +2496,6 @@ remote_path = NodePath("../../../../../../../../../Parts/BackLegR/WolfLbFoot")
 [node name="BackLegL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back"]
 position = Vector2(7.66667, 3.66666)
 rotation = 0.635172
-scale = Vector2(1, 1)
 rest = Transform2D(1, 7.33357e-07, -7.33357e-07, 1, 7.66667, 3.66666)
 editor_settings/show_bone_gizmo = false
 
@@ -2519,7 +2505,6 @@ remote_path = NodePath("../../../../../../Parts/BackLegL/WolfRbLeg1_2")
 [node name="BackLegTightL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackLegL"]
 position = Vector2(0, 22.2222)
 rotation = -0.819235
-scale = Vector2(1, 1)
 rest = Transform2D(1, -1.32738e-06, 1.32738e-06, 1, 0, 22.2222)
 editor_settings/show_bone_gizmo = false
 
@@ -2529,7 +2514,6 @@ remote_path = NodePath("../../../../../../../Parts/BackLegL/WolfRbLeg1_1")
 [node name="BackLegKneeL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackLegL/BackLegTightL"]
 position = Vector2(15.5556, 46.6667)
 rotation = 0.192306
-scale = Vector2(1, 1)
 rest = Transform2D(1, 7.78829e-07, -7.78829e-07, 1, 15.5556, 46.6667)
 editor_settings/show_bone_gizmo = false
 
@@ -2539,7 +2523,6 @@ remote_path = NodePath("../../../../../../../../Parts/BackLegL/WolfRbLeg2")
 [node name="BackLegFootL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackLegL/BackLegTightL/BackLegKneeL"]
 position = Vector2(-8.88889, 24.4444)
 rotation = -0.463473
-scale = Vector2(1, 1)
 rest = Transform2D(1, 7.15256e-07, -7.15256e-07, 1, -8.88889, 24.4444)
 auto_calculate_length_and_angle = false
 length = 16.0

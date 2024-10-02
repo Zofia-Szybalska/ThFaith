@@ -140,17 +140,22 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0a4v0"]
 texture = ExtResource("8_sytbt")
 texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/1 = 1
+0:0/1/modulate = Color(0, 0, 0, 1)
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pudcl"]
 texture = ExtResource("9_avjk0")
 texture_region_size = Vector2i(64, 64)
-0:0/next_alternative_id = 3
+0:0/next_alternative_id = 4
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -161,6 +166,10 @@ texture_region_size = Vector2i(64, 64)
 0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/1/physics_layer_0/angular_velocity = 0.0
 0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/3 = 3
+0:0/3/modulate = Color(0.589583, 0.486799, 0.410534, 1)
+0:0/3/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/3/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hatqg"]
 texture = ExtResource("10_23csk")

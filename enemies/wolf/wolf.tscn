@@ -2169,29 +2169,26 @@ position = Vector2(15, 16)
 [node name="BackLegL" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="WolfRbLeg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegL"]
-position = Vector2(36.2077, 8.91449)
-rotation = 0.061959
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(56.3384, -6.89922)
+rotation = 0.03977
 texture = ExtResource("8_p6ao8")
 offset = Vector2(-67.2109, -48.2803)
 
 [node name="WolfRbLeg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegL"]
-position = Vector2(25.8223, 32.7616)
-rotation = -0.925628
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(46.4846, 17.1724)
+rotation = -1.93318
 texture = ExtResource("10_s0nyx")
 offset = Vector2(-57.9508, -72.5395)
 
 [node name="WolfRbLeg1_2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegL"]
-position = Vector2(21.3786, -49.4797)
-rotation = 0.632388
-scale = Vector2(1, 1)
+position = Vector2(20.6417, -49.142)
+rotation = 0.390242
 texture = ExtResource("9_qidpa")
 offset = Vector2(-54.197, 14.8643)
 
 [node name="WolfRbLeg1_1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegL"]
-position = Vector2(8.24365, -31.5548)
-rotation = -0.282905
+position = Vector2(12.1881, -28.5905)
+rotation = -0.792376
 scale = Vector2(1, 1)
 texture = ExtResource("10_bb3wf")
 offset = Vector2(-51.1213, -6.67636)
@@ -2201,81 +2198,80 @@ position = Vector2(15, -9.33333)
 rotation = -0.0457752
 
 [node name="WolfRfLeg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontLegL"]
-position = Vector2(-57.9848, -39.1957)
-rotation = 1.63735
+position = Vector2(-57.9806, -39.6819)
+rotation = -0.152525
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("12_o5u8t")
 offset = Vector2(14.5022, 13.1662)
 
 [node name="WolfLfLeg2_1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontLegL"]
-position = Vector2(-96.2701, -32.8389)
-rotation = -0.253082
+position = Vector2(-43.4552, -3.69324)
+rotation = 0.00560072
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("22_f2fer")
 offset = Vector2(20, -28.6111)
 
 [node name="WolfLfLeg2_2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontLegL"]
-position = Vector2(-89.1742, 3.21553)
-rotation = -0.657975
-scale = Vector2(0.999998, 0.999998)
+position = Vector2(-45.8184, 32.9768)
+rotation = -0.399292
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("23_t6ckw")
 offset = Vector2(22.3611, -64.3056)
 
 [node name="WolfRfLeg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontLegL"]
-position = Vector2(-86.2956, 17.842)
-rotation = 1.78651
-scale = Vector2(0.999998, 0.999998)
+position = Vector2(-46.7771, 47.853)
+rotation = 0.0545447
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("13_wrchq")
 offset = Vector2(9.95418, -68.5291)
 
 [node name="WolfTail" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
-position = Vector2(-11.2687, -3.8258)
-rotation = -0.481897
+position = Vector2(-20.0215, -11.6851)
+rotation = -0.311961
 scale = Vector2(0.999871, 0.999871)
 texture = ExtResource("14_1migu")
 
 [node name="Body" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 
 [node name="WolfBody1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
-position = Vector2(-37.9907, -32.0553)
-rotation = -0.0521212
+position = Vector2(-38.2092, -32.4451)
+rotation = -0.0376225
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("16_hcu8r")
 
 [node name="WolfBody2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
-position = Vector2(-37.3481, -33.3635)
-rotation = 0.00369989
-scale = Vector2(1, 1)
+position = Vector2(-38.4699, -34.5005)
+rotation = 0.0287264
 texture = ExtResource("17_ii1jo")
 
 [node name="BackLegR" type="Node2D" parent="PartsSKeletonContainer/Parts"]
 position = Vector2(3.88889, 4)
 
 [node name="WolfLbLeg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegR"]
-position = Vector2(54.355, 8.96795)
-rotation = -0.0296445
-scale = Vector2(0.999998, 0.999998)
+position = Vector2(50.3199, 9.11884)
+rotation = 0.245854
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("18_6y05e")
 offset = Vector2(-94.1978, -48.9344)
 
 [node name="WolfLbLeg1_1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegR"]
-position = Vector2(24.8699, -38.3071)
-rotation = 0.37457
+position = Vector2(22.3462, -37.5344)
+rotation = 0.528187
 scale = Vector2(1, 1)
 texture = ExtResource("17_2fhyn")
 offset = Vector2(-66.7415, 5.19709)
 
 [node name="WolfLbLeg1_2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegR"]
-position = Vector2(21.8318, -27.9371)
-rotation = -0.176149
+position = Vector2(17.7572, -27.7514)
+rotation = -0.177218
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("18_b6dy1")
 offset = Vector2(-68.5014, -9.17491)
 
 [node name="WolfLbFoot" type="Sprite2D" parent="PartsSKeletonContainer/Parts/BackLegR"]
-position = Vector2(57.4984, 39.9995)
-rotation = 0.122022
-scale = Vector2(0.999998, 0.999998)
+position = Vector2(44.9033, 39.8353)
+rotation = 0.15768
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("20_8xnke")
 offset = Vector2(-95.955, -81.1156)
 
@@ -2283,36 +2279,36 @@ offset = Vector2(-95.955, -81.1156)
 position = Vector2(6.11111, -4.88889)
 
 [node name="WolfLfLeg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontLegR"]
-position = Vector2(-61.809, -38.1477)
-rotation = 0.056195
+position = Vector2(-61.8664, -38.7931)
+rotation = 0.271584
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("22_kr552")
 offset = Vector2(20.9032, 9.27777)
 
 [node name="WolfLfLeg2_1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontLegR"]
-position = Vector2(-66.2743, 1.66429)
-rotation = 0.234263
+position = Vector2(-74.7375, -0.855337)
+rotation = 0.362472
 scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("22_f2fer")
 offset = Vector2(22.5937, -28.82)
 
 [node name="WolfLfLeg2_2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontLegR"]
-position = Vector2(-75.0435, 38.4101)
-rotation = -0.146243
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(-88.133, 34.4677)
+rotation = -0.0180346
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("23_t6ckw")
 offset = Vector2(22.5937, -66.8086)
 
 [node name="WolfLfFoot" type="Sprite2D" parent="PartsSKeletonContainer/Parts/FrontLegR"]
-position = Vector2(-77.7971, 52.2723)
-rotation = -0.0109468
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(-91.144, 47.5064)
+rotation = -0.587794
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("23_s5fh0")
 offset = Vector2(25.8538, -76.5779)
 
 [node name="WolfLHead" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
-position = Vector2(-39.0113, -31.831)
-rotation = -0.122132
+position = Vector2(-38.9051, -32.6273)
+rotation = -0.116032
 scale = Vector2(0.999865, 0.999865)
 texture = ExtResource("15_4klb8")
 
@@ -2340,7 +2336,7 @@ remote_path = NodePath("../../../../../Parts/Body/WolfBody1")
 
 [node name="Head" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front"]
 position = Vector2(-22, -20.7778)
-rotation = -0.0700111
+rotation = -0.07841
 scale = Vector2(0.999866, 0.999866)
 rest = Transform2D(0.999866, 0, 0, 0.999866, -18, -26)
 auto_calculate_length_and_angle = false
@@ -2354,7 +2350,7 @@ remote_path = NodePath("../../../../../../Parts/WolfLHead")
 
 [node name="FrontLegR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front"]
 position = Vector2(6.88889, 8.1111)
-rotation = 0.108316
+rotation = 0.309207
 rest = Transform2D(0.999996, -0.00291526, 0.00291526, 0.999996, 6.88889, 8.1111)
 editor_settings/show_bone_gizmo = false
 
@@ -2363,7 +2359,7 @@ remote_path = NodePath("../../../../../../Parts/FrontLegR/WolfLfLeg1")
 
 [node name="FrontKneeR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontLegR"]
 position = Vector2(-2.22222, 40)
-rotation = 0.178068
+rotation = 0.0908873
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.999987, 0.00510244, -0.00510244, 0.999987, -2.22222, 40)
 editor_settings/show_bone_gizmo = false
@@ -2383,8 +2379,7 @@ remote_path = NodePath("../../../../../../../../Parts/FrontLegR/WolfLfLeg2_2")
 
 [node name="FrontLegR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontLegR/FrontKneeR/FrontHeelR"]
 position = Vector2(-4.44444, 11.1111)
-rotation = 0.135296
-scale = Vector2(1, 1)
+rotation = -0.569759
 rest = Transform2D(0.902073, 0.431583, -0.431583, 0.902073, -4.44444, 11.1111)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -2398,8 +2393,7 @@ remote_path = NodePath("../../../../../../../../../Parts/FrontLegR/WolfLfFoot")
 [node name="FrontLegL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front"]
 visible = false
 position = Vector2(18, 5.88889)
-rotation = 1.6437
-scale = Vector2(1, 1)
+rotation = -0.160678
 rest = Transform2D(1, 0, 0, 1, 18, 8.11111)
 editor_settings/show_bone_gizmo = false
 
@@ -2408,7 +2402,7 @@ remote_path = NodePath("../../../../../../Parts/FrontLegL/WolfRfLeg1")
 
 [node name="FrontShoulderL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontLegL"]
 position = Vector2(8.88889, 37.7778)
-rotation = -1.89043
+rotation = 0.158126
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 8.88889, 37.7778)
 editor_settings/show_bone_gizmo = false
@@ -2419,7 +2413,6 @@ remote_path = NodePath("../../../../../../../Parts/FrontLegL/WolfLfLeg2_1")
 [node name="FrotHeelL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontLegL/FrontShoulderL"]
 position = Vector2(-2.15779, 36.6827)
 rotation = -0.404893
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -2.22222, 37.7778)
 editor_settings/show_bone_gizmo = false
 
@@ -2428,8 +2421,7 @@ remote_path = NodePath("../../../../../../../../Parts/FrontLegL/WolfLfLeg2_2")
 
 [node name="FrontFootL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontLegL/FrontShoulderL/FrotHeelL"]
 position = Vector2(-6.66667, 13.3333)
-rotation = 2.44449
-scale = Vector2(1, 1)
+rotation = 0.453837
 rest = Transform2D(1, 0, 0, 1, -6.66667, 13.3333)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -2441,7 +2433,6 @@ remote_path = NodePath("../../../../../../../../../Parts/FrontLegL/WolfRfLeg3")
 
 [node name="Back" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body"]
 position = Vector2(36, -5)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 36, -5)
 editor_settings/show_bone_gizmo = false
 
@@ -2451,7 +2442,7 @@ remote_path = NodePath("../../../../../Parts/Body/WolfBody2")
 
 [node name="Tail" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back"]
 position = Vector2(21, -3.00001)
-rotation = -0.485597
+rotation = -0.340688
 scale = Vector2(0.999871, 0.999871)
 rest = Transform2D(0.999873, 0, 0, 0.999873, 21, -3.00001)
 auto_calculate_length_and_angle = false
@@ -2465,8 +2456,7 @@ remote_path = NodePath("../../../../../../Parts/WolfTail")
 
 [node name="BackLegR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back"]
 position = Vector2(12.1111, 8.11111)
-rotation = 0.37087
-scale = Vector2(1, 1)
+rotation = 0.49946
 rest = Transform2D(0.941808, 0.33615, -0.33615, 0.941808, 12.1111, 8.11111)
 editor_settings/show_bone_gizmo = false
 
@@ -2476,7 +2466,7 @@ remote_path = NodePath("../../../../../../Parts/BackLegR/WolfLbLeg1_1")
 
 [node name="BackTightR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackLegR"]
 position = Vector2(7.63332, 19.6514)
-rotation = -0.550719
+rotation = -0.705405
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.864043, -0.503416, 0.503416, 0.864043, 7.63332, 19.6514)
 editor_settings/show_bone_gizmo = false
@@ -2486,8 +2476,7 @@ remote_path = NodePath("../../../../../../../Parts/BackLegR/WolfLbLeg1_2")
 
 [node name="BackKneeR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackLegR/BackTightR"]
 position = Vector2(25.5528, 42.0334)
-rotation = 0.146504
-scale = Vector2(1, 1)
+rotation = 0.423072
 rest = Transform2D(0.966681, 0.255983, -0.255983, 0.966681, 25.5528, 42.0334)
 editor_settings/show_bone_gizmo = false
 
@@ -2496,7 +2485,7 @@ remote_path = NodePath("../../../../../../../../Parts/BackLegR/WolfLbLeg2")
 
 [node name="BackFootR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackLegR/BackTightR/BackKneeR"]
 position = Vector2(2.22222, 31.1111)
-rotation = 0.151667
+rotation = -0.0881741
 scale = Vector2(1, 1)
 rest = Transform2D(0.997253, -0.0740743, 0.0740743, 0.997253, 2.22222, 31.1111)
 auto_calculate_length_and_angle = false
@@ -2509,7 +2498,7 @@ remote_path = NodePath("../../../../../../../../../Parts/BackLegR/WolfLbFoot")
 
 [node name="BackLegL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back"]
 position = Vector2(7.66667, 3.66666)
-rotation = 0.628688
+rotation = 0.361515
 scale = Vector2(1, 1)
 rest = Transform2D(1, 7.33357e-07, -7.33357e-07, 1, 7.66667, 3.66666)
 editor_settings/show_bone_gizmo = false
@@ -2519,8 +2508,7 @@ remote_path = NodePath("../../../../../../Parts/BackLegL/WolfRbLeg1_2")
 
 [node name="BackLegTightL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackLegL"]
 position = Vector2(0, 22.2222)
-rotation = -0.915293
-scale = Vector2(1, 1)
+rotation = -1.18262
 rest = Transform2D(1, -1.32738e-06, 1.32738e-06, 1, 0, 22.2222)
 editor_settings/show_bone_gizmo = false
 
@@ -2529,8 +2517,7 @@ remote_path = NodePath("../../../../../../../Parts/BackLegL/WolfRbLeg1_1")
 
 [node name="BackLegKneeL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackLegL/BackLegTightL"]
 position = Vector2(15.5556, 46.6667)
-rotation = 0.344864
-scale = Vector2(1, 1)
+rotation = 0.832146
 rest = Transform2D(1, 7.78829e-07, -7.78829e-07, 1, 15.5556, 46.6667)
 editor_settings/show_bone_gizmo = false
 
@@ -2539,8 +2526,7 @@ remote_path = NodePath("../../../../../../../../Parts/BackLegL/WolfRbLeg2")
 
 [node name="BackLegFootL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Back/BackLegL/BackLegTightL/BackLegKneeL"]
 position = Vector2(-8.88889, 24.4444)
-rotation = -0.987587
-scale = Vector2(1, 1)
+rotation = -1.97295
 rest = Transform2D(1, 7.15256e-07, -7.15256e-07, 1, -8.88889, 24.4444)
 auto_calculate_length_and_angle = false
 length = 16.0

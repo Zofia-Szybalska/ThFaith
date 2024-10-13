@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 
-@export var speed = 150.0
+@export var speed = 100.0
 @export var max_health = 30.0
 @export var base_currency_dropped: int = 10
 @export var base_detection_range: int = 600
@@ -59,7 +59,7 @@ func drop_currency():
 func take_demage():
 	health -= 10.0
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	update_animation_parameters()
 	if player_in_area:
 		player_in_area.hit(1, self)

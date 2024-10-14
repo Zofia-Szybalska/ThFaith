@@ -19,6 +19,7 @@ extends Node
 @export var currency_dropped_multiplayer: float = 1.0
 @export var current_scene_path: String = "res://scenes/levels/midgard.tscn"
 @export var last_camp_pos: Vector2 = Vector2.ZERO
+@export var player_hurt: bool = false
 signal health_changed
 signal currency_changed
 

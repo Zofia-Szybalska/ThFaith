@@ -128,20 +128,22 @@ grow_horizontal = 1
 grow_vertical = 1
 saver_loader = NodePath("../../../SaverLoader")
 
+[node name="ParallaxBackground" parent="UI" instance=ExtResource("12_kjhjd")]
+scroll_ignore_camera_zoom = true
+
 [node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("3_ofm00")]
 position = Vector2(688.001, 1088)
 UI = NodePath("../UI")
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -250)
 scale = Vector2(3.33333, 3.33333)
 limit_left = 0
 limit_top = -1280
 limit_right = 29056
 limit_bottom = 1795
 editor_draw_limits = true
-
-[node name="ParallaxBackground" parent="Player/Camera2D" instance=ExtResource("12_kjhjd")]
 
 [node name="Camp" parent="." node_paths=PackedStringArray("saver_loader_node") instance=ExtResource("9_ljka7")]
 position = Vector2(18272, 1088)

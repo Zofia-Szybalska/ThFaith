@@ -23,8 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l8wkm")
 
-[node name="OldHp" type="MarginContainer" parent="."]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -38,47 +37,47 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="PanelContainer" type="PanelContainer" parent="OldHp"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="OldHp/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OldHp/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Health" type="HBoxContainer" parent="OldHp/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Health" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="OldHp/PanelContainer/MarginContainer/VBoxContainer/Health"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Health: "
 
-[node name="HPLabel" type="Label" parent="OldHp/PanelContainer/MarginContainer/VBoxContainer/Health"]
+[node name="HPLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Health"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 
-[node name="Currency" type="HBoxContainer" parent="OldHp/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Currency" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="OldHp/PanelContainer/MarginContainer/VBoxContainer/Currency"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Currency"]
 layout_mode = 2
 texture = ExtResource("2_btr15")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="CurrencyLabel" type="Label" parent="OldHp/PanelContainer/MarginContainer/VBoxContainer/Currency"]
+[node name="CurrencyLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Currency"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 
-[node name="CurrencyChangedLable" type="Label" parent="OldHp/PanelContainer/MarginContainer/VBoxContainer/Currency"]
+[node name="CurrencyChangedLable" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Currency"]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -236,14 +235,6 @@ offset_bottom = 306.0
 texture = ExtResource("13_uciks")
 stretch_mode = 2
 
-[node name="CurrencyChangedLabel" type="Label" parent="MarginContainer2/VBoxContainer/Bar"]
-unique_name_in_owner = true
-layout_mode = 2
-offset_left = 108.0
-offset_top = 138.0
-offset_right = 109.0
-offset_bottom = 161.0
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2/VBoxContainer/Bar"]
 layout_mode = 1
 anchors_preset = -1
@@ -269,6 +260,10 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 2
+
+[node name="CurrencyChangedLabel" type="Label" parent="MarginContainer2/VBoxContainer/Bar/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer2/VBoxContainer/Bar"]
 layout_mode = 2

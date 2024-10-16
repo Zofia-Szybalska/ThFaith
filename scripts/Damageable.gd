@@ -6,13 +6,15 @@ class_name Damageable
 @export var health = 30
 @export var char_state_machine: StateMachine
 @export var knockback = 100
+@export var sprites_node: Node2D
 var can_be_damaged = true
 signal on_hit(node: Node, damage_taken: int, knockback_direction: Vector2)
 
 func _on_hit(damage: int, knockback_direction: Vector2):
 	if can_be_damaged:
 		can_be_damaged = false
-		get_parent().modulate = Color.RED
+		if sprites_node:
+			sprites_node.material.set_shader_parameter("hurt", true)
 		health -= damage
 		if health <= 0:
 			if get_parent().has_method("kill"):
@@ -31,4 +33,5 @@ func start_timer():
 
 func _on_timer_timeout():
 	can_be_damaged = true
-	get_parent().modulate = Color.WHITE
+	if sprites_node:
+		sprites_node.material.set_shader_parameter("hurt", false)

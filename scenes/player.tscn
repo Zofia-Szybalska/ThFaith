@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="9_djew2"]
 [ext_resource type="Script" path="res://scripts/Attack.gd" id="10_gj707"]
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="11_oq0nx"]
-[ext_resource type="Material" path="res://shaders/materials/player_hit_flash_material.tres" id="12_1adp3"]
+[ext_resource type="Material" uid="uid://cohgjox88mcd3" path="res://shaders/materials/player_hit_flash_material.tres" id="12_1adp3"]
 [ext_resource type="Texture2D" uid="uid://dysbs8uq4p58a" path="res://assets/sprites/player/LeithRarm1.png" id="12_aqtcy"]
 [ext_resource type="Script" path="res://scripts/PlayerHitState.gd" id="12_gged8"]
 [ext_resource type="Texture2D" uid="uid://p8rjvehhgufa" path="res://assets/sprites/player/LeithRarm2.png" id="13_wmssa"]
@@ -4293,7 +4293,6 @@ remote_path = NodePath("../../../../Parts/RLeg/LeithRleg1")
 [node name="ShinR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/LegR"]
 position = Vector2(0.768289, 42.2152)
 rotation = -0.157147
-scale = Vector2(1, 1)
 rest = Transform2D(0.987678, -0.156501, 0.156501, 0.987678, 0.768289, 42.2152)
 editor_settings/show_bone_gizmo = false
 

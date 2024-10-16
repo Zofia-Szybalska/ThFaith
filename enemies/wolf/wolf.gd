@@ -6,8 +6,9 @@ extends CharacterBody2D
 @onready var direction_change_timer = $DirectionChangeTimer
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
+@onready var flash_timer = $flash_timer
 
-@export var speed = 150.0
+@export var speed = 100.0
 @export var max_health = 30.0
 @export var base_currency_dropped: int = 10
 @export var base_detection_range: int = 600
@@ -58,6 +59,10 @@ func drop_currency():
 
 func take_demage():
 	health -= 10.0
+	$PartsSKeletonContainer/Parts.material.set_shader_parameter("hurt", true)
+	$PartsSKeletonContainer/Parts.material.get_shader_parameter("hurt")
+	print()
+	flash_timer.start()
 
 func _physics_process(_delta):
 	update_animation_parameters()
@@ -87,3 +92,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(_body):
 	player_in_area = null
+
+
+func _on_flash_timer_timeout():
+		$PartsSKeletonContainer/Parts.material.set_shader_parameter("hurt", false)

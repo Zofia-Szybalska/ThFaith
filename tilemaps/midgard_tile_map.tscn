@@ -1,12 +1,12 @@
 [gd_scene load_steps=20 format=3 uid="uid://c5r2epca10hj"]
 
-[ext_resource type="Texture2D" path="res://assets/tilemaps/DirtSnowTilemap.png" id="1_fy3vw"]
-[ext_resource type="Texture2D" path="res://assets/tilemaps/Dirt3.png" id="2_13s3b"]
+[ext_resource type="Texture2D" uid="uid://bh3e2clm06nea" path="res://assets/tilemaps/DirtSnowTilemap.png" id="1_fy3vw"]
+[ext_resource type="Texture2D" uid="uid://yd3kqrcjnklg" path="res://assets/tilemaps/Dirt3.png" id="2_13s3b"]
 [ext_resource type="Texture2D" uid="uid://cyx3wbhsv7cnr" path="res://assets/tilemaps/leaves2.png" id="4_br8um"]
 [ext_resource type="Texture2D" uid="uid://cs3qinfsblc5v" path="res://assets/tilemaps/leaves.png" id="5_s8ud3"]
 [ext_resource type="Texture2D" uid="uid://bjpl0c34buamm" path="res://assets/tilemaps/rock.png" id="6_1d5r6"]
 [ext_resource type="Texture2D" uid="uid://c50tg6qqteyxe" path="res://assets/tilemaps/rockSnow.png" id="7_d6t7a"]
-[ext_resource type="Texture2D" path="res://assets/tilemaps/Dirt2.png" id="7_wxx7n"]
+[ext_resource type="Texture2D" uid="uid://bssq6q6tl20ol" path="res://assets/tilemaps/Dirt2.png" id="7_wxx7n"]
 [ext_resource type="Texture2D" uid="uid://ccdochwerb4n4" path="res://assets/tilemaps/snow.png" id="8_sytbt"]
 [ext_resource type="Texture2D" uid="uid://b4enc4880cfbl" path="res://assets/tilemaps/woodpng.png" id="9_avjk0"]
 

@@ -17,7 +17,10 @@ class_name Player
 
 var can_double_jump: bool = true
 var can_dash: bool = true
-var can_be_damaged: bool = true
+var can_be_damaged: bool = true: 
+	set(new_value):
+		can_be_damaged = new_value
+		$PartsSKeletonContainer/Parts.material.set_shader_parameter("hurt", !can_be_damaged)
 var direction = -1
 var sword_direction = -1
 var is_idle = false
@@ -69,6 +72,7 @@ func _unhandled_input(event):
 		UI.show_inventory()
 
 func _ready():
+	can_be_damaged = true
 	if PlayerVariables.player_spawn_pos != Vector2.ZERO:
 		position = PlayerVariables.player_spawn_pos
 	PlayerVariables.player = self

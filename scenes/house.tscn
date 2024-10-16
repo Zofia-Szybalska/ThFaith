@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://diwgaeyrknlft"]
+[gd_scene load_steps=4 format=3 uid="uid://cltu2ntkwt0yk"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_5pwxk"]
 [ext_resource type="Script" path="res://scripts/house.gd" id="1_qjqm0"]

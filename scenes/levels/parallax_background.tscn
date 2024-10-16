@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2wkvsoj0b0wr"]
+[gd_scene load_steps=4 format=3 uid="uid://d2wkvsoj0b0wr"]
 
 [ext_resource type="Texture2D" uid="uid://c3eo73gol6xbn" path="res://assets/sky.png" id="1_kjvyh"]
 [ext_resource type="Texture2D" uid="uid://i5px06oba4c5" path="res://assets/clouds.png" id="2_h6i8q"]
+[ext_resource type="Texture2D" uid="uid://df8mqx2veu415" path="res://assets/MountinesBackground.png" id="3_wl3g0"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -24,3 +25,10 @@ motion_mirroring = Vector2(3480, 2480)
 position = Vector2(-816, -1296)
 texture = ExtResource("2_h6i8q")
 centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_offset = Vector2(0, 1080)
+motion_mirroring = Vector2(2880, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("3_wl3g0")

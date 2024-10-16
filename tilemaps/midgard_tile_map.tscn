@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5r2epca10hj"]
+[gd_scene load_steps=20 format=3 uid="uid://c5r2epca10hj"]
 
 [ext_resource type="Texture2D" uid="uid://bh3e2clm06nea" path="res://assets/tilemaps/DirtSnowTilemap.png" id="1_fy3vw"]
+[ext_resource type="Texture2D" uid="uid://yd3kqrcjnklg" path="res://assets/tilemaps/Dirt3.png" id="2_13s3b"]
 [ext_resource type="Texture2D" uid="uid://cyx3wbhsv7cnr" path="res://assets/tilemaps/leaves2.png" id="4_br8um"]
 [ext_resource type="Texture2D" uid="uid://cs3qinfsblc5v" path="res://assets/tilemaps/leaves.png" id="5_s8ud3"]
 [ext_resource type="Texture2D" uid="uid://bjpl0c34buamm" path="res://assets/tilemaps/rock.png" id="6_1d5r6"]
 [ext_resource type="Texture2D" uid="uid://c50tg6qqteyxe" path="res://assets/tilemaps/rockSnow.png" id="7_d6t7a"]
+[ext_resource type="Texture2D" uid="uid://bssq6q6tl20ol" path="res://assets/tilemaps/Dirt2.png" id="7_wxx7n"]
 [ext_resource type="Texture2D" uid="uid://ccdochwerb4n4" path="res://assets/tilemaps/snow.png" id="8_sytbt"]
 [ext_resource type="Texture2D" uid="uid://b4enc4880cfbl" path="res://assets/tilemaps/woodpng.png" id="9_avjk0"]
 
@@ -494,6 +496,24 @@ texture_region_size = Vector2i(64, 64)
 11:3/0/terrains_peering_bit/top_left_corner = 0
 11:3/0/terrains_peering_bit/top_side = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jkki"]
+texture = ExtResource("2_13s3b")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nu72a"]
 texture = ExtResource("4_br8um")
 texture_region_size = Vector2i(64, 64)
@@ -560,6 +580,24 @@ texture_region_size = Vector2i(64, 64)
 0:0/3/physics_layer_0/angular_velocity = 0.0
 0:0/3/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxwou"]
+texture = ExtResource("7_wxx7n")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0a4v0"]
 texture = ExtResource("8_sytbt")
 texture_region_size = Vector2i(64, 64)
@@ -608,6 +646,8 @@ sources/18 = SubResource("TileSetAtlasSource_m6jmh")
 sources/20 = SubResource("TileSetAtlasSource_0a4v0")
 sources/21 = SubResource("TileSetAtlasSource_pudcl")
 sources/0 = SubResource("TileSetAtlasSource_dnpan")
+sources/1 = SubResource("TileSetAtlasSource_4jkki")
+sources/2 = SubResource("TileSetAtlasSource_cxwou")
 
 [node name="MidgardTileMap" type="TileMap"]
 tile_set = SubResource("TileSet_roo4v")

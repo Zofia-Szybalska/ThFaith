@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://bg3pue4k6suxh"]
+[gd_scene load_steps=145 format=3 uid="uid://bg3pue4k6suxh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_weano"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_lou1g"]
@@ -42,6 +42,13 @@ height = 260.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1i7g"]
 size = Vector2(95, 175)
 
+[sub_resource type="Curve" id="Curve_5i0fn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.747619, 0.857143), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_e4uyv"]
+curve = SubResource("Curve_5i0fn")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t8hey"]
 lifetime_randomness = 0.5
 emission_shape = 1
@@ -54,8 +61,13 @@ radial_accel_max = 50.0
 damping_max = 50.0
 scale_min = 0.5
 scale_max = 0.7
+color = Color(0.89059, 0.89059, 0.89059, 1)
+alpha_curve = SubResource("CurveTexture_e4uyv")
 turbulence_noise_strength = 17.0
 turbulence_noise_scale = 10.0
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.5
 
 [sub_resource type="Animation" id="Animation_a3xd7"]
 length = 0.001
@@ -4501,7 +4513,7 @@ animation = &"walk_right"
 blend_point_0/node = SubResource("AnimationNodeAnimation_61uvn")
 blend_point_0/pos = -1.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_jg0ep")
-blend_point_1/pos = 0.9
+blend_point_1/pos = 1.0
 blend_mode = 1
 sync = true
 
@@ -4771,6 +4783,9 @@ script = ExtResource("12_gged8")
 [node name="Timer" type="Timer" parent="StateMachine/Hit"]
 wait_time = 0.5
 one_shot = true
+
+[node name="FlashTimer" type="Timer" parent="StateMachine/Hit"]
+wait_time = 0.2
 
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("12_74dt6")
@@ -5111,6 +5126,7 @@ texture = ExtResource("29_qq0r6")
 one_shot = true
 explosiveness = 0.5
 randomness = 0.5
+collision_base_size = 16.0
 
 [node name="SoupStack" type="Node" parent="PartsSKeletonContainer/Skeleton2D"]
 script = ExtResource("29_t4ki5")
@@ -5254,4 +5270,5 @@ parameters/Idle/BlendSpace1D/blend_position = -1.0
 [connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]
 [connection signal="timeout" from="StateMachine/Attack/AttackTimer" to="StateMachine/Attack" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Hit/Timer" to="StateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Hit/FlashTimer" to="StateMachine/Hit" method="_on_flash_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="Sword" method="_on_animation_player_animation_finished"]

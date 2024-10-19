@@ -14,6 +14,7 @@ class_name Player
 @onready var state_label = $StateLabel
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
+@onready var parts = $PartsSKeletonContainer/Parts
 
 var can_double_jump: bool = true
 var can_dash: bool = true
@@ -21,6 +22,7 @@ var can_be_damaged: bool = true:
 	set(new_value):
 		can_be_damaged = new_value
 		$PartsSKeletonContainer/Parts.material.set_shader_parameter("hurt", !can_be_damaged)
+		$PartsSKeletonContainer/Parts.material.set_shader_parameter("can_be_hurt", can_be_damaged)
 var direction = -1
 var sword_direction = -1
 var is_idle = false

@@ -3,7 +3,7 @@ extends State
 @onready var attack_timer = $AttackTimer
 var curr_state = "idle"
 
-func enter(msg := {}) -> void:
+func enter(_msg := {}) -> void:
 	owner.is_attacking = true
 	#if msg.has("running"):
 		#curr_state = "running"

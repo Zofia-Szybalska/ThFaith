@@ -29,6 +29,7 @@ var is_attacking = false
 var is_jumping = false
 var is_dashing = false
 var is_falling = false
+var is_dead = false
 
 func update_animation_parameters():
 	animation_tree["parameters/conditions/is_idle"] = is_idle
@@ -36,24 +37,25 @@ func update_animation_parameters():
 	animation_tree["parameters/conditions/is_dashing"] = is_dashing
 	animation_tree["parameters/conditions/is_falling"] = is_falling
 	animation_tree["parameters/conditions/is_running"] = is_running
-	#animation_tree["parameters/conditions/is_attacking"] = is_attacking
+	animation_tree["parameters/conditions/is_dead"] = is_dead
+	animation_tree["parameters/conditions/is_attacking"] = is_attacking
 	
-	if is_attacking:
-		animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 1
-		animation_tree["parameters/Run/Blend run attack/blend_amount"] = 1
-		animation_tree["parameters/Dash/Blend dash attack/blend_amount"] = 1
-		animation_tree["parameters/Fall/Blend2/blend_amount"] = 1
-		animation_tree["parameters/Jump/Blend jump attack/blend_amount"] = 1
-		animation_tree["parameters/Idle/BlendSpace1D/blend_position"] = 1
-		animation_tree["parameters/Idle/Add2/add_amount"] = 1
-	else:
-		animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 0
-		animation_tree["parameters/Run/Blend run attack/blend_amount"] = 0
-		animation_tree["parameters/Dash/Blend dash attack/blend_amount"] = 0
-		animation_tree["parameters/Fall/Blend2/blend_amount"] = 0
-		animation_tree["parameters/Jump/Blend jump attack/blend_amount"] = 0
-		animation_tree["parameters/Idle/BlendSpace1D/blend_position"] = 0
-		animation_tree["parameters/Idle/Add2/add_amount"] = 0
+	#if is_attacking:
+		#animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 1
+		#animation_tree["parameters/Run/Blend run attack/blend_amount"] = 1
+		#animation_tree["parameters/Dash/Blend dash attack/blend_amount"] = 1
+		#animation_tree["parameters/Fall/Blend2/blend_amount"] = 1
+		#animation_tree["parameters/Jump/Blend jump attack/blend_amount"] = 1
+		#animation_tree["parameters/Idle/BlendSpace1D/blend_position"] = 1
+		#animation_tree["parameters/Idle/Add2/add_amount"] = 1
+	#else:
+		#animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 0
+		#animation_tree["parameters/Run/Blend run attack/blend_amount"] = 0
+		#animation_tree["parameters/Dash/Blend dash attack/blend_amount"] = 0
+		#animation_tree["parameters/Fall/Blend2/blend_amount"] = 0
+		#animation_tree["parameters/Jump/Blend jump attack/blend_amount"] = 0
+		#animation_tree["parameters/Idle/BlendSpace1D/blend_position"] = 0
+		#animation_tree["parameters/Idle/Add2/add_amount"] = 0
 	
 	if not direction == 0:
 		animation_tree["parameters/Idle/Blend attack/blend_position"] = direction
@@ -67,6 +69,7 @@ func update_animation_parameters():
 		animation_tree["parameters/Jump/blend attack/blend_position"] = direction
 		animation_tree["parameters/Jump/blend jump/blend_position"] = direction
 		animation_tree["parameters/Attack/blend_position"] = direction
+		animation_tree["parameters/Death/blend_position"] = direction
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory"):
@@ -82,6 +85,8 @@ func _ready():
 		global_position = PlayerVariables.fast_travel_points.curr_fast_travel_point.position
 
 func _process(_delta):
+	if PlayerVariables.health == 0:
+		dead()
 	update_animation_parameters()
 
 func _physics_process(_delta):
@@ -125,3 +130,13 @@ func heal(amount: int):
 
 func change_health(amount: int):
 	PlayerVariables.health = clamp(PlayerVariables.health + amount, 0, PlayerVariables.max_health)
+
+func dead():
+	can_be_damaged = false
+	is_dead = true
+	is_idle = false
+	is_running = false
+	is_attacking = false
+	is_jumping = false
+	is_dashing = false
+	is_falling = false

@@ -7,7 +7,7 @@ extends Control
 @onready var currency_lable = %CurrencyLable
 @onready var currency_changed_label = %CurrencyChangedLabel
 @onready var HP_array
-
+signal player_died
 @export var time_showing_new_items: float = 5.0
 
 func _ready():
@@ -24,7 +24,8 @@ func update_health():
 	for index in PlayerVariables.health:
 		HP_array[index].visible = true
 	if PlayerVariables.health == 0:
-		get_tree().paused = true
+		player_died.emit()
+		#get_tree().paused = true
 		dead_screen.show()
 
 func update_currency(amount_changed: int = 0):

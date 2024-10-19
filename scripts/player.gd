@@ -36,6 +36,7 @@ func update_animation_parameters():
 	animation_tree["parameters/conditions/is_dashing"] = is_dashing
 	animation_tree["parameters/conditions/is_falling"] = is_falling
 	animation_tree["parameters/conditions/is_running"] = is_running
+	#animation_tree["parameters/conditions/is_attacking"] = is_attacking
 	
 	if is_attacking:
 		animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 1
@@ -65,6 +66,7 @@ func update_animation_parameters():
 		animation_tree["parameters/Fall/blend fall/blend_position"] = direction
 		animation_tree["parameters/Jump/blend attack/blend_position"] = direction
 		animation_tree["parameters/Jump/blend jump/blend_position"] = direction
+		animation_tree["parameters/Attack/blend_position"] = direction
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory"):

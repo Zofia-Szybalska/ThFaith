@@ -1,19 +1,22 @@
 extends Area2D
 
 @export var damage: int = 10
-var right_pos: Vector2 = Vector2(45,0)
-var base_right_pos: Vector2 = Vector2(45,0)
-var left_pos: Vector2 = Vector2(-110,0)
-var base_size: Vector2 = Vector2(60, 130)
+var right_pos: Vector2 = Vector2(135,0)
+var base_right_pos: Vector2 = Vector2(135, 0)
+var left_pos: Vector2 = Vector2(-150,0)
+var base_left_pos: Vector2 = Vector2(-150,0)
+var base_size: Vector2 = Vector2(95, 175)
 
 
 
 func change_sword_length(amount: int = 0):
 	$CollisionShape2D.shape.size.x += amount
-	right_pos.x = amount
+	right_pos.x += amount
+	right_pos.x -= amount
 
 func reset_sword_length():
 	right_pos = base_right_pos
+	left_pos = base_left_pos
 	$CollisionShape2D.shape.size = base_size
 
 func _ready():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://bg3pue4k6suxh"]
+[gd_scene load_steps=143 format=3 uid="uid://bg3pue4k6suxh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_weano"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_lou1g"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/Attack.gd" id="10_gj707"]
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="11_oq0nx"]
 [ext_resource type="Material" uid="uid://cohgjox88mcd3" path="res://shaders/materials/player_hit_flash_material.tres" id="12_1adp3"]
+[ext_resource type="Script" path="res://scripts/state.gd" id="12_74dt6"]
 [ext_resource type="Texture2D" uid="uid://dysbs8uq4p58a" path="res://assets/sprites/player/LeithRarm1.png" id="12_aqtcy"]
 [ext_resource type="Script" path="res://scripts/PlayerHitState.gd" id="12_gged8"]
 [ext_resource type="Texture2D" uid="uid://p8rjvehhgufa" path="res://assets/sprites/player/LeithRarm2.png" id="13_wmssa"]
@@ -4770,6 +4771,9 @@ script = ExtResource("12_gged8")
 [node name="Timer" type="Timer" parent="StateMachine/Hit"]
 wait_time = 0.5
 one_shot = true
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("12_74dt6")
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = -39.0

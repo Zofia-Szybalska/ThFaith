@@ -57,7 +57,7 @@ func update_animation_parameters():
 		#animation_tree["parameters/Idle/BlendSpace1D/blend_position"] = 0
 		#animation_tree["parameters/Idle/Add2/add_amount"] = 0
 	
-	if not direction == 0:
+	if not direction == 0 and not is_dead:
 		animation_tree["parameters/Idle/Blend attack/blend_position"] = direction
 		animation_tree["parameters/Idle/Blend idle/blend_position"] = direction
 		animation_tree["parameters/Run/Blend attack/blend_position"] = direction
@@ -77,6 +77,7 @@ func _unhandled_input(event):
 		UI.show_inventory()
 
 func _ready():
+	set_collision_layer_value(2, true)
 	can_be_damaged = true
 	if PlayerVariables.player_spawn_pos != Vector2.ZERO:
 		position = PlayerVariables.player_spawn_pos
@@ -132,7 +133,8 @@ func change_health(amount: int):
 	PlayerVariables.health = clamp(PlayerVariables.health + amount, 0, PlayerVariables.max_health)
 
 func dead():
-	can_be_damaged = false
+	$StateMachine.transition_to("Dead")
+	set_collision_layer_value(2, false)
 	is_dead = true
 	is_idle = false
 	is_running = false

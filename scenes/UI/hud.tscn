@@ -121,32 +121,35 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 45
 text = "Back to start"
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 485.0
-offset_bottom = 262.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+offset_bottom = 350.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+[node name="HP" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HP"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Bar" type="TextureRect" parent="MarginContainer2/VBoxContainer"]
+[node name="Bar" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_5mu8d")
 stretch_mode = 4
 
-[node name="HPs" type="Control" parent="MarginContainer2/VBoxContainer/Bar"]
+[node name="HPs" type="Control" parent="VBoxContainer/HP/VBoxContainer/Bar"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HP1" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HPs"]
+[node name="HP1" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HPs"]
 layout_mode = 2
 offset_left = 202.0
 offset_top = 46.0
@@ -155,7 +158,7 @@ offset_bottom = 268.0
 texture = ExtResource("4_ox8ko")
 stretch_mode = 2
 
-[node name="HP2" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HPs"]
+[node name="HP2" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HPs"]
 layout_mode = 2
 offset_left = 238.0
 offset_top = 46.0
@@ -164,7 +167,7 @@ offset_bottom = 268.0
 texture = ExtResource("5_vu0v8")
 stretch_mode = 2
 
-[node name="HP3" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HPs"]
+[node name="HP3" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HPs"]
 layout_mode = 2
 offset_left = 267.0
 offset_top = 19.0
@@ -173,7 +176,7 @@ offset_bottom = 241.0
 texture = ExtResource("6_kau0t")
 stretch_mode = 2
 
-[node name="HP4" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HPs"]
+[node name="HP4" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HPs"]
 layout_mode = 2
 offset_left = 303.0
 offset_top = 1.0
@@ -182,7 +185,7 @@ offset_bottom = 223.0
 texture = ExtResource("7_67t2w")
 stretch_mode = 2
 
-[node name="HP5" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HPs"]
+[node name="HP5" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HPs"]
 layout_mode = 2
 offset_left = 367.0
 offset_top = 5.0
@@ -191,7 +194,7 @@ offset_bottom = 227.0
 texture = ExtResource("8_3ph3f")
 stretch_mode = 2
 
-[node name="HP6" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HPs"]
+[node name="HP6" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HPs"]
 layout_mode = 2
 offset_left = 421.0
 offset_top = 14.0
@@ -200,7 +203,7 @@ offset_bottom = 236.0
 texture = ExtResource("9_4sowq")
 stretch_mode = 2
 
-[node name="HP7" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HPs"]
+[node name="HP7" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HPs"]
 layout_mode = 2
 offset_left = 377.0
 offset_top = 48.0
@@ -209,7 +212,7 @@ offset_bottom = 270.0
 texture = ExtResource("10_p8xcr")
 stretch_mode = 2
 
-[node name="HP8" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HPs"]
+[node name="HP8" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HPs"]
 layout_mode = 2
 offset_left = 336.0
 offset_top = 41.0
@@ -218,7 +221,7 @@ offset_bottom = 263.0
 texture = ExtResource("11_mk2ja")
 stretch_mode = 2
 
-[node name="HP9" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HPs"]
+[node name="HP9" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HPs"]
 layout_mode = 2
 offset_left = 296.0
 offset_top = 57.0
@@ -227,7 +230,7 @@ offset_bottom = 279.0
 texture = ExtResource("12_cvwa6")
 stretch_mode = 2
 
-[node name="HP10" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HPs"]
+[node name="HP10" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HPs"]
 layout_mode = 2
 offset_left = 264.0
 offset_top = 84.0
@@ -236,7 +239,7 @@ offset_bottom = 306.0
 texture = ExtResource("13_uciks")
 stretch_mode = 2
 
-[node name="CurrencyChangedLabel" type="Label" parent="MarginContainer2/VBoxContainer/Bar"]
+[node name="CurrencyChangedLabel" type="Label" parent="VBoxContainer/HP/VBoxContainer/Bar"]
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 108.0
@@ -244,7 +247,7 @@ offset_top = 138.0
 offset_right = 109.0
 offset_bottom = 161.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2/VBoxContainer/Bar"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HP/VBoxContainer/Bar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.504494
@@ -259,21 +262,32 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer2/VBoxContainer/Bar/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HP/VBoxContainer/Bar/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("2_btr15")
 stretch_mode = 3
 
-[node name="CurrencyLable" type="Label" parent="MarginContainer2/VBoxContainer/Bar/HBoxContainer2"]
+[node name="CurrencyLable" type="Label" parent="VBoxContainer/HP/VBoxContainer/Bar/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2/VBoxContainer/Bar"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HP/VBoxContainer/Bar"]
 layout_mode = 2
 offset_top = 256.0
 offset_right = 445.0
 offset_bottom = 256.0
+
+[node name="Draupnirs" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="DraupnirIcons" type="HBoxContainer" parent="VBoxContainer/Draupnirs"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
 
 [connection signal="pressed" from="DeadScreen/PanelContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

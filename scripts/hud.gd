@@ -6,12 +6,13 @@ extends Control
 @onready var dead_screen = $DeadScreen
 @onready var currency_lable = %CurrencyLable
 @onready var currency_changed_label = %CurrencyChangedLabel
+@onready var draupnir_icons = %DraupnirIcons
 @onready var HP_array
 signal player_died
 @export var time_showing_new_items: float = 5.0
 
 func _ready():
-	HP_array = $MarginContainer2/VBoxContainer/Bar/HPs.get_children()
+	HP_array = $VBoxContainer/HP/VBoxContainer/Bar/HPs.get_children()
 	PlayerVariables.health_changed.connect(update_health)
 	PlayerVariables.currency_changed.connect(update_currency)
 	update_health()
@@ -45,6 +46,19 @@ func update_currency(amount_changed: int = 0):
 		tween.tween_property(currency_changed_label, "modulate", Color(1, 1, 1, 0), time_showing_new_items)
 		tween.tween_property(currency_changed_lable, "modulate", Color(1, 1, 1, 0), time_showing_new_items)
 
+func redraw_draupnirs_icons():
+	for child in draupnir_icons.get_children():
+		child.queue_free()
+	for draupnir in PlayerVariables.draupnirs.equiped_draupnirs:
+		draw_draupnir_icon(draupnir.HUD_icon)
+
+func draw_draupnir_icon(icon: Texture2D):
+	var new_icon = TextureRect.new()
+	new_icon.texture = icon
+	draupnir_icons.add_child(new_icon)
+
+func _on_equiped_draupnirs_chaged():
+	redraw_draupnirs_icons()
 
 func _on_button_pressed():
 	dead_screen.hide()

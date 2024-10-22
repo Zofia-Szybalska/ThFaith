@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="DraupnirStats" load_steps=3 format=3 uid="uid://cnq0qira22vs5"]
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=4 format=3 uid="uid://cnq0qira22vs5"]
 
 [ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_4g1rl"]
+[ext_resource type="Texture2D" uid="uid://cb1wt550k8sn8" path="res://assets/draupnirs/icons/MagnetIcon.png" id="1_7grqj"]
 [ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="1_pewhh"]
 
 [resource]
@@ -12,3 +13,4 @@ icon = ExtResource("1_pewhh")
 locked_icon = ExtResource("1_pewhh")
 is_unlocked = true
 effect = "res://draupnir_effects/magnet.gd"
+HUD_icon = ExtResource("1_7grqj")

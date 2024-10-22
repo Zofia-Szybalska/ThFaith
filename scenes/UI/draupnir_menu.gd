@@ -6,6 +6,7 @@ extends Control
 const DOT = preload("res://assets/dot.png")
 var equipped_draupnirs_cost: int = 0
 var window_size
+signal equiped_draupnirs_changed
 
 func _ready():
 	load_draupnirs()
@@ -64,7 +65,9 @@ func create_draupnir_cell(draupnir: DraupnirStats):
 	return draupnir_cell
 
 func _on_hidden():
+	equiped_draupnirs_changed.emit()
 	PlayerVariables.draupnirs.activate_draupnirs()
 
 func _on_draw():
+	equiped_draupnirs_changed.emit()
 	PlayerVariables.draupnirs.deactivate_draupnirs()

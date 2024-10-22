@@ -7,3 +7,4 @@ resource_local_to_scene = true
 shader = ExtResource("1_ct8p3")
 shader_parameter/hurt = false
 shader_parameter/tint = Color(0.972549, 0.741176, 0.701961, 1)
+shader_parameter/can_be_hurt = true

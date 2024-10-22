@@ -9,7 +9,7 @@ class_name DraupnirStats
 @export var is_unlocked: bool = false
 @export_file("*.gd")  var effect: String
 @export var effect_script: GDScript
-
+@export var HUD_icon: Texture2D
 
 func activate():
 	if effect and not effect_script:

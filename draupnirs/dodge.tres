@@ -10,5 +10,5 @@ cost = 1
 description = "Gives you a chance to doge attacks"
 icon = ExtResource("1_8r8n7")
 locked_icon = ExtResource("1_8r8n7")
-is_unlocked = false
+is_unlocked = true
 effect = "res://draupnir_effects/dodge.gd"

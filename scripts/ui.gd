@@ -12,6 +12,12 @@ extends CanvasLayer
 var is_menu_shown = false
 var has_demo_ended = false
 
+func _ready():
+	draupnir_menu.equiped_draupnirs_changed.connect(_on_equiped_draupnirs_chaged)
+
+func _on_equiped_draupnirs_chaged():
+	hud._on_equiped_draupnirs_chaged()
+
 func _unhandled_input(event):
 	if has_demo_ended:
 		return

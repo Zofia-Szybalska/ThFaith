@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="DraupnirStats" load_steps=3 format=3 uid="uid://calkiww88kiih"]
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=4 format=3 uid="uid://calkiww88kiih"]
 
 [ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="1_p7gps"]
+[ext_resource type="Texture2D" uid="uid://cmwykdhf3ro21" path="res://assets/draupnirs/icons/FlashIcon.png" id="1_twqms"]
 [ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_u773j"]
 
 [resource]
@@ -10,5 +11,6 @@ cost = 1
 description = "Run faster"
 icon = ExtResource("1_p7gps")
 locked_icon = ExtResource("1_p7gps")
-is_unlocked = false
+is_unlocked = true
 effect = "res://draupnir_effects/flash.gd"
+HUD_icon = ExtResource("1_twqms")

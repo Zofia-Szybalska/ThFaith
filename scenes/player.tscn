@@ -1,10 +1,11 @@
-[gd_scene load_steps=145 format=3 uid="uid://bg3pue4k6suxh"]
+[gd_scene load_steps=153 format=3 uid="uid://bg3pue4k6suxh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_weano"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_lou1g"]
 [ext_resource type="Script" path="res://scripts/Idle.gd" id="4_xunvy"]
 [ext_resource type="Script" path="res://scripts/Run.gd" id="5_ig7k5"]
 [ext_resource type="Script" path="res://scripts/Jump.gd" id="6_vfmla"]
+[ext_resource type="Texture2D" uid="uid://dek12ekwa4s0y" path="res://assets/JumpParticle1.png" id="7_l1t0m"]
 [ext_resource type="Script" path="res://scripts/Fall.gd" id="7_mwuny"]
 [ext_resource type="Script" path="res://scripts/Dash.gd" id="8_1pbqe"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="9_djew2"]
@@ -41,6 +42,48 @@ height = 260.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1i7g"]
 size = Vector2(95, 175)
+
+[sub_resource type="Curve" id="Curve_leq1g"]
+_data = [Vector2(0.0047619, 1), 0.0, -0.0850203, 0, 0, Vector2(1, 0), -3.13187, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mj5no"]
+curve = SubResource("Curve_leq1g")
+
+[sub_resource type="Curve" id="Curve_l5a6u"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.0142857, 178.022), 0.0, 373.379, 0, 0, Vector2(1, -360), -1283.92, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dhw05"]
+curve = SubResource("Curve_l5a6u")
+
+[sub_resource type="Curve" id="Curve_uqi4t"]
+_data = [Vector2(0.0142857, 0.516483), 0.0, 2.9097, 0, 0, Vector2(0.42381, 0.967033), 0.0, 0.0, 0, 0, Vector2(1, 0.384615), -2.30769, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_02hkw"]
+curve = SubResource("Curve_uqi4t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7gt7p"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape_scale = Vector3(20, 1, 20)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_max = 60.5
+spread = 87.353
+angular_velocity_max = 720.0
+angular_velocity_curve = SubResource("CurveTexture_dhw05")
+radial_velocity_min = 25.0
+radial_velocity_max = 75.0
+gravity = Vector3(0, 25, 0)
+scale_min = 0.2
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_02hkw")
+alpha_curve = SubResource("CurveTexture_mj5no")
 
 [sub_resource type="Curve" id="Curve_5i0fn"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.747619, 0.857143), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -4270,6 +4313,7 @@ blend_point_0/node = SubResource("AnimationNodeAnimation_8g2bd")
 blend_point_0/pos = -1.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_iq80t")
 blend_point_1/pos = 1.0
+blend_mode = 1
 sync = true
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_54sq7"]
@@ -4474,7 +4518,6 @@ blend_mode = 1
 sync = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rega8"]
-graph_offset = Vector2(-106.726, 34.396)
 "nodes/Blend jump attack/node" = SubResource("AnimationNodeBlend2_n2ic6")
 "nodes/Blend jump attack/position" = Vector2(340, 120)
 "nodes/blend attack/node" = SubResource("AnimationNodeBlendSpace1D_jbxee")
@@ -4723,7 +4766,7 @@ states/Run/node = SubResource("AnimationNodeBlendTree_8ko35")
 states/Run/position = Vector2(935, -33)
 states/Start/position = Vector2(178, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ej27e"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ojl5g"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_fgj0g"), "Idle", "Dash", SubResource("AnimationNodeStateMachineTransition_qe3gs"), "Dash", "Idle", SubResource("AnimationNodeStateMachineTransition_6wnqp"), "Run", "Dash", SubResource("AnimationNodeStateMachineTransition_307ah"), "Dash", "Run", SubResource("AnimationNodeStateMachineTransition_kaxio"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_55dn3"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_x1tyy"), "Jump", "Run", SubResource("AnimationNodeStateMachineTransition_gsan6"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_kgwhi"), "Jump", "Dash", SubResource("AnimationNodeStateMachineTransition_javiw"), "Dash", "Jump", SubResource("AnimationNodeStateMachineTransition_numjg"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_15rou"), "Run", "Fall", SubResource("AnimationNodeStateMachineTransition_8jetf"), "Dash", "Fall", SubResource("AnimationNodeStateMachineTransition_jkygs"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_qx482"), "Fall", "Jump", SubResource("AnimationNodeStateMachineTransition_e3hpn"), "Fall", "Idle", SubResource("AnimationNodeStateMachineTransition_y117x"), "Fall", "Run", SubResource("AnimationNodeStateMachineTransition_51qu0"), "Fall", "Dash", SubResource("AnimationNodeStateMachineTransition_apsmq"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_7fvy1"), "Fall", "Death", SubResource("AnimationNodeStateMachineTransition_xwxsr"), "Dash", "Death", SubResource("AnimationNodeStateMachineTransition_5h23p"), "Jump", "Death", SubResource("AnimationNodeStateMachineTransition_godw5"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_ome48"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_ivrfe"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_nfmuk"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_5cc77"), "Dash", "Attack", SubResource("AnimationNodeStateMachineTransition_mckj4"), "Attack", "Dash", SubResource("AnimationNodeStateMachineTransition_k2qeu"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_0p6t5"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_vlful"), "Attack", "Fall", SubResource("AnimationNodeStateMachineTransition_wn812"), "Fall", "Attack", SubResource("AnimationNodeStateMachineTransition_6a2vl"), "Attack", "Jump", SubResource("AnimationNodeStateMachineTransition_imoaf"), "Jump", "Attack", SubResource("AnimationNodeStateMachineTransition_godsq")]
-graph_offset = Vector2(159.76, -56)
+graph_offset = Vector2(151.76, 64)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.45, 0.45)
@@ -4760,6 +4803,18 @@ script = ExtResource("5_ig7k5")
 [node name="Jump" type="Node2D" parent="StateMachine"]
 script = ExtResource("6_vfmla")
 jump_duration = 0.3
+
+[node name="DoubleJumpGPUParticles" type="GPUParticles2D" parent="StateMachine/Jump"]
+position = Vector2(-17.7778, 151.111)
+emitting = false
+amount = 60
+amount_ratio = 0.25
+process_material = SubResource("ParticleProcessMaterial_7gt7p")
+texture = ExtResource("7_l1t0m")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.52
 
 [node name="Fall" type="Node2D" parent="StateMachine"]
 script = ExtResource("7_mwuny")
@@ -4809,25 +4864,25 @@ use_parent_material = true
 
 [node name="LeithRarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
 use_parent_material = true
-position = Vector2(-16.7392, -55.5555)
-rotation = 0.0176845
-scale = Vector2(1, 1)
+position = Vector2(-17.7778, -55.5555)
+rotation = 0.432099
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("12_aqtcy")
 offset = Vector2(16.9813, 40.6788)
 
 [node name="LeithRarm2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
 use_parent_material = true
-position = Vector2(-35.3731, -23.2998)
-rotation = 0.06021
-scale = Vector2(1, 1)
+position = Vector2(-47.8223, -33.5332)
+rotation = 0.474625
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("13_wmssa")
 offset = Vector2(32.8834, 9.54332)
 
 [node name="LeithRarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Rarm"]
 use_parent_material = true
-position = Vector2(-50.2869, 2.51629)
-rotation = 0.391047
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(-71.8686, -15.9075)
+rotation = 0.112031
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("14_5ouva")
 offset = Vector2(49.1617, -24.1168)
 
@@ -4842,8 +4897,8 @@ offset = Vector2(3.05176e-05, -96.6419)
 
 [node name="LeithHead" type="Sprite2D" parent="PartsSKeletonContainer/Parts"]
 use_parent_material = true
-position = Vector2(-3.40584, -73.3333)
-rotation = -0.0734135
+position = Vector2(-4.44446, -73.3333)
+rotation = -0.046478
 scale = Vector2(1, 1)
 texture = ExtResource("24_53755")
 offset = Vector2(5.01612, 52.794)
@@ -4854,13 +4909,13 @@ position = Vector2(8.88889, -18.7778)
 
 [node name="LeithBody2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
 use_parent_material = true
-position = Vector2(-16.7392, 7.6667)
+position = Vector2(-17.7778, 7.6667)
 texture = ExtResource("20_cf140")
 offset = Vector2(11.9606, -9.69003)
 
 [node name="LeithBody1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
 use_parent_material = true
-position = Vector2(-16.7392, 7.6667)
+position = Vector2(-17.7778, 7.6667)
 texture = ExtResource("26_0uo80")
 offset = Vector2(12.6945, -7.90163)
 
@@ -4871,25 +4926,25 @@ rotation = -0.0949073
 
 [node name="LeithRleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
 use_parent_material = true
-position = Vector2(-13.5029, 12.1082)
-rotation = 0.309498
+position = Vector2(-14.5369, 12.0098)
+rotation = 0.278253
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("21_4jkho")
 offset = Vector2(14.242, -74.0978)
 
 [node name="LeithRleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
 use_parent_material = true
-position = Vector2(-25.629, 52.5516)
-rotation = 0.152351
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(-25.3936, 52.8122)
+rotation = 0.121106
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("22_hd2fg")
 offset = Vector2(15.6442, -30.6355)
 
 [node name="LeithRleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/RLeg"]
 use_parent_material = true
-position = Vector2(-42.3328, 108.262)
-rotation = 0.135961
-scale = Vector2(0.999998, 0.999998)
+position = Vector2(-40.3489, 109.018)
+rotation = 0.139134
+scale = Vector2(0.999997, 0.999997)
 texture = ExtResource("23_8sy8v")
 offset = Vector2(19.0565, -125.65)
 
@@ -4901,27 +4956,27 @@ scale = Vector2(0.984127, 0.15)
 
 [node name="LeithLleg1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
 use_parent_material = true
-position = Vector2(2.93581, -89.4589)
-rotation = 0.919522
-scale = Vector2(1.64368, 6.54028)
-skew = -0.889052
+position = Vector2(1.88084, -89.2666)
+rotation = 0.715448
+scale = Vector2(1.33457, 6.61029)
+skew = -0.695261
 texture = ExtResource("18_y0d76")
 offset = Vector2(-17.3743, -74.4825)
 
 [node name="LeithLleg2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
 use_parent_material = true
-position = Vector2(0.655838, 191.625)
-rotation = 0.265197
-scale = Vector2(1.05204, 6.66109)
-skew = -0.258887
+position = Vector2(2.41733, 192.193)
+rotation = 0.1925
+scale = Vector2(1.03479, 6.66378)
+skew = -0.187972
 texture = ExtResource("19_r8h7i")
 offset = Vector2(3.02198, -29.3065)
 
 [node name="LeithLleg3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Lleg"]
 use_parent_material = true
-position = Vector2(13.5459, 575.529)
+position = Vector2(15.9895, 575.084)
 rotation = -0.0957931
-scale = Vector2(1.0207, 6.66596)
+scale = Vector2(1.0207, 6.66595)
 skew = 0.0935608
 texture = ExtResource("23_8sy8v")
 offset = Vector2(15.2841, -123.718)
@@ -4931,22 +4986,25 @@ use_parent_material = true
 
 [node name="LeithLarm1" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
 use_parent_material = true
-position = Vector2(9.92752, -57.7778)
-rotation = 0.085019
+position = Vector2(8.8889, -57.7778)
+rotation = 0.0485247
+scale = Vector2(1, 1)
 texture = ExtResource("15_cp7yb")
 offset = Vector2(-3.19072, 36.4563)
 
 [node name="LeithLarm2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
 use_parent_material = true
-position = Vector2(22.4946, -23.2068)
-rotation = 0.0879661
+position = Vector2(22.7089, -23.6883)
+rotation = 0.0514718
+scale = Vector2(1, 1)
 texture = ExtResource("16_h8cru")
 offset = Vector2(-18.3072, 5.63814)
 
 [node name="LeithLarm3" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Larm"]
 use_parent_material = true
-position = Vector2(35.0616, 11.3642)
-rotation = -0.110314
+position = Vector2(36.529, 10.4011)
+rotation = -0.096201
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("17_og04f")
 offset = Vector2(-34.4927, -30.9723)
 
@@ -4972,7 +5030,7 @@ remote_path = NodePath("../../../Parts/Body/LeithBody2")
 
 [node name="LegL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip"]
 position = Vector2(17.7778, 31.1111)
-rotation = 0.225148
+rotation = 0.159476
 scale = Vector2(1, 1)
 rest = Transform2D(0.987312, 0.158794, -0.158794, 0.987312, 17.7778, 31.1111)
 editor_settings/show_bone_gizmo = false
@@ -4982,8 +5040,8 @@ remote_path = NodePath("../../../../Parts/Lleg/LeithLleg1")
 
 [node name="ShinL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/LegL"]
 position = Vector2(6.06727, 41.784)
-rotation = -0.155992
-scale = Vector2(0.999999, 0.999999)
+rotation = -0.101993
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.994804, -0.101805, 0.101805, 0.994804, 6.06727, 41.784)
 editor_settings/show_bone_gizmo = false
 
@@ -4992,8 +5050,8 @@ remote_path = NodePath("../../../../../Parts/Lleg/LeithLleg2")
 
 [node name="FootL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/LegL/ShinL"]
 position = Vector2(15.0564, 57.0118)
-rotation = -0.056017
-scale = Vector2(1, 1)
+rotation = -0.0443443
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.996544, -0.0830678, 0.0830678, 0.996544, 15.0564, 57.0118)
 auto_calculate_length_and_angle = false
 length = 24.317
@@ -5005,7 +5063,7 @@ remote_path = NodePath("../../../../../../Parts/Lleg/LeithLleg3")
 
 [node name="LegR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip"]
 position = Vector2(-2.22222, 33.3333)
-rotation = 0.214591
+rotation = 0.183346
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.983239, 0.182321, -0.182321, 0.983239, -2.22222, 33.3333)
 editor_settings/show_bone_gizmo = false
@@ -5025,7 +5083,7 @@ remote_path = NodePath("../../../../../Parts/RLeg/LeithRleg2")
 
 [node name="FootR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/LegR/ShinR"]
 position = Vector2(-8.0555, 57.6006)
-rotation = -0.01639
+rotation = 0.0180274
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.999962, -0.00866097, 0.00866097, 0.999962, -8.0555, 57.6006)
 auto_calculate_length_and_angle = false
@@ -5038,7 +5096,8 @@ remote_path = NodePath("../../../../../../Parts/RLeg/LeithRleg3")
 
 [node name="ArmL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip"]
 position = Vector2(17.7778, -46.6667)
-rotation = 0.085019
+rotation = 0.0485247
+scale = Vector2(1, 1)
 rest = Transform2D(0.998823, 0.0485056, -0.0485056, 0.998823, 17.7778, -46.6667)
 editor_settings/show_bone_gizmo = false
 
@@ -5047,7 +5106,7 @@ remote_path = NodePath("../../../../Parts/Larm/LeithLarm1")
 
 [node name="ForArmL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/ArmL"]
 position = Vector2(15.4573, 33.379)
-rotation = 0.0029471
+rotation = 0.00294709
 rest = Transform2D(0.999996, 0.00294697, -0.00294697, 0.999996, 15.4573, 33.379)
 editor_settings/show_bone_gizmo = false
 
@@ -5056,7 +5115,7 @@ remote_path = NodePath("../../../../../Parts/Larm/LeithLarm2")
 
 [node name="HandL" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/ArmL/ForArmL"]
 position = Vector2(15.5556, 33.3333)
-rotation = -0.19828
+rotation = -0.147673
 scale = Vector2(1, 1)
 rest = Transform2D(0.853745, 0.520693, -0.520693, 0.853745, 15.5556, 33.3333)
 auto_calculate_length_and_angle = false
@@ -5069,8 +5128,8 @@ remote_path = NodePath("../../../../../../Parts/Larm/LeithLarm3")
 
 [node name="ArmR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip"]
 position = Vector2(-8.88889, -44.4444)
-rotation = 0.0176845
-scale = Vector2(1, 1)
+rotation = 0.432099
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.997281, -0.0736967, 0.0736967, 0.997281, -8.88889, -44.4444)
 editor_settings/show_bone_gizmo = false
 
@@ -5079,7 +5138,7 @@ remote_path = NodePath("../../../../Parts/Rarm/LeithRarm1")
 
 [node name="ForarmR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/ArmR"]
 position = Vector2(-18.0606, 32.5802)
-rotation = 0.0425255
+rotation = 0.0425256
 rest = Transform2D(0.999096, 0.0425123, -0.0425123, 0.999096, -18.0606, 32.5802)
 editor_settings/show_bone_gizmo = false
 metadata/_edit_group_ = true
@@ -5089,7 +5148,7 @@ remote_path = NodePath("../../../../../Parts/Rarm/LeithRarm2")
 
 [node name="HandR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/ArmR/ForarmR"]
 position = Vector2(-13.3333, 26.6667)
-rotation = 0.330837
+rotation = -0.362594
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.974229, -0.225559, 0.225559, 0.974229, -13.3333, 26.6667)
 auto_calculate_length_and_angle = false
@@ -5102,7 +5161,7 @@ remote_path = NodePath("../../../../../../Parts/Rarm/LeithRarm3")
 
 [node name="Head" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip"]
 position = Vector2(4.44444, -62.2222)
-rotation = -0.0734135
+rotation = -0.046478
 scale = Vector2(1, 1)
 rest = Transform2D(0.99892, -0.0464611, 0.0464611, 0.99892, 4.44444, -62.2222)
 auto_calculate_length_and_angle = false

@@ -1,12 +1,13 @@
 extends VBoxContainer
 
-@onready var icon = $Icon
-@onready var draupnir_name = $Name
-@onready var description = $Description
+@onready var icon = %Icon
+@onready var draupnir_name = %Name
+@onready var description = %Description
+
 @onready var locked_icon  = preload("res://icon.svg")
 @export var locked_name: String = "Locked"
 @export var locked_description: String = "It's not unlocked yet"
-@onready var cost = $Cost
+@onready var cost = %Cost
 
 func load_draupnir(draupnir_resource: DraupnirStats):
 	if draupnir_resource.is_unlocked:

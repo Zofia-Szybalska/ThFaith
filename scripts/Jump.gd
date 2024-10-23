@@ -1,4 +1,5 @@
 extends State
+@onready var double_jump_gpu_particles: GPUParticles2D = $DoubleJumpGPUParticles
 
 @export var jump_duration : float = .4
 var elapsed_jump := 0.0
@@ -10,6 +11,7 @@ func enter(msg := {}) -> void:
 	direction = owner.direction
 	owner.velocity.y = -owner.jump_force
 	if (msg.has("second_jump")):
+		double_jump_gpu_particles.emitting = true
 		jump_duration = .25
 	elif (msg.has("wall_jump")):
 		jump_duration = .3
@@ -17,6 +19,7 @@ func enter(msg := {}) -> void:
 		wall_jump = true
 
 func exit(_msg := {}) -> void:
+	double_jump_gpu_particles.emitting = false
 	owner.is_jumping = false
 	jump_duration = .4
 	elapsed_jump = 0

@@ -7,10 +7,13 @@ signal equiped(draupnir_resource: DraupnirStats)
 
 @export var draupnir_resource: DraupnirStats
 var times_clicked: int = 0
+var with_frame = true
 
 func _ready():
 	if draupnir_resource:
 		load_draupnir_resource(draupnir_resource)
+	if not with_frame:
+		self_modulate = Color(1, 1, 1, 0)
 
 func load_draupnir_resource(draupnir: DraupnirStats):
 		draupnir_resource = draupnir

@@ -5,21 +5,6 @@ var curr_state = "idle"
 
 func enter(_msg := {}) -> void:
 	owner.is_attacking = true
-	#if msg.has("running"):
-		#curr_state = "running"
-		#owner.is_running = true
-	#if msg.has("idle"):
-		#curr_state = "idle"
-		#owner.is_idle = true
-	#if msg.has("falling"):
-		#curr_state = "falling"
-		#owner.is_falling = true
-	#if msg.has("dashing"):
-		#curr_state = "dashing"
-		#owner.is_dashing = true
-	#if msg.has("jumping"):
-		#curr_state = "jumping"
-		#owner.is_jumping = true
 	attack_timer.start()
 
 func exit(_msg := {}) -> void:
@@ -31,25 +16,9 @@ func exit(_msg := {}) -> void:
 	owner.is_jumping = false
 
 func physics_update(delta: float) -> void:
-	#if is_equal_approx(owner.direction, 0.0) and owner.is_on_floor():
-		#owner.is_idle = true
-		#owner.is_running = false
-		#owner.is_falling = false
-		#owner.is_dashing = false
-		#owner.is_jumping = false
-	#elif owner.is_on_floor():
-		#owner.is_idle = false
-		#owner.is_running = true
-		#owner.is_falling = false
-		#owner.is_dashing = false
-		#owner.is_jumping = false
-	#elif not owner.is_on_floor():
-		#owner.is_idle = false
-		#owner.is_running = false
-		#owner.is_falling = true
-		#owner.is_dashing = false
-		#owner.is_jumping = false
-	owner.velocity.x = PlayerVariables.player_speed * owner.direction
+	if not state_machine.can_be_controled:
+		return
+	owner.velocity.x = PlayerVariables.player_speed * owner.direction  * 0.5
 	owner.velocity.y += owner.gravity * delta
 
 func end_attack():

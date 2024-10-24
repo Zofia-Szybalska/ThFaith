@@ -7,6 +7,8 @@ func enter(_msg := {}) -> void:
 	sliding = false
 
 func physics_update(delta: float) -> void:
+	if not state_machine.can_be_controled:
+		return
 	if Input.is_action_just_pressed("attack"):
 		state_machine.transition_to("Attack", {falling = true})
 	if not sliding and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):

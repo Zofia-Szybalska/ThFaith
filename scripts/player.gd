@@ -32,6 +32,7 @@ var is_jumping = false
 var is_dashing = false
 var is_falling = false
 var is_dead = false
+var can_be_controled = false
 
 func update_animation_parameters():
 	animation_tree["parameters/conditions/is_idle"] = is_idle
@@ -41,23 +42,6 @@ func update_animation_parameters():
 	animation_tree["parameters/conditions/is_running"] = is_running
 	animation_tree["parameters/conditions/is_dead"] = is_dead
 	animation_tree["parameters/conditions/is_attacking"] = is_attacking
-	
-	#if is_attacking:
-		#animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 1
-		#animation_tree["parameters/Run/Blend run attack/blend_amount"] = 1
-		#animation_tree["parameters/Dash/Blend dash attack/blend_amount"] = 1
-		#animation_tree["parameters/Fall/Blend2/blend_amount"] = 1
-		#animation_tree["parameters/Jump/Blend jump attack/blend_amount"] = 1
-		#animation_tree["parameters/Idle/BlendSpace1D/blend_position"] = 1
-		#animation_tree["parameters/Idle/Add2/add_amount"] = 1
-	#else:
-		#animation_tree["parameters/Idle/Blend idle attack/blend_amount"] = 0
-		#animation_tree["parameters/Run/Blend run attack/blend_amount"] = 0
-		#animation_tree["parameters/Dash/Blend dash attack/blend_amount"] = 0
-		#animation_tree["parameters/Fall/Blend2/blend_amount"] = 0
-		#animation_tree["parameters/Jump/Blend jump attack/blend_amount"] = 0
-		#animation_tree["parameters/Idle/BlendSpace1D/blend_position"] = 0
-		#animation_tree["parameters/Idle/Add2/add_amount"] = 0
 	
 	if not direction == 0 and not is_dead:
 		animation_tree["parameters/Idle/Blend attack/blend_position"] = direction
@@ -79,6 +63,7 @@ func _unhandled_input(event):
 		UI.show_inventory()
 
 func _ready():
+	can_be_controled = false
 	set_collision_layer_value(2, true)
 	can_be_damaged = true
 	if PlayerVariables.player_spawn_pos != Vector2.ZERO:
@@ -144,3 +129,7 @@ func dead():
 	is_jumping = false
 	is_dashing = false
 	is_falling = false
+
+
+func _on_control_timer_timeout():
+	can_be_controled = true

@@ -19,6 +19,8 @@ func exit(_msg := {}) -> void:
 	owner.is_dashing = false
 
 func physics_update(delta: float) -> void:
+	if not state_machine.can_be_controled:
+		return
 	owner.velocity.x = owner.dash_speed * dash_direction
 	elapsed_dash += delta
 	if elapsed_dash >= dash_duration:

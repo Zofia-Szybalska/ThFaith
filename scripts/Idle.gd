@@ -11,6 +11,8 @@ func exit(_msg := {}) -> void:
 	owner.is_idle = false
 
 func update(_delta: float) -> void:
+	if not state_machine.can_be_controled:
+		return
 	if Input.is_action_just_pressed("attack"):
 		state_machine.transition_to("Attack", {idle = true})
 	if not owner.is_on_floor():

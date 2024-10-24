@@ -6,7 +6,7 @@ signal transitioned(state_name)
 @export var initial_state := NodePath()
 
 @onready var state: State = get_node(initial_state)
-
+@export var can_be_controled: bool = true
 
 func _ready() -> void:
 	await owner.ready
@@ -18,6 +18,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	state.handle_input(event)
 
 func _process(delta: float) -> void:
+	if owner is Player:
+		can_be_controled = owner.can_be_controled
 	state.update(delta)
 
 func _physics_process(delta: float) -> void:

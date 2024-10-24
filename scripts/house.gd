@@ -11,6 +11,7 @@ func _ready():
 	Dialogic.start('prolog')
 
 func _on_dialogic_signal(argument:String):
-	get_tree().paused = false
 	if argument == "prolog_ended":
-		get_tree().change_scene_to_file("res://scenes/levels/midgard.tscn")
+		Globals.next_scene = "res://scenes/levels/midgard.tscn"
+		get_tree().paused = false
+		get_tree().change_scene_to_packed(Globals.loading_screen)

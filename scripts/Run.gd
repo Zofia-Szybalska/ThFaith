@@ -14,6 +14,8 @@ func exit(_msg := {}) -> void:
 	owner.is_running = false
 
 func physics_update(delta: float) -> void:
+	if not state_machine.can_be_controled:
+		return
 	if Input.is_action_just_pressed("attack"):
 		state_machine.transition_to("Attack", {running = true})
 	if not owner.is_on_floor():

@@ -38,11 +38,11 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		if (coyote and coyote_elapsed < coyote_time) or (wall_coyote and coyote_elapsed < wall_coyote_time):
 			state_machine.transition_to("Jump")
-		elif owner.can_double_jump and double_jump_unlocked:
+		elif owner.can_double_jump and PlayerVariables.double_jump_unlocked:
 			owner.can_double_jump = false
 			state_machine.transition_to("Jump", {second_jump = true})
 		return
-	if Input.is_action_just_pressed("dash") and owner.can_dash:
+	if Input.is_action_just_pressed("dash") and owner.can_dash and PlayerVariables.dash_unlocked:
 		state_machine.transition_to("Dash", {air_dash = true})
 	owner.velocity.x = PlayerVariables.player_speed * owner.direction
 	owner.velocity.y += owner.gravity * delta

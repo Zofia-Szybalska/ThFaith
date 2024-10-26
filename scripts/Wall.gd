@@ -14,7 +14,7 @@ func physics_update(delta: float) -> void:
 	if not sliding and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		sliding = true
 		#owner.animation_player.play("wall_slide")
-	if Input.is_action_just_pressed("dash") and owner.can_dash:
+	if Input.is_action_just_pressed("dash") and owner.can_dash and PlayerVariables.dash_unlocked:
 		state_machine.transition_to("Dash", {air_dash = true})
 	if owner.is_on_floor():
 		owner.can_dash = true
@@ -28,7 +28,7 @@ func physics_update(delta: float) -> void:
 		owner.velocity.y = clamp(owner.velocity.y + owner.gravity * 0.5 * delta, 0, max_gravity)
 	else:
 		owner.velocity.y += owner.gravity * delta
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and PlayerVariables.wall_jump_unlocked:
 		state_machine.transition_to("Jump", {wall_jump = true})
 		return
 	owner.velocity.x = PlayerVariables.player_speed * owner.direction

@@ -31,7 +31,7 @@ func end_attack():
 		return
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Jump")
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and PlayerVariables.dash_unlocked:
 		state_machine.transition_to("Dash")
 	if owner.is_on_floor() and not is_equal_approx(owner.direction, 0.0):
 		state_machine.transition_to("Run")

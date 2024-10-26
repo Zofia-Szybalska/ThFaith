@@ -35,7 +35,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Fall")
 	if elapsed_jump >= jump_duration:
 		state_machine.transition_to("Fall", {jump_ended = true})
-	if Input.is_action_just_pressed("dash") and owner.can_dash:
+	if Input.is_action_just_pressed("dash") and owner.can_dash and PlayerVariables.dash_unlocked:
 		state_machine.transition_to("Dash", {air_dash = true})
 	if owner.is_on_wall_only() and not Input.is_action_pressed("jump") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		state_machine.transition_to("Wall")

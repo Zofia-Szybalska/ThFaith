@@ -25,5 +25,5 @@ func update(_delta: float) -> void:
 		state_machine.transition_to("Jump")
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		state_machine.transition_to("Run")
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and PlayerVariables.dash_unlocked:
 		state_machine.transition_to("Dash")

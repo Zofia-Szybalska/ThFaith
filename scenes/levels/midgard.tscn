@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://ber3vandx8bfk"]
+[gd_scene load_steps=28 format=3 uid="uid://ber3vandx8bfk"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_5hrni"]
+[ext_resource type="Script" path="res://scripts/CutsceneArea2D.gd" id="1_pfnnw"]
 [ext_resource type="PackedScene" uid="uid://cwt6vvuf855dq" path="res://enemies/wolf/wolf.tscn" id="2_h84jj"]
 [ext_resource type="PackedScene" uid="uid://bg3pue4k6suxh" path="res://scenes/player.tscn" id="3_ofm00"]
 [ext_resource type="Resource" uid="uid://calkiww88kiih" path="res://draupnirs/flash.tres" id="4_2qw5q"]
@@ -20,6 +21,18 @@
 [ext_resource type="PackedScene" uid="uid://cuouq1fuqkkdp" path="res://scenes/sharp_rocks.tscn" id="13_cjio6"]
 [ext_resource type="PackedScene" uid="uid://bs5yil5tkpig2" path="res://scenes/pickable_draupnir.tscn" id="15_8yo5b"]
 [ext_resource type="Resource" uid="uid://c3pw60joprfhx" path="res://draupnirs/sneak.tres" id="16_vq5af"]
+[ext_resource type="Texture2D" uid="uid://byqpnec47bakm" path="res://assets/objects/fast_travel_tree.png" id="21_fv3ie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vf8ki"]
+size = Vector2(36, 918)
+
+[sub_resource type="Animation" id="Animation_gvx8x"]
+resource_name = "cutscene"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hre1c"]
+_data = {
+"cutscene": SubResource("Animation_gvx8x")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtn7x"]
 size = Vector2(1056, 1168)
@@ -28,6 +41,22 @@ size = Vector2(1056, 1168)
 size = Vector2(616, 332)
 
 [node name="Midgard" type="Node2D"]
+
+[node name="CutsceneArea2D" type="Area2D" parent="."]
+position = Vector2(3794, 648)
+script = ExtResource("1_pfnnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneArea2D"]
+shape = SubResource("RectangleShape2D_vf8ki")
+
+[node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="CutsceneArea2D"]
+root_node = NodePath("../../ParallaxBackground")
+libraries = {
+"": SubResource("AnimationLibrary_hre1c")
+}
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("12_kjhjd")]
+scroll_ignore_camera_zoom = true
 
 [node name="MidgardTileMap" parent="." instance=ExtResource("1_5hrni")]
 position = Vector2(0, -1026)
@@ -128,9 +157,6 @@ grow_horizontal = 1
 grow_vertical = 1
 saver_loader = NodePath("../../../SaverLoader")
 
-[node name="ParallaxBackground" parent="UI" instance=ExtResource("12_kjhjd")]
-scroll_ignore_camera_zoom = true
-
 [node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("3_ofm00")]
 position = Vector2(229, 1274)
 UI = NodePath("../UI")
@@ -199,6 +225,12 @@ position = Vector2(4832, 1760)
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(28272, 160)
 
+[node name="FastTravelTree2" type="Sprite2D" parent="."]
+position = Vector2(4151, 920)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_fv3ie")
+
+[connection signal="body_entered" from="CutsceneArea2D" to="CutsceneArea2D" method="_on_body_entered"]
 [connection signal="body_entered" from="SecretArea2" to="SecretArea2" method="_on_body_entered"]
 [connection signal="body_exited" from="SecretArea2" to="SecretArea2" method="_on_body_exited"]
 [connection signal="body_entered" from="SecretArea3" to="SecretArea3" method="_on_body_entered"]

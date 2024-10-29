@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PlayerVariables="*res://scripts/autoloads/player_variables.gd"
 Globals="*res://scripts/autoloads/globals.gd"
 TransitionScreen="*res://scenes/UI/transition_screen.tscn"
+Analytics="*res://addons/quiver_analytics/analytics.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
@@ -59,7 +60,7 @@ export/convert_text_resources_to_binary=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Souperior 2D Skeleton Modifications/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/safe_resource_loader/plugin.cfg")
+enabled=PackedStringArray("res://addons/Souperior 2D Skeleton Modifications/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/quiver_analytics/plugin.cfg", "res://addons/safe_resource_loader/plugin.cfg")
 
 [filesystem]
 
@@ -151,3 +152,7 @@ dialogic_default_action={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Damageable"
 2d_physics/layer_4="Pickabels"
+
+[quiver]
+
+general/auth_token="kGphGOXVWRIVqb0CGRvqI48JaR8HWouIdipy2frt"

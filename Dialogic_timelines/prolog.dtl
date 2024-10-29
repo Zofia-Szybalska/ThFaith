@@ -1,8 +1,8 @@
 Leiths_mother: Synu, kończy nam się drewno.
-Leith: Widzę, mamo. Pódę po więcej.
-Leiths_mother: Jest jeszcez po co jechać, coś tam zostało? Ta zima trwa już zbyt długo.
+Leith: Widzę, mamo. Pójdę po więcej.
+Leiths_mother: Jest jeszcez po co jechać, coś tam zostało? Ta zima trwa już tak długo.
 Leith: Nie martw się, coś jeszcze znajdę.
-Leiths_mother: Uważaj na siebie.
-Leith: Spokojnie, dam sobie radę, zaraz wrócę z drewnem.
+Leiths_mother: Uważaj tam na siebie, Leith.
+Leith: Spokojnie, nie martw się, zaraz wrócę z drewnem.
 [signal arg="prolog_ended"]
 [end_timeline]

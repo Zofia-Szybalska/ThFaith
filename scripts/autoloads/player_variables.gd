@@ -22,7 +22,7 @@ extends Node
 @export var player_hurt: bool = false
 @export var dash_unlocked: bool = false
 @export var double_jump_unlocked: bool = false
-@export var wall_jump_unlocked: bool = true
+@export var wall_jump_unlocked: bool = false
 signal health_changed
 signal currency_changed
 

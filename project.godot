@@ -32,7 +32,7 @@ directories/dtl_directory={
 "prolog": "res://Dialogic_timelines/prolog.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://dialogic_styles/premade_style_character_in_a_box.tres"]
+layout/style_list=["res://dialogic_styles/premade_style_character_in_a_box.tres", "res://dialogic_styles/premade_style_character_in_a_box2.tres"]
 layout/default_style="Default"
 variables={}
 text/letter_speed=0.01

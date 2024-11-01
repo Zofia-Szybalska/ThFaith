@@ -23,6 +23,8 @@ func exit(_msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if not state_machine.can_be_controled:
+		owner.velocity.x = 0
+		owner.velocity.y += owner.gravity * 2 * delta
 		return
 	if Input.is_action_just_pressed("attack"):
 		state_machine.transition_to("Attack", {falling = true})
@@ -45,4 +47,4 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("dash") and owner.can_dash and PlayerVariables.dash_unlocked:
 		state_machine.transition_to("Dash", {air_dash = true})
 	owner.velocity.x = PlayerVariables.player_speed * owner.direction
-	owner.velocity.y += owner.gravity * delta
+	owner.velocity.y += owner.gravity * 2 * delta

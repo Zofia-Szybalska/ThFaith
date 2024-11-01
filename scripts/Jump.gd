@@ -26,7 +26,9 @@ func exit(_msg := {}) -> void:
 	wall_jump = false
 
 func physics_update(delta: float) -> void:
+	direction = owner.direction
 	if not state_machine.can_be_controled:
+		owner.velocity = Vector2.ZERO
 		return
 	if Input.is_action_just_pressed("attack"):
 		state_machine.transition_to("Attack", {jumping = true})
@@ -41,7 +43,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Wall")
 	if wall_jump:
 		owner.velocity.x = lerp(owner.velocity.x, float(PlayerVariables.player_speed * direction), 0.25)
-	elif not is_equal_approx(owner.velocity.x, 0.0):
+	else: #not is_equal_approx(owner.velocity.x, 0.0):
 		owner.velocity.x = PlayerVariables.player_speed * direction
 	if owner.is_on_floor():
 		if is_equal_approx(owner.velocity.x, 0.0):

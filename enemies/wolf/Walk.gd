@@ -2,6 +2,9 @@ extends State
 
 @onready var animation_player = $"../../AnimationPlayer"
 
+func _ready():
+	state_name = "Walk"
+
 func enter(_msg := {}) -> void:
 	owner.is_walking = true
 	owner.velocity = Vector2.ZERO
@@ -10,6 +13,8 @@ func exit() -> void:
 	owner.is_walking = false
 
 func physics_update(delta: float) -> void:
+	if owner.is_idle:
+		state_machine.transition_to("Idle")
 	if owner.player_detecting_ray_cast.is_colliding():
 		owner.player = owner.player_detecting_ray_cast.get_collider()
 		state_machine.transition_to("Attack")

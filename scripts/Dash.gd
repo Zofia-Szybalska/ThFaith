@@ -20,6 +20,7 @@ func exit(_msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if not state_machine.can_be_controled:
+		owner.velocity = Vector2.ZERO
 		return
 	owner.velocity.x = owner.dash_speed * dash_direction
 	elapsed_dash += delta

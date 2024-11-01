@@ -14,6 +14,7 @@ func enter(msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if not state_machine.can_be_controled:
+		owner.velocity = Vector2.ZERO
 		return
 	owner.velocity.x = lerp(owner.velocity.x, float(PlayerVariables.player_speed * owner.direction), 0.25)
 	owner.velocity.y += owner.gravity * delta

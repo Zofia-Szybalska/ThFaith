@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ber3vandx8bfk"]
+[gd_scene load_steps=29 format=3 uid="uid://ber3vandx8bfk"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_5hrni"]
 [ext_resource type="Script" path="res://scripts/CutsceneArea2D.gd" id="1_pfnnw"]
@@ -26,11 +26,273 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf8ki"]
 size = Vector2(36, 918)
 
+[sub_resource type="Animation" id="Animation_ht75i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CutsceneArea2D/Enemies/Wolf2:is_idle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CutsceneArea2D/Enemies/Wolf:is_idle")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CutsceneArea2D/Enemies/Wolf2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CutsceneArea2D/Enemies/Wolf:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CutsceneArea2D/Enemies/Wolf2:collision_mask")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CutsceneArea2D/Enemies/Wolf:collision_mask")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../CutsceneArea2D/Enemies/Wolf2:can_hurt")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../CutsceneArea2D/Enemies/Wolf:can_hurt")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Player:can_be_controled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Player")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"make_idle"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_gvx8x"]
 resource_name = "cutscene"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CutsceneArea2D/Enemies/Wolf2:is_idle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CutsceneArea2D/Enemies/Wolf:is_idle")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CutsceneArea2D/Enemies/Wolf2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CutsceneArea2D/Enemies/Wolf:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CutsceneArea2D/Enemies/Wolf2:collision_mask")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CutsceneArea2D/Enemies/Wolf:collision_mask")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../CutsceneArea2D/Enemies/Wolf2:can_hurt")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../CutsceneArea2D/Enemies/Wolf:can_hurt")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../CutsceneArea2D")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["wolfAttak"],
+"method": &"play_timeline"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Player:can_be_controled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Player")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"make_idle"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hre1c"]
 _data = {
+"RESET": SubResource("Animation_ht75i"),
 "cutscene": SubResource("Animation_gvx8x")
 }
 
@@ -42,9 +304,11 @@ size = Vector2(616, 332)
 
 [node name="Midgard" type="Node2D"]
 
-[node name="CutsceneArea2D" type="Area2D" parent="."]
+[node name="CutsceneArea2D" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(3794, 648)
+collision_mask = 2
 script = ExtResource("1_pfnnw")
+player = NodePath("../Player")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneArea2D"]
 shape = SubResource("RectangleShape2D_vf8ki")
@@ -54,6 +318,22 @@ root_node = NodePath("../../ParallaxBackground")
 libraries = {
 "": SubResource("AnimationLibrary_hre1c")
 }
+
+[node name="Enemies" type="Node" parent="CutsceneArea2D"]
+
+[node name="Wolf2" parent="CutsceneArea2D/Enemies" instance=ExtResource("2_h84jj")]
+visible = false
+position = Vector2(4759, 1059)
+collision_mask = 1
+is_idle = true
+metadata/_edit_group_ = true
+
+[node name="Wolf" parent="CutsceneArea2D/Enemies" instance=ExtResource("2_h84jj")]
+visible = false
+position = Vector2(2744, 1059)
+collision_mask = 1
+is_idle = true
+metadata/_edit_group_ = true
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("12_kjhjd")]
 scroll_ignore_camera_zoom = true
@@ -117,19 +397,11 @@ layer_0/tile_data = PackedInt32Array(-131076, 22, 0, -65540, 22, 0, -4, 22, 0, 6
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Wolf" parent="Enemies" instance=ExtResource("2_h84jj")]
-position = Vector2(4303, 926)
-metadata/_edit_group_ = true
-
 [node name="Wolf7" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(25742, 1096)
 
 [node name="Wolf6" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(24707, 1096)
-
-[node name="Wolf2" parent="Enemies" instance=ExtResource("2_h84jj")]
-position = Vector2(3498, 965)
-metadata/_edit_group_ = true
 
 [node name="Wolf3" parent="Enemies" instance=ExtResource("2_h84jj")]
 position = Vector2(8304, 1550)
@@ -160,6 +432,7 @@ saver_loader = NodePath("../../../SaverLoader")
 [node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("3_ofm00")]
 position = Vector2(229, 1274)
 UI = NodePath("../UI")
+can_be_controled = true
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

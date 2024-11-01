@@ -1,5 +1,6 @@
 extends HitState
 
+
 func _on_timer_timeout():
 	damagable.can_be_damaged = true
 	if damagable.sprites_node:

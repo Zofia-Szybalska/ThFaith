@@ -26,6 +26,7 @@ func update_health():
 		HP_array[index].visible = true
 	if PlayerVariables.health == 0:
 		player_died.emit()
+		#Analytics.add_event("Player died")
 		#get_tree().paused = true
 		dead_screen.show()
 
@@ -55,6 +56,7 @@ func redraw_draupnirs_icons():
 func draw_draupnir_icon(icon: Texture2D):
 	var new_icon = TextureRect.new()
 	new_icon.texture = icon
+	new_icon.scale = Vector2(0.5, 0.5)
 	draupnir_icons.add_child(new_icon)
 
 func _on_equiped_draupnirs_chaged():

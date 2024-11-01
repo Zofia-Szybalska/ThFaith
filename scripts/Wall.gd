@@ -8,6 +8,7 @@ func enter(_msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if not state_machine.can_be_controled:
+		owner.velocity = Vector2.ZERO
 		return
 	if Input.is_action_just_pressed("attack"):
 		state_machine.transition_to("Attack", {falling = true})

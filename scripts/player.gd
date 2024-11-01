@@ -32,7 +32,7 @@ var is_jumping = false
 var is_dashing = false
 var is_falling = false
 var is_dead = false
-var can_be_controled = false
+@export var can_be_controled = false
 
 func update_animation_parameters():
 	animation_tree["parameters/conditions/is_idle"] = is_idle
@@ -76,6 +76,9 @@ func _process(_delta):
 	if PlayerVariables.health == 0:
 		dead()
 	update_animation_parameters()
+
+func make_idle():
+	$StateMachine.transition_to("Idle")
 
 func _physics_process(_delta):
 	direction = Input.get_axis("left", "right")

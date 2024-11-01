@@ -15,10 +15,15 @@ var on_edge: bool = false
 @onready var animation_player = $"../../AnimationPlayer"
 
 
+func _ready():
+	state_name = "Attack"
+
 func enter(_msg := {}) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
+	if owner.is_idle:
+		state_machine.transition_to("Idle")
 	if can_attack:
 		if direction and direction.x > 0:
 			owner.is_attacking = false

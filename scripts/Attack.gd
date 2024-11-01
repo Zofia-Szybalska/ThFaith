@@ -17,6 +17,7 @@ func exit(_msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	if not state_machine.can_be_controled:
+		owner.velocity = Vector2.ZERO
 		return
 	owner.velocity.x = PlayerVariables.player_speed * owner.direction  * 0.5
 	owner.velocity.y += owner.gravity * delta

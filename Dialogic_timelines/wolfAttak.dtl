@@ -1,0 +1,4 @@
+Leith: Wilki!
+narrator: Kliknij lewy przycisk myszy aby atakować!
+[signal arg="timeline_ended"]
+[end_timeline]

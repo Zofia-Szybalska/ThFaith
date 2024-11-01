@@ -12,6 +12,8 @@ extends CharacterBody2D
 @export var max_health = 30.0
 @export var base_currency_dropped: int = 10
 @export var base_detection_range: int = 600
+@export var is_idle: bool = false
+@export var can_hurt: bool = false
 
 var currency_scene: PackedScene = preload("res://scenes/currency.tscn")
 var health = max_health:  set = _set_health
@@ -28,8 +30,10 @@ var is_attacking = false
 func update_animation_parameters():
 	animation_tree["parameters/conditions/is_attacking"] = is_attacking
 	animation_tree["parameters/conditions/is_walking"] = is_walking
+	animation_tree["parameters/conditions/is_idle"] = is_idle
 	animation_tree["parameters/Attack/blend_position"] = walk_direction
 	animation_tree["parameters/Walk/blend_position"] = walk_direction
+	animation_tree["parameters/Idle/blend_position"] = walk_direction
 
 func update_enemy():
 	pass
@@ -61,10 +65,12 @@ func take_demage():
 	health -= 10.0
 	$PartsSKeletonContainer/Parts.material.set_shader_parameter("hurt", true)
 	$PartsSKeletonContainer/Parts.material.get_shader_parameter("hurt")
-	print()
 	flash_timer.start()
 
 func _physics_process(_delta):
+	if is_idle:
+		is_attacking = false
+		is_walking = false
 	update_animation_parameters()
 	if player_in_area:
 		player_in_area.hit(1, self)
@@ -92,7 +98,6 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(_body):
 	player_in_area = null
-
 
 func _on_flash_timer_timeout():
 		$PartsSKeletonContainer/Parts.material.set_shader_parameter("hurt", false)

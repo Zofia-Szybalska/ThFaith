@@ -11,6 +11,6 @@ cost = 1
 description = "You become a magnet, and all coins like you!"
 icon = ExtResource("1_pewhh")
 locked_icon = ExtResource("1_pewhh")
-is_unlocked = true
+is_unlocked = false
 effect = "res://draupnir_effects/magnet.gd"
 HUD_icon = ExtResource("1_7grqj")

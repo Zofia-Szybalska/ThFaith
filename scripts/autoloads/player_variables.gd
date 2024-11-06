@@ -20,9 +20,10 @@ extends Node
 @export var current_scene_path: String = "res://scenes/levels/midgard.tscn"
 @export var last_camp_pos: Vector2 = Vector2.ZERO
 @export var player_hurt: bool = false
-@export var dash_unlocked: bool = false
+@export var dash_unlocked: bool = true
 @export var double_jump_unlocked: bool = true
-@export var wall_jump_unlocked: bool = false
+@export var wall_jump_unlocked: bool = true
+var mom_dying = false
 signal health_changed
 signal currency_changed
 

@@ -1,15 +1,23 @@
 extends Node2D
 
-
 func _ready():
-	TransitionScreen.transition_finished.connect(_on_screen_blacked_out)
-	Dialogic.start("res://Dialogic_timelines/prolog.dtl").process_mode = Node.PROCESS_MODE_ALWAYS
-	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
-	get_tree().paused = true
-	Dialogic.signal_event.connect(_on_dialogic_signal)
-	if Dialogic.current_timeline != null:
-		return
-	Dialogic.start('prolog')
+	if PlayerVariables.mom_dying:
+		Dialogic.start("res://Dialogic_timelines/mothers_death.dtl").process_mode = Node.PROCESS_MODE_ALWAYS
+		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+		get_tree().paused = true
+		Dialogic.signal_event.connect(_on_dialogic_signal)
+		if Dialogic.current_timeline != null:
+			return
+		Dialogic.start('mothers_death')
+	else:
+		TransitionScreen.transition_finished.connect(_on_screen_blacked_out)
+		Dialogic.start("res://Dialogic_timelines/prolog.dtl").process_mode = Node.PROCESS_MODE_ALWAYS
+		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+		get_tree().paused = true
+		Dialogic.signal_event.connect(_on_dialogic_signal)
+		if Dialogic.current_timeline != null:
+			return
+		Dialogic.start('prolog')
 
 func _on_screen_blacked_out():
 	Globals.next_scene = "res://scenes/levels/midgard.tscn"
@@ -18,4 +26,5 @@ func _on_screen_blacked_out():
 
 func _on_dialogic_signal(argument:String):
 	if argument == "prolog_ended":
+		TransitionScreen.transition_finished.connect(_on_screen_blacked_out)
 		TransitionScreen.transition_to_black()

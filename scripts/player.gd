@@ -73,7 +73,7 @@ func _ready():
 		global_position = PlayerVariables.fast_travel_points.curr_fast_travel_point.position
 
 func _process(_delta):
-	if PlayerVariables.health == 0:
+	if PlayerVariables.health == 0 and not is_dead:
 		dead()
 	update_animation_parameters()
 

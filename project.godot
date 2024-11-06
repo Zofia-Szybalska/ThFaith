@@ -31,8 +31,11 @@ directories/dch_directory={
 "narrator": "res://dialogic_characters/narrator.dch"
 }
 directories/dtl_directory={
+"house_on_fire": "res://Dialogic_timelines/house_on_fire.dtl",
+"mothers_death": "res://Dialogic_timelines/mothers_death.dtl",
 "prolog": "res://Dialogic_timelines/prolog.dtl",
-"wolfAttak": "res://Dialogic_timelines/wolfAttak.dtl"
+"wolfAttak": "res://Dialogic_timelines/wolfAttak.dtl",
+"wolfs_killed": "res://Dialogic_timelines/wolfs_killed.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic_styles/premade_style_character_in_a_box.tres", "res://dialogic_styles/premade_style_character_in_a_box2.tres"]

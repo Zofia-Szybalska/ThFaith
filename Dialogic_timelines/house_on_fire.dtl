@@ -1,0 +1,4 @@
+Leith: O nie, nasz dom się pali!
+Leith: Muszę sprawdzić czy z mamą wszystkow porządku!
+[signal arg="house_on_fire"]
+[end_timeline]

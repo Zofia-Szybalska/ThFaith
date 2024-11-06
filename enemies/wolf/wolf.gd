@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Wolf
 
 @onready var ground_detecting_ray_cast: RayCast2D = $GroundDetectingRayCast
 @onready var player_detecting_ray_cast = $PlayerDetectingRayCast
@@ -93,7 +94,7 @@ func _on_direction_change_timer_timeout():
 
 func _on_area_2d_body_entered(body):
 	player_in_area = body
-	if body.has_method("hit"):
+	if body.has_method("hit") and can_hurt:
 		body.hit(1, self)
 
 func _on_area_2d_body_exited(_body):

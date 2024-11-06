@@ -10,9 +10,11 @@ func enter(_msg := {}) -> void:
 func exit(_msg := {}) -> void:
 	owner.is_idle = false
 
-func update(_delta: float) -> void:
+func update(delta: float) -> void:
 	if not state_machine.can_be_controled:
-		owner.velocity = Vector2.ZERO
+		#owner.velocity = Vector2.ZERO
+		if not owner.is_on_floor():
+			owner.velocity.y += owner.gravity * 2 * delta
 		return
 	if Input.is_action_just_pressed("attack"):
 		state_machine.transition_to("Attack", {idle = true})

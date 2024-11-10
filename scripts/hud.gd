@@ -25,6 +25,8 @@ func update_health():
 	for index in PlayerVariables.health:
 		HP_array[index].visible = true
 	if PlayerVariables.health == 0:
+		if PlayerVariables.fighting_Fenrir:
+			PlayerVariables.deaths_at_Fenrir += 1
 		player_died.emit()
 		#Analytics.add_event("Player died")
 		#get_tree().paused = true
@@ -66,4 +68,4 @@ func _on_button_pressed():
 	dead_screen.hide()
 	PlayerVariables.health = PlayerVariables.max_health
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/levels/midgard.tscn")
+	get_tree().change_scene_to_file(PlayerVariables.current_scene_path)

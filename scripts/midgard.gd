@@ -1,8 +1,5 @@
 extends Node2D
 
 func _ready():
-	TransitionScreen.transition_from_black()
-	TransitionScreen.transition_finished.connect(_on_trnsition_ended)
+	PlayerVariables.current_scene = "Midgard1"
 
-func _on_trnsition_ended():
-	pass

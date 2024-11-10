@@ -56,7 +56,8 @@ func _zoom_at_point(zoom_change, mouse_position):
 func _on_midgard_1_pressed():
 	var point = PlayerVariables.fast_travel_points.get_point("Midgard1")
 	if point:
-		print("Znaleziono")
 		get_tree().paused = false
-		get_tree().change_scene_to_file("res://scenes/levels/"+point.scene_name+".tscn")
+		Analytics.add_event("Fast travel", {"from": PlayerVariables.current_scene, "to": "Midgard1"})
+		Globals.next_scene = "res://scenes/levels/"+point.scene_name+".tscn"
+		get_tree().change_scene_to_packed(Globals.loading_screen)
 

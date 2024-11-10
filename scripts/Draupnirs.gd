@@ -8,6 +8,7 @@ class_name Draupnirs
 func unlock_draupnir(draupnir_name: String):
 	for draupnir in all_draupnirs:
 		if draupnir.name == draupnir_name:
+			Analytics.add_event("Draupnir unlocked", { "name": draupnir.name})
 			draupnir.is_unlocked = true
 
 func lock_draupnir(draupnir_name: String):
@@ -33,6 +34,7 @@ func load_draupnirs():
 
 func activate_draupnirs():
 	for draupnir in equiped_draupnirs:
+		Analytics.add_event("Draupnir equiped", { "name": draupnir.name})
 		draupnir.activate()
 
 func deactivate_draupnirs():

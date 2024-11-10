@@ -5,6 +5,7 @@ var player_sitting: bool = false
 @export var saver_loader_node: Node
 @onready var save_button = $SaveButton
 @onready var back_button = $BackButton
+@export var camp_name = "camp"
 
 
 func _unhandled_input(event):
@@ -28,7 +29,7 @@ func _on_area_2d_body_exited(body):
 		player_near = false
 
 func _on_save_button_pressed():
-	print("Próba zapisania")
+	Analytics.add_event("Game save", {"camp name": camp_name})
 	saver_loader_node.save_game()
 
 func _on_back_button_pressed():

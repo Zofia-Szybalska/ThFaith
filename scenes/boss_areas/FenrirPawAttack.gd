@@ -11,7 +11,7 @@ func enter(_msg := {}) -> void:
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
-		body.hit(1, get_parent())
+		body.hit(1, get_parent().get_parent())
 
 
 func _on_animation_player_animation_finished(_anim_name):

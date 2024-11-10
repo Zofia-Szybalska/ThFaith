@@ -27,14 +27,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var walk_direction = -1
 var is_walking = true
 var is_attacking = false
+var is_dead = false
 
 func update_animation_parameters():
 	animation_tree["parameters/conditions/is_attacking"] = is_attacking
 	animation_tree["parameters/conditions/is_walking"] = is_walking
 	animation_tree["parameters/conditions/is_idle"] = is_idle
+	animation_tree["parameters/conditions/is_dead"] = is_dead
 	animation_tree["parameters/Attack/blend_position"] = walk_direction
 	animation_tree["parameters/Walk/blend_position"] = walk_direction
 	animation_tree["parameters/Idle/blend_position"] = walk_direction
+	animation_tree["parameters/Death/blend_position"] = walk_direction
 
 func update_enemy():
 	pass
@@ -42,7 +45,10 @@ func update_enemy():
 func _set_health(value):
 	health = value
 	if health <= 0:
-		kill()
+		is_walking = false
+		is_attacking = false
+		is_dead = true
+		is_idle = false
 
 func change_detection_range(new_detection_range: int):
 	player_detecting_ray_cast.target_position.y = new_detection_range * -walk_direction
@@ -52,9 +58,15 @@ func reset_detection_range():
 	player_detecting_ray_cast.target_position.y = base_detection_range * -walk_direction
 	PlayerVariables.enemies_detection_range = base_detection_range
 
-func kill():
+func death():
 	drop_currency()
 	queue_free()
+
+func kill():
+	is_walking = false
+	is_attacking = false
+	is_dead = true
+	is_idle = false
 
 func drop_currency():
 	var currency_instanced = currency_scene.instantiate()
@@ -69,6 +81,8 @@ func take_demage():
 	flash_timer.start()
 
 func _physics_process(_delta):
+	if is_dead:
+		velocity = Vector2.ZERO
 	if is_idle:
 		is_attacking = false
 		is_walking = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://brlrnjt1xdgr6"]
+[gd_scene load_steps=51 format=3 uid="uid://brlrnjt1xdgr6"]
 
 [ext_resource type="Script" path="res://scenes/boss_areas/fenrir_area.gd" id="1_4fe5q"]
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_x8wr5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bg3pue4k6suxh" path="res://scenes/player.tscn" id="3_fwde8"]
 [ext_resource type="Texture2D" uid="uid://d35s5ohy06yqu" path="res://assets/sprites/wolf/WolfRBLeg2.png" id="4_54gj6"]
 [ext_resource type="Texture2D" uid="uid://jotp5pp5uimj" path="res://assets/sprites/wolf/WolfTail.png" id="4_rdwq8"]
+[ext_resource type="Material" uid="uid://du3bny8r4w3h2" path="res://shaders/materials/hit_flash_material.tres" id="5_8n4mb"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="5_b7i2v"]
 [ext_resource type="Texture2D" uid="uid://dn8enoyjk3j6a" path="res://assets/sprites/wolf/WolfRBLeg1.png" id="5_v2gp6"]
 [ext_resource type="Texture2D" uid="uid://bgrhnurc4wfow" path="res://assets/sprites/wolf/WolfRBLeg3.png" id="6_dr3kb"]
@@ -367,13 +368,475 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Parts/WolfTail:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128.683, -29.0505)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Parts/WolfRbLeg2:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-132.581, -25.8589)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Parts/WolfRbLeg1:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-132.581, -26.3991)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Parts/WolfRbLeg3:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-132.311, -25.3188)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Parts/WolfBody1:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-130.421, -29.0998)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Parts/WolfBody2:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-130.151, -29.0998)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Parts/WolfLbLeg2:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-130.421, -26.129)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Parts/WolfLbLeg1:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-130.691, -26.6692)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Parts/WolfLbLeg3:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-130.421, -26.6692)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Parts/WolfLfLeg1:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-133.392, -28.0195)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Parts/WolfLfLeg2:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-133.122, -28.0195)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Parts/WolfLfLeg3:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-133.122, -26.6692)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Parts/LeftFrontLeg/WolfRfLeg1:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Parts/LeftFrontLeg/WolfRfLeg2:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Parts/WolfBody1:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Parts/WolfBody2:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Parts/WolfTail:rotation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lhqgr"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Parts/WolfTail:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-128.683, -29.0505), Vector2(-126.932, -21.6054)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Parts/WolfRbLeg2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-132.581, -25.8589)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Parts/WolfRbLeg1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-132.581, -26.3991)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Parts/WolfRbLeg3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-132.311, -25.3188)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Parts/WolfBody1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-130.421, -29.0998), Vector2(-131.603, -27.4447)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Parts/WolfBody2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-130.151, -29.0998), Vector2(-131.603, -27.4447)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Parts/WolfLbLeg2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-130.421, -26.129)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Parts/WolfLbLeg1:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-130.691, -26.6692)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Parts/WolfLbLeg3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-130.421, -26.6692)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Parts/WolfLfLeg1:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-133.392, -28.0195)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Parts/WolfLfLeg2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-133.122, -28.0195)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Parts/WolfLfLeg3:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-133.122, -26.6692)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Parts/WolfLHead:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-130.508, -29.8534), Vector2(-131.603, -35.6197)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Parts/LeftFrontLeg/WolfRfLeg1:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Parts/LeftFrontLeg/WolfRfLeg2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Parts/LeftFrontLeg/WolfRfLeg3:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.437953, 0.437948)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Parts/WolfLHead:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.967794]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Parts/WolfBody1:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.133448]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Parts/WolfBody2:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.0645938]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Parts/WolfTail:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.459308]
+}
+tracks/20/type = "method"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath(".")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r1gw6"]
 _data = {
 "BlowAttack": SubResource("Animation_me4e2"),
 "JawAttack": SubResource("Animation_4m6eq"),
 "PawAttack": SubResource("Animation_sfuf4"),
-"RESET": SubResource("Animation_hsr18")
+"RESET": SubResource("Animation_hsr18"),
+"death": SubResource("Animation_lhqgr")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sipuv"]
@@ -427,98 +890,116 @@ position = Vector2(-89.6624, -17.8244)
 shape = SubResource("RectangleShape2D_hghl0")
 disabled = true
 
-[node name="Damageable" type="Node" parent="Fenrir" node_paths=PackedStringArray("char_state_machine")]
+[node name="Damageable" type="Node" parent="Fenrir" node_paths=PackedStringArray("char_state_machine", "sprites_node")]
 script = ExtResource("3_32mpn")
-health = 100
 char_state_machine = NodePath("../StateMachine")
 knockback = 50
+sprites_node = NodePath("../Parts")
 
 [node name="Timer" type="Timer" parent="Fenrir/Damageable"]
 wait_time = 0.5
 one_shot = true
 
 [node name="Parts" type="Node2D" parent="Fenrir"]
+material = ExtResource("5_8n4mb")
 position = Vector2(480.45, 91.2828)
 scale = Vector2(3.7, 3.7)
 
 [node name="WolfTail" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-128.683, -29.0505)
 scale = Vector2(0.27, 0.27)
 texture = ExtResource("4_rdwq8")
 
 [node name="LeftFrontLeg" type="Node2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-132.114, -25.8389)
 
 [node name="WolfRfLeg1" type="Sprite2D" parent="Fenrir/Parts/LeftFrontLeg"]
+use_parent_material = true
 rotation = 0.0727189
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("7_1ng1o")
 
 [node name="WolfRfLeg2" type="Sprite2D" parent="Fenrir/Parts/LeftFrontLeg"]
+use_parent_material = true
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("8_ugfhv")
 
 [node name="WolfRfLeg3" type="Sprite2D" parent="Fenrir/Parts/LeftFrontLeg"]
+use_parent_material = true
 position = Vector2(-0.729909, 0.656921)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("9_re7l3")
 
 [node name="WolfRbLeg2" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-132.581, -25.8589)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("4_54gj6")
 
 [node name="WolfRbLeg1" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-132.581, -26.3991)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("5_v2gp6")
 
 [node name="WolfRbLeg3" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-132.311, -25.3188)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("6_dr3kb")
 
 [node name="WolfBody1" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-130.421, -29.0998)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("7_ueegq")
 
 [node name="WolfBody2" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-130.151, -29.0998)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("8_2jlo6")
 
 [node name="WolfLbLeg2" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-130.421, -26.129)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("9_sdaw6")
 
 [node name="WolfLbLeg1" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-130.691, -26.6692)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("10_mb3yd")
 
 [node name="WolfLbLeg3" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-130.421, -26.6692)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("11_ou57q")
 
 [node name="WolfLfLeg1" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-133.392, -28.0195)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("12_761uh")
 
 [node name="WolfLfLeg2" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-133.122, -28.0195)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("13_8utbe")
 
 [node name="WolfLfLeg3" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-133.122, -26.6692)
 scale = Vector2(0.270067, 0.270067)
 texture = ExtResource("14_wm72y")
 
 [node name="WolfLHead" type="Sprite2D" parent="Fenrir/Parts"]
+use_parent_material = true
 position = Vector2(-130.508, -29.8534)
 scale = Vector2(0.27, 0.27)
 texture = ExtResource("20_2xs8n")

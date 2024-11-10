@@ -23,7 +23,12 @@ extends Node
 @export var dash_unlocked: bool = true
 @export var double_jump_unlocked: bool = true
 @export var wall_jump_unlocked: bool = true
+var deaths_at_Fenrir = 0
+var fighting_Fenrir = false
 var mom_dying = false
+var seen_fenrir_at_least_once = false
+var inventory_oppend_at_least_once = false
+var current_scene: String = "house"
 signal health_changed
 signal currency_changed
 

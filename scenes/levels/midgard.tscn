@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://ber3vandx8bfk"]
+[gd_scene load_steps=41 format=3 uid="uid://ber3vandx8bfk"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_5hrni"]
+[ext_resource type="Script" path="res://scripts/midgard.gd" id="1_5onwa"]
 [ext_resource type="Script" path="res://scripts/CutsceneArea2D.gd" id="1_pfnnw"]
 [ext_resource type="PackedScene" uid="uid://cwt6vvuf855dq" path="res://enemies/wolf/wolf.tscn" id="2_h84jj"]
 [ext_resource type="AudioStream" uid="uid://dsj6bpqb54bxk" path="res://audio/401730__tomattka__felling-a-tree-with-an-axe.wav" id="3_ag52e"]
@@ -316,6 +317,9 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_g5usy"]
+resource_name = "mothers_death"
+
 [sub_resource type="Animation" id="Animation_grkmw"]
 resource_name = "wolfs_killed"
 tracks/0/type = "method"
@@ -358,9 +362,6 @@ tracks/2/keys = {
 "method": &"play_timeline"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_g5usy"]
-resource_name = "mothers_death"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hre1c"]
 _data = {
@@ -407,6 +408,7 @@ size = Vector2(1056, 1168)
 size = Vector2(616, 332)
 
 [node name="Midgard" type="Node2D"]
+script = ExtResource("1_5onwa")
 
 [node name="MidgardTileMap" parent="." instance=ExtResource("1_5hrni")]
 position = Vector2(0, -1027)
@@ -571,6 +573,7 @@ editor_draw_limits = true
 [node name="Camp" parent="." node_paths=PackedStringArray("saver_loader_node") instance=ExtResource("9_ljka7")]
 position = Vector2(18272, 1088)
 saver_loader_node = NodePath("../SaverLoader")
+camp_name = "Midgard1"
 
 [node name="SaverLoader" type="Node" parent="."]
 script = ExtResource("10_j1tlb")

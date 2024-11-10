@@ -59,6 +59,9 @@ func update_animation_parameters():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory"):
+		if not PlayerVariables.inventory_oppend_at_least_once:
+			PlayerVariables.inventory_oppend_at_least_once = true
+			Analytics.add_event("Inventory opened")
 		get_viewport().set_input_as_handled()
 		UI.show_inventory()
 
@@ -109,9 +112,9 @@ func hit(damage: int, node: Node2D):
 			return
 		can_be_damaged = false
 		var knockback_direction = global_position - node.global_position
-		var  knockback_direction_sign = sign(knockback_direction)
-		$StateMachine.transition_to("Hit", {direction_sign = knockback_direction_sign})
-		change_health(-damage * PlayerVariables.damage_taken_multiplayer)
+		var knockback_direction_sign = sign(knockback_direction)
+		$StateMachine.transition_to("Hit", {direction_sign = knockback_direction_sign, attacking_node = node})
+		change_health(-damage * PlayerVariables.damage_taken_multiplayer, node.name)
 
 func dodge():
 	print("Dodged!")
@@ -119,8 +122,10 @@ func dodge():
 func heal(amount: int):
 	change_health(amount)
 
-func change_health(amount: int):
+func change_health(amount: int, attacking_node_name: String = ""):
 	PlayerVariables.health = clamp(PlayerVariables.health + amount, 0, PlayerVariables.max_health)
+	if PlayerVariables.health == 0:
+		Analytics.add_event("Player death",{"cause": attacking_node_name})
 
 func dead():
 	$StateMachine.transition_to("Dead")

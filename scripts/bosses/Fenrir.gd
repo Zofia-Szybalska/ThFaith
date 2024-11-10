@@ -3,12 +3,15 @@ extends Node2D
 @onready var attack = $StateMachine/Attack
 @onready var demo_end = $"../UI/DemoEnd"
 @onready var ui = $"../UI"
+@onready var animation_player = $AnimationPlayer
+@onready var player = $"../Player"
 
 func kill():
 	demo_end.visible = true
-	get_tree().paused = true
 	ui.has_demo_ended = true
-	queue_free()
+	player.can_be_controled = false
+	Analytics.add_event("Boss battle end", { "boss name": "Fenrir", "player deaths": PlayerVariables.deaths_at_Fenrir})
+	animation_player.play("death")
 
 func start_battle():
 	attack.timer.start()

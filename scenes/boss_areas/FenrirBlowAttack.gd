@@ -19,13 +19,10 @@ func _on_area_2d_body_entered(body):
 		player_in_range = true
 		body.velocity -= Vector2(200,0)
 
-
 func _on_animation_player_animation_finished(_anim_name):
 	if attacking:
 		attacking = false
 		state_machine.transition_to("Attack")
-
-
 
 func _on_area_2d_body_exited(body):
 		if body is Player:

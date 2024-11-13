@@ -5,6 +5,18 @@ extends Node2D
 @onready var ui = $"../UI"
 @onready var animation_player = $AnimationPlayer
 @onready var player = $"../Player"
+@onready var damageable = $Damageable
+var phase = 1
+
+func _process(delta):
+	
+	if phase == 1 and damageable.health <= damageable.max_health * 2/3:
+		owner.phase = 2
+		phase = 2
+	if phase == 2 and damageable.health <= damageable.max_health * 1/3:
+		owner.phase = 3
+		phase = 3
+
 
 func kill():
 	demo_end.visible = true

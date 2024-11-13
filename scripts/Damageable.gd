@@ -4,6 +4,7 @@ class_name Damageable
 @onready var timer = $Timer
 
 @export var health = 30
+@export var max_health = health
 @export var char_state_machine: StateMachine
 @export var knockback = 100
 @export var sprites_node: Node2D

@@ -15,11 +15,14 @@ func load_saves():
 		child.queue_free()
 	var dir = DirAccess.open(saves_path)
 	if dir:
+		print("Sprawdzanie zapisów")
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
+			print("Obecny plik " + file_name)
 			if not dir.current_is_dir():
-				var save: SaveGame = load(saves_path + "/" + file_name) as SaveGame
+				#var save: SaveGame = load(saves_path + "/" + file_name, ResourceLoader.CACHE_MODE_IGNORE) as SaveGame
+				var save: SaveGame = ResourceLoader.load(saves_path + "/" + file_name, "SaveGame", ResourceLoader.CACHE_MODE_IGNORE) as SaveGame
 				if save == null:
 					print("Resource wasn't safe!")
 				else:

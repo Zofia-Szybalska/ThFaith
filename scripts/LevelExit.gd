@@ -5,5 +5,7 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body is Player:
+		Globals.next_scene = next_scene
+		get_tree().paused = false
 		PlayerVariables.player_spawn_pos = player_pos
-		get_tree().change_scene_to_file(next_scene)
+		get_tree().change_scene_to_packed(Globals.loading_screen)

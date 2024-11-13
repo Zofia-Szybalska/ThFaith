@@ -8,7 +8,7 @@ extends Node2D
 @onready var damageable = $Damageable
 var phase = 1
 
-func _process(delta):
+func _process(_delta):
 	
 	if phase == 1 and damageable.health <= damageable.max_health * 2/3:
 		owner.phase = 2

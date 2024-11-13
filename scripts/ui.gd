@@ -44,12 +44,14 @@ func hide_all_menues():
 		menu.hide()
 
 func show_inventory():
+	menues.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	get_tree().paused = true
 	menues.show()
 	draupnir_menu.load_draupnirs()
 	curr_window.show()
 
 func hide_inventory():
+	menues.process_mode = Node.PROCESS_MODE_DISABLED
 	get_tree().paused = false
 	menues.hide()
 	hide_all_menues()

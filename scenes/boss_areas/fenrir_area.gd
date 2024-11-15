@@ -14,5 +14,8 @@ func _on_battle_trigger_area_body_entered(body):
 		fenrir.start_battle()
 		if not PlayerVariables.seen_fenrir_at_least_once:
 			PlayerVariables.seen_fenrir_at_least_once = true
-			Analytics.add_event("Boss battle start", { "boss name": "Fenrir", "start time": Time.get_time_string_from_system()})
+			var draupnirs_list: String = ""
+			for draupnir in PlayerVariables.draupnirs.equiped_draupnirs:
+				draupnirs_list += draupnir.name + ", "
+			Analytics.add_event("Boss battle start", { "boss name": "Fenrir", "Draupnirs": draupnirs_list})
 		$BattleTriggerArea.queue_free()

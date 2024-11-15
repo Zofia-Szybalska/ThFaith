@@ -548,9 +548,6 @@ point_name = "Midgard1"
 
 [node name="UI" parent="." instance=ExtResource("5_5rpm2")]
 
-[node name="Menues" parent="UI" index="1"]
-visible = false
-
 [node name="SaveMenu" parent="UI/Menues" index="2" node_paths=PackedStringArray("saver_loader")]
 anchors_preset = 0
 anchor_right = 0.0
@@ -636,7 +633,6 @@ position = Vector2(28272, 160)
 [connection signal="body_exited" from="SecretArea2" to="SecretArea2" method="_on_body_exited"]
 [connection signal="body_entered" from="SecretArea3" to="SecretArea3" method="_on_body_entered"]
 [connection signal="body_exited" from="SecretArea3" to="SecretArea3" method="_on_body_exited"]
-[connection signal="visibility_changed" from="UI/Menues/SaveMenu" to="UI/Menues/SaveMenu" method="_on_visibility_changed"]
 
 [editable path="SecretArea"]
 [editable path="SecretArea3/Brakeable_wall"]

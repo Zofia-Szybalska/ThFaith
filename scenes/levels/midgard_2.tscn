@@ -91,7 +91,7 @@ position = Vector2(4340, 161)
 position = Vector2(5123, 166)
 
 [node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("4_c4txa")]
-position = Vector2(6597, 175)
+position = Vector2(-1339, -63)
 UI = NodePath("../UI")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -185,6 +185,8 @@ process_mode = 4
 
 [node name="SaveMenu" parent="UI/Menues" index="2" node_paths=PackedStringArray("saver_loader")]
 saver_loader = NodePath("../../../SaverLoader")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("9_k6ec7")]
 
 [editable path="SecretArea"]
 [editable path="SecretArea/Brakeable_wall"]

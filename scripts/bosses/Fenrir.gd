@@ -22,7 +22,10 @@ func kill():
 	demo_end.visible = true
 	ui.has_demo_ended = true
 	player.can_be_controled = false
-	Analytics.add_event("Boss battle end", { "boss name": "Fenrir", "player deaths": PlayerVariables.deaths_at_Fenrir})
+	var draupnirs_list: String = ""
+	for draupnir in PlayerVariables.draupnirs.equiped_draupnirs:
+		draupnirs_list += draupnir.name + ", "
+	Analytics.add_event("Boss battle end", { "boss name": "Fenrir", "player deaths": PlayerVariables.deaths_at_Fenrir, "Draupnirs": draupnirs_list})
 	animation_player.play("death")
 
 func start_battle():

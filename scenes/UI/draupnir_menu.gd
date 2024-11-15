@@ -39,7 +39,7 @@ func load_equiped_draupnirs():
 	for draupnir in PlayerVariables.draupnirs.equiped_draupnirs: 
 		equipped_draupnirs_cost += draupnir.cost
 		equiped_draupnirs.add_child(create_draupnir_cell(draupnir, false))
-		load_space_indicators()
+	load_space_indicators()
 	#if equipped_draupnirs_cost < PlayerVariables.draupnir_max_cost:
 		#var empty_spaces = PlayerVariables.draupnir_max_cost - equipped_draupnirs_cost
 		#while empty_spaces > 0:
@@ -87,6 +87,7 @@ func create_draupnir_cell(draupnir: DraupnirStats, with_frame: bool = true):
 func _on_hidden():
 	equiped_draupnirs_changed.emit()
 	PlayerVariables.draupnirs.activate_draupnirs()
+	PlayerVariables.draupnirs.send_equiped_draupnirs_data()
 
 func _on_draw():
 	equiped_draupnirs_changed.emit()

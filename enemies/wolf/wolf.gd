@@ -35,8 +35,8 @@ func update_animation_parameters():
 	animation_tree["parameters/conditions/is_idle"] = is_idle
 	animation_tree["parameters/conditions/is_dead"] = is_dead
 	animation_tree["parameters/Attack/blend_position"] = walk_direction
-	animation_tree["parameters/Walk/blend_position"] = walk_direction
 	animation_tree["parameters/Idle/blend_position"] = walk_direction
+	animation_tree["parameters/Walk/BlendSpace1D/blend_position"] = walk_direction
 	animation_tree["parameters/Death/blend_position"] = walk_direction
 
 func update_enemy():

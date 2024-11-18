@@ -13,12 +13,15 @@ var on_edge: bool = false
 @export var attack_distance: int = 25
 @export var to_close_distance: int = 5
 @onready var animation_player = $"../../AnimationPlayer"
+var player_in_range: bool = false
 
 
 func _ready():
 	state_name = "Attack"
 
 func enter(_msg := {}) -> void:
+	player_in_range = true
+	owner.is_walking = true
 	pass
 
 func physics_update(delta: float) -> void:
@@ -40,13 +43,11 @@ func physics_update(delta: float) -> void:
 		owner.velocity.x = -direction.x * owner.speed * 0.2
 		owner.move_and_slide()
 		return
-	if !owner.player_detecting_ray_cast.is_colliding():
-		set_player_to_null()
 	if charging:
 		owner.velocity.x = direction.x * owner.speed
 		owner.move_and_slide()
 	
-	if owner.player != null:
+	if owner.player != null and player_in_range:
 		var player_position = owner.player.position
 		direction = player_position - owner.position
 		var distance = direction.length()
@@ -67,12 +68,13 @@ func physics_update(delta: float) -> void:
 			owner.velocity = Vector2.ZERO
 		owner.move_and_slide()
 	else:
-		state_machine.transition_to("Walk")
+		state_machine.transition_to("Search")
 
 func charge():
 	owner.is_attacking = false
 	owner.is_walking = true
 	charging_anticipation = true
+	owner.animation_tree["parameters/Walk/TimeScale/scale"] = -0.8
 	owner.velocity.x = -direction.x * owner.speed * 0.2
 	charge_preparation_timer.start()
 
@@ -84,21 +86,24 @@ func attack():
 	attac_buffer.start()
 
 func try_attacking():
-	if owner.player != null:
+	if owner.player != null and player_in_range:
 		var distance = (owner.player.position - owner.position).length()
 		if distance <= 100 and can_attack:
 			attack()
 
 func set_player_to_null():
-	owner.player = null
+	player_in_range = false
+	#owner.player = null
 
 func _on_charge_preparation_timer_timeout():
+	owner.animation_tree["parameters/Walk/TimeScale/scale"] = 2
 	owner.velocity.x = direction.x * owner.speed * 5
 	charging_anticipation = false
 	charging = true
 	charge_timer.start()
 
 func _on_charge_timer_timeout():
+	owner.animation_tree["parameters/Walk/TimeScale/scale"] = 1
 	charging = false
 	try_attacking()
 
@@ -108,6 +113,7 @@ func _on_attac_buffer_timeout():
 	can_attack = true
 
 func exit(_msg := {}) -> void:
+	owner.animation_tree["parameters/Walk/TimeScale/scale"] = 1
 	set_player_to_null()
 	owner.is_walking = true
 	owner.is_attacking = false

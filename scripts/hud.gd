@@ -72,3 +72,4 @@ func _on_button_pressed():
 	Globals.next_scene = PlayerVariables.current_scene_path
 	get_tree().paused = false
 	var error = get_tree().change_scene_to_packed(Globals.loading_screen)
+	print(error)

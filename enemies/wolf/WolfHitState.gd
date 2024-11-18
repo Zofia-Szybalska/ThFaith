@@ -6,10 +6,13 @@ func _on_timer_timeout():
 	if damagable.sprites_node:
 		damagable.sprites_node.material.set_shader_parameter("hurt", false)
 	if owner.player_detecting_ray_cast.is_colliding():
-		owner.player = owner.player_detecting_ray_cast.get_collider()
+		#owner.player = owner.player_detecting_ray_cast.get_collider()
 		state_machine.transition_to("Attack")
 		owner.velocity.x = 0
 		return
+	elif not owner.player_detecting_ray_cast.is_colliding():
+		owner.change_direction()
+		state_machine.transition_to("Walk")
 	else:
 		state_machine.transition_to("Walk")
 

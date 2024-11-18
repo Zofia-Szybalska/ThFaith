@@ -6,10 +6,10 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var player = $"../Player"
 @onready var damageable = $Damageable
+@export var level_exit: Area2D
 var phase = 1
 
 func _process(_delta):
-	
 	if phase == 1 and damageable.health <= damageable.max_health * 2/3:
 		owner.phase = 2
 		phase = 2
@@ -29,6 +29,7 @@ func kill():
 	animation_player.play("death")
 
 func start_battle():
+	level_exit.queue_free()
 	attack.timer.start()
 	attack.battle_started = true
 

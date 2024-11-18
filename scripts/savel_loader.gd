@@ -22,6 +22,7 @@ func load_game(saved_game: SaveGame):
 	PlayerVariables.fast_travel_points = saved_game.fast_travel_points
 	PlayerVariables.abilities = saved_game.abilities
 	PlayerVariables.current_scene_path = saved_game.level_path
+	Globals.next_scene = saved_game.level_path
 	get_tree().paused = false
-	var error = get_tree().change_scene_to_file(saved_game.level_path)
+	var error = get_tree().change_scene_to_packed(Globals.loading_screen)
 	print(error)

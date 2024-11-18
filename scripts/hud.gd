@@ -10,6 +10,7 @@ extends Control
 @onready var HP_array
 signal player_died
 @export var time_showing_new_items: float = 5.0
+@export var saver_loader: SaverLoader
 
 func _ready():
 	HP_array = $VBoxContainer/HP/VBoxContainer/Bar/HPs.get_children()
@@ -67,5 +68,7 @@ func _on_equiped_draupnirs_chaged():
 func _on_button_pressed():
 	dead_screen.hide()
 	PlayerVariables.health = PlayerVariables.max_health
+	PlayerVariables.player_spawn_pos = PlayerVariables.last_camp_position
+	Globals.next_scene = PlayerVariables.current_scene_path
 	get_tree().paused = false
-	get_tree().change_scene_to_file(PlayerVariables.current_scene_path)
+	var error = get_tree().change_scene_to_packed(Globals.loading_screen)

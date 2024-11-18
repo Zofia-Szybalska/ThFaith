@@ -188,6 +188,9 @@ saver_loader = NodePath("../../../SaverLoader")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("9_k6ec7")]
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(7680, 188)
+
 [editable path="SecretArea"]
 [editable path="SecretArea/Brakeable_wall"]
 [editable path="SecretArea2"]

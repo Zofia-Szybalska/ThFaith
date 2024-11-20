@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://brlrnjt1xdgr6"]
+[gd_scene load_steps=67 format=3 uid="uid://brlrnjt1xdgr6"]
 
 [ext_resource type="Script" path="res://scenes/boss_areas/fenrir_area.gd" id="1_4fe5q"]
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_x8wr5"]
@@ -33,7 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://cuouq1fuqkkdp" path="res://scenes/sharp_rocks.tscn" id="28_jtb1h"]
 [ext_resource type="AudioStream" uid="uid://c4bbkwap1ylqa" path="res://audio/537883__colorscrimsontears__monster-roar.wav" id="29_hh0ho"]
 [ext_resource type="PackedScene" uid="uid://dvvwfyo3tthax" path="res://scenes/UI/demo_end.tscn" id="30_6qhde"]
+[ext_resource type="AudioStream" uid="uid://btlv0nb8j5ejm" path="res://audio/467701__lucasduff__monster-bite.wav" id="30_bur3t"]
 [ext_resource type="Script" path="res://scripts/savel_loader.gd" id="31_lqe1s"]
+[ext_resource type="AudioStream" uid="uid://de8nklb8tgra7" path="res://audio/347548__masgame__swoosh-sound-4.mp3" id="31_veowl"]
 [ext_resource type="PackedScene" uid="uid://d2wkvsoj0b0wr" path="res://scenes/levels/parallax_background.tscn" id="34_ys8bp"]
 [ext_resource type="Texture2D" uid="uid://rvjcnxipoehp" path="res://assets/droplet.png" id="35_6vuxr"]
 [ext_resource type="PackedScene" uid="uid://bdk5jryewdd5j" path="res://scenes/level_exit.tscn" id="37_1yf06"]
@@ -198,7 +200,7 @@ tracks/10/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("29_hh0ho")
 }],
-"times": PackedFloat32Array(0, 0.4)
+"times": PackedFloat32Array(0, 0.2)
 }
 tracks/10/use_blend = true
 
@@ -401,6 +403,21 @@ tracks/7/keys = {
 "method": &"attack"
 }]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../AudioStreamPlayer2D")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 1.16,
+"start_offset": 0.29,
+"stream": ExtResource("30_bur3t")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_nhuk8"]
 resource_name = "JawAttack_start"
@@ -583,6 +600,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("31_veowl")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_sfuf4"]
 resource_name = "PawAttack_start"

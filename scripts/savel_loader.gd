@@ -13,6 +13,19 @@ func save_game():
 	
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 
+func auto_save():
+	var saved_game := SaveGame.new()
+	
+	saved_game.draupnirs = PlayerVariables.draupnirs
+	saved_game.fast_travel_points = PlayerVariables.fast_travel_points
+	saved_game.abilities = PlayerVariables.abilities
+	saved_game.level_path = PlayerVariables.current_scene_path
+	saved_game.currency = PlayerVariables.currency
+	saved_game.last_camp_position = PlayerVariables.last_camp_pos
+	
+	ResourceSaver.save(saved_game, "user://autosave.tres")
+
+
 func load_game(saved_game: SaveGame):
 	if saved_game == null:
 		return

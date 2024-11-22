@@ -19,6 +19,15 @@ func _ready():
 	update_health()
 	update_currency()
 
+func _input(event):
+	var current = get_viewport().gui_get_focus_owner()
+	if not current:
+		return
+	if event is InputEventJoypadButton:
+		if event.button_index == JOY_BUTTON_A and event.pressed:
+			if current is Button or current is TextureButton:
+				current.emit_signal("pressed")
+
 func update_health():
 	hp_label.text ="%s/%s" % [PlayerVariables.health, PlayerVariables.max_health]
 	for HP in HP_array:
@@ -32,6 +41,7 @@ func update_health():
 		#Analytics.add_event("Player died")
 		#get_tree().paused = true
 		dead_screen.show()
+		$DeadScreen/PanelContainer/MarginContainer/Button.grab_focus()
 
 func update_currency(amount_changed: int = 0):
 	currency_label.text = str(PlayerVariables.currency)

@@ -137,6 +137,7 @@ func dead():
 	is_jumping = false
 	is_dashing = false
 	is_falling = false
+	can_be_controled = false
 
 
 func _on_control_timer_timeout():

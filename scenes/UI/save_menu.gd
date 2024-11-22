@@ -5,10 +5,25 @@ extends MarginContainer
 @onready var save_slot: PackedScene = preload("res://scenes/UI/save_slot.tscn")
 var saves_path = "user://"
 var selected_save: SaveGame
+@export var button: Node
+@export var button2: Node
+@export var button3: Node
 
 func _ready():
 	anchors_preset = PRESET_FULL_RECT
 	load_saves()
+
+func assaign_focus():
+	button.grab_focus()
+
+func _input(event):
+	var current = get_viewport().gui_get_focus_owner()
+	if not current:
+		return
+	if event is InputEventJoypadButton:
+		if event.button_index == JOY_BUTTON_A and event.pressed:
+			if current is TextureButton:
+				current.emit_signal("pressed")
 
 func load_saves():
 	for child in saves_container.get_children():
@@ -28,6 +43,11 @@ func load_saves():
 					new_save_slot.save_data = save
 					new_save_slot.save_slot_selected.connect(_on_save_slot_pressed)
 					saves_container.add_child(new_save_slot)
+					button.set_focus_neighbor(SIDE_TOP, new_save_slot.button.get_path())
+					button2.set_focus_neighbor(SIDE_TOP, new_save_slot.button.get_path())
+					button3.set_focus_neighbor(SIDE_TOP, new_save_slot.button.get_path())
+					new_save_slot.button.set_focus_neighbor(SIDE_BOTTOM, button.get_path())
+					new_save_slot.button.set_focus_neighbor(SIDE_TOP, button.get_path())
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")

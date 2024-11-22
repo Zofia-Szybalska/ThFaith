@@ -15,6 +15,7 @@ func _unhandled_input(event):
 		$Label.hide()
 		player_sitting = true
 		save_button.show()
+		save_button.grab_focus()
 		back_button.show()
 		get_tree().paused = true
 
@@ -31,6 +32,15 @@ func _on_area_2d_body_exited(body):
 func _on_save_button_pressed():
 	Analytics.add_event("Game save", {"camp name": camp_name})
 	saver_loader_node.save_game()
+
+func _input(event):
+	var current = get_viewport().gui_get_focus_owner()
+	if not current:
+		return
+	if event is InputEventJoypadButton:
+		if event.button_index == JOY_BUTTON_A and event.pressed:
+			if current is Button:
+				current.emit_signal("pressed")
 
 func _on_back_button_pressed():
 	$Label.show()

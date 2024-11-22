@@ -637,3 +637,4 @@ position = Vector2(28272, 160)
 [editable path="SecretArea"]
 [editable path="SecretArea3/Brakeable_wall"]
 [editable path="UI"]
+[editable path="UI/Menues/SaveMenu"]

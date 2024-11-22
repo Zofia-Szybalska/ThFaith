@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/UI/save_menu.gd" id="1_5wvif"]
 
-[node name="SaveMenu" type="MarginContainer"]
+[node name="SaveMenu" type="MarginContainer" node_paths=PackedStringArray("button", "button2", "button3")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,6 +17,9 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 script = ExtResource("1_5wvif")
+button = NodePath("PanelContainer/MarginContainer/VBoxContainer/Buttons/SaveButton")
+button2 = NodePath("PanelContainer/MarginContainer/VBoxContainer/Buttons/EraseButton")
+button3 = NodePath("PanelContainer/MarginContainer/VBoxContainer/Buttons/BackButton")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -50,14 +53,26 @@ theme_override_constants/separation = 50
 
 [node name="SaveButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../BackButton")
+focus_neighbor_right = NodePath("../EraseButton")
+focus_next = NodePath("../EraseButton")
+focus_previous = NodePath("../BackButton")
 text = "Load"
 
 [node name="EraseButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../SaveButton")
+focus_neighbor_right = NodePath("../BackButton")
+focus_next = NodePath("../BackButton")
+focus_previous = NodePath("../SaveButton")
 text = "Erase"
 
 [node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../EraseButton")
+focus_neighbor_right = NodePath("../SaveButton")
+focus_next = NodePath("../SaveButton")
+focus_previous = NodePath("../EraseButton")
 text = "Back"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

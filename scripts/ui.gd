@@ -23,18 +23,16 @@ func _unhandled_input(event):
 		return
 	if event.is_action_pressed("left"):
 		curr_window.hide()
-		var temp_window = curr_window
-		curr_window = prev_window
-		prev_window = next_window
-		next_window = temp_window
+		curr_window = get_node(NodePath("Menues/" + curr_window.focus_neighbor_left.get_name(1)))
 		curr_window.show()
+		if curr_window.has_method("assaign_focus"):
+			curr_window.assaign_focus()
 	elif event.is_action_pressed("right"):
 		curr_window.hide()
-		var temp_window = prev_window
-		prev_window = curr_window
-		curr_window = next_window
-		next_window = temp_window
+		curr_window = get_node(NodePath("Menues/" + curr_window.focus_neighbor_right.get_name(1)))
 		curr_window.show()
+		if curr_window.has_method("assaign_focus"):
+			curr_window.assaign_focus()
 	if event.is_action_pressed("inventory") or event.is_action_pressed("ui_cancel") and menues.visible:
 		hide_inventory()
 
@@ -49,6 +47,8 @@ func show_inventory():
 	menues.show()
 	draupnir_menu.load_draupnirs()
 	curr_window.show()
+	if curr_window.has_method("assaign_focus"):
+		curr_window.assaign_focus()
 
 func hide_inventory():
 	menues.process_mode = Node.PROCESS_MODE_DISABLED

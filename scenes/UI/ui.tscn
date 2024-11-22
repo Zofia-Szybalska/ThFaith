@@ -28,14 +28,14 @@ mouse_filter = 1
 [node name="Map" parent="Menues" instance=ExtResource("3_mgppr")]
 visible = false
 layout_mode = 1
-focus_neighbor_left = NodePath("../DraupnirMenu")
+focus_neighbor_left = NodePath("../SaveMenu")
 focus_neighbor_right = NodePath("../DraupnirMenu")
 
 [node name="DraupnirMenu" parent="Menues" instance=ExtResource("4_fexnt")]
 visible = false
 layout_mode = 1
 focus_neighbor_left = NodePath("../Map")
-focus_neighbor_right = NodePath("../Map")
+focus_neighbor_right = NodePath("../SaveMenu")
 focus_mode = 2
 
 [node name="SaveMenu" parent="Menues" instance=ExtResource("5_1brht")]
@@ -43,5 +43,9 @@ visible = false
 layout_mode = 1
 offset_top = 0.0
 offset_bottom = 0.0
+focus_neighbor_left = NodePath("../DraupnirMenu")
+focus_neighbor_right = NodePath("../Map")
 
 [connection signal="hidden" from="Menues/DraupnirMenu" to="Menues/DraupnirMenu" method="_on_hidden"]
+
+[editable path="Menues/SaveMenu"]

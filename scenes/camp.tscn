@@ -34,6 +34,8 @@ offset_left = -46.0
 offset_top = -100.0
 offset_right = -2.0
 offset_bottom = -69.0
+focus_neighbor_left = NodePath("../BackButton")
+focus_neighbor_right = NodePath("../BackButton")
 text = "Save"
 
 [node name="BackButton" type="Button" parent="."]
@@ -42,6 +44,8 @@ offset_left = 17.3333
 offset_top = -100.0
 offset_right = 62.3333
 offset_bottom = -69.0
+focus_neighbor_left = NodePath("../SaveButton")
+focus_neighbor_right = NodePath("../SaveButton")
 text = "Back"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

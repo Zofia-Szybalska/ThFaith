@@ -9,6 +9,7 @@ signal equiped(draupnir_resource: DraupnirStats)
 var times_clicked: int = 0
 var with_frame = true
 
+
 func _ready():
 	if draupnir_resource:
 		load_draupnir_resource(draupnir_resource)
@@ -18,7 +19,6 @@ func _ready():
 func load_draupnir_resource(draupnir: DraupnirStats):
 		draupnir_resource = draupnir
 		if draupnir.is_unlocked:
-			print("Grafika update")
 			texture_button.texture_normal = draupnir.icon
 			texture_button.modulate = Color.WHITE
 		else:

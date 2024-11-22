@@ -1709,7 +1709,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_350vj")
 
 [node name="Player" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("3_fwde8")]
-position = Vector2(-720, -400)
+position = Vector2(-719, -385)
 UI = NodePath("../UI")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

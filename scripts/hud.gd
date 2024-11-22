@@ -68,7 +68,7 @@ func _on_equiped_draupnirs_chaged():
 func _on_button_pressed():
 	dead_screen.hide()
 	PlayerVariables.health = PlayerVariables.max_health
-	PlayerVariables.player_spawn_pos = PlayerVariables.last_camp_position
+	PlayerVariables.player_spawn_pos = PlayerVariables.last_camp_pos
 	Globals.next_scene = PlayerVariables.current_scene_path
 	get_tree().paused = false
 	var error = get_tree().change_scene_to_packed(Globals.loading_screen)

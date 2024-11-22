@@ -9,16 +9,23 @@ const WHITE_DOT = preload("res://assets/whiteDot.png")
 var equipped_draupnirs_cost: int = 0
 var window_size
 signal equiped_draupnirs_changed
+@export var button: Node = null
+var prev_draupnir
 
 func _ready():
 	load_draupnirs()
 	load_equiped_draupnirs()
 	DisplayServer.window_get_size()
 	load_space_indicators()
-	#window_size = get_viewport().get_visible_rect().size
-	#draupnir_info_box.custom_minimum_size.x = (window_size.x - 100)/3
-	#draupnirs_icons_grid.custom_minimum_size.x = 2*((window_size.x - 100)/3)
-	#draupnirs_icons_grid.custom_minimum_size.y = 2*((window_size.y - 100)/3)
+
+func _input(event):
+	var current = get_viewport().gui_get_focus_owner()
+	if not current:
+		return
+	if event is InputEventJoypadButton:
+		if event.button_index == JOY_BUTTON_A and event.pressed:
+			if current is Button:
+				current.emit_signal("pressed")
 
 func load_space_indicators():
 	for child in space.get_children():
@@ -36,15 +43,23 @@ func load_equiped_draupnirs():
 	equipped_draupnirs_cost = 0
 	for draupnir_cell in equiped_draupnirs.get_children():
 		draupnir_cell.queue_free()
-	for draupnir in PlayerVariables.draupnirs.equiped_draupnirs: 
+	prev_draupnir = null
+	var first_draupnir = null
+	for draupnir in PlayerVariables.draupnirs.equiped_draupnirs:
 		equipped_draupnirs_cost += draupnir.cost
-		equiped_draupnirs.add_child(create_draupnir_cell(draupnir, false))
+		var draupnir_cell = create_draupnir_cell(draupnir, false)
+		equiped_draupnirs.add_child(draupnir_cell)
+		if prev_draupnir:
+			draupnir_cell.texture_button.set_focus_neighbor(SIDE_LEFT, prev_draupnir.texture_button.get_path())
+			prev_draupnir.texture_button.set_focus_neighbor(SIDE_RIGHT, draupnir_cell.texture_button.get_path())
+		prev_draupnir = draupnir_cell
+		if not first_draupnir:
+			first_draupnir = draupnir_cell
+	if first_draupnir:
+		first_draupnir.texture_button.set_focus_neighbor(SIDE_LEFT, prev_draupnir.texture_button.get_path())
+		prev_draupnir.texture_button.set_focus_neighbor(SIDE_RIGHT, first_draupnir.texture_button.get_path())
+	prev_draupnir = null
 	load_space_indicators()
-	#if equipped_draupnirs_cost < PlayerVariables.draupnir_max_cost:
-		#var empty_spaces = PlayerVariables.draupnir_max_cost - equipped_draupnirs_cost
-		#while empty_spaces > 0:
-			#equiped_draupnirs.add_child(create_space_idicator())
-			#empty_spaces -= 1
 
 func create_space_idicator(white: bool = false) -> TextureRect:
 	var texture_rect = TextureRect.new()
@@ -58,13 +73,36 @@ func create_space_idicator(white: bool = false) -> TextureRect:
 func load_draupnirs():
 	for draupnir_cell in draupnirs_icons_grid.get_children():
 		draupnir_cell.queue_free()
+	prev_draupnir = null
+	var first_draupnir = null
+	var first_unlocked_draupnir = null
 	for draupnir in PlayerVariables.draupnirs.all_draupnirs:
-		draupnirs_icons_grid.add_child(create_draupnir_cell(draupnir))
+		var draupnir_cell = create_draupnir_cell(draupnir)
+		draupnirs_icons_grid.add_child(draupnir_cell)
+		if prev_draupnir:
+			draupnir_cell.texture_button.set_focus_neighbor(SIDE_LEFT, prev_draupnir.texture_button.get_path())
+			prev_draupnir.texture_button.set_focus_neighbor(SIDE_RIGHT, draupnir_cell.texture_button.get_path())
+		prev_draupnir = draupnir_cell
+		if draupnir.is_unlocked and not first_unlocked_draupnir:
+			button = draupnir_cell.texture_button
+		if not first_draupnir:
+			first_draupnir = draupnir_cell
+	if first_draupnir:
+		first_draupnir.texture_button.set_focus_neighbor(SIDE_LEFT, prev_draupnir.texture_button.get_path())
+		prev_draupnir.texture_button.set_focus_neighbor(SIDE_RIGHT, first_draupnir.texture_button.get_path())
+		first_draupnir = null
+	prev_draupnir = null
+
+func assaign_focus():
+	if button:
+		button.grab_focus()
 
 func _on_draupnir_equiped(draupnir_resource: DraupnirStats):
 	if PlayerVariables.draupnirs.equiped_draupnirs.has(draupnir_resource):
 		PlayerVariables.draupnirs.equiped_draupnirs.erase(draupnir_resource)
 		equipped_draupnirs_cost -= draupnir_resource.cost
+		if PlayerVariables.draupnirs.equiped_draupnirs.is_empty():
+			assaign_focus()
 		load_equiped_draupnirs()
 		return
 	if (equipped_draupnirs_cost + draupnir_resource.cost <= PlayerVariables.draupnir_max_cost) and not PlayerVariables.draupnirs.equiped_draupnirs.has(draupnir_resource):

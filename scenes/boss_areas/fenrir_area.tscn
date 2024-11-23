@@ -1777,3 +1777,4 @@ player_pos = Vector2(7680, 188)
 [connection signal="body_entered" from="BattleTriggerArea" to="." method="_on_battle_trigger_area_body_entered"]
 
 [editable path="UI"]
+[editable path="UI/Menues/SaveMenu"]

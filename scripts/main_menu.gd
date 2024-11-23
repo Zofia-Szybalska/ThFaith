@@ -23,4 +23,7 @@ func _on_screen_blacked_out():
 func _on_play_button_pressed():
 	TransitionScreen.transition_finished.connect(_on_screen_blacked_out)
 	TransitionScreen.transition_to_black()
-	
+
+func _on_quit_button_pressed():
+	await Analytics.handle_exit()
+	get_tree().quit()

@@ -70,17 +70,22 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../QuitButton")
 theme_override_font_sizes/font_size = 50
 text = "Play"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/Buttons/Buttons"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../PlayButton")
+focus_neighbor_right = NodePath("../PlayButton")
 theme_override_font_sizes/font_size = 50
-text = "Options"
+text = "Quit"
 
 [node name="SaverLoader" type="Node" parent="."]
 script = ExtResource("5_cdk0m")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

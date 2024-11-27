@@ -122,7 +122,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 45
-text = "Back to start"
+text = "Load last save"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0

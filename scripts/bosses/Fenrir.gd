@@ -20,13 +20,16 @@ func _process(_delta):
 
 func kill():
 	demo_end.visible = true
+	demo_end.on_show()
 	ui.has_demo_ended = true
 	player.can_be_controled = false
+	player.is_idle = true
 	var draupnirs_list: String = ""
 	for draupnir in PlayerVariables.draupnirs.equiped_draupnirs:
 		draupnirs_list += draupnir.name + ", "
 	Analytics.add_event("Boss battle end", { "boss name": "Fenrir", "player deaths": PlayerVariables.deaths_at_Fenrir, "Draupnirs": draupnirs_list})
-	animation_player.play("death")
+	$StateMachine.transition_to("Dead")
+	print("im here")
 
 func start_battle():
 	level_exit.queue_free()

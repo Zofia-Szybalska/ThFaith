@@ -15,8 +15,8 @@ func _input(event):
 func _ready():
 	play_button.grab_focus()
 
-func _on_screen_blacked_out():
-	Globals.next_scene = "res://scenes/levels/midgard.tscn"
+func _on_screen_blacked_out(_name):
+	Globals.next_scene = "res://scenes/house.tscn"
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(Globals.loading_screen)
 

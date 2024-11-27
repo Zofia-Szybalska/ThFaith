@@ -46,6 +46,7 @@ func physics_update(delta: float) -> void:
 	if charging:
 		owner.velocity.x = direction.x * owner.speed
 		owner.move_and_slide()
+		return
 	
 	if owner.player != null and player_in_range:
 		var player_position = owner.player.position
@@ -56,13 +57,16 @@ func physics_update(delta: float) -> void:
 			charging = false
 		if distance > charge_distance or ((distance <= charge_end_distance and distance > attack_distance) and not charging):
 			owner.velocity.x = direction.x * owner.speed
-		elif (distance <= charge_distance and distance > charge_end_distance) and not charging:
+		
+		if (distance <= charge_distance and distance > charge_end_distance) and not charging:
 			charge()
-		elif distance <= attack_distance and not charging and distance > to_close_distance:
+		
+		if distance <= attack_distance and not charging and distance > to_close_distance:
 			owner.velocity.x = Vector2.ZERO.x
 			if can_attack:
 				attack()
-		elif distance <= to_close_distance:
+		
+		if distance <= to_close_distance:
 			owner.velocity.x = -direction.x * owner.speed * 0.8
 		if on_edge and owner.is_on_floor():
 			owner.velocity = Vector2.ZERO
@@ -108,8 +112,8 @@ func _on_charge_timer_timeout():
 	try_attacking()
 
 func _on_attac_buffer_timeout():
-	owner.is_attacking = false
-	owner.is_walking = true
+	#owner.is_attacking = false
+	#owner.is_walking = true
 	can_attack = true
 
 func exit(_msg := {}) -> void:

@@ -1,16 +1,17 @@
-[gd_resource type="Resource" script_class="DraupnirStats" load_steps=4 format=3 uid="uid://cgrj8lvn1pr48"]
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=5 format=3 uid="uid://cgrj8lvn1pr48"]
 
-[ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="1_8r8n7"]
 [ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_uvcuk"]
 [ext_resource type="Texture2D" uid="uid://c04uvavn455j7" path="res://assets/draupnirs/icons/DodgeIcon.png" id="1_yxr2i"]
+[ext_resource type="Texture2D" uid="uid://bhn2j5rip40c6" path="res://assets/draupnirs/Untitled_41.png" id="2_bgbhp"]
+[ext_resource type="Texture2D" uid="uid://boqtkxkkmxpvg" path="res://assets/draupnirs/Untitled_37.png" id="3_vu35i"]
 
 [resource]
 script = ExtResource("1_uvcuk")
 name = "Dodge"
 cost = 1
 description = "Gives you a chance to doge attacks"
-icon = ExtResource("1_8r8n7")
-locked_icon = ExtResource("1_8r8n7")
+icon = ExtResource("2_bgbhp")
+locked_icon = ExtResource("3_vu35i")
 is_unlocked = false
 effect = "res://draupnir_effects/dodge.gd"
 HUD_icon = ExtResource("1_yxr2i")

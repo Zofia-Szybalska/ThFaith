@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cks38syrg3afx" path="res://assets/FrontStumps.png" id="6_exvva"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.1, 0.1)
@@ -30,9 +31,10 @@ texture = ExtResource("2_h6i8q")
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
-scale = Vector2(0.4, 0.4)
-motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(8800, 2630)
+scale = Vector2(2, 2)
+motion_scale = Vector2(0.5, 0.8)
+motion_offset = Vector2(0, 1500)
+motion_mirroring = Vector2(2200, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
 texture = ExtResource("3_rxoe0")

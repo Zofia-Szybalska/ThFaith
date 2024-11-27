@@ -1,10 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1a6mmn2l1r60"]
+[gd_scene load_steps=8 format=3 uid="uid://d1a6mmn2l1r60"]
 
 [ext_resource type="Script" path="res://scripts/camp.gd" id="1_bmpth"]
 [ext_resource type="Texture2D" uid="uid://0mwlo3ydlehs" path="res://assets/objects/campfire.png" id="2_jrw7l"]
+[ext_resource type="Texture2D" uid="uid://dxgq303u470lp" path="res://assets/fire_particle.png" id="3_vyr16"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqqmr"]
 size = Vector2(494, 130)
+
+[sub_resource type="Curve" id="Curve_vofpq"]
+_data = [Vector2(0, 0.406593), 0.0, 0.483517, 0, 0, Vector2(1, 0), -3.59183, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yv735"]
+curve = SubResource("Curve_vofpq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_32xao"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(40, 20, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_max = 360.0
+angular_velocity_max = 409.41
+gravity = Vector3(0, -98, 0)
+linear_accel_max = 25.0
+radial_accel_max = 50.0
+tangential_accel_max = 100.0
+scale_min = 0.1
+scale_max = 0.3
+alpha_curve = SubResource("CurveTexture_yv735")
+hue_variation_max = 0.5
+turbulence_enabled = true
 
 [node name="Camp" type="Node2D"]
 process_mode = 3
@@ -47,6 +72,13 @@ offset_bottom = -69.0
 focus_neighbor_left = NodePath("../SaveButton")
 focus_neighbor_right = NodePath("../SaveButton")
 text = "Back"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-4, 26)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_32xao")
+texture = ExtResource("3_vyr16")
+lifetime = 2.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

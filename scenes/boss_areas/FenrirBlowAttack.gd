@@ -11,13 +11,13 @@ func enter(_msg := {}) -> void:
 
 func physics_update(_delta: float) -> void:
 	if player_in_range:
-		player.velocity -= Vector2(100,0)
+		player.velocity -= Vector2(50 * owner.phase,0)
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
 		player = body
 		player_in_range = true
-		body.velocity -= Vector2(200,0)
+		body.velocity -= Vector2(25,0)
 
 func _on_animation_player_animation_finished(_anim_name):
 	if attacking:

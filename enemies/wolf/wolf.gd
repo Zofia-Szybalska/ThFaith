@@ -63,6 +63,7 @@ func death():
 	queue_free()
 
 func kill():
+	$StateMachine.transition_to("Dead")
 	is_walking = false
 	is_attacking = false
 	is_dead = true
@@ -81,14 +82,15 @@ func take_demage():
 	flash_timer.start()
 
 func _physics_process(_delta):
-	if is_dead:
-		velocity = Vector2.ZERO
 	if is_idle:
 		is_attacking = false
 		is_walking = false
+	if is_dead:
+		velocity = Vector2.ZERO
 	update_animation_parameters()
 	if player_in_area:
-		player_in_area.hit(1, self)
+		pass
+		#player_in_area.hit(1, self)
 	if !ground_detecting_ray_cast.is_colliding() and not state_machine.state.name == "Attack":
 		change_direction()
 	if is_on_wall() and is_on_floor() and not state_machine.state.name == "Attack":
@@ -96,7 +98,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func change_direction():
-	if can_change_direction:
+	if can_change_direction and not is_dead:
 		direction_change_timer.start()
 		can_change_direction = false
 		walk_direction *= -1
@@ -107,9 +109,10 @@ func _on_direction_change_timer_timeout():
 	can_change_direction = true
 
 func _on_area_2d_body_entered(body):
+	pass
 	player_in_area = body
-	if body.has_method("hit") and can_hurt:
-		body.hit(1, self)
+	#if body.has_method("hit") and can_hurt:
+		#body.hit(1, self)
 
 func _on_area_2d_body_exited(_body):
 	player_in_area = null

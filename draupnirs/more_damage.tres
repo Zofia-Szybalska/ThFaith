@@ -1,16 +1,17 @@
-[gd_resource type="Resource" script_class="DraupnirStats" load_steps=4 format=3 uid="uid://chxexodgmekh"]
+[gd_resource type="Resource" script_class="DraupnirStats" load_steps=5 format=3 uid="uid://chxexodgmekh"]
 
 [ext_resource type="Texture2D" uid="uid://bx70uwhj1umyy" path="res://assets/draupnirs/icons/SwordIcon.png" id="1_02bp6"]
 [ext_resource type="Script" path="res://scripts/DraupnirStats.gd" id="1_5qymy"]
-[ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="1_60brk"]
+[ext_resource type="Texture2D" uid="uid://cvjd41esboh2w" path="res://assets/draupnirs/Untitled_36.png" id="2_y8112"]
+[ext_resource type="Texture2D" uid="uid://boqtkxkkmxpvg" path="res://assets/draupnirs/Untitled_37.png" id="3_a5s4x"]
 
 [resource]
 script = ExtResource("1_5qymy")
 name = "Damage"
 cost = 2
 description = "You deal more damage but you also take more."
-icon = ExtResource("1_60brk")
-locked_icon = ExtResource("1_60brk")
+icon = ExtResource("2_y8112")
+locked_icon = ExtResource("3_a5s4x")
 is_unlocked = false
 effect = "res://draupnir_effects/damage.gd"
 HUD_icon = ExtResource("1_02bp6")

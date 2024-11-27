@@ -12,8 +12,11 @@ grow_vertical = 2
 script = ExtResource("1_ja6r2")
 
 [node name="TextureButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture_focused = ExtResource("2_ukeso")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="focus_exited" from="TextureButton" to="." method="_on_texture_button_focus_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

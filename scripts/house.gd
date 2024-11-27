@@ -19,10 +19,11 @@ func _ready():
 			return
 		Dialogic.start('prolog')
 
-func _on_screen_blacked_out():
-	Globals.next_scene = "res://scenes/levels/midgard.tscn"
-	get_tree().paused = false
-	get_tree().change_scene_to_packed(Globals.loading_screen)
+func _on_screen_blacked_out(anim_name: String):
+	if anim_name == "fade_to_black":
+		Globals.next_scene = "res://scenes/levels/midgard.tscn"
+		get_tree().paused = false
+		get_tree().change_scene_to_packed(Globals.loading_screen)
 
 func _on_dialogic_signal(argument:String):
 	if argument == "prolog_ended":

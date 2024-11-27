@@ -7,6 +7,7 @@ var times_attacked = 0
 
 func enter(_msg := {}) -> void:
 	animation_player.play("PawAttack_start")
+	times_attacked = 0
 	attacking = true
 
 func attack():

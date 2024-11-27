@@ -1,10 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://b02bw7llsbl8k"]
+[gd_scene load_steps=10 format=3 uid="uid://b02bw7llsbl8k"]
 
 [ext_resource type="Script" path="res://scripts/fast_travel_tree.gd" id="1_4pl7c"]
 [ext_resource type="Texture2D" uid="uid://byqpnec47bakm" path="res://assets/objects/fast_travel_tree.png" id="2_x8ldw"]
+[ext_resource type="Texture2D" uid="uid://dmb4ej6kxhuir" path="res://assets/leafe_particle.png" id="3_orqdm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdtna"]
 size = Vector2(372, 154)
+
+[sub_resource type="Curve" id="Curve_xacim"]
+_data = [Vector2(0.00568182, 0), 0.0, 3.62637, 0, 0, Vector2(1, 0.010989), -4.2753, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_grdce"]
+curve = SubResource("Curve_xacim")
+
+[sub_resource type="Curve" id="Curve_c0c87"]
+_data = [Vector2(0, 0.340659), 0.0, 1.49602, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jktfa"]
+curve = SubResource("Curve_c0c87")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7x1hh"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(50, 20, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_max = 360.0
+angular_velocity_max = 360.0
+gravity = Vector3(0, 98, 0)
+damping_max = 20.0
+scale_min = 0.1
+scale_max = 0.2
+alpha_curve = SubResource("CurveTexture_grdce")
+hue_variation_min = -1.0
+hue_variation_max = -0.5
+turbulence_enabled = true
+turbulence_influence_min = 0.05
+turbulence_influence_over_life = SubResource("CurveTexture_jktfa")
 
 [node name="FastTravelTree" type="Node2D"]
 script = ExtResource("1_4pl7c")
@@ -21,6 +54,13 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_pdtna")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_7x1hh")
+texture = ExtResource("3_orqdm")
+lifetime = 2.0
+randomness = 0.5
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

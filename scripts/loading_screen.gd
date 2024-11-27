@@ -1,13 +1,12 @@
 extends Control
 @onready var progress_bar = $MarginContainer/VBoxContainer/ProgressBar
-
+var progress = []
 
 func _ready():
 	ResourceLoader.load_threaded_request(Globals.next_scene)
 	TransitionScreen.transition_from_black()
 
 func _process(_delta):
-	var progress = []
 	ResourceLoader.load_threaded_get_status(Globals.next_scene, progress)
 	progress_bar.value = progress[0]*100
 	

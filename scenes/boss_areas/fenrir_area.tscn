@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://brlrnjt1xdgr6"]
+[gd_scene load_steps=68 format=3 uid="uid://brlrnjt1xdgr6"]
 
 [ext_resource type="Script" path="res://scenes/boss_areas/fenrir_area.gd" id="1_4fe5q"]
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_x8wr5"]
@@ -32,13 +32,45 @@
 [ext_resource type="PackedScene" uid="uid://qhkocy3xgjen" path="res://scenes/UI/ui.tscn" id="26_2k644"]
 [ext_resource type="PackedScene" uid="uid://cuouq1fuqkkdp" path="res://scenes/sharp_rocks.tscn" id="28_jtb1h"]
 [ext_resource type="AudioStream" uid="uid://c4bbkwap1ylqa" path="res://audio/537883__colorscrimsontears__monster-roar.wav" id="29_hh0ho"]
+[ext_resource type="Script" path="res://scenes/boss_areas/Dead.gd" id="30_4eujb"]
 [ext_resource type="PackedScene" uid="uid://dvvwfyo3tthax" path="res://scenes/UI/demo_end.tscn" id="30_6qhde"]
 [ext_resource type="AudioStream" uid="uid://btlv0nb8j5ejm" path="res://audio/467701__lucasduff__monster-bite.wav" id="30_bur3t"]
 [ext_resource type="Script" path="res://scripts/savel_loader.gd" id="31_lqe1s"]
 [ext_resource type="AudioStream" uid="uid://de8nklb8tgra7" path="res://audio/347548__masgame__swoosh-sound-4.mp3" id="31_veowl"]
 [ext_resource type="PackedScene" uid="uid://d2wkvsoj0b0wr" path="res://scenes/levels/parallax_background.tscn" id="34_ys8bp"]
-[ext_resource type="Texture2D" uid="uid://rvjcnxipoehp" path="res://assets/droplet.png" id="35_6vuxr"]
 [ext_resource type="PackedScene" uid="uid://bdk5jryewdd5j" path="res://scenes/level_exit.tscn" id="37_1yf06"]
+[ext_resource type="Texture2D" uid="uid://cfqhh3kpoebt1" path="res://assets/particle.png" id="38_wvbp6"]
+
+[sub_resource type="Curve" id="Curve_gqj02"]
+_data = [Vector2(0, 0.285714), 0.0, -0.0789419, 0, 0, Vector2(0.448864, 0.296703), 0.0, 0.0, 0, 0, Vector2(1, 0.043956), -1.58242, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qg5cp"]
+curve = SubResource("Curve_gqj02")
+
+[sub_resource type="Curve" id="Curve_7us4n"]
+max_value = 3.0
+_data = [Vector2(0, 2.04396), 0.0, 0.322344, 0, 0, Vector2(1, 1.02198), -0.152689, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qqafg"]
+curve = SubResource("Curve_7us4n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kaeef"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(1, 35, 1)
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+gravity = Vector3(-100, 0, 0)
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+scale_min = 2.0
+scale_max = 5.0
+scale_over_velocity_curve = SubResource("CurveTexture_qqafg")
+alpha_curve = SubResource("CurveTexture_qg5cp")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bso8"]
 radius = 42.7253
@@ -179,10 +211,10 @@ tracks/9/path = NodePath("../GPUParticles2D:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.2, 1.7),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 tracks/10/type = "audio"
 tracks/10/imported = false
@@ -192,15 +224,11 @@ tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": null
-}, {
 "end_offset": 0.33,
 "start_offset": 0.0,
 "stream": ExtResource("29_hh0ho")
 }],
-"times": PackedFloat32Array(0, 0.2)
+"times": PackedFloat32Array(0)
 }
 tracks/10/use_blend = true
 
@@ -823,10 +851,10 @@ tracks/3/path = NodePath("StateMachine/PawAttack/Area2D/CollisionShape2D:disable
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(-0.01, 0),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -835,10 +863,10 @@ tracks/4/path = NodePath("StateMachine/JawAttack/Area2D/CollisionShape2D:disable
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(-0.01, 0),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -847,10 +875,10 @@ tracks/5/path = NodePath("StateMachine/BlowAttack/Area2D/CollisionShape2D:disabl
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -859,10 +887,10 @@ tracks/6/path = NodePath("HeadCollisionShape2D2:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, true]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -871,10 +899,10 @@ tracks/7/path = NodePath("PawCollisionShape2D3:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -883,10 +911,10 @@ tracks/8/path = NodePath("HeadCollisionShape2D3:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -1385,6 +1413,138 @@ tracks/18/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../GPUParticles2D:emitting")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("StateMachine/PawAttack/Area2D/CollisionShape2D:disabled")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("StateMachine/JawAttack/Area2D/CollisionShape2D:disabled")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("StateMachine/BlowAttack/Area2D/CollisionShape2D:disabled")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("HeadCollisionShape2D2:disabled")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("PawCollisionShape2D3:disabled")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Parts/WolfJaw:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-145.617, -42.6269), Vector2(-150.873, -31.5322)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Parts/WolfJaw:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.702608]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Parts/WolfHeadWithoutJaw:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-136.275, -35.6197), Vector2(-139.048, -33.9409)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Parts/WolfHeadWithoutJaw:rotation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.781491]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Parts/LeftFrontLeg:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-132.114, -25.8389)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r1gw6"]
 _data = {
@@ -1414,37 +1574,18 @@ size = Vector2(26, 522)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uskwo"]
 size = Vector2(2045, 59)
 
-[sub_resource type="Curve" id="Curve_gqj02"]
-_data = [Vector2(0, 1), 0.0, -0.0789419, 0, 0, Vector2(0.511364, 1), -5.52127e-07, -5.52127e-07, 0, 0, Vector2(1, 0.043956), -2.95199, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_qg5cp"]
-curve = SubResource("Curve_gqj02")
-
-[sub_resource type="Curve" id="Curve_7us4n"]
-max_value = 3.0
-_data = [Vector2(0, 2.04396), 0.0, 0.322344, 0, 0, Vector2(1, 1.02198), -0.152689, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_qqafg"]
-curve = SubResource("Curve_7us4n")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kaeef"]
-lifetime_randomness = 1.0
-direction = Vector3(-1, 0, 0)
-spread = 5.0
-initial_velocity_min = 500.0
-initial_velocity_max = 500.0
-gravity = Vector3(-100, 50, 0)
-linear_accel_min = 100.0
-linear_accel_max = 100.0
-scale_min = 0.2
-scale_max = 0.5
-scale_over_velocity_curve = SubResource("CurveTexture_qqafg")
-alpha_curve = SubResource("CurveTexture_qg5cp")
-
 [node name="FenrirArea" type="Node2D"]
 script = ExtResource("1_4fe5q")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(528, 46)
+emitting = false
+amount = 85
+process_material = SubResource("ParticleProcessMaterial_kaeef")
+texture = ExtResource("38_wvbp6")
+lifetime = 1.2
+randomness = 1.0
+trail_lifetime = 0.1
 
 [node name="MidgardTileMap" parent="." instance=ExtResource("1_x8wr5")]
 layer_0/tile_data = PackedInt32Array(196617, 17, 0, 327679, 17, 0, 393215, 17, 0, 458751, 17, 0, 393216, 17, 0, 458752, 17, 0, 458753, 17, 0, 524289, 17, 0, 524290, 17, 0, 524291, 17, 0, 458756, 17, 0, 458757, 17, 0, 458758, 17, 0, 458759, 17, 0, 393224, 17, 0, 327688, 17, 0, 327689, 17, 0, 262153, 17, 0, 262152, 17, 0, 196616, 17, 0, 196615, 17, 0, 262151, 17, 0, 327687, 17, 0, 393222, 17, 0, 393223, 17, 0, 262150, 17, 0, 196614, 17, 0, 196613, 17, 0, 196612, 17, 0, 262144, 17, 0, 262145, 17, 0, 262146, 17, 0, 262147, 17, 0, 262148, 17, 0, 262149, 17, 0, 327685, 17, 0, 327686, 17, 0, 393221, 17, 0, 393220, 17, 0, 393219, 17, 0, 393218, 17, 0, 393217, 17, 0, 327681, 17, 0, 327680, 17, 0, 327682, 17, 0, 327683, 17, 0, 327684, 17, 0, 458755, 17, 0, 458754, 17, 0, 524287, 17, 0, 589823, 17, 0, 524288, 17, 0, 589824, 17, 0, 589825, 17, 0, 589826, 17, 0, 524292, 17, 0, 524293, 17, 0, 524294, 17, 0, 589830, 22, 0, 589829, 17, 0, 589828, 17, 0, 589827, 17, 0, 655359, 17, 0, 262143, 17, 0, 196608, 17, 0, 196609, 17, 0, 196610, 17, 0, 196611, 17, 0, 196618, 17, 0, 196619, 17, 0, 262155, 17, 0, 262154, 17, 0, 327690, 17, 0, 196607, 18, 0, 131072, 18, 0, 131073, 18, 0, 131074, 18, 0, 131075, 18, 0, 131076, 18, 0, 131077, 18, 0, 131078, 18, 0, 131079, 18, 0, 131080, 18, 0, 131081, 18, 0, 131082, 18, 0, 131083, 18, 0, 196606, 18, 0, 196605, 18, 0, 196604, 18, 0, 131067, 17, 0, 131066, 17, 0, 196602, 17, 0, 196603, 17, 0, 262138, 17, 0, 262139, 17, 0, 262140, 17, 0, 262141, 17, 0, 262142, 17, 0, 327678, 17, 0, 327677, 17, 0, 327676, 17, 0, 327675, 17, 0, 327674, 17, 0, 393211, 17, 0, 393212, 17, 0, 393213, 17, 0, 393214, 17, 0, 458750, 17, 0, 458749, 17, 0, 458748, 17, 0, 393210, 17, 0, 458746, 17, 0, 524282, 17, 0, 589818, 17, 0, 589819, 17, 0, 655355, 17, 0, 655356, 17, 0, 655357, 17, 0, 655358, 17, 0, 589822, 17, 0, 524286, 17, 0, 524285, 17, 0, 524284, 17, 0, 458747, 17, 0, 524283, 17, 0, 589820, 17, 0, 589821, 17, 0, 655354, 17, 0, 65530, 17, 0, 65531, 17, 0, -6, 17, 0, -5, 17, 0, -65542, 18, 0, -65541, 18, 0, 524295, 22, 0, 589831, 22, 0, 458760, 17, 0, 524296, 22, 0, 589832, 22, 0, 458761, 13, 0, 524297, 22, 0, 589833, 22, 0, 458762, 13, 0, 524298, 22, 0, 589834, 22, 0, 458763, 13, 0, 524299, 22, 0, 589835, 22, 0, 458764, 13, 0, 524300, 22, 0, 589836, 22, 0, 458765, 13, 0, 524301, 22, 0, 589837, 22, 0, 458766, 13, 0, 524302, 22, 0, 589838, 22, 0, 458767, 13, 0, 524303, 22, 0, 589839, 22, 0, 458768, 13, 0, 524304, 22, 0, 589840, 22, 0, 458769, 13, 0, 524305, 22, 0, 589841, 22, 0, 458770, 13, 0, 524306, 22, 0, 589842, 22, 0, 458771, 13, 0, 524307, 22, 0, 589843, 22, 0, 458772, 13, 0, 524308, 22, 0, 589844, 22, 0, 458773, 13, 0, 524309, 22, 0, 589845, 22, 0, 458774, 13, 0, 524310, 22, 0, 589846, 22, 0, 458775, 13, 0, 524311, 22, 0, 589847, 22, 0, 458776, 13, 0, 524312, 22, 0, 589848, 22, 0, 458777, 13, 0, 524313, 22, 0, 589849, 22, 0, 458778, 12, 65536, 524314, 23, 65536, 589850, 22, 0, -65545, 18, 0, -65544, 18, 0, -65543, 18, 0, -262159, 18, 0, -262158, 18, 0, -262157, 18, 0, -262156, 18, 0, -262155, 18, 0, -262154, 18, 0, -196623, 17, 0, -131087, 17, 0, -65551, 17, 0, -15, 17, 0, 65521, 17, 0, 131057, 17, 0, 196593, 17, 0, -196622, 17, 0, -131086, 17, 0, -65550, 17, 0, -14, 17, 0, 65522, 17, 0, 131058, 17, 0, 196594, 17, 0, -196621, 17, 0, -131085, 17, 0, -65549, 17, 0, -13, 17, 0, 65523, 17, 0, 131059, 17, 0, 196595, 17, 0, -196620, 17, 0, -131084, 17, 0, -65548, 17, 0, -12, 17, 0, 65524, 17, 0, 131060, 17, 0, 196596, 17, 0, -196619, 17, 0, -131083, 17, 0, -65547, 17, 0, -11, 17, 0, 65525, 17, 0, 131061, 17, 0, 196597, 17, 0, 262129, 17, 0, 262130, 17, 0, 262131, 17, 0, 262132, 17, 0, 262133, 17, 0, -196618, 17, 0, -131082, 17, 0, -65546, 17, 0, -10, 17, 0, 65526, 17, 0, 131062, 17, 0, 196598, 17, 0, 262134, 17, 0, 327665, 17, 0, 393201, 17, 0, 458737, 17, 0, 524273, 17, 0, 327666, 17, 0, 393202, 17, 0, 458738, 17, 0, 524274, 17, 0, 327667, 17, 0, 393203, 17, 0, 458739, 17, 0, 524275, 17, 0, 327668, 17, 0, 393204, 17, 0, 458740, 17, 0, 524276, 17, 0, 327669, 17, 0, 393205, 17, 0, 458741, 17, 0, 524277, 17, 0, 327670, 17, 0, 393206, 17, 0, 458742, 17, 0, 524278, 17, 0, -9, 17, 0, 65527, 17, 0, 131063, 17, 0, 196599, 17, 0, 262135, 17, 0, 327671, 17, 0, 393207, 17, 0, 458743, 17, 0, 524279, 17, 0, -8, 17, 0, 65528, 17, 0, 131064, 17, 0, 196600, 17, 0, 262136, 17, 0, 327672, 17, 0, 393208, 17, 0, 458744, 17, 0, 524280, 17, 0, -7, 17, 0, 65529, 17, 0, 131065, 17, 0, 196601, 17, 0, 262137, 17, 0, 327673, 17, 0, 393209, 17, 0, 458745, 17, 0, 524281, 17, 0, 589810, 17, 0, 655346, 17, 0, 589811, 17, 0, 655347, 17, 0, 589812, 17, 0, 655348, 17, 0, 589813, 17, 0, 655349, 17, 0, 589814, 17, 0, 655350, 17, 0, 589815, 17, 0, 655351, 17, 0, 589816, 17, 0, 655352, 17, 0, 589809, 17, 0, 589817, 17, 0, 655353, 17, 0, 655345, 17, 0, -262160, 17, 0, -327696, 17, 0, -393232, 17, 0, -458768, 17, 0, -524304, 17, 0, -589840, 17, 0, -655376, 17, 0, -720912, 17, 0, -196624, 17, 0)
@@ -1656,6 +1797,9 @@ position = Vector2(-200, -16)
 shape = SubResource("RectangleShape2D_ol2qp")
 disabled = true
 
+[node name="Dead" type="Node" parent="Fenrir/StateMachine"]
+script = ExtResource("30_4eujb")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fenrir"]
 libraries = {
 "": SubResource("AnimationLibrary_r1gw6")
@@ -1743,19 +1887,6 @@ shape = SubResource("RectangleShape2D_uskwo")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("34_ys8bp")]
 scroll_offset = Vector2(1728, 728.474)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(636, 44)
-emitting = false
-amount = 5
-process_material = SubResource("ParticleProcessMaterial_kaeef")
-texture = ExtResource("35_6vuxr")
-lifetime = 1.5
-one_shot = true
-randomness = 1.0
-trail_enabled = true
-trail_lifetime = 0.1
-trail_sections = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 

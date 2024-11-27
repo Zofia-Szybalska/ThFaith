@@ -10,7 +10,8 @@ func _ready():
 
 func enter(_msg := {}) -> void:
 	damagable.can_be_damaged = false
-	damagable.start_timer()
+	if damagable.health > 0:
+		damagable.start_timer()
 
 func on_dameable_hit(_node: Node, _damage: int, knockback_direction: Vector2):
 	if knockback_velocity > 0:

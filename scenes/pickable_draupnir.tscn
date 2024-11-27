@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bs5yil5tkpig2"]
 
 [ext_resource type="Script" path="res://scripts/pickable_draupnir.gd" id="1_bmtyr"]
-[ext_resource type="Texture2D" uid="uid://oeq1r12ar1c4" path="res://assets/draupnirs/BaseDraupnir.png" id="2_5rnhd"]
+[ext_resource type="Texture2D" uid="uid://4jvaxpq5ehu0" path="res://assets/draupnirs/Untitled_34.png" id="2_tr4ax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqxd"]
 size = Vector2(96, 64)
@@ -16,7 +16,7 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_vgqxd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_5rnhd")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_tr4ax")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

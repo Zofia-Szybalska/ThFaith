@@ -21,7 +21,7 @@ extends Node
 @export var last_camp_pos: Vector2 = Vector2.ZERO
 @export var player_hurt: bool = false
 @export var dash_unlocked: bool = false
-@export var double_jump_unlocked: bool = true
+@export var double_jump_unlocked: bool = false
 @export var wall_jump_unlocked: bool = false
 var deaths_at_Fenrir = 0
 var fighting_Fenrir = false

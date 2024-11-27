@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://behh3xf4p07fc"]
+
+[ext_resource type="FontFile" uid="uid://cud15q2cwv6lt" path="res://AutourOne-Regular.otf" id="1_yosf8"]
+
+[resource]
+base_font = ExtResource("1_yosf8")

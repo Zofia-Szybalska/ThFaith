@@ -72,6 +72,10 @@ enabled=PackedStringArray("res://addons/Souperior 2D Skeleton Modifications/plug
 
 import/blender/enabled=false
 
+[gui]
+
+theme/custom_font="res://AutourOne.tres"
+
 [input]
 
 ui_select={

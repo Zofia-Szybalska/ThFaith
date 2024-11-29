@@ -62,6 +62,7 @@ focus_previous = NodePath("../BackButton")
 text = "Load"
 
 [node name="EraseButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../SaveButton")
 focus_neighbor_right = NodePath("../BackButton")
@@ -70,6 +71,7 @@ focus_previous = NodePath("../SaveButton")
 text = "Erase"
 
 [node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../EraseButton")
 focus_neighbor_right = NodePath("../SaveButton")

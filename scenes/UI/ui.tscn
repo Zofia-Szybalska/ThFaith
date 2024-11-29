@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://qhkocy3xgjen"]
+[gd_scene load_steps=10 format=3 uid="uid://qhkocy3xgjen"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_w5aib"]
 [ext_resource type="PackedScene" uid="uid://bkr6alnif7xut" path="res://scenes/UI/hud.tscn" id="2_8kq13"]
 [ext_resource type="PackedScene" uid="uid://cnhmhyid0160y" path="res://scenes/UI/map_menu.tscn" id="3_mgppr"]
 [ext_resource type="PackedScene" uid="uid://weg7jdo4eoyd" path="res://scenes/UI/draupnir_menu.tscn" id="4_fexnt"]
 [ext_resource type="PackedScene" uid="uid://bmvolrc3ww20d" path="res://scenes/UI/save_menu.tscn" id="5_1brht"]
+[ext_resource type="Texture2D" uid="uid://clchddalnttmk" path="res://assets/UI/ArrowLeft.png" id="6_olyph"]
+[ext_resource type="Texture2D" uid="uid://o3atfdixetbj" path="res://assets/UI/ArrowRight.png" id="7_0htfy"]
+[ext_resource type="Texture2D" uid="uid://ds0q4vej5o6lo" path="res://assets/UI/ArrowLeftSelect.png" id="7_4ne6w"]
+[ext_resource type="Texture2D" uid="uid://b5s3aqjpety0y" path="res://assets/UI/ArrowRightSelect.png" id="9_3a85b"]
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 2
@@ -32,7 +36,6 @@ focus_neighbor_left = NodePath("../SaveMenu")
 focus_neighbor_right = NodePath("../DraupnirMenu")
 
 [node name="DraupnirMenu" parent="Menues" instance=ExtResource("4_fexnt")]
-visible = false
 layout_mode = 1
 focus_neighbor_left = NodePath("../Map")
 focus_neighbor_right = NodePath("../SaveMenu")
@@ -41,11 +44,44 @@ focus_mode = 2
 [node name="SaveMenu" parent="Menues" instance=ExtResource("5_1brht")]
 visible = false
 layout_mode = 1
-offset_top = 0.0
-offset_bottom = 0.0
 focus_neighbor_left = NodePath("../DraupnirMenu")
 focus_neighbor_right = NodePath("../Map")
 
+[node name="Arrows" type="MarginContainer" parent="Menues"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 50
+
+[node name="ArrowLeft" type="TextureButton" parent="Menues/Arrows"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("6_olyph")
+texture_pressed = ExtResource("6_olyph")
+texture_hover = ExtResource("7_4ne6w")
+texture_focused = ExtResource("7_4ne6w")
+
+[node name="ArrowRight" type="TextureButton" parent="Menues/Arrows"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("7_0htfy")
+texture_pressed = ExtResource("7_0htfy")
+texture_hover = ExtResource("9_3a85b")
+texture_disabled = ExtResource("7_0htfy")
+texture_focused = ExtResource("9_3a85b")
+
 [connection signal="hidden" from="Menues/DraupnirMenu" to="Menues/DraupnirMenu" method="_on_hidden"]
+[connection signal="pressed" from="Menues/Arrows/ArrowLeft" to="." method="_on_arrow_left_pressed"]
+[connection signal="pressed" from="Menues/Arrows/ArrowRight" to="." method="_on_arrow_right_pressed"]
 
 [editable path="Menues/SaveMenu"]

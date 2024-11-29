@@ -39,6 +39,7 @@ func load_saves():
 				if file_name == "analytics.cfg":
 					pass
 				else:
+					print(saves_path + "/" + file_name, "SaveGame")
 					save = ResourceLoader.load(saves_path + "/" + file_name, "SaveGame", ResourceLoader.CACHE_MODE_IGNORE) as SaveGame
 				
 				if save == null:

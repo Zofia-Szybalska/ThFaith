@@ -38,9 +38,6 @@ func _process(_delta):
 func check_position(new_position: Vector2):
 	return new_position
 
-func _ready():
-	pass
-
 func _zoom_at_point(zoom_change, mouse_position):
 	var new_scale = scale * zoom_change
 	if new_scale <= Vector2.ONE:

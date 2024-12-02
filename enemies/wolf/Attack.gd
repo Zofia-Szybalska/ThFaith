@@ -22,7 +22,6 @@ func _ready():
 func enter(_msg := {}) -> void:
 	player_in_range = true
 	owner.is_walking = true
-	pass
 
 func physics_update(delta: float) -> void:
 	if owner.is_idle:

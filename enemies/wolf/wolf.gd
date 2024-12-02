@@ -20,7 +20,6 @@ var currency_scene: PackedScene = preload("res://scenes/currency.tscn")
 var health = max_health:  set = _set_health
 var player
 var can_change_direction: bool = true
-var player_in_area
 var curr_detection_range: int = base_detection_range
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -88,9 +87,6 @@ func _physics_process(_delta):
 	if is_dead:
 		velocity = Vector2.ZERO
 	update_animation_parameters()
-	if player_in_area:
-		pass
-		#player_in_area.hit(1, self)
 	if !ground_detecting_ray_cast.is_colliding() and not state_machine.state.name == "Attack":
 		change_direction()
 	if is_on_wall() and is_on_floor() and not state_machine.state.name == "Attack":
@@ -107,15 +103,6 @@ func change_direction():
 
 func _on_direction_change_timer_timeout():
 	can_change_direction = true
-
-func _on_area_2d_body_entered(body):
-	pass
-	player_in_area = body
-	#if body.has_method("hit") and can_hurt:
-		#body.hit(1, self)
-
-func _on_area_2d_body_exited(_body):
-	player_in_area = null
 
 func _on_flash_timer_timeout():
 		$PartsSKeletonContainer/Parts.material.set_shader_parameter("hurt", false)

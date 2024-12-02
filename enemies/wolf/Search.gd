@@ -8,6 +8,7 @@ func _ready():
 
 func enter(_msg := {}) -> void:
 	is_searching = true
+	owner.is_attacking = false
 	times_turned = 0
 	owner.is_idle = true
 	owner.is_walking = false

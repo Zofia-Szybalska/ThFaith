@@ -8,6 +8,7 @@ class_name Wolf
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var flash_timer = $flash_timer
+@onready var collision_shape_2d = $CollisionShape2D
 
 @export var speed = 100.0
 @export var max_health = 30.0
@@ -27,6 +28,7 @@ var walk_direction = -1
 var is_walking = true
 var is_attacking = false
 var is_dead = false
+var player_in_area = null
 
 func update_animation_parameters():
 	animation_tree["parameters/conditions/is_attacking"] = is_attacking
@@ -81,6 +83,8 @@ func take_demage():
 	flash_timer.start()
 
 func _physics_process(_delta):
+	if player_in_area:
+		player_in_area.knockback(self)
 	if is_idle:
 		is_attacking = false
 		is_walking = false
@@ -100,9 +104,25 @@ func change_direction():
 		walk_direction *= -1
 		ground_detecting_ray_cast.position *= -1
 		player_detecting_ray_cast.target_position *= -1
+		if walk_direction == 1:
+			collision_shape_2d.position = Vector2(31,0)
+		else:
+			collision_shape_2d.position = Vector2.ZERO
 
 func _on_direction_change_timer_timeout():
 	can_change_direction = true
 
 func _on_flash_timer_timeout():
 		$PartsSKeletonContainer/Parts.material.set_shader_parameter("hurt", false)
+
+func hit_player():
+	if player:
+		player.hit(1, self)
+
+func _on_area_2d_body_entered(body):
+	if body is Player:
+		player_in_area = body
+
+func _on_area_2d_body_exited(body):
+	if body is Player:
+		player_in_area = null

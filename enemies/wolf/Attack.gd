@@ -85,7 +85,7 @@ func attack():
 	owner.is_attacking = true
 	owner.is_walking = false
 	can_attack = false
-	owner.player.hit(1, owner)
+	#owner.player.hit(1, owner)
 	attac_buffer.start()
 
 func try_attacking():

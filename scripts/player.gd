@@ -116,6 +116,12 @@ func hit(damage: int, node: Node2D):
 		$StateMachine.transition_to("Hit", {direction_sign = knockback_direction_sign, attacking_node = node})
 		change_health(-damage * PlayerVariables.damage_taken_multiplayer, node.name)
 
+func knockback(node):
+	var knockback_direction = global_position - node.global_position
+	var knockback_direction_sign = sign(knockback_direction)
+	velocity.x = knockack_velocity * knockback_direction_sign.x
+	velocity.y = knockack_velocity * knockback_direction_sign.y * 0.5
+
 func dodge():
 	print("Dodged!")
 
@@ -138,7 +144,6 @@ func dead():
 	is_dashing = false
 	is_falling = false
 	can_be_controled = false
-
 
 func _on_control_timer_timeout():
 	can_be_controled = true

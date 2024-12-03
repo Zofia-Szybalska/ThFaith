@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$Player.is_idle = true
 	if PlayerVariables.mom_dying:
 		Dialogic.start("res://Dialogic_timelines/mothers_death.dtl").process_mode = Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS

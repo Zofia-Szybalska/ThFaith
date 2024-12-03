@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj50i7evrxtdw"]
+[gd_scene load_steps=7 format=3 uid="uid://cj50i7evrxtdw"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_46r84"]
 [ext_resource type="Texture2D" uid="uid://cdtnjebmeyvhc" path="res://assets/UI/BG.png" id="1_cmf7n"]
 [ext_resource type="Texture2D" uid="uid://1unqhdnnguvd" path="res://assets/UI/Logo.png" id="2_fmcct"]
 [ext_resource type="Texture2D" uid="uid://bajn0dbb6vjc8" path="res://assets/UI/GlowTitle.png" id="3_jhuvu"]
+[ext_resource type="Texture2D" uid="uid://d3nh0wrkde7nf" path="res://assets/buttonSmaller.png" id="5_754ij"]
 [ext_resource type="Script" path="res://scripts/savel_loader.gd" id="5_cdk0m"]
 
 [node name="MainMenu" type="Control"]
@@ -62,30 +63,78 @@ theme_override_constants/margin_bottom = 100
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 6
+size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/Buttons"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Buttons/Buttons"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Buttons/Buttons/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/Buttons/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../QuitButton")
-focus_neighbor_right = NodePath("../QuitButton")
+focus_neighbor_left = NodePath("../../../PanelContainer2/MarginContainer/QuitButton")
+focus_neighbor_right = NodePath("../../../PanelContainer2/MarginContainer/QuitButton")
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
 theme_override_font_sizes/font_size = 50
 text = "Play"
+flat = true
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/Buttons"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/Buttons/Buttons/PanelContainer"]
+show_behind_parent = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_754ij")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/Buttons/Buttons"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/Buttons/Buttons/PanelContainer2"]
+show_behind_parent = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_754ij")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Buttons/Buttons/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/Buttons/PanelContainer2/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../PlayButton")
-focus_neighbor_right = NodePath("../PlayButton")
+focus_neighbor_left = NodePath("../../../PanelContainer/MarginContainer/PlayButton")
+focus_neighbor_right = NodePath("../../../PanelContainer/MarginContainer/PlayButton")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
+flat = true
 
 [node name="SaverLoader" type="Node" parent="."]
 script = ExtResource("5_cdk0m")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Buttons/PanelContainer/MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Buttons/PanelContainer2/MarginContainer/QuitButton" to="." method="_on_quit_button_pressed"]

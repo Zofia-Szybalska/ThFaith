@@ -1,7 +1,7 @@
 extends Node
 
 
-@export var health: int = 5 : set = _set_health
+@export var health: int = 10 : set = _set_health
 @export var max_health: int = 10
 @export var currency: int = 0 : set = _set_currency
 @export var draupnirs: Draupnirs = Draupnirs.new()

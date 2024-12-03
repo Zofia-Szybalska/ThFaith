@@ -3667,7 +3667,6 @@ use_parent_material = true
 use_parent_material = true
 position = Vector2(-38.2795, -32.5695)
 rotation = -0.0330261
-scale = Vector2(1, 1)
 texture = ExtResource("16_hcu8r")
 
 [node name="WolfBody2" type="Sprite2D" parent="PartsSKeletonContainer/Parts/Body"]
@@ -3780,7 +3779,7 @@ remote_path = NodePath("../../../../../Parts/Body/WolfBody1")
 
 [node name="Head" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front"]
 position = Vector2(-18, -26)
-rotation = -0.0327558
+rotation = -0.032756
 scale = Vector2(0.999863, 0.999863)
 rest = Transform2D(0.999866, 0, 0, 0.999866, -18, -26)
 auto_calculate_length_and_angle = false
@@ -3815,7 +3814,6 @@ remote_path = NodePath("../../../../../../../Parts/FrontLegR/WolfLfLeg2_1")
 [node name="FrontHeelR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Base/Body/Front/FrontLegR/FrontKneeR"]
 position = Vector2(0, 37.7778)
 rotation = -0.380506
-scale = Vector2(1, 1)
 rest = Transform2D(0.928477, -0.371391, 0.371391, 0.928477, 0, 37.7778)
 editor_settings/show_bone_gizmo = false
 

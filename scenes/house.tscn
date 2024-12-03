@@ -19,7 +19,6 @@ layer_1/tile_data = PackedInt32Array(196609, 21, 196608, 262145, 21, 196608, 327
 visible = false
 z_index = 10
 position = Vector2(102, 50)
-scale = Vector2(0.45, 0.45)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.45, 0.45)

@@ -11,6 +11,9 @@ func enter(_msg := {}) -> void:
 		timer.start()
 
 func draw_attack():
+	if not owner.can_attack:
+		state_machine.transition_to("Dead")
+		return
 	var random = RandomNumberGenerator.new()
 	random.randomize()
 	var rand_number = (random.randi_range(1, 3))

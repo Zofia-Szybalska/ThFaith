@@ -4,6 +4,7 @@ extends Node2D
 var battle_started = false
 @onready var parts = $Fenrir/Parts
 var phase = 1
+var can_attack = true
 
 func _ready():
 	PlayerVariables.current_scene = "FenrirArea"

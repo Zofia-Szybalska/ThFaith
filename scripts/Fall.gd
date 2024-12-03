@@ -1,6 +1,5 @@
 extends State
 
-@export var double_jump_unlocked: bool = false
 @export var coyote_time: float = .15
 @export var wall_coyote_time: float = .1
 var coyote_elapsed: float = 0
@@ -40,7 +39,7 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		if (coyote and coyote_elapsed < coyote_time) or (wall_coyote and coyote_elapsed < wall_coyote_time):
 			state_machine.transition_to("Jump")
-		elif owner.can_double_jump and PlayerVariables.double_jump_unlocked:
+		elif owner.can_double_jump and PlayerVariables.abilities.double_jump_unlocked:
 			owner.can_double_jump = false
 			state_machine.transition_to("Jump", {second_jump = true})
 		return

@@ -194,6 +194,6 @@ menu_right={
 
 [quiver]
 
-general/auth_token="kGphGOXVWRIVqb0CGRvqI48JaR8HWouIdipy2frt"
-analytics/auto_add_event_on_launch=false
-analytics/auto_add_event_on_quit=false
+analytics/auto_add_event_on_launch=true
+analytics/auto_add_event_on_quit=true
+general/auth_token="PrmF7WriIo6zYzBdjIn3pjaEkQKA7j59sixqilsM"

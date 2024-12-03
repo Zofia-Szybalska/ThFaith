@@ -19,6 +19,7 @@ func _process(_delta):
 
 
 func kill():
+	owner.can_attack = false
 	demo_end.visible = true
 	demo_end.on_show()
 	ui.has_demo_ended = true
@@ -29,7 +30,6 @@ func kill():
 		draupnirs_list += draupnir.name + ", "
 	Analytics.add_event("Boss battle end", { "boss name": "Fenrir", "player deaths": PlayerVariables.deaths_at_Fenrir, "Draupnirs": draupnirs_list})
 	$StateMachine.transition_to("Dead")
-	print("im here")
 
 func start_battle():
 	level_exit.queue_free()

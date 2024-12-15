@@ -32,8 +32,13 @@ var current_scene: String = "house"
 signal health_changed
 signal currency_changed
 
+
+
 func unlock_double_jump():
 	abilities.double_jump_unlocked = true
+
+func unlock_wall_jump():
+	abilities.wall_jump_unlocked = true
 
 func update_enemy_nodes():
 	get_tree().call_group("Enemies","update_enemy")

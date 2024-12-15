@@ -5,12 +5,17 @@ class_name Draupnirs
 @export var equiped_draupnirs: Array[DraupnirStats] = []
 @export var curr_equiped_draupnirs: Array[DraupnirStats] = []
 @export var draupnirs_folder_path: String = "res://draupnirs"
+signal first_draupnir_picked_up
+
 
 func unlock_draupnir(draupnir_name: String):
 	for draupnir in all_draupnirs:
 		if draupnir.name == draupnir_name:
 			Analytics.add_event("Draupnir unlocked", { "name": draupnir.name})
 			draupnir.is_unlocked = true
+			if not PlayerVariables.first_draupnir_unlocked:
+				PlayerVariables.first_draupnir_unlocked = true
+				first_draupnir_picked_up.emit()
 
 func lock_draupnir(draupnir_name: String):
 	for draupnir in all_draupnirs:

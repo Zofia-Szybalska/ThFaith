@@ -14,10 +14,16 @@ var is_menu_shown = false
 var has_demo_ended = false
 
 func _ready():
+	if not PlayerVariables.first_draupnir_unlocked:
+		PlayerVariables.draupnirs.first_draupnir_picked_up.connect(_on_first_draupnir_picked_up)
 	draupnir_menu.equiped_draupnirs_changed.connect(_on_equiped_draupnirs_chaged)
 
 func _on_equiped_draupnirs_chaged():
 	hud._on_equiped_draupnirs_chaged()
+
+func _on_first_draupnir_picked_up():
+	curr_window = draupnir_menu
+	show_inventory()
 
 func _unhandled_key_input(event):
 	if has_demo_ended:

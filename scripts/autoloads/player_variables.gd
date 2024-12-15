@@ -24,6 +24,7 @@ extends Node
 @export var double_jump_unlocked: bool = false
 @export var wall_jump_unlocked: bool = false
 var deaths_at_Fenrir = 0
+var first_draupnir_unlocked = false
 var fighting_Fenrir = false
 var mom_dying = false
 var seen_fenrir_at_least_once = false

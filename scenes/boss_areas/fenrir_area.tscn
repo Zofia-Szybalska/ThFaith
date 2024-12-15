@@ -82,10 +82,10 @@ size = Vector2(71.9767, 44.5686)
 radius = 22.9557
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hghl0"]
-size = Vector2(53.0682, 15.4013)
+size = Vector2(53.8784, 15.4013)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wn18"]
-size = Vector2(227, 66)
+size = Vector2(222, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0crdb"]
 size = Vector2(152, 98)
@@ -1621,7 +1621,7 @@ position = Vector2(-62.6556, -79.3998)
 shape = SubResource("RectangleShape2D_m2k3s")
 
 [node name="HeadCollisionShape2D2" type="CollisionShape2D" parent="Fenrir"]
-position = Vector2(-90.7426, -38.6196)
+position = Vector2(-79.1297, -33.2183)
 shape = SubResource("CircleShape2D_qaujk")
 disabled = true
 
@@ -1631,7 +1631,7 @@ shape = SubResource("CircleShape2D_qaujk")
 disabled = true
 
 [node name="PawCollisionShape2D3" type="CollisionShape2D" parent="Fenrir"]
-position = Vector2(-87.7044, -17.8244)
+position = Vector2(-88.1095, -17.8244)
 shape = SubResource("RectangleShape2D_hghl0")
 disabled = true
 
@@ -1772,7 +1772,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fenrir/StateMachine/PawAttack/Area2D"]
-position = Vector2(71.5, -15)
+position = Vector2(74, -15)
 shape = SubResource("RectangleShape2D_5wn18")
 disabled = true
 

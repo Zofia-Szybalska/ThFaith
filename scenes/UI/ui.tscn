@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b5s3aqjpety0y" path="res://assets/UI/ArrowRightSelect.png" id="9_3a85b"]
 
 [node name="UI" type="CanvasLayer"]
-process_mode = 2
+process_mode = 3
 script = ExtResource("1_w5aib")
 
 [node name="HUD" parent="." instance=ExtResource("2_8kq13")]
@@ -36,6 +36,7 @@ focus_neighbor_left = NodePath("../SaveMenu")
 focus_neighbor_right = NodePath("../DraupnirMenu")
 
 [node name="DraupnirMenu" parent="Menues" instance=ExtResource("4_fexnt")]
+visible = false
 layout_mode = 1
 focus_neighbor_left = NodePath("../Map")
 focus_neighbor_right = NodePath("../SaveMenu")

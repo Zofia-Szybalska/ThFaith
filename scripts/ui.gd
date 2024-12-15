@@ -19,15 +19,60 @@ func _ready():
 func _on_equiped_draupnirs_chaged():
 	hud._on_equiped_draupnirs_chaged()
 
-func _unhandled_input(event):
+func _unhandled_key_input(event):
 	if has_demo_ended:
 		return
+	if check_close(event):
+		return
+	if event.is_action_pressed("inventory"):
+		if menues.visible:
+			curr_window.hide()
+			curr_window = draupnir_menu
+			curr_window.show()
+		else:
+			curr_window = draupnir_menu
+	if event.is_action_pressed("map"):
+		if menues.visible:
+			curr_window.hide()
+			curr_window = map
+			curr_window.show()
+		else:
+			curr_window = map
+	if event.is_action_pressed("save_menu"):
+		if menues.visible:
+			curr_window.hide()
+			curr_window = save_menu
+			curr_window.show()
+		else:
+			curr_window = save_menu
+	if event.is_action_pressed("inventory") or event.is_action_pressed("map") or event.is_action_pressed("save_menu"):
+		if not menues.visible:
+			show_inventory()
+		if not PlayerVariables.inventory_oppend_at_least_once:
+			PlayerVariables.inventory_oppend_at_least_once = true
+			Analytics.add_event("Inventory opened")
 	if event.is_action_pressed("menu_left"):
 		screen_left()
 	elif event.is_action_pressed("menu_right"):
 		screen_right()
-	if event.is_action_pressed("inventory") or event.is_action_pressed("ui_cancel") and menues.visible:
+	get_viewport().set_input_as_handled()
+
+func check_close(event):
+	if event.is_action_pressed("ui_cancel") and menues.visible:
 		hide_inventory()
+		return true
+	if curr_window.visible:
+
+		if event.is_action_pressed("inventory") and curr_window == draupnir_menu:
+			hide_inventory()
+			return true
+		if event.is_action_pressed("map") and curr_window == map:
+			hide_inventory()
+			return true
+		if event.is_action_pressed("save_menu") and curr_window == save_menu:
+			hide_inventory()
+			return true
+	return false
 
 func hide_all_menues():
 	$Menues.hide()
@@ -49,7 +94,6 @@ func hide_inventory():
 	get_tree().paused = false
 	menues.hide()
 	hide_all_menues()
-	
 
 func screen_left():
 	curr_window.hide()
@@ -67,7 +111,6 @@ func screen_right():
 
 func _on_arrow_left_pressed():
 	screen_left()
-
 
 func _on_arrow_right_pressed():
 	screen_right()

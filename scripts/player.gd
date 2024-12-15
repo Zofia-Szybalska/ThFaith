@@ -58,12 +58,10 @@ func update_animation_parameters():
 		animation_tree["parameters/Death/blend_position"] = direction
 
 func _unhandled_input(event):
-	if event.is_action_pressed("inventory"):
+	if event.is_action_pressed("inventory") or event.is_action_pressed("map") or event.is_action_pressed("save_menu"):
 		if not PlayerVariables.inventory_oppend_at_least_once:
 			PlayerVariables.inventory_oppend_at_least_once = true
 			Analytics.add_event("Inventory opened")
-		get_viewport().set_input_as_handled()
-		UI.show_inventory()
 
 func _ready():
 	can_be_controled = false

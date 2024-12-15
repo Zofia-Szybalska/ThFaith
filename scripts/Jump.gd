@@ -1,7 +1,7 @@
 extends State
 @onready var double_jump_gpu_particles: GPUParticles2D = $DoubleJumpGPUParticles
 
-@export var jump_duration : float = .4
+@export var jump_duration : float = .3
 var elapsed_jump := 0.0
 var direction = 1
 var wall_jump = false

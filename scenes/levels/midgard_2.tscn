@@ -140,7 +140,7 @@ position = Vector2(1063, 72)
 
 [node name="MidgardTileMap" parent="SecretArea/Brakeable_wall" index="1"]
 material = ExtResource("14_fllmr")
-layer_0/tile_data = PackedInt32Array(-131057, 589824, 2, -65521, 589824, 2, 15, 589824, 2, 65551, 589824, 2, 131087, 589824, 2, 196623, 589824, 2, 262159, 589824, 2, 262160, 393216, 1, -131056, 720896, 2, -65520, 720896, 1, 16, 720896, 2, 65552, 720896, 2, 131088, 720896, 2, 196624, 720896, 2)
+layer_0/tile_data = PackedInt32Array(-65520, 720899, 1, 16, 720899, 2, 65552, 720899, 2, 65551, 589827, 2, 131087, 589827, 2, 196623, 589827, 2, 196624, 720899, 2, 131088, 720899, 2, 262160, 393219, 1, 262159, 589827, 2, 15, 589827, 2, -65521, 589827, 2)
 
 [node name="Damageable" parent="SecretArea/Brakeable_wall" index="2" node_paths=PackedStringArray("sprites_node")]
 sprites_node = NodePath("../MidgardTileMap")

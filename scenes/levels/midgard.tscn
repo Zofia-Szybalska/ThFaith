@@ -550,7 +550,7 @@ layer_0/tile_data = PackedInt32Array(131076, 589824, 2, 65540, 589824, 2, 4, 589
 
 [node name="MidgardTileMap" parent="SecretArea3/Brakeable_wall" index="1"]
 material = ExtResource("19_itn3p")
-layer_0/tile_data = PackedInt32Array(-131076, 589824, 2, -65540, 589824, 2, -4, 589824, 2, 65532, 589824, 2, 131068, 589824, 2, 196604, 589824, 2, 196603, 327680, 1, -65541, 524288, 1, -5, 524288, 1, 65531, 524288, 1, 131067, 524288, 1, -131077, 524288, 1)
+layer_0/tile_data = PackedInt32Array(-131077, 524291, 1, -131076, 589827, 2, -65540, 589827, 2, -4, 589827, 2, 65532, 589827, 2, 131068, 589827, 2, 196604, 589827, 2, 196603, 327683, 1, 131067, 524291, 1, 65531, 524291, 1, -5, 524291, 1, -65541, 524291, 1)
 
 [node name="Damageable" parent="SecretArea3/Brakeable_wall" index="2" node_paths=PackedStringArray("sprites_node")]
 sprites_node = NodePath("../MidgardTileMap")
@@ -575,124 +575,6 @@ position = Vector2(377, 1276)
 UI = NodePath("../UI")
 can_be_controled = true
 metadata/_edit_group_ = true
-
-[node name="LeithRarm1" parent="Player/PartsSKeletonContainer/Parts/Rarm" index="0"]
-position = Vector2(-16.2963, -55.5557)
-rotation = 0.0185881
-scale = Vector2(0.999998, 0.999998)
-
-[node name="LeithRarm2" parent="Player/PartsSKeletonContainer/Parts/Rarm" index="1"]
-position = Vector2(-34.9593, -23.3169)
-rotation = 0.0611131
-scale = Vector2(0.999997, 0.999997)
-
-[node name="LeithRarm3" parent="Player/PartsSKeletonContainer/Parts/Rarm" index="2"]
-position = Vector2(-49.8964, 2.4856)
-rotation = 0.391261
-scale = Vector2(0.999994, 0.999994)
-
-[node name="LeithHead" parent="Player/PartsSKeletonContainer/Parts" index="1"]
-position = Vector2(-2.96295, -73.3335)
-rotation = -0.0747735
-scale = Vector2(0.999996, 0.999996)
-
-[node name="LeithBody2" parent="Player/PartsSKeletonContainer/Parts/Body" index="0"]
-position = Vector2(-16.2963, 7.6665)
-
-[node name="LeithBody1" parent="Player/PartsSKeletonContainer/Parts/Body" index="1"]
-position = Vector2(-16.2963, 7.6665)
-
-[node name="LeithRleg1" parent="Player/PartsSKeletonContainer/Parts/RLeg" index="0"]
-position = Vector2(-13.0621, 12.1501)
-rotation = 0.311068
-scale = Vector2(0.999997, 0.999997)
-
-[node name="LeithRleg2" parent="Player/PartsSKeletonContainer/Parts/RLeg" index="1"]
-position = Vector2(-25.2517, 52.5745)
-rotation = 0.15392
-scale = Vector2(0.999996, 0.999996)
-
-[node name="LeithRleg3" parent="Player/PartsSKeletonContainer/Parts/RLeg" index="2"]
-position = Vector2(-42.0428, 108.259)
-rotation = 0.135785
-scale = Vector2(0.999991, 0.999991)
-
-[node name="LeithLleg1" parent="Player/PartsSKeletonContainer/Parts/Lleg" index="0"]
-position = Vector2(3.38562, -89.5391)
-rotation = 0.926625
-scale = Vector2(1.65823, 6.53659)
-skew = -0.895703
-
-[node name="LeithLleg2" parent="Player/PartsSKeletonContainer/Parts/Lleg" index="1"]
-position = Vector2(0.983215, 191.498)
-rotation = 0.270881
-scale = Vector2(1.05363, 6.6608)
-skew = -0.264429
-
-[node name="LeithLleg3" parent="Player/PartsSKeletonContainer/Parts/Lleg" index="2"]
-position = Vector2(13.8187, 575.48)
-scale = Vector2(1.02069, 6.66589)
-
-[node name="LeithLarm1" parent="Player/PartsSKeletonContainer/Parts/Larm" index="0"]
-position = Vector2(10.3704, -57.7778)
-rotation = 0.0868909
-scale = Vector2(0.999995, 0.999995)
-
-[node name="LeithLarm2" parent="Player/PartsSKeletonContainer/Parts/Larm" index="1"]
-position = Vector2(22.8726, -23.1836)
-rotation = 0.0898389
-scale = Vector2(0.999995, 0.999995)
-
-[node name="LeithLarm3" parent="Player/PartsSKeletonContainer/Parts/Larm" index="2"]
-position = Vector2(35.3748, 11.4106)
-rotation = -0.111018
-scale = Vector2(0.999992, 0.999992)
-
-[node name="LegL" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip" index="2"]
-rotation = 0.228006
-scale = Vector2(0.999997, 0.999997)
-
-[node name="ShinL" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip/LegL" index="1"]
-rotation = -0.157921
-scale = Vector2(0.999996, 0.999996)
-
-[node name="FootL" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip/LegL/ShinL" index="1"]
-rotation = -0.0569481
-scale = Vector2(0.999995, 0.999995)
-
-[node name="LegR" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip" index="3"]
-rotation = 0.216161
-scale = Vector2(0.999997, 0.999997)
-
-[node name="ShinR" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip/LegR" index="1"]
-scale = Vector2(0.999999, 0.999999)
-
-[node name="FootR" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip/LegR/ShinR" index="1"]
-rotation = -0.0181352
-scale = Vector2(0.999995, 0.999995)
-
-[node name="ArmL" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip" index="4"]
-rotation = 0.0868909
-scale = Vector2(0.999995, 0.999995)
-
-[node name="HandL" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip/ArmL/ForArmL" index="1"]
-rotation = -0.200856
-scale = Vector2(0.999997, 0.999997)
-
-[node name="ArmR" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip" index="5"]
-rotation = 0.0185881
-scale = Vector2(0.999998, 0.999998)
-
-[node name="ForarmR" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip/ArmR" index="1"]
-scale = Vector2(0.999999, 0.999999)
-
-[node name="HandR" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip/ArmR/ForarmR" index="1"]
-rotation = 0.330147
-scale = Vector2(0.999997, 0.999997)
-
-[node name="Head" parent="Player/PartsSKeletonContainer/Skeleton2D/Hip" index="6"]
-rotation = -0.0747735
-scale = Vector2(0.999996, 0.999996)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -250)
@@ -776,4 +658,3 @@ position = Vector2(4693, 1040)
 [editable path="SecretArea3/Brakeable_wall"]
 [editable path="UI"]
 [editable path="UI/Menues/SaveMenu"]
-[editable path="Player"]

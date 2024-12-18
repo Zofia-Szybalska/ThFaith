@@ -68,5 +68,6 @@ func _set_currency(new_value: int) -> void:
 	currency_changed.emit(amount_changed)
 
 func _ready():
+	unlock_double_jump()
 	draupnirs.load_draupnirs()
 	fast_travel_points.load_points()

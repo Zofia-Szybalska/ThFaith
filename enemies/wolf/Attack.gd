@@ -12,6 +12,7 @@ var on_edge: bool = false
 @export var charge_end_distance: int = 125
 @export var attack_distance: int = 25
 @export var to_close_distance: int = 5
+@export var jump_attack_distance: int = 600
 @onready var animation_player = $"../../AnimationPlayer"
 var player_in_range: bool = false
 
@@ -54,6 +55,8 @@ func physics_update(delta: float) -> void:
 		direction = direction.normalized()
 		if charging and distance <= attack_distance:
 			charging = false
+		if distance <= jump_attack_distance and distance > charge_distance:
+			state_machine.transition_to("JumpAttack")
 		if distance > charge_distance or ((distance <= charge_end_distance and distance > attack_distance) and not charging):
 			owner.velocity.x = direction.x * owner.speed
 		

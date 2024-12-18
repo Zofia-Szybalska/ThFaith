@@ -12,6 +12,6 @@ cost = 2
 description = "You deal more damage but you also take more."
 icon = ExtResource("2_y8112")
 locked_icon = ExtResource("3_a5s4x")
-is_unlocked = false
+is_unlocked = true
 effect = "res://draupnir_effects/damage.gd"
 HUD_icon = ExtResource("1_02bp6")

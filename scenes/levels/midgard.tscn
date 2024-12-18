@@ -478,7 +478,7 @@ draw_order = 2
 [node name="Pickable" type="Node2D" parent="."]
 
 [node name="PickableDraupnir" parent="Pickable" instance=ExtResource("15_8yo5b")]
-position = Vector2(6880, 1648)
+position = Vector2(6858, 1639)
 draupnir_resource = ExtResource("16_vq5af")
 
 [node name="PickableDraupnir2" parent="Pickable" instance=ExtResource("15_8yo5b")]

@@ -27,6 +27,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var walk_direction = -1
 var is_walking = true
 var is_attacking = false
+var is_jump_attacking = false
 var is_dead = false
 var player_in_area = null
 
@@ -35,10 +36,12 @@ func update_animation_parameters():
 	animation_tree["parameters/conditions/is_walking"] = is_walking
 	animation_tree["parameters/conditions/is_idle"] = is_idle
 	animation_tree["parameters/conditions/is_dead"] = is_dead
+	animation_tree["parameters/conditions/is_jump_attacking"] = is_jump_attacking
 	animation_tree["parameters/Attack/blend_position"] = walk_direction
 	animation_tree["parameters/Idle/blend_position"] = walk_direction
 	animation_tree["parameters/Walk/BlendSpace1D/blend_position"] = walk_direction
 	animation_tree["parameters/Death/blend_position"] = walk_direction
+	animation_tree["parameters/Jump_attack/blend_position"] = walk_direction
 
 func update_enemy():
 	pass
@@ -91,9 +94,9 @@ func _physics_process(_delta):
 	if is_dead:
 		velocity = Vector2.ZERO
 	update_animation_parameters()
-	if !ground_detecting_ray_cast.is_colliding() and not state_machine.state.name == "Attack":
+	if !ground_detecting_ray_cast.is_colliding() and (not state_machine.state.name == "Attack" or not state_machine.state.name == "JumpAttack"):
 		change_direction()
-	if is_on_wall() and is_on_floor() and not state_machine.state.name == "Attack":
+	if is_on_wall() and is_on_floor() and (not state_machine.state.name == "Attack" or not state_machine.state.name == "JumpAttack"):
 		change_direction()
 	move_and_slide()
 

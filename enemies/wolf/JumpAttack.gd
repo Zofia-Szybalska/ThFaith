@@ -8,6 +8,7 @@ var distance
 
 func _ready():
 	state_name = "JumpAttack"
+	distance = 0
 
 func handle_input(_event: InputEvent) -> void:
 	pass
@@ -16,11 +17,13 @@ func update(_delta: float) -> void:
 	pass
 
 func physics_update(_delta: float) -> void:
-	if landed and owner.player:
+	if owner.player:
 		var player_position = owner.player.position
 		var direction = player_position - owner.position
 		distance = direction.length()
 		direction = direction.normalized()
+	if distance <= attack_distance or landed:
+			landed = true
 	if is_in_the_air:
 		owner.velocity.x = owner.walk_direction * owner.speed * 5
 	else:
@@ -34,7 +37,7 @@ func exit() -> void:
 	owner.is_jump_attacking = false
 
 func attack():
-	if distance <= attack_distance:
+	if distance and distance <= attack_distance:
 		owner.hit_player()
 
 func _on_anim_end():

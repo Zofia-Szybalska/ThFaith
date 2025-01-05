@@ -6,6 +6,8 @@ var player_sitting: bool = false
 @onready var save_button = $SaveButton
 @onready var back_button = $BackButton
 @export var camp_name = "camp"
+@onready var save_confirmation_lable = $SaveConfirmation/MarginContainer/SaveConfirmationLable
+@onready var animation_player = $AnimationPlayer
 
 
 func _unhandled_input(event):
@@ -32,6 +34,7 @@ func _on_area_2d_body_exited(body):
 func _on_save_button_pressed():
 	Analytics.add_event("Game save", {"camp name": camp_name})
 	saver_loader_node.save_game()
+	animation_player.play("save_confirmation")
 
 func _input(event):
 	var current = get_viewport().gui_get_focus_owner()

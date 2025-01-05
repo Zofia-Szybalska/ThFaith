@@ -61,7 +61,7 @@ func _unhandled_key_input(event):
 		screen_left()
 	elif event.is_action_pressed("menu_right"):
 		screen_right()
-	get_viewport().set_input_as_handled()
+	#get_viewport().set_input_as_handled()
 
 func check_close(event):
 	if event.is_action_pressed("ui_cancel") and menues.visible:

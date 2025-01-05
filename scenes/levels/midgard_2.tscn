@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://day77oedtlbsb"]
+[gd_scene load_steps=22 format=3 uid="uid://day77oedtlbsb"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_4apca"]
 [ext_resource type="Script" path="res://scripts/midgard_2.gd" id="1_osyxq"]
@@ -16,6 +16,7 @@
 [ext_resource type="Material" uid="uid://du3bny8r4w3h2" path="res://shaders/materials/hit_flash_material.tres" id="14_fllmr"]
 [ext_resource type="PackedScene" uid="uid://d1a6mmn2l1r60" path="res://scenes/camp.tscn" id="15_uanhe"]
 [ext_resource type="Script" path="res://scripts/savel_loader.gd" id="16_xkroe"]
+[ext_resource type="PackedScene" uid="uid://c5i3omm87cegv" path="res://scenes/snow_particels.tscn" id="17_qm8qu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60ivq"]
 size = Vector2(1953, 608)
@@ -191,6 +192,8 @@ saver_loader = NodePath("../../../SaverLoader")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(7680, 188)
+
+[node name="SnowParticles" parent="." instance=ExtResource("17_qm8qu")]
 
 [editable path="SecretArea"]
 [editable path="SecretArea/Brakeable_wall"]

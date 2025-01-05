@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://brlrnjt1xdgr6"]
+[gd_scene load_steps=69 format=3 uid="uid://brlrnjt1xdgr6"]
 
 [ext_resource type="Script" path="res://scenes/boss_areas/fenrir_area.gd" id="1_4fe5q"]
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_x8wr5"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://enemies/hit_state.gd" id="24_k3wqn"]
 [ext_resource type="Script" path="res://scenes/boss_areas/FenrirBlowAttack.gd" id="25_r4dyl"]
 [ext_resource type="PackedScene" uid="uid://qhkocy3xgjen" path="res://scenes/UI/ui.tscn" id="26_2k644"]
+[ext_resource type="PackedScene" uid="uid://c5i3omm87cegv" path="res://scenes/snow_particels.tscn" id="26_40inu"]
 [ext_resource type="PackedScene" uid="uid://cuouq1fuqkkdp" path="res://scenes/sharp_rocks.tscn" id="28_jtb1h"]
 [ext_resource type="AudioStream" uid="uid://c4bbkwap1ylqa" path="res://audio/537883__colorscrimsontears__monster-roar.wav" id="29_hh0ho"]
 [ext_resource type="Script" path="res://scenes/boss_areas/Dead.gd" id="30_4eujb"]
@@ -1910,6 +1911,9 @@ scroll_offset = Vector2(1728, 728.474)
 position = Vector2(-971, -482)
 next_scene = "res://scenes/levels/midgard_2.tscn"
 player_pos = Vector2(7680, 188)
+
+[node name="Node2D" parent="." instance=ExtResource("26_40inu")]
+position = Vector2(658, 97)
 
 [connection signal="body_entered" from="Fenrir" to="Fenrir" method="_on_body_entered"]
 [connection signal="timeout" from="Fenrir/Damageable/Timer" to="Fenrir/Damageable" method="_on_timer_timeout"]

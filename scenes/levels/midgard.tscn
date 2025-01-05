@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ber3vandx8bfk"]
+[gd_scene load_steps=44 format=3 uid="uid://ber3vandx8bfk"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_5hrni"]
 [ext_resource type="Script" path="res://scripts/midgard.gd" id="1_5onwa"]
@@ -28,6 +28,7 @@
 [ext_resource type="Resource" uid="uid://c3pw60joprfhx" path="res://draupnirs/sneak.tres" id="16_vq5af"]
 [ext_resource type="Material" uid="uid://du3bny8r4w3h2" path="res://shaders/materials/hit_flash_material.tres" id="19_itn3p"]
 [ext_resource type="Texture2D" uid="uid://byqpnec47bakm" path="res://assets/objects/fast_travel_tree.png" id="21_fv3ie"]
+[ext_resource type="PackedScene" uid="uid://c5i3omm87cegv" path="res://scenes/snow_particels.tscn" id="29_np1d1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf8ki"]
 size = Vector2(36, 918)
@@ -645,6 +646,8 @@ position = Vector2(28272, 160)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(4693, 1040)
+
+[node name="Node2D" parent="." instance=ExtResource("29_np1d1")]
 
 [connection signal="body_entered" from="CutsceneArea2D" to="CutsceneArea2D" method="_on_body_entered"]
 [connection signal="body_entered" from="CutsceneArea2D/Enemies/Enemy1Area2D" to="CutsceneArea2D" method="_on_enemy_1_area_2d_body_entered"]

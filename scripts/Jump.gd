@@ -10,7 +10,7 @@ var wall_jump = false
 func enter(msg := {}) -> void:
 	owner.is_jumping = true
 	direction = owner.direction
-	owner.velocity.y = -owner.jump_force
+	owner.velocity.y = -600
 	if (msg.has("second_jump")):
 		double_jump_gpu_particles.emitting = true
 		jump_duration = base_jump_duration - 0.05

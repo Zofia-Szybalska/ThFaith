@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 
-@export var jump_force : int = 600
+@export var jump_force : int = 500
 @export var gravity : int = 900
 @export var dash_speed : int = 500
 @export var wall_jump_pushback : int = 500

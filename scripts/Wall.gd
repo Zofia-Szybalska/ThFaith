@@ -28,8 +28,11 @@ func physics_update(delta: float) -> void:
 	if sliding:
 		owner.velocity.y = clamp(owner.velocity.y + owner.gravity * 0.5 * delta, 0, max_gravity)
 	else:
-		owner.velocity.y += owner.gravity * delta
+		owner.velocity.y += owner.gravity * 2 * delta
 	if Input.is_action_just_pressed("jump") and PlayerVariables.wall_jump_unlocked:
 		state_machine.transition_to("Jump", {wall_jump = true})
+		return
+	if Input.is_action_just_pressed("jump") and owner.can_double_jump and PlayerVariables.abilities.double_jump_unlocked:
+		state_machine.transition_to("Jump", {second_jump = true})
 		return
 	owner.velocity.x = PlayerVariables.player_speed * owner.direction

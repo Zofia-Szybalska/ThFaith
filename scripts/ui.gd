@@ -102,18 +102,20 @@ func hide_inventory():
 	hide_all_menues()
 
 func screen_left():
-	curr_window.hide()
-	curr_window = get_node(NodePath("Menues/" + curr_window.focus_neighbor_left.get_name(1)))
-	curr_window.show()
-	if curr_window.has_method("assaign_focus"):
-		curr_window.assaign_focus()
+	if menues.visible:
+		curr_window.hide()
+		curr_window = get_node(NodePath("Menues/" + curr_window.focus_neighbor_left.get_name(1)))
+		curr_window.show()
+		if curr_window.has_method("assaign_focus"):
+			curr_window.assaign_focus()
 
 func screen_right():
-	curr_window.hide()
-	curr_window = get_node(NodePath("Menues/" + curr_window.focus_neighbor_right.get_name(1)))
-	curr_window.show()
-	if curr_window.has_method("assaign_focus"):
-		curr_window.assaign_focus()
+	if menues.visible:
+		curr_window.hide()
+		curr_window = get_node(NodePath("Menues/" + curr_window.focus_neighbor_right.get_name(1)))
+		curr_window.show()
+		if curr_window.has_method("assaign_focus"):
+			curr_window.assaign_focus()
 
 func _on_arrow_left_pressed():
 	screen_left()

@@ -1,7 +1,7 @@
 extends State
 @onready var jump_start_timer = $JumpStartTimer
 @onready var jump_timer = $JumpTimer
-@export var attack_distance: int = 50
+@export var attack_distance: int = 200
 var is_in_the_air:bool = false
 var landed:bool = false
 var distance

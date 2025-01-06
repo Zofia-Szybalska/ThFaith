@@ -101,7 +101,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func change_direction():
-	if can_change_direction and not is_dead:
+	if can_change_direction and not is_dead and not (is_attacking or is_jump_attacking):
 		direction_change_timer.start()
 		can_change_direction = false
 		walk_direction *= -1

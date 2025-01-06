@@ -21,6 +21,8 @@ func _ready():
 	state_name = "Attack"
 
 func enter(_msg := {}) -> void:
+	can_attack = true
+	attac_buffer.start()
 	player_in_range = true
 	owner.is_walking = true
 

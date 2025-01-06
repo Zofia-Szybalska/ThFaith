@@ -413,6 +413,9 @@ size = Vector2(616, 332)
 [node name="Midgard" type="Node2D"]
 script = ExtResource("1_5onwa")
 
+[node name="Wolf" parent="." instance=ExtResource("2_h84jj")]
+position = Vector2(761, 920)
+
 [node name="House" type="Sprite2D" parent="."]
 position = Vector2(356, 1164)
 scale = Vector2(0.5155, 0.5155)

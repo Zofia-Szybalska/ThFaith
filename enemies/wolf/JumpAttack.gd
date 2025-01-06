@@ -1,7 +1,7 @@
 extends State
 @onready var jump_start_timer = $JumpStartTimer
 @onready var jump_timer = $JumpTimer
-@export var attack_distance: int = 200
+@export var attack_distance: int = 75
 var is_in_the_air:bool = false
 var landed:bool = false
 var distance
@@ -24,6 +24,8 @@ func physics_update(_delta: float) -> void:
 		direction = direction.normalized()
 	if distance <= attack_distance or landed:
 			landed = true
+			is_in_the_air = false
+			attack()
 	if is_in_the_air:
 		owner.velocity.x = owner.walk_direction * owner.speed * 5
 	else:
@@ -31,6 +33,8 @@ func physics_update(_delta: float) -> void:
 
 func enter(_msg := {}) -> void:
 	owner.is_jump_attacking = true
+	landed = false
+	is_in_the_air = false
 	jump_start_timer.start()
 
 func exit() -> void:
@@ -39,6 +43,7 @@ func exit() -> void:
 func attack():
 	if distance and distance <= attack_distance:
 		owner.hit_player()
+		state_machine.transition_to("Attack")
 
 func _on_anim_end():
 	state_machine.transition_to("Attack")

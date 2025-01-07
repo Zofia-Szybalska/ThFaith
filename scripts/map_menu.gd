@@ -1,6 +1,6 @@
 extends MarginContainer
 
-@onready var whole_map = $WholeMap
+@onready var whole_map = %WholeMap
 
 @export var max_zoom: Vector2 = Vector2(4, 4)
 @export var zoom_speed: float = 1.1
@@ -32,6 +32,8 @@ func _unhandled_input(event):
 				_zoom_at_point(1 / zoom_speed, mouse_position)
 
 func _process(_delta):
+	whole_map.set_custom_minimum_size(get_viewport().get_visible_rect().size - Vector2(300,200))
+	#get_viewport().get_visible_rect().size
 	whole_map.position.x = clamp(whole_map.position.x, -whole_map.size.x, 0)
 	whole_map.position.y = clamp(whole_map.position.y, -whole_map.size.y, 0)
 

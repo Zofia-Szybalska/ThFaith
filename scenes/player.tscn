@@ -5756,7 +5756,6 @@ remote_path = NodePath("../../../../Parts/RLeg/LeithRleg1")
 [node name="ShinR" type="Bone2D" parent="PartsSKeletonContainer/Skeleton2D/Hip/LegR"]
 position = Vector2(0.768289, 42.2152)
 rotation = -0.157147
-scale = Vector2(1, 1)
 rest = Transform2D(0.987678, -0.156501, 0.156501, 0.987678, 0.768289, 42.2152)
 editor_settings/show_bone_gizmo = false
 

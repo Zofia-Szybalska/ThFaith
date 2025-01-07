@@ -32,6 +32,8 @@ directories/dch_directory={
 "narrator": "res://dialogic_characters/narrator.dch"
 }
 directories/dtl_directory={
+"Cliff_double_jump": "res://Dialogic_timelines/Cliff_double_jump.dtl",
+"cliff": "res://Dialogic_timelines/cliff.dtl",
 "house_on_fire": "res://Dialogic_timelines/house_on_fire.dtl",
 "mothers_death": "res://Dialogic_timelines/mothers_death.dtl",
 "prolog": "res://Dialogic_timelines/prolog.dtl",

@@ -4,6 +4,7 @@ extends Area2D
 @export var player: Player
 var wolf_enemy = preload("res://enemies/wolf/wolf.tscn")
 var wolfs_killed = false
+var cliff_cutscene_played = false
 
 
 func _ready():
@@ -72,3 +73,16 @@ func _on_enemy_2_area_2d_body_entered(body):
 	if body is Wolf:
 		body.is_idle = true
 		$Enemies/Enemy2Area2D.queue_free()
+
+func _on_cliff_body_entered(body):
+	if body is Player and not cliff_cutscene_played:
+		if PlayerVariables.abilities.double_jump_unlocked:
+			play_timeline("cliff_double_jump")
+		else:
+			play_timeline("cliff")
+		cliff_cutscene_played = true
+
+
+func _on_cliff_body_exited(body):
+	if body is Player:
+		pass

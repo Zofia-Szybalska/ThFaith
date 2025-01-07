@@ -1,5 +1,5 @@
 extends MarginContainer
-@onready var button = $PanelContainer/MapMenu/WholeMap/Midgard1
+@onready var button = %Midgard1
 
 
 func assaign_focus():

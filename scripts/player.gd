@@ -78,6 +78,9 @@ func _process(_delta):
 		dead()
 	update_animation_parameters()
 
+func turn_around():
+	direction *= -1
+
 func make_idle():
 	$StateMachine.transition_to("Idle")
 

@@ -86,6 +86,8 @@ func take_demage():
 	flash_timer.start()
 
 func _physics_process(_delta):
+	var window_size = get_viewport().get_visible_rect().size
+	player_detecting_ray_cast.target_position = Vector2(0, window_size.y*walk_direction*-1)
 	if player_in_area:
 		player_in_area.knockback(self)
 	if is_idle:
@@ -106,7 +108,6 @@ func change_direction():
 		can_change_direction = false
 		walk_direction *= -1
 		ground_detecting_ray_cast.position *= -1
-		player_detecting_ray_cast.target_position *= -1
 		if walk_direction == 1:
 			collision_shape_2d.position = Vector2(31,0)
 		else:

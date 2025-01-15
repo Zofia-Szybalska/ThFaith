@@ -3,6 +3,8 @@ extends Node2D
 func _ready():
 	$Player.is_idle = true
 	if PlayerVariables.mom_dying:
+		$CanvasLayer/MomAlive.hide()
+		$CanvasLayer/MomDead.show()
 		Dialogic.start("res://Dialogic_timelines/mothers_death.dtl").process_mode = Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = true
@@ -11,6 +13,8 @@ func _ready():
 			return
 		Dialogic.start('mothers_death')
 	else:
+		$CanvasLayer/MomAlive.show()
+		$CanvasLayer/MomDead.hide()
 		TransitionScreen.transition_finished.connect(_on_screen_blacked_out)
 		Dialogic.start("res://Dialogic_timelines/prolog.dtl").process_mode = Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS

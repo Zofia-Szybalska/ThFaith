@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cltu2ntkwt0yk"]
+[gd_scene load_steps=8 format=3 uid="uid://cltu2ntkwt0yk"]
 
 [ext_resource type="PackedScene" uid="uid://c5r2epca10hj" path="res://tilemaps/midgard_tile_map.tscn" id="1_5pwxk"]
 [ext_resource type="Script" path="res://scripts/house.gd" id="1_qjqm0"]
-[ext_resource type="Texture2D" uid="uid://b8po4rnxn3t1d" path="res://assets/house_inside.png" id="3_b5ijt"]
 [ext_resource type="PackedScene" uid="uid://bg3pue4k6suxh" path="res://scenes/player.tscn" id="3_iqdtm"]
+[ext_resource type="Texture2D" uid="uid://boryj8lx1qrgj" path="res://assets/Untitled.1_2.png" id="4_gdijd"]
 [ext_resource type="Texture2D" uid="uid://dgulvrcd6f4fu" path="res://assets/sprites/player/Leith.png" id="5_8hm3y"]
+[ext_resource type="Texture2D" uid="uid://bh5bb2iet3im4" path="res://assets/Untitled.1_1.png" id="5_nnytv"]
+[ext_resource type="Texture2D" uid="uid://c2yh1iee7rmx7" path="res://assets/Untitled._5.png" id="5_wl440"]
 
 [node name="House" type="Node2D"]
 script = ExtResource("1_qjqm0")
@@ -36,39 +38,51 @@ color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 custom_minimum_size = Vector2(500, 280)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_b5ijt")
+texture = ExtResource("4_gdijd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.5
-offset_top = -67.5
-offset_right = 40.5
-offset_bottom = 67.5
+[node name="MomAlive" type="TextureRect" parent="CanvasLayer"]
+visible = false
+custom_minimum_size = Vector2(81, 135)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 175
-theme_override_constants/margin_top = 125
+texture = ExtResource("5_wl440")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/MarginContainer"]
+[node name="MomDead" type="TextureRect" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(81, 135)
-layout_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_nnytv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(81, 135)
+anchors_preset = -1
+anchor_left = 0.615
+anchor_top = 0.478
+anchor_right = 0.771
+anchor_bottom = 0.941
+offset_left = -0.47998
+offset_top = 0.255981
+offset_right = -0.192017
+offset_bottom = 0.231995
 texture = ExtResource("5_8hm3y")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true

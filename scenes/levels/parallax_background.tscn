@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2wkvsoj0b0wr"]
+[gd_scene load_steps=8 format=3 uid="uid://d2wkvsoj0b0wr"]
 
 [ext_resource type="Texture2D" uid="uid://c3eo73gol6xbn" path="res://assets/sky.png" id="1_kjvyh"]
 [ext_resource type="Texture2D" uid="uid://i5px06oba4c5" path="res://assets/clouds.png" id="2_h6i8q"]
 [ext_resource type="Texture2D" uid="uid://c6c03umfuv0et" path="res://assets/BackMountines.png" id="3_rxoe0"]
 [ext_resource type="Texture2D" uid="uid://dqfodi73eujdd" path="res://assets/FrontMountines.png" id="4_g84h5"]
+[ext_resource type="Texture2D" uid="uid://drlcjnghihgms" path="res://assets/Mountains_tf.png" id="4_qubqs"]
 [ext_resource type="Texture2D" uid="uid://cdccmjpftte2n" path="res://assets/BackStumps.png" id="5_u1hue"]
 [ext_resource type="Texture2D" uid="uid://cks38syrg3afx" path="res://assets/FrontStumps.png" id="6_exvva"]
 
@@ -34,10 +35,15 @@ centered = false
 scale = Vector2(2, 2)
 motion_scale = Vector2(0.5, 0.8)
 motion_offset = Vector2(0, 1500)
-motion_mirroring = Vector2(2200, 0)
+motion_mirroring = Vector2(4400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+visible = false
 texture = ExtResource("3_rxoe0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("4_qubqs")
+region_rect = Rect2(2200, 800, 0, 0)
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 visible = false

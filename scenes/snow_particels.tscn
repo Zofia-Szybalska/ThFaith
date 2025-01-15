@@ -20,8 +20,8 @@ spread = 30.0
 angular_velocity_min = 200.0
 angular_velocity_max = 300.0
 gravity = Vector3(0, 100, 0)
-scale_min = 0.15
-scale_max = 0.25
+scale_min = 0.1
+scale_max = 0.2
 color = Color(1, 1, 1, 0.819608)
 color_ramp = SubResource("GradientTexture1D_gjvqm")
 turbulence_enabled = true
@@ -33,7 +33,7 @@ turbulence_influence_max = 0.093
 script = ExtResource("1_rw00k")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 40
+amount = 100
 process_material = SubResource("ParticleProcessMaterial_f11xr")
 texture = ExtResource("1_r3k7k")
 lifetime = 7.0

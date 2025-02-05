@@ -12,6 +12,6 @@ cost = 1
 description = "Run faster"
 icon = ExtResource("2_nmxl1")
 locked_icon = ExtResource("3_uf2h8")
-is_unlocked = true
+is_unlocked = false
 effect = "res://draupnir_effects/flash.gd"
 HUD_icon = ExtResource("1_twqms")
